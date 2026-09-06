@@ -1,0 +1,12 @@
+{
+  "name": "learn-spine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 8765 --bind 127.0.0.1"
+  },
+  "dependencies": {
+    "@esotericsoftware/spine-canvas": "4.2.120",
+    "@napi-rs/canvas": "1.0.8"
+  }
+}

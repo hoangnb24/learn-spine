@@ -1,0 +1,40 @@
+{
+  "layering": {
+    "hipsEqual": true,
+    "feetEqual": true,
+    "armDifference": 109.99999955495136
+  },
+  "skinChangedAttachments": 15,
+  "skinPreservedPose": true,
+  "events": [
+    {
+      "receivedAt": 0.4166666666666667,
+      "name": "footstep",
+      "side": "right"
+    },
+    {
+      "receivedAt": 1,
+      "name": "footstep",
+      "side": "left"
+    },
+    {
+      "receivedAt": 1.4166666666666667,
+      "name": "footstep",
+      "side": "right"
+    },
+    {
+      "receivedAt": 2.0166666666666666,
+      "name": "footstep",
+      "side": "left"
+    }
+  ],
+  "clearTrack": {
+    "before": 109.99999955495136,
+    "after": 109.99999955495136
+  },
+  "mixToEmpty": {
+    "before": 109.99999955495136,
+    "after": 0
+  },
+  "scope": "Runtime tests only; no editor skin or audio operation claimed."
+}

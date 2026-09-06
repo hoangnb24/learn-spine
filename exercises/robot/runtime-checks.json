@@ -1,0 +1,63 @@
+{
+  "runtime": "@esotericsoftware/spine-core 4.2.120",
+  "checks": [
+    {
+      "name": "FK: hạ thân 35",
+      "footVerticalMovement": -35
+    },
+    {
+      "name": "IK: hạ thân 35",
+      "footVerticalMovement": 0
+    },
+    {
+      "name": "idle: 121 tư thế",
+      "maxIKEndpointError": 0.0000011554751600709361,
+      "maxPlantedFootDrift": 0
+    },
+    {
+      "name": "squat: 121 tư thế",
+      "maxIKEndpointError": 0.00000237969598654747,
+      "maxPlantedFootDrift": 0
+    },
+    {
+      "name": "step: 121 tư thế",
+      "maxIKEndpointError": 0.000002150830070533421,
+      "maxPlantedFootDrift": 0
+    },
+    {
+      "name": "walk_side: 121 tư thế",
+      "maxIKEndpointError": 0.0000024107705241113604,
+      "maxPlantedFootDrift": 0.0000026373702548648903
+    },
+    {
+      "name": "idle: đầu/cuối vòng",
+      "maxTransformDifference": 0,
+      "rootTravel": 0
+    },
+    {
+      "name": "wave: đầu/cuối vòng",
+      "maxTransformDifference": 0,
+      "rootTravel": 0
+    },
+    {
+      "name": "squat: đầu/cuối vòng",
+      "maxTransformDifference": 0,
+      "rootTravel": 0
+    },
+    {
+      "name": "step: đầu/cuối vòng",
+      "maxTransformDifference": 0,
+      "rootTravel": 0
+    },
+    {
+      "name": "walk_side: đầu/cuối vòng",
+      "maxTransformDifference": 1.4210854715202004e-14,
+      "rootTravel": 70
+    }
+  ],
+  "limitations": [
+    "Không kiểm tra editor hoặc xuất từ Trial.",
+    "Đầu/cuối bằng nhau không chứng minh vận tốc nối vòng hoặc chất lượng thẩm mỹ.",
+    "step là bài nhấc chân tại chỗ, chưa phải dáng đi hoàn chỉnh."
+  ]
+}

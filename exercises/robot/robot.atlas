@@ -1,0 +1,209 @@
+images/parts/head.png
+size: 283, 259
+filter: Linear, Linear
+repeat: none
+head
+  bounds: 0, 0, 283, 259
+
+images/parts/body.png
+size: 203, 204
+filter: Linear, Linear
+repeat: none
+body
+  bounds: 0, 0, 203, 204
+
+images/parts/pelvis.png
+size: 193, 112
+filter: Linear, Linear
+repeat: none
+pelvis
+  bounds: 0, 0, 193, 112
+
+images/parts/upper-arm-left.png
+size: 97, 175
+filter: Linear, Linear
+repeat: none
+upper-arm-left
+  bounds: 0, 0, 97, 175
+
+images/parts/forearm-left.png
+size: 94, 251
+filter: Linear, Linear
+repeat: none
+forearm-left
+  bounds: 0, 0, 94, 251
+
+images/parts/hand-left.png
+size: 102, 203
+filter: Linear, Linear
+repeat: none
+hand-left
+  bounds: 0, 0, 102, 203
+
+images/parts/upper-arm-right.png
+size: 95, 173
+filter: Linear, Linear
+repeat: none
+upper-arm-right
+  bounds: 0, 0, 95, 173
+
+images/parts/forearm-right.png
+size: 93, 249
+filter: Linear, Linear
+repeat: none
+forearm-right
+  bounds: 0, 0, 93, 249
+
+images/parts/hand-right.png
+size: 102, 203
+filter: Linear, Linear
+repeat: none
+hand-right
+  bounds: 0, 0, 102, 203
+
+images/parts/thigh-left.png
+size: 102, 214
+filter: Linear, Linear
+repeat: none
+thigh-left
+  bounds: 0, 0, 102, 214
+
+images/parts/shin-left.png
+size: 102, 219
+filter: Linear, Linear
+repeat: none
+shin-left
+  bounds: 0, 0, 102, 219
+
+images/parts/foot-left.png
+size: 194, 176
+filter: Linear, Linear
+repeat: none
+foot-left
+  bounds: 0, 0, 194, 176
+
+images/parts/thigh-right.png
+size: 102, 214
+filter: Linear, Linear
+repeat: none
+thigh-right
+  bounds: 0, 0, 102, 214
+
+images/parts/shin-right.png
+size: 102, 219
+filter: Linear, Linear
+repeat: none
+shin-right
+  bounds: 0, 0, 102, 219
+
+images/parts/foot-right.png
+size: 194, 176
+filter: Linear, Linear
+repeat: none
+foot-right
+  bounds: 0, 0, 194, 176
+
+images/parts/mint/head.png
+size: 283, 259
+filter: Linear, Linear
+repeat: none
+mint/head
+  bounds: 0, 0, 283, 259
+
+images/parts/mint/body.png
+size: 203, 204
+filter: Linear, Linear
+repeat: none
+mint/body
+  bounds: 0, 0, 203, 204
+
+images/parts/mint/pelvis.png
+size: 193, 112
+filter: Linear, Linear
+repeat: none
+mint/pelvis
+  bounds: 0, 0, 193, 112
+
+images/parts/mint/upper-arm-left.png
+size: 97, 175
+filter: Linear, Linear
+repeat: none
+mint/upper-arm-left
+  bounds: 0, 0, 97, 175
+
+images/parts/mint/forearm-left.png
+size: 94, 251
+filter: Linear, Linear
+repeat: none
+mint/forearm-left
+  bounds: 0, 0, 94, 251
+
+images/parts/mint/hand-left.png
+size: 102, 203
+filter: Linear, Linear
+repeat: none
+mint/hand-left
+  bounds: 0, 0, 102, 203
+
+images/parts/mint/upper-arm-right.png
+size: 95, 173
+filter: Linear, Linear
+repeat: none
+mint/upper-arm-right
+  bounds: 0, 0, 95, 173
+
+images/parts/mint/forearm-right.png
+size: 93, 249
+filter: Linear, Linear
+repeat: none
+mint/forearm-right
+  bounds: 0, 0, 93, 249
+
+images/parts/mint/hand-right.png
+size: 102, 203
+filter: Linear, Linear
+repeat: none
+mint/hand-right
+  bounds: 0, 0, 102, 203
+
+images/parts/mint/thigh-left.png
+size: 102, 214
+filter: Linear, Linear
+repeat: none
+mint/thigh-left
+  bounds: 0, 0, 102, 214
+
+images/parts/mint/shin-left.png
+size: 102, 219
+filter: Linear, Linear
+repeat: none
+mint/shin-left
+  bounds: 0, 0, 102, 219
+
+images/parts/mint/foot-left.png
+size: 194, 176
+filter: Linear, Linear
+repeat: none
+mint/foot-left
+  bounds: 0, 0, 194, 176
+
+images/parts/mint/thigh-right.png
+size: 102, 214
+filter: Linear, Linear
+repeat: none
+mint/thigh-right
+  bounds: 0, 0, 102, 214
+
+images/parts/mint/shin-right.png
+size: 102, 219
+filter: Linear, Linear
+repeat: none
+mint/shin-right
+  bounds: 0, 0, 102, 219
+
+images/parts/mint/foot-right.png
+size: 194, 176
+filter: Linear, Linear
+repeat: none
+mint/foot-right
+  bounds: 0, 0, 194, 176

@@ -1,0 +1,260 @@
+{
+  "head": {
+    "sheetBox": [
+      65,
+      20,
+      385,
+      310
+    ],
+    "trim": [
+      19,
+      14,
+      302,
+      273
+    ],
+    "width": 283,
+    "height": 259,
+    "transparentPixels": 22402
+  },
+  "body": {
+    "sheetBox": [
+      415,
+      75,
+      650,
+      315
+    ],
+    "trim": [
+      19,
+      18,
+      222,
+      222
+    ],
+    "width": 203,
+    "height": 204,
+    "transparentPixels": 10975
+  },
+  "pelvis": {
+    "sheetBox": [
+      700,
+      170,
+      930,
+      310
+    ],
+    "trim": [
+      20,
+      14,
+      213,
+      126
+    ],
+    "width": 193,
+    "height": 112,
+    "transparentPixels": 5601
+  },
+  "upper-arm-left": {
+    "sheetBox": [
+      125,
+      365,
+      250,
+      565
+    ],
+    "trim": [
+      18,
+      16,
+      115,
+      191
+    ],
+    "width": 97,
+    "height": 175,
+    "transparentPixels": 5352
+  },
+  "forearm-left": {
+    "sheetBox": [
+      410,
+      350,
+      550,
+      635
+    ],
+    "trim": [
+      23,
+      18,
+      117,
+      269
+    ],
+    "width": 94,
+    "height": 251,
+    "transparentPixels": 5776
+  },
+  "hand-left": {
+    "sheetBox": [
+      700,
+      385,
+      840,
+      615
+    ],
+    "trim": [
+      22,
+      13,
+      124,
+      216
+    ],
+    "width": 102,
+    "height": 203,
+    "transparentPixels": 5969
+  },
+  "upper-arm-right": {
+    "sheetBox": [
+      125,
+      675,
+      255,
+      880
+    ],
+    "trim": [
+      20,
+      17,
+      115,
+      190
+    ],
+    "width": 95,
+    "height": 173,
+    "transparentPixels": 5105
+  },
+  "forearm-right": {
+    "sheetBox": [
+      410,
+      675,
+      560,
+      955
+    ],
+    "trim": [
+      47,
+      16,
+      140,
+      265
+    ],
+    "width": 93,
+    "height": 249,
+    "transparentPixels": 5904
+  },
+  "hand-right": {
+    "sheetBox": [
+      695,
+      700,
+      835,
+      935
+    ],
+    "trim": [
+      16,
+      16,
+      118,
+      219
+    ],
+    "width": 102,
+    "height": 203,
+    "transparentPixels": 6051
+  },
+  "thigh-left": {
+    "sheetBox": [
+      110,
+      965,
+      245,
+      1210
+    ],
+    "trim": [
+      17,
+      18,
+      119,
+      232
+    ],
+    "width": 102,
+    "height": 214,
+    "transparentPixels": 5197
+  },
+  "shin-left": {
+    "sheetBox": [
+      410,
+      965,
+      555,
+      1220
+    ],
+    "trim": [
+      15,
+      22,
+      117,
+      241
+    ],
+    "width": 102,
+    "height": 219,
+    "transparentPixels": 4944
+  },
+  "foot-left": {
+    "sheetBox": [
+      670,
+      1010,
+      900,
+      1220
+    ],
+    "trim": [
+      17,
+      19,
+      211,
+      195
+    ],
+    "width": 194,
+    "height": 176,
+    "transparentPixels": 10542
+  },
+  "thigh-right": {
+    "sheetBox": [
+      110,
+      965,
+      245,
+      1210
+    ],
+    "trim": [
+      17,
+      18,
+      119,
+      232
+    ],
+    "width": 102,
+    "height": 214,
+    "transparentPixels": 5197,
+    "mirroredFrom": "thigh-left.png"
+  },
+  "shin-right": {
+    "sheetBox": [
+      410,
+      965,
+      555,
+      1220
+    ],
+    "trim": [
+      15,
+      22,
+      117,
+      241
+    ],
+    "width": 102,
+    "height": 219,
+    "transparentPixels": 4944,
+    "mirroredFrom": "shin-left.png"
+  },
+  "foot-right": {
+    "sheetBox": [
+      670,
+      1010,
+      900,
+      1220
+    ],
+    "trim": [
+      17,
+      19,
+      211,
+      195
+    ],
+    "width": 194,
+    "height": 176,
+    "transparentPixels": 10542,
+    "mirroredFrom": "foot-left.png"
+  }
+}

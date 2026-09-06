@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robot — bài thực hành Spine</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111a28;color:#edf3fc;font:16px system-ui}main{max-width:1160px;margin:auto;padding:24px}h1{font-size:26px;margin:4px 0 8px}p{color:#abbad0;line-height:1.5}section{display:flex;gap:24px;align-items:start}canvas{width:70%;height:720px;background:radial-gradient(ellipse at center,#29394e,#172130);border:1px solid #35445c;border-radius:20px}aside{flex:1;min-width:210px}button,select{padding:10px;border:1px solid #506079;background:#26364e;color:white;border-radius:8px;font:inherit;margin:6px 0}label{display:block;margin:14px 0}input[type=range]{width:100%}output{font-variant-numeric:tabular-nums}small{color:#9aaac1}#status{padding:10px;background:#203349;border-radius:8px} @media(max-width:750px){section{display:block}canvas{width:100%;height:580px}}
+</style>
+<main><h1>Robot giao hàng</h1><p>Bài thực hành: ảnh ImageGen → tách bộ phận → dữ liệu Spine → xem và sửa chuyển động.</p>
+<section><canvas id="stage" width="800" height="720"></canvas><aside>
+<div id="status">Đang tải…</div>
+<label>Màu robot <select id="skin"><option value="default">Cam</option><option value="mint">Xanh</option></select></label>
+<label>Động tác <select id="animation"><option value="setup">Tư thế gốc</option><option value="idle" selected>Đứng nhún</option><option value="wave">Vẫy tay</option><option value="squat">Hạ hông · giữ chân</option><option value="step">Nhấc chân tại chỗ · bản đầu</option><option value="walk_side">Bước ngang · thử tiếp đất</option></select></label>
+<button id="play">Tạm dừng</button>
+<label>Tốc độ <select id="speed"><option value="0.25">¼ tốc độ</option><option value="0.5">½ tốc độ</option><option value="1" selected>Bình thường</option></select></label>
+<label>Thời gian <output id="time">0.00 s</output><input id="scrub" type="range" min="0" max="2" step="0.01" value="0"></label>
+<label><input id="bones" type="checkbox"> Hiện điểm khớp</label>
+<p id="details"></p><small>Đây là dữ liệu tự tạo chạy bằng Spine Runtime 4.2. Chưa nhập và kiểm tra trong Spine editor; không phải file xuất từ Trial.</small>
+</aside></section></main>
+<script src="../../node_modules/@esotericsoftware/spine-canvas/dist/iife/spine-canvas.js"></script>
+<script>
+const canvas=document.querySelector('#stage'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
+const select=document.querySelector('#animation'),scrub=document.querySelector('#scrub'),play=document.querySelector('#play');
+let skeleton,renderer,animation,time=0,duration=2,playing=true,last=performance.now();
+async function init(){
+ const assets=new spine.AssetManager('./');assets.loadText('robot-ik.json');assets.loadTextureAtlas('robot.atlas');await assets.loadAll();
+ const loader=new spine.SkeletonJson(new spine.AtlasAttachmentLoader(assets.require('robot.atlas')));
+ const data=loader.readSkeletonData(JSON.parse(assets.require('robot-ik.json')));
+ skeleton=new spine.Skeleton(data);renderer=new spine.SkeletonRenderer(ctx);renderer.triangleRendering=false;
+ document.querySelector('#skin').onchange=e=>{skeleton.setSkinByName(e.target.value);skeleton.setSlotsToSetupPose()};
+ animation=data.findAnimation('idle');status.textContent=`Đã tải ${data.bones.length} xương · ${data.slots.length} mảnh`;
+ document.querySelector('#details').textContent='Quan sát bàn chân, khớp vai và cổ tay ở tốc độ chậm; kéo thanh thời gian để xem từng tư thế.';
+ select.onchange=()=>{animation=data.findAnimation(select.value);duration=animation?.duration||0;time=0;scrub.max=duration||1};
+ play.onclick=()=>{playing=!playing;play.textContent=playing?'Tạm dừng':'Phát'};
+ scrub.oninput=()=>{time=+scrub.value;playing=false;play.textContent='Phát'};
+ requestAnimationFrame(frame);
+}
+function frame(now){
+ let delta=Math.min((now-last)/1000,.1);last=now;
+ if(playing&&duration)time=(time+delta*+document.querySelector('#speed').value)%duration;
+ skeleton.setToSetupPose();if(animation)animation.apply(skeleton,0,time,false,[],1,spine.MixBlend.replace,spine.MixDirection.mixIn);
+ skeleton.updateWorldTransform(spine.Physics.update);
+ const w=canvas.width,h=canvas.height,scale=.88;
+ ctx.clearRect(0,0,w,h);ctx.save();ctx.translate(w/2,h-45);ctx.scale(scale,-scale);
+ const rootX=skeleton.findBone('root').worldX;ctx.translate(-rootX,0);
+ ctx.strokeStyle='#637088';ctx.lineWidth=1/scale;ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(w/2,0);ctx.stroke();
+ if(animation?.name==='walk_side'){ctx.beginPath();for(let x=-420;x<560;x+=35){ctx.moveTo(x,0);ctx.lineTo(x,-10)}ctx.stroke()}
+ renderer.draw(skeleton);
+ if(document.querySelector('#bones').checked){ctx.strokeStyle='#61e4da';ctx.fillStyle='#ffd57c';ctx.lineWidth=1.5/scale;
+  for(const b of skeleton.bones){if(b.parent){ctx.beginPath();ctx.moveTo(b.parent.worldX,b.parent.worldY);ctx.lineTo(b.worldX,b.worldY);ctx.stroke()}ctx.beginPath();ctx.arc(b.worldX,b.worldY,3/scale,0,7);ctx.fill()}}
+ ctx.restore();document.querySelector('#time').textContent=time.toFixed(2)+' s';scrub.value=time;
+ requestAnimationFrame(frame);
+}
+init().catch(e=>{status.textContent='Lỗi: '+e.message;console.error(e)});
+</script></html>

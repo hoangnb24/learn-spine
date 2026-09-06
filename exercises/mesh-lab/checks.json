@@ -1,0 +1,10 @@
+{
+  "vertices": 15,
+  "triangles": 16,
+  "weightedMaxMovement": 82.0984878540039,
+  "wrongWeightsMaxMovement": 0,
+  "manualMidpointMovement": 20,
+  "wrongSchemaLoadedTimelines": 0,
+  "correctSchemaLoadedTimelines": 1,
+  "scope": "Official runtime behavior; no editor operation verified."
+}
