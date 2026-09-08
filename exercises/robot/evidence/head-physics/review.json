@@ -1,0 +1,86 @@
+{
+  "source": "Manually transcribed Spine Trial UI measurements; not exported skeleton data",
+  "animation": "head-settle",
+  "head_length": 100,
+  "physics": {
+    "rotation": 100,
+    "translate": [
+      0,
+      0
+    ],
+    "scaleX": 0,
+    "shearX": 0,
+    "limit": 5000,
+    "fps": 60,
+    "inertia": 50,
+    "strength": 100,
+    "mass": 100,
+    "wind": 0,
+    "gravity": 0,
+    "setup_mix": 0,
+    "animation_mix_key": {
+      "frame": 0,
+      "value": 100
+    },
+    "final_damping_key": {
+      "frame": 0,
+      "value": 15
+    },
+    "deterministic_during_measurement": true
+  },
+  "body_translation_keys_display": {
+    "0": [
+      -0.5,
+      2.5
+    ],
+    "6": [
+      -0.5,
+      -9.5
+    ],
+    "90": [
+      -0.5,
+      -9.5
+    ]
+  },
+  "sample_frames": [
+    0,
+    6,
+    12,
+    24,
+    45,
+    60,
+    90
+  ],
+  "head_angles_signed_degrees": {
+    "0": [
+      0,
+      1.95,
+      -2.77,
+      2.463,
+      0.824,
+      2.904,
+      -2.408
+    ],
+    "15": [
+      0,
+      2.336,
+      -0.345,
+      0.102,
+      0.004,
+      -0.001,
+      0
+    ]
+  },
+  "mix0_frame6_angle": 0,
+  "checks": {
+    "d15-06 vs restored-d15-06": true,
+    "d15-06 vs mix-restored-06": true,
+    "d15-90 vs restored-d15-90": true,
+    "idle00_preserved": true
+  },
+  "limitations": [
+    "Sparse frame samples do not establish exact settling time or peak envelope.",
+    "Playback seen running at frames 10 and 335; not a continuous video assessment.",
+    "This is a one-shot settling exercise; no loop claim."
+  ]
+}

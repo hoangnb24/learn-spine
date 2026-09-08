@@ -1,0 +1,123 @@
+{
+  "mint/thigh-left.png": {
+    "size": [
+      61,
+      126
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/thigh-right.png": {
+    "size": [
+      61,
+      126
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/hand-right.png": {
+    "size": [
+      47,
+      81
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/shin-left.png": {
+    "size": [
+      61,
+      129
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/foot-right.png": {
+    "size": [
+      89,
+      81
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/forearm-left.png": {
+    "size": [
+      53,
+      115
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/upper-arm-right.png": {
+    "size": [
+      62,
+      107
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/forearm-right.png": {
+    "size": [
+      52,
+      115
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/body.png": {
+    "size": [
+      205,
+      206
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/hand-left.png": {
+    "size": [
+      47,
+      80
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/head.png": {
+    "size": [
+      228,
+      209
+    ],
+    "max_rgba_difference": 255,
+    "alpha_difference": null,
+    "expected_swap_max_difference": 0
+  },
+  "mint/upper-arm-left.png": {
+    "size": [
+      65,
+      109
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/shin-right.png": {
+    "size": [
+      61,
+      129
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/foot-left.png": {
+    "size": [
+      89,
+      81
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  },
+  "mint/pelvis.png": {
+    "size": [
+      127,
+      75
+    ],
+    "max_rgba_difference": 0,
+    "alpha_difference": null
+  }
+}

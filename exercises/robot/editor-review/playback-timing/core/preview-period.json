@@ -1,0 +1,37 @@
+[
+  {
+    "lag": 22,
+    "mean_abs_pixel_difference": 20.725069046020508,
+    "mean_seconds": 0.8776571126934521
+  },
+  {
+    "lag": 23,
+    "mean_abs_pixel_difference": 17.018320083618164,
+    "mean_seconds": 0.9174602483088516
+  },
+  {
+    "lag": 24,
+    "mean_abs_pixel_difference": 11.322930335998535,
+    "mean_seconds": 0.957262702718377
+  },
+  {
+    "lag": 25,
+    "mean_abs_pixel_difference": 2.876357316970825,
+    "mean_seconds": 0.9970549824838577
+  },
+  {
+    "lag": 26,
+    "mean_abs_pixel_difference": 10.104658126831055,
+    "mean_seconds": 1.0368777482549243
+  },
+  {
+    "lag": 27,
+    "mean_abs_pixel_difference": 16.210771560668945,
+    "mean_seconds": 1.076726243300624
+  },
+  {
+    "lag": 28,
+    "mean_abs_pixel_difference": 20.284408569335938,
+    "mean_seconds": 1.1166005493909446
+  }
+]

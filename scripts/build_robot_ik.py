@@ -70,6 +70,31 @@ for i in range(61):
         walk['bones'][f'upper-arm-{side}']['rotate'].append(
             {'time':t,'value':sign*8*math.sin(2*math.pi*t)})
     walk['bones']['head']['rotate'].append({'time':t,'value':.7*math.sin(2*math.pi*t)})
+# Match the analytical velocities at adjacent keys. Linear samples match poses
+# but introduce a velocity jump, most noticeably at takeoff and landing.
+def velocity(name, t):
+    if name == 'root':
+        return [70, 0]
+    if name == 'body':
+        return [-16*math.pi*math.cos(2*math.pi*t), -12*math.pi*math.sin(4*math.pi*t)]
+    if name.startswith('foot-target-'):
+        start, end = (0, .4) if name.endswith('right') else (.5, 1)
+        u = max(0, min(1, (t-start)/(end-start)))
+        return [420*u*(1-u)/(end-start)-70,
+                32*math.pi*math.sin(2*math.pi*u)/(end-start)]
+    amplitude = .7 if name == 'head' else (8 if name.endswith('left') else -8)
+    return [amplitude*2*math.pi*math.cos(2*math.pi*t)]
+
+for name, timelines in walk['bones'].items():
+    for kind, keys in timelines.items():
+        fields = ['value'] if kind == 'rotate' else ['x', 'y']
+        for a, b in zip(keys, keys[1:]):
+            dt = (b['time']-a['time'])/3
+            va, vb = velocity(name, a['time']), velocity(name, b['time'])
+            a['curve'] = []
+            for j, field in enumerate(fields):
+                a['curve'] += [a['time']+dt, a[field]+va[j]*dt,
+                               b['time']-dt, b[field]-vb[j]*dt]
 data['animations']['walk_side']=walk
 data['events']={'footstep':{'string':''}}
 walk['events']=[{'time':.4,'name':'footstep','string':'right'},

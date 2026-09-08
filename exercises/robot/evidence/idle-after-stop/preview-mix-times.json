@@ -1,0 +1,38 @@
+[
+  {
+    "sample": 0,
+    "elapsedMs": 394
+  },
+  {
+    "sample": 1,
+    "elapsedMs": 1266
+  },
+  {
+    "sample": 2,
+    "elapsedMs": 2129
+  },
+  {
+    "sample": 3,
+    "elapsedMs": 2992
+  },
+  {
+    "sample": 4,
+    "elapsedMs": 3861
+  },
+  {
+    "sample": 5,
+    "elapsedMs": 4736
+  },
+  {
+    "sample": 6,
+    "elapsedMs": 5602
+  },
+  {
+    "sample": 7,
+    "elapsedMs": 6467
+  },
+  {
+    "sample": 8,
+    "elapsedMs": 7336
+  }
+]

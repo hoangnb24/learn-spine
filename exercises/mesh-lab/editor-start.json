@@ -1,0 +1,46 @@
+{
+  "skeleton": {
+    "spine": "4.3.23",
+    "images": "/Users/tubakhuym/projects/learn-spine/exercises/mesh-lab/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "base",
+      "parent": "root",
+      "length": 128
+    },
+    {
+      "name": "tip",
+      "parent": "base",
+      "x": 128,
+      "length": 128
+    }
+  ],
+  "slots": [
+    {
+      "name": "strip",
+      "bone": "base",
+      "attachment": "strip"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "strip": {
+          "strip": {
+            "type": "region",
+            "path": "strip",
+            "x": 128,
+            "width": 256,
+            "height": 96
+          }
+        }
+      }
+    }
+  ],
+  "animations": {}
+}

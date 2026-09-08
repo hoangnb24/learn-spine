@@ -1,0 +1,39 @@
+{
+  "main_scarf": {
+    "crop": [
+      95,
+      190,
+      450,
+      375
+    ],
+    "difference_bbox": [
+      16,
+      1,
+      345,
+      154
+    ]
+  },
+  "outline_scarf": {
+    "crop": [
+      800,
+      215,
+      945,
+      290
+    ],
+    "difference_bbox": null
+  },
+  "outline_robot": {
+    "crop": [
+      780,
+      100,
+      950,
+      489
+    ],
+    "difference_bbox": [
+      20,
+      219,
+      149,
+      349
+    ]
+  }
+}

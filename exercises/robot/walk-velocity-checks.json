@@ -1,0 +1,234 @@
+{
+  "runtime": "@esotericsoftware/spine-core 4.2.120",
+  "units": "world units per second",
+  "comparisons": [
+    {
+      "step": 0.0001,
+      "before": [
+        {
+          "time": 1,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 82.63534252855837
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 25.04939015790603
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 39.017044767601085
+            }
+          ]
+        },
+        {
+          "time": 1.4,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 88.9766354458682
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 0
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 39.0146680346881
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "maxBone": {
+            "bone": "shin-left",
+            "velocityJump": 64.02520773646367
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 25.049514703876007
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 0
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "time": 1,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 8.359551065381275
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 2.532541000542375
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 3.9591554826014876
+            }
+          ]
+        },
+        {
+          "time": 1.4,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 8.973123514747215
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 0
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 3.9594970939763283
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "maxBone": {
+            "bone": "shin-left",
+            "velocityJump": 6.419741324746565
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 2.531475326726588
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 0.00001,
+      "before": [
+        {
+          "time": 1,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 82.64241917166744
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 25.049390158027563
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 39.01704476663578
+            }
+          ]
+        },
+        {
+          "time": 1.4,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 88.96728885507505
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 0
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 38.993737686810846
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "maxBone": {
+            "bone": "shin-left",
+            "velocityJump": 64.04569662055818
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 25.049514704502325
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 0
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "time": 1,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 8.359923535691674
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 2.5325410001092625
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 3.9591554815487533
+            }
+          ]
+        },
+        {
+          "time": 1.4,
+          "maxBone": {
+            "bone": "shin-right",
+            "velocityJump": 8.985030608395057
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 0
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 3.957372929200671
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "maxBone": {
+            "bone": "shin-left",
+            "velocityJump": 6.442940019963544
+          },
+          "feet": [
+            {
+              "bone": "foot-left",
+              "velocityJump": 2.5314753268813908
+            },
+            {
+              "bone": "foot-right",
+              "velocityJump": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "positionDifferenceWorldUnits": {
+    "samples": 1201,
+    "maxAtAuthoredKeys": 0.000001211137056168851,
+    "maxBetweenKeys": 0.338358263690382
+  },
+  "limitations": [
+    "Finite differences at loop seam and foot contacts only, not an all-frame smoothness proof.",
+    "Runtime samples Bezier curves; remaining velocity jumps are measured, not assumed zero.",
+    "Generated data only; does not verify editor animation, export or artistic quality."
+  ]
+}

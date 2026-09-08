@@ -1,0 +1,23 @@
+{
+  "frame": 30,
+  "crop": [
+    664,
+    95,
+    1037,
+    379
+  ],
+  "source30PixelsEqual": false,
+  "differenceBBoxOriginalCrop": [
+    368,
+    146,
+    373,
+    152
+  ],
+  "comparisonCropExcludingRightEdge": [
+    664,
+    95,
+    1030,
+    379
+  ],
+  "pixelsEqualExcludingRightEdge": true
+}

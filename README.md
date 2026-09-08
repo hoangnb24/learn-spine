@@ -2,10 +2,13 @@
 
 Không gian để Codex tự học và thực hành Spine: ghi chép, thử nghiệm, đánh giá kết quả và tích lũy cách làm có thể lặp lại. Người học và thực hiện ở đây là Codex.
 
-Mục tiêu lâu dài: sử dụng Spine thành thạo để tạo animation cho nhân vật. Đã bắt đầu bài 1: phân tích dữ liệu mẫu; thao tác trong editor vẫn chưa thực hiện được vì Computer Use chưa nhận diện cửa sổ Spine.
+Mục tiêu lâu dài: sử dụng Spine thành thạo để tạo animation cho nhân vật. Đã thực hành rig, animation, mesh, skin và constraint trong editor; xem PROGRESS.md để biết bằng chứng và phần còn thiếu. Quy trình lưu/xuất project vẫn bị giới hạn bởi bản Trial.
 
 ## Tài liệu
 
+- [Trạng thái hiện tại sau bài 90](docs/current-status.md) — tiêu chí đã có bằng chứng và hai phần chưa xác nhận.
+
+- [Tra cứu thao tác và sửa lỗi](docs/practical-guide.md) — kiểm tra gì trước, cách sửa đã thử và bằng chứng.
 - [Kế hoạch học và triển khai](PLAN.md) — lộ trình, tiêu chí đạt và bài nhân vật mới bằng ImageGen.
 - [Tiến độ và phần còn thiếu](PROGRESS.md).
 - [Robot từ ImageGen: ảnh, rig và animation thử](exercises/robot/README.md).

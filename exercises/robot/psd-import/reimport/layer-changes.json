@@ -1,0 +1,245 @@
+{
+  "change": "Move only head layer +24 px along PSD X; preserve all layer pixels and tags.",
+  "layers": [
+    {
+      "name": "thigh-left [bone:thigh-left] [slot:thigh-left] [skin:mint]",
+      "old_bbox": [
+        248,
+        462,
+        307,
+        586
+      ],
+      "new_bbox": [
+        248,
+        462,
+        307,
+        586
+      ]
+    },
+    {
+      "name": "shin-left [bone:shin-left] [slot:shin-left] [skin:mint]",
+      "old_bbox": [
+        248,
+        556,
+        307,
+        683
+      ],
+      "new_bbox": [
+        248,
+        556,
+        307,
+        683
+      ]
+    },
+    {
+      "name": "foot-left [bone:foot-left] [slot:foot-left] [skin:mint]",
+      "old_bbox": [
+        221,
+        670,
+        308,
+        749
+      ],
+      "new_bbox": [
+        221,
+        670,
+        308,
+        749
+      ]
+    },
+    {
+      "name": "thigh-right [bone:thigh-right] [slot:thigh-right] [skin:mint]",
+      "old_bbox": [
+        334,
+        462,
+        393,
+        586
+      ],
+      "new_bbox": [
+        334,
+        462,
+        393,
+        586
+      ]
+    },
+    {
+      "name": "shin-right [bone:shin-right] [slot:shin-right] [skin:mint]",
+      "old_bbox": [
+        334,
+        556,
+        393,
+        683
+      ],
+      "new_bbox": [
+        334,
+        556,
+        393,
+        683
+      ]
+    },
+    {
+      "name": "foot-right [bone:foot-right] [slot:foot-right] [skin:mint]",
+      "old_bbox": [
+        332,
+        670,
+        419,
+        749
+      ],
+      "new_bbox": [
+        332,
+        670,
+        419,
+        749
+      ]
+    },
+    {
+      "name": "pelvis [bone:pelvis] [slot:pelvis] [skin:mint]",
+      "old_bbox": [
+        258,
+        427,
+        383,
+        500
+      ],
+      "new_bbox": [
+        258,
+        427,
+        383,
+        500
+      ]
+    },
+    {
+      "name": "upper-arm-left [bone:upper-arm-left] [slot:upper-arm-left] [skin:mint]",
+      "old_bbox": [
+        180,
+        285,
+        256,
+        400
+      ],
+      "new_bbox": [
+        180,
+        285,
+        256,
+        400
+      ]
+    },
+    {
+      "name": "forearm-left [bone:forearm-left] [slot:forearm-left] [skin:mint]",
+      "old_bbox": [
+        171,
+        367,
+        233,
+        486
+      ],
+      "new_bbox": [
+        171,
+        367,
+        233,
+        486
+      ]
+    },
+    {
+      "name": "hand-left [bone:hand-left] [slot:hand-left] [skin:mint]",
+      "old_bbox": [
+        162,
+        466,
+        215,
+        549
+      ],
+      "new_bbox": [
+        162,
+        466,
+        215,
+        549
+      ]
+    },
+    {
+      "name": "body [bone:body] [slot:body] [skin:mint]",
+      "old_bbox": [
+        218,
+        262,
+        421,
+        466
+      ],
+      "new_bbox": [
+        218,
+        262,
+        421,
+        466
+      ]
+    },
+    {
+      "name": "upper-arm-right [bone:upper-arm-right] [slot:upper-arm-right] [skin:mint]",
+      "old_bbox": [
+        385,
+        285,
+        460,
+        399
+      ],
+      "new_bbox": [
+        385,
+        285,
+        460,
+        399
+      ]
+    },
+    {
+      "name": "forearm-right [bone:forearm-right] [slot:forearm-right] [skin:mint]",
+      "old_bbox": [
+        406,
+        368,
+        468,
+        486
+      ],
+      "new_bbox": [
+        406,
+        368,
+        468,
+        486
+      ]
+    },
+    {
+      "name": "hand-right [bone:hand-right] [slot:hand-right] [skin:mint]",
+      "old_bbox": [
+        426,
+        465,
+        479,
+        548
+      ],
+      "new_bbox": [
+        426,
+        465,
+        479,
+        548
+      ]
+    },
+    {
+      "name": "head [bone:head] [slot:head] [skin:mint]",
+      "old_bbox": [
+        208,
+        81,
+        434,
+        288
+      ],
+      "new_bbox": [
+        232,
+        81,
+        458,
+        288
+      ]
+    },
+    {
+      "name": "origin [origin]",
+      "old_bbox": [
+        319,
+        749,
+        321,
+        751
+      ],
+      "new_bbox": [
+        319,
+        749,
+        321,
+        751
+      ]
+    }
+  ]
+}

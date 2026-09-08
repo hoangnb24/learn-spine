@@ -1,0 +1,16 @@
+{
+  "outline_crop": [
+    660,
+    117,
+    1010,
+    490
+  ],
+  "before_after_end_difference_identical": true,
+  "changed_pixels": 1285,
+  "local_difference_bounds": [
+    139,
+    227,
+    205,
+    316
+  ]
+}

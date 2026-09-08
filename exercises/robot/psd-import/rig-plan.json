@@ -1,0 +1,127 @@
+{
+  "status": "UI-applied and visually read back on 2026-09-07; not editor export",
+  "bones": [
+    {
+      "name": "body",
+      "parent": "root",
+      "x": 0.0,
+      "y": 304.0,
+      "rotation": 90,
+      "length": 170
+    },
+    {
+      "name": "pelvis",
+      "parent": "body",
+      "x": 0.0,
+      "y": 294.0,
+      "rotation": 0,
+      "length": 45
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "x": 0.0,
+      "y": 474.0,
+      "rotation": 90,
+      "length": 100
+    },
+    {
+      "name": "upper-arm-left",
+      "parent": "body",
+      "x": -98.0,
+      "y": 434.0,
+      "rotation": 260,
+      "length": 67
+    },
+    {
+      "name": "forearm-left",
+      "parent": "upper-arm-left",
+      "x": -109.6,
+      "y": 368.0,
+      "rotation": 260,
+      "length": 96
+    },
+    {
+      "name": "hand-left",
+      "parent": "forearm-left",
+      "x": -126.3,
+      "y": 273.5,
+      "rotation": 260,
+      "length": 45
+    },
+    {
+      "name": "thigh-left",
+      "parent": "pelvis",
+      "x": -43.0,
+      "y": 274.0,
+      "rotation": 270,
+      "length": 100
+    },
+    {
+      "name": "shin-left",
+      "parent": "thigh-left",
+      "x": -43.0,
+      "y": 174.0,
+      "rotation": 270,
+      "length": 101
+    },
+    {
+      "name": "foot-left",
+      "parent": "shin-left",
+      "x": -43.0,
+      "y": 73.0,
+      "rotation": 0,
+      "length": 40
+    },
+    {
+      "name": "upper-arm-right",
+      "parent": "body",
+      "x": 98.0,
+      "y": 434.0,
+      "rotation": 280,
+      "length": 67
+    },
+    {
+      "name": "forearm-right",
+      "parent": "upper-arm-right",
+      "x": 109.6,
+      "y": 368.0,
+      "rotation": 280,
+      "length": 96
+    },
+    {
+      "name": "hand-right",
+      "parent": "forearm-right",
+      "x": 126.3,
+      "y": 273.5,
+      "rotation": 280,
+      "length": 45
+    },
+    {
+      "name": "thigh-right",
+      "parent": "pelvis",
+      "x": 43.0,
+      "y": 274.0,
+      "rotation": 270,
+      "length": 100
+    },
+    {
+      "name": "shin-right",
+      "parent": "thigh-right",
+      "x": 43.0,
+      "y": 174.0,
+      "rotation": 270,
+      "length": 101
+    },
+    {
+      "name": "foot-right",
+      "parent": "shin-right",
+      "x": 43.0,
+      "y": 73.0,
+      "rotation": 0,
+      "length": 40
+    }
+  ],
+  "coordinates": "world axes",
+  "evidence": "rig-evidence/*-pivot.png and *-parent.png"
+}

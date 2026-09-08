@@ -1,0 +1,201 @@
+{
+  "neutral-before": [
+    {
+      "bbox": [
+        792,
+        266,
+        813,
+        298
+      ],
+      "pixels": 443
+    },
+    {
+      "bbox": [
+        870,
+        266,
+        890,
+        298
+      ],
+      "pixels": 439
+    },
+    {
+      "bbox": [
+        829,
+        297,
+        854,
+        306
+      ],
+      "pixels": 85
+    }
+  ],
+  "crown-compress-240": [
+    {
+      "bbox": [
+        793,
+        296,
+        813,
+        315
+      ],
+      "pixels": 251
+    },
+    {
+      "bbox": [
+        870,
+        296,
+        890,
+        315
+      ],
+      "pixels": 248
+    }
+  ],
+  "crown-stretch-340": [
+    {
+      "bbox": [
+        870,
+        245,
+        890,
+        287
+      ],
+      "pixels": 572
+    },
+    {
+      "bbox": [
+        792,
+        245,
+        813,
+        288
+      ],
+      "pixels": 574
+    },
+    {
+      "bbox": [
+        829,
+        285,
+        854,
+        298
+      ],
+      "pixels": 118
+    }
+  ],
+  "face-fixed-neutral": [
+    {
+      "bbox": [
+        792,
+        266,
+        813,
+        298
+      ],
+      "pixels": 443
+    },
+    {
+      "bbox": [
+        870,
+        266,
+        890,
+        298
+      ],
+      "pixels": 439
+    },
+    {
+      "bbox": [
+        829,
+        297,
+        854,
+        306
+      ],
+      "pixels": 85
+    }
+  ],
+  "face-fixed-compress": [
+    {
+      "bbox": [
+        792,
+        290,
+        813,
+        322
+      ],
+      "pixels": 442
+    },
+    {
+      "bbox": [
+        870,
+        290,
+        890,
+        322
+      ],
+      "pixels": 444
+    },
+    {
+      "bbox": [
+        829,
+        321,
+        854,
+        330
+      ],
+      "pixels": 78
+    }
+  ],
+  "face-fixed-stretch": [
+    {
+      "bbox": [
+        870,
+        250,
+        890,
+        282
+      ],
+      "pixels": 442
+    },
+    {
+      "bbox": [
+        792,
+        250,
+        813,
+        282
+      ],
+      "pixels": 442
+    },
+    {
+      "bbox": [
+        829,
+        281,
+        854,
+        291
+      ],
+      "pixels": 91
+    }
+  ],
+  "face-fixed-restored": [
+    {
+      "bbox": [
+        792,
+        266,
+        813,
+        298
+      ],
+      "pixels": 443
+    },
+    {
+      "bbox": [
+        870,
+        266,
+        890,
+        298
+      ],
+      "pixels": 439
+    },
+    {
+      "bbox": [
+        829,
+        297,
+        854,
+        306
+      ],
+      "pixels": 85
+    }
+  ],
+  "restored_exact": true,
+  "bottom_strip_exact_crown_tests": {
+    "face-fixed-compress": false,
+    "face-fixed-stretch": false
+  }
+}

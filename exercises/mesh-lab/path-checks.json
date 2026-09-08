@@ -1,0 +1,27 @@
+{
+  "scope": "Independent runtime 4.2; editor animation/export not verified.",
+  "start": {
+    "x": 0,
+    "y": 0,
+    "angle": 63.43494988656561
+  },
+  "middle": {
+    "x": 99.99999944805815,
+    "y": 74.99999999999996,
+    "angle": -8.070239634867722e-7
+  },
+  "end": {
+    "x": 200,
+    "y": 0,
+    "angle": -63.43494775927843
+  },
+  "rotationOff": {
+    "x": 200,
+    "y": 0,
+    "angle": 0
+  },
+  "loopFrames": 61,
+  "loopPoseMatches": true,
+  "maxToMinChordRatio": 1.068920911535666,
+  "limitation": "Return leg moves backward while tangent orientation stays forward; no turn animation."
+}

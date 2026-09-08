@@ -1,0 +1,19 @@
+{
+  "source": "source.png",
+  "tool": "built-in image_gen",
+  "source_size": [
+    2048,
+    768
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "output": "../scarf-tail.png",
+  "output_size": [
+    256,
+    96
+  ],
+  "processing": "Uniform 1/8 resize; preserve alpha; no silhouette edit."
+}

@@ -1,0 +1,25 @@
+{
+  "region": [
+    630,
+    150,
+    1036,
+    735
+  ],
+  "comparisons": [
+    {
+      "frame": 0,
+      "same_pixels": true,
+      "changed_pixels": 0
+    },
+    {
+      "frame": 8,
+      "same_pixels": false,
+      "changed_pixels": 17419
+    },
+    {
+      "frame": 13,
+      "same_pixels": false,
+      "changed_pixels": 18457
+    }
+  ]
+}

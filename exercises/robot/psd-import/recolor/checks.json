@@ -1,0 +1,42 @@
+{
+  "outline_roi": [
+    700,
+    150,
+    990,
+    713
+  ],
+  "changed": {
+    "bbox_relative_to_roi": [
+      35,
+      9,
+      245,
+      194
+    ],
+    "max_difference": 220
+  },
+  "body_unchanged": {
+    "bbox_relative_to_roi": null,
+    "max_difference": 0
+  },
+  "restored": {
+    "bbox_relative_to_roi": null,
+    "max_difference": 0
+  },
+  "restored_png_max_difference": {
+    "mint/thigh-left.png": 0,
+    "mint/thigh-right.png": 0,
+    "mint/hand-right.png": 0,
+    "mint/shin-left.png": 0,
+    "mint/foot-right.png": 0,
+    "mint/forearm-left.png": 0,
+    "mint/upper-arm-right.png": 0,
+    "mint/forearm-right.png": 0,
+    "mint/body.png": 0,
+    "mint/hand-left.png": 0,
+    "mint/head.png": 0,
+    "mint/upper-arm-left.png": 0,
+    "mint/shin-right.png": 0,
+    "mint/foot-left.png": 0,
+    "mint/pelvis.png": 0
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "source": "PNG files written by Spine Import PSD compared with decoded PSD layers",
+  "layers": [
+    {
+      "name": "thigh-left",
+      "output_size": [
+        61,
+        126
+      ],
+      "expected_size_with_padding": [
+        61,
+        126
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "shin-left",
+      "output_size": [
+        61,
+        129
+      ],
+      "expected_size_with_padding": [
+        61,
+        129
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "foot-left",
+      "output_size": [
+        89,
+        81
+      ],
+      "expected_size_with_padding": [
+        89,
+        81
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "thigh-right",
+      "output_size": [
+        61,
+        126
+      ],
+      "expected_size_with_padding": [
+        61,
+        126
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "shin-right",
+      "output_size": [
+        61,
+        129
+      ],
+      "expected_size_with_padding": [
+        61,
+        129
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "foot-right",
+      "output_size": [
+        89,
+        81
+      ],
+      "expected_size_with_padding": [
+        89,
+        81
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "pelvis",
+      "output_size": [
+        127,
+        75
+      ],
+      "expected_size_with_padding": [
+        127,
+        75
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "upper-arm-left",
+      "output_size": [
+        65,
+        109
+      ],
+      "expected_size_with_padding": [
+        65,
+        109
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "forearm-left",
+      "output_size": [
+        53,
+        115
+      ],
+      "expected_size_with_padding": [
+        53,
+        115
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "hand-left",
+      "output_size": [
+        47,
+        80
+      ],
+      "expected_size_with_padding": [
+        47,
+        80
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "body",
+      "output_size": [
+        205,
+        206
+      ],
+      "expected_size_with_padding": [
+        205,
+        206
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "upper-arm-right",
+      "output_size": [
+        62,
+        107
+      ],
+      "expected_size_with_padding": [
+        62,
+        107
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "forearm-right",
+      "output_size": [
+        52,
+        115
+      ],
+      "expected_size_with_padding": [
+        52,
+        115
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "hand-right",
+      "output_size": [
+        47,
+        81
+      ],
+      "expected_size_with_padding": [
+        47,
+        81
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    },
+    {
+      "name": "head",
+      "output_size": [
+        228,
+        209
+      ],
+      "expected_size_with_padding": [
+        228,
+        209
+      ],
+      "alpha_equal": true,
+      "max_rgb_error_where_alpha_nonzero": 0
+    }
+  ],
+  "origin_png_absent": true,
+  "png_count": 15,
+  "editor_metrics": {
+    "bones": 16,
+    "slots": 15,
+    "constraints": 0,
+    "attachments_total_display": 30,
+    "attachments_visible": 15,
+    "timelines": 0,
+    "keys": 0
+  },
+  "editor_sample_bone_centers": {
+    "head": [
+      1,
+      565.5
+    ],
+    "upper-arm-left": [
+      -98.5,
+      408.5
+    ]
+  }
+}

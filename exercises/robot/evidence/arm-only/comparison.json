@@ -1,0 +1,89 @@
+{
+  "preview_crop": [
+    193,
+    70,
+    811,
+    759
+  ],
+  "poses": [
+    {
+      "pose": 1,
+      "difference_bbox_relative": [
+        63,
+        233,
+        304,
+        514
+      ],
+      "difference_bbox_screenshot": [
+        256,
+        303,
+        497,
+        584
+      ],
+      "head": {
+        "crop": [
+          350,
+          80,
+          650,
+          300
+        ],
+        "difference_bbox": null
+      },
+      "feet_and_lower_shins": {
+        "crop": [
+          390,
+          590,
+          650,
+          715
+        ],
+        "difference_bbox": null
+      }
+    },
+    {
+      "pose": 2,
+      "difference_bbox_relative": [
+        114,
+        233,
+        272,
+        518
+      ],
+      "difference_bbox_screenshot": [
+        307,
+        303,
+        465,
+        588
+      ],
+      "head": {
+        "crop": [
+          350,
+          80,
+          650,
+          300
+        ],
+        "difference_bbox": null
+      },
+      "feet_and_lower_shins": {
+        "crop": [
+          390,
+          590,
+          650,
+          715
+        ],
+        "difference_bbox": null
+      }
+    }
+  ],
+  "standalone_loop": {
+    "frames": [
+      0,
+      60
+    ],
+    "crop": [
+      158,
+      48,
+      1047,
+      528
+    ],
+    "difference_bbox": null
+  }
+}

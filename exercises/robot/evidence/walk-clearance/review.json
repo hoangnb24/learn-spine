@@ -1,0 +1,11 @@
+{
+  "source": "31 screenshots from Spine Outline; forearm-left peak -25 at 8, right peak -50 at 23",
+  "crop": [
+    1040,
+    145,
+    1410,
+    744
+  ],
+  "endpoint_difference_bbox": null,
+  "gif": "30 sampled poses, 1 second loop; not Spine export"
+}

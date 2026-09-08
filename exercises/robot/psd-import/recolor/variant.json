@@ -1,0 +1,101 @@
+{
+  "operation": "swap red and green in head only; preserve alpha, names and positions",
+  "layers": [
+    {
+      "name": "thigh-left [bone:thigh-left] [slot:thigh-left] [skin:mint]",
+      "left": 248,
+      "top": 462,
+      "channels_swapped": false
+    },
+    {
+      "name": "shin-left [bone:shin-left] [slot:shin-left] [skin:mint]",
+      "left": 248,
+      "top": 556,
+      "channels_swapped": false
+    },
+    {
+      "name": "foot-left [bone:foot-left] [slot:foot-left] [skin:mint]",
+      "left": 221,
+      "top": 670,
+      "channels_swapped": false
+    },
+    {
+      "name": "thigh-right [bone:thigh-right] [slot:thigh-right] [skin:mint]",
+      "left": 334,
+      "top": 462,
+      "channels_swapped": false
+    },
+    {
+      "name": "shin-right [bone:shin-right] [slot:shin-right] [skin:mint]",
+      "left": 334,
+      "top": 556,
+      "channels_swapped": false
+    },
+    {
+      "name": "foot-right [bone:foot-right] [slot:foot-right] [skin:mint]",
+      "left": 332,
+      "top": 670,
+      "channels_swapped": false
+    },
+    {
+      "name": "pelvis [bone:pelvis] [slot:pelvis] [skin:mint]",
+      "left": 258,
+      "top": 427,
+      "channels_swapped": false
+    },
+    {
+      "name": "upper-arm-left [bone:upper-arm-left] [slot:upper-arm-left] [skin:mint]",
+      "left": 180,
+      "top": 285,
+      "channels_swapped": false
+    },
+    {
+      "name": "forearm-left [bone:forearm-left] [slot:forearm-left] [skin:mint]",
+      "left": 171,
+      "top": 367,
+      "channels_swapped": false
+    },
+    {
+      "name": "hand-left [bone:hand-left] [slot:hand-left] [skin:mint]",
+      "left": 162,
+      "top": 466,
+      "channels_swapped": false
+    },
+    {
+      "name": "body [bone:body] [slot:body] [skin:mint]",
+      "left": 218,
+      "top": 262,
+      "channels_swapped": false
+    },
+    {
+      "name": "upper-arm-right [bone:upper-arm-right] [slot:upper-arm-right] [skin:mint]",
+      "left": 385,
+      "top": 285,
+      "channels_swapped": false
+    },
+    {
+      "name": "forearm-right [bone:forearm-right] [slot:forearm-right] [skin:mint]",
+      "left": 406,
+      "top": 368,
+      "channels_swapped": false
+    },
+    {
+      "name": "hand-right [bone:hand-right] [slot:hand-right] [skin:mint]",
+      "left": 426,
+      "top": 465,
+      "channels_swapped": false
+    },
+    {
+      "name": "head [bone:head] [slot:head] [skin:mint]",
+      "left": 208,
+      "top": 81,
+      "channels_swapped": true
+    },
+    {
+      "name": "origin [origin]",
+      "left": 319,
+      "top": 749,
+      "channels_swapped": false
+    }
+  ]
+}

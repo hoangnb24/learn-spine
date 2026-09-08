@@ -1,0 +1,388 @@
+{
+  "canvas": [
+    640,
+    800
+  ],
+  "origin": [
+    320,
+    750
+  ],
+  "source": "../robot-editor-4.3.json setup layout and existing mint PNGs",
+  "layers": [
+    {
+      "name": "thigh-left",
+      "psd_name": "thigh-left [bone:thigh-left] [slot:thigh-left] [skin:mint]",
+      "image": "mint/thigh-left",
+      "box": [
+        248,
+        462,
+        307,
+        586
+      ],
+      "layer_center_in_spine": [
+        -42.5,
+        226.0
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        59,
+        124
+      ],
+      "expected_trimmed_center_in_spine": [
+        -42.5,
+        226.0
+      ]
+    },
+    {
+      "name": "shin-left",
+      "psd_name": "shin-left [bone:shin-left] [slot:shin-left] [skin:mint]",
+      "image": "mint/shin-left",
+      "box": [
+        248,
+        556,
+        307,
+        683
+      ],
+      "layer_center_in_spine": [
+        -42.5,
+        130.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        59,
+        127
+      ],
+      "expected_trimmed_center_in_spine": [
+        -42.5,
+        130.5
+      ]
+    },
+    {
+      "name": "foot-left",
+      "psd_name": "foot-left [bone:foot-left] [slot:foot-left] [skin:mint]",
+      "image": "mint/foot-right",
+      "box": [
+        221,
+        670,
+        308,
+        749
+      ],
+      "layer_center_in_spine": [
+        -55.5,
+        40.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        87,
+        79
+      ],
+      "expected_trimmed_center_in_spine": [
+        -55.5,
+        40.5
+      ]
+    },
+    {
+      "name": "thigh-right",
+      "psd_name": "thigh-right [bone:thigh-right] [slot:thigh-right] [skin:mint]",
+      "image": "mint/thigh-right",
+      "box": [
+        334,
+        462,
+        393,
+        586
+      ],
+      "layer_center_in_spine": [
+        43.5,
+        226.0
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        59,
+        124
+      ],
+      "expected_trimmed_center_in_spine": [
+        43.5,
+        226.0
+      ]
+    },
+    {
+      "name": "shin-right",
+      "psd_name": "shin-right [bone:shin-right] [slot:shin-right] [skin:mint]",
+      "image": "mint/shin-right",
+      "box": [
+        334,
+        556,
+        393,
+        683
+      ],
+      "layer_center_in_spine": [
+        43.5,
+        130.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        59,
+        127
+      ],
+      "expected_trimmed_center_in_spine": [
+        43.5,
+        130.5
+      ]
+    },
+    {
+      "name": "foot-right",
+      "psd_name": "foot-right [bone:foot-right] [slot:foot-right] [skin:mint]",
+      "image": "mint/foot-left",
+      "box": [
+        332,
+        670,
+        419,
+        749
+      ],
+      "layer_center_in_spine": [
+        55.5,
+        40.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        87,
+        79
+      ],
+      "expected_trimmed_center_in_spine": [
+        55.5,
+        40.5
+      ]
+    },
+    {
+      "name": "pelvis",
+      "psd_name": "pelvis [bone:pelvis] [slot:pelvis] [skin:mint]",
+      "image": "mint/pelvis",
+      "box": [
+        258,
+        427,
+        383,
+        500
+      ],
+      "layer_center_in_spine": [
+        0.5,
+        286.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        125,
+        73
+      ],
+      "expected_trimmed_center_in_spine": [
+        0.5,
+        286.5
+      ]
+    },
+    {
+      "name": "upper-arm-left",
+      "psd_name": "upper-arm-left [bone:upper-arm-left] [slot:upper-arm-left] [skin:mint]",
+      "image": "mint/upper-arm-left",
+      "box": [
+        180,
+        285,
+        256,
+        400
+      ],
+      "layer_center_in_spine": [
+        -102.0,
+        407.5
+      ],
+      "alpha_bounds_in_layer": [
+        10,
+        3,
+        73,
+        110
+      ],
+      "expected_trimmed_center_in_spine": [
+        -98.5,
+        408.5
+      ]
+    },
+    {
+      "name": "forearm-left",
+      "psd_name": "forearm-left [bone:forearm-left] [slot:forearm-left] [skin:mint]",
+      "image": "mint/forearm-left",
+      "box": [
+        171,
+        367,
+        233,
+        486
+      ],
+      "layer_center_in_spine": [
+        -118.0,
+        323.5
+      ],
+      "alpha_bounds_in_layer": [
+        4,
+        3,
+        55,
+        116
+      ],
+      "expected_trimmed_center_in_spine": [
+        -119.5,
+        323.5
+      ]
+    },
+    {
+      "name": "hand-left",
+      "psd_name": "hand-left [bone:hand-left] [slot:hand-left] [skin:mint]",
+      "image": "mint/hand-left",
+      "box": [
+        162,
+        466,
+        215,
+        549
+      ],
+      "layer_center_in_spine": [
+        -131.5,
+        242.5
+      ],
+      "alpha_bounds_in_layer": [
+        3,
+        3,
+        48,
+        81
+      ],
+      "expected_trimmed_center_in_spine": [
+        -132.5,
+        242.0
+      ]
+    },
+    {
+      "name": "body",
+      "psd_name": "body [bone:body] [slot:body] [skin:mint]",
+      "image": "mint/body",
+      "box": [
+        218,
+        262,
+        421,
+        466
+      ],
+      "layer_center_in_spine": [
+        -0.5,
+        386.0
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        203,
+        204
+      ],
+      "expected_trimmed_center_in_spine": [
+        -0.5,
+        386.0
+      ]
+    },
+    {
+      "name": "upper-arm-right",
+      "psd_name": "upper-arm-right [bone:upper-arm-right] [slot:upper-arm-right] [skin:mint]",
+      "image": "mint/upper-arm-right",
+      "box": [
+        385,
+        285,
+        460,
+        399
+      ],
+      "layer_center_in_spine": [
+        102.5,
+        408.0
+      ],
+      "alpha_bounds_in_layer": [
+        3,
+        5,
+        63,
+        110
+      ],
+      "expected_trimmed_center_in_spine": [
+        98.0,
+        407.5
+      ]
+    },
+    {
+      "name": "forearm-right",
+      "psd_name": "forearm-right [bone:forearm-right] [slot:forearm-right] [skin:mint]",
+      "image": "mint/forearm-right",
+      "box": [
+        406,
+        368,
+        468,
+        486
+      ],
+      "layer_center_in_spine": [
+        117.0,
+        323.0
+      ],
+      "alpha_bounds_in_layer": [
+        7,
+        3,
+        57,
+        116
+      ],
+      "expected_trimmed_center_in_spine": [
+        118.0,
+        322.5
+      ]
+    },
+    {
+      "name": "hand-right",
+      "psd_name": "hand-right [bone:hand-right] [slot:hand-right] [skin:mint]",
+      "image": "mint/hand-right",
+      "box": [
+        426,
+        465,
+        479,
+        548
+      ],
+      "layer_center_in_spine": [
+        132.5,
+        243.5
+      ],
+      "alpha_bounds_in_layer": [
+        5,
+        2,
+        50,
+        81
+      ],
+      "expected_trimmed_center_in_spine": [
+        133.5,
+        243.5
+      ]
+    },
+    {
+      "name": "head",
+      "psd_name": "head [bone:head] [slot:head] [skin:mint]",
+      "image": "mint/head",
+      "box": [
+        208,
+        81,
+        434,
+        288
+      ],
+      "layer_center_in_spine": [
+        1.0,
+        565.5
+      ],
+      "alpha_bounds_in_layer": [
+        0,
+        0,
+        226,
+        207
+      ],
+      "expected_trimmed_center_in_spine": [
+        1.0,
+        565.5
+      ]
+    }
+  ]
+}

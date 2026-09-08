@@ -1,0 +1,11 @@
+{
+  "restored_pose_0_diff_bbox": [
+    485,
+    367,
+    519,
+    401
+  ],
+  "restored_pose_30_diff_bbox": null,
+  "restored_pose_60_diff_bbox": null,
+  "loop_pose_0_60_diff_bbox": null
+}

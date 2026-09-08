@@ -1,0 +1,42 @@
+{
+  "normal-mix-0.png": {
+    "feet": {
+      "changed_pixels": 0,
+      "identical": true
+    },
+    "upper": {
+      "changed_pixels": 35325,
+      "identical": false
+    }
+  },
+  "normal-mix-1.png": {
+    "feet": {
+      "changed_pixels": 0,
+      "identical": true
+    },
+    "upper": {
+      "changed_pixels": 35260,
+      "identical": false
+    }
+  },
+  "normal-mix-2.png": {
+    "feet": {
+      "changed_pixels": 0,
+      "identical": true
+    },
+    "upper": {
+      "changed_pixels": 35500,
+      "identical": false
+    }
+  },
+  "normal-mix-3.png": {
+    "feet": {
+      "changed_pixels": 0,
+      "identical": true
+    },
+    "upper": {
+      "changed_pixels": 35558,
+      "identical": false
+    }
+  }
+}

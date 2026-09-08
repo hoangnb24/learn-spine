@@ -1,0 +1,139 @@
+{
+  "source": "Manual World readback, Spine 4.3.25 Trial. Rounded UI values; not project export.",
+  "positionPercent": 25,
+  "lengths": [
+    100,
+    150,
+    80
+  ],
+  "samples": {
+    "chain": {
+      "spacing": "Percent 25",
+      "rotationMode": "Chain",
+      "worldXYRotationScaleX": [
+        [
+          -704.08,
+          -320.28,
+          22.47,
+          1
+        ],
+        [
+          -611.67,
+          -282.06,
+          352.79,
+          1
+        ],
+        [
+          -462.86,
+          -300.89,
+          335.837,
+          1
+        ]
+      ],
+      "computedTips": [
+        [
+          -611.6720221564648,
+          -282.06003622622467
+        ],
+        [
+          -462.8560782858091,
+          -300.8859582503166
+        ],
+        [
+          -389.8692285830322,
+          -333.636714155102
+        ]
+      ],
+      "computedJointGaps": [
+        0.0020224809288493847,
+        0.0056316589650397325
+      ]
+    },
+    "scale": {
+      "spacing": "Percent 25",
+      "rotationMode": "Chain Scale",
+      "worldXYRotationScaleX": [
+        [
+          -704.08,
+          -320.28,
+          22.47,
+          2.8968
+        ],
+        [
+          -436.39,
+          -209.57,
+          333.725,
+          1.917
+        ],
+        [
+          -178.56,
+          -336.86,
+          319.418,
+          3.695
+        ]
+      ],
+      "computedTips": [
+        [
+          -436.39256978284715,
+          -209.56440894012763
+        ],
+        [
+          -178.5497605131875,
+          -336.86262901434316
+        ],
+        [
+          45.94102183080034,
+          -529.1583390383976
+        ]
+      ],
+      "computedJointGaps": [
+        0.00615335147524169,
+        0.010571603785613209
+      ],
+      "computedLastTipToPathEndDistance": 0.010901636078367088
+    },
+    "scale-length": {
+      "spacing": "Length 0",
+      "rotationMode": "Chain Scale",
+      "worldXYRotationScaleX": [
+        [
+          -704.08,
+          -320.28,
+          34.668,
+          1.0013
+        ],
+        [
+          -621.72,
+          -263.33,
+          19.726,
+          0.995
+        ],
+        [
+          -481.24,
+          -212.95,
+          1.061,
+          1.009
+        ]
+      ],
+      "computedTips": [
+        [
+          -621.7268941129231,
+          -263.3240270844936
+        ],
+        [
+          -481.22836627314916,
+          -212.9547744147942
+        ],
+        [
+          -400.5338396226879,
+          -211.4553170397782
+        ]
+      ],
+      "computedJointGaps": [
+        0.009121650763027015,
+        0.012575318567228837
+      ]
+    }
+  },
+  "calculation": "Tip = World origin + length * scaleX * (cos(rotation), sin(rotation)); same parent, no shear. Rounded inputs limit precision."
+}

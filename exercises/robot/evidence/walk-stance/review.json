@@ -1,0 +1,11 @@
+{
+  "source": "31 screenshots from Spine Outline; walk-wide: targets X shifted left -20, right +20; Revaluing None",
+  "crop": [
+    668,
+    145,
+    1038,
+    744
+  ],
+  "endpoint_difference_bbox": null,
+  "gif": "30 sampled poses, 1 second loop; not Spine export"
+}

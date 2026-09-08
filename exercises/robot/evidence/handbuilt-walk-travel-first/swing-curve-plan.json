@@ -1,0 +1,90 @@
+{
+  "status": "analytic_reference_manual_approximation_applied_see_pass2",
+  "root_units_per_frame": 2,
+  "reason": "World velocity zero requires Parent X slope -2 at lift and landing. Mid-swing slope is 7 for a 60-unit cubic smoothstep over 10 frames.",
+  "targets": {
+    "leg-ik-left": {
+      "segments": [
+        {
+          "start": [
+            3,
+            -54.5
+          ],
+          "control1": [
+            4.666666666666667,
+            -57.833333333333336
+          ],
+          "control2": [
+            6.333333333333333,
+            -46.166666666666664
+          ],
+          "end": [
+            8,
+            -34.5
+          ]
+        },
+        {
+          "start": [
+            8,
+            -34.5
+          ],
+          "control1": [
+            9.666666666666666,
+            -22.833333333333336
+          ],
+          "control2": [
+            11.333333333333334,
+            -11.166666666666666
+          ],
+          "end": [
+            13,
+            -14.5
+          ]
+        }
+      ],
+      "preserve": "Keep all stance segments Linear and Y unchanged."
+    },
+    "leg-ik-right": {
+      "segments": [
+        {
+          "start": [
+            18,
+            11.5
+          ],
+          "control1": [
+            19.666666666666668,
+            8.166666666666666
+          ],
+          "control2": [
+            21.333333333333332,
+            19.833333333333336
+          ],
+          "end": [
+            23,
+            31.5
+          ]
+        },
+        {
+          "start": [
+            23,
+            31.5
+          ],
+          "control1": [
+            24.666666666666668,
+            43.166666666666664
+          ],
+          "control2": [
+            26.333333333333332,
+            54.833333333333336
+          ],
+          "end": [
+            28,
+            51.5
+          ]
+        }
+      ],
+      "preserve": "Keep all stance segments Linear and Y unchanged."
+    }
+  },
+  "implementation_note": "Editor now uses manually adjusted Bezier swing curves. These exact control point numbers were not entered or verified. See ../handbuilt-walk-travel-pass2/review.json."
+}

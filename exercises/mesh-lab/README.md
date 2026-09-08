@@ -1,6 +1,6 @@
 # Bài mesh, weights và deform
 
-Thực hành ngày 06/09/2026 bằng Spine Runtime 4.2.120. Chưa thực hành thao tác tương ứng trong editor.
+Phần runtime dưới đây được thực hành ngày 06/09/2026 bằng Spine Runtime 4.2.120. Sau đó đã thực hành trực tiếp trong editor: [mesh và weights](../../lessons/028-editor-ghosting-and-mesh-diagnosis.md), [animation uốn](../../lessons/029-editor-mesh-bend-review.md), [sửa bằng deform](../../lessons/030-editor-corrective-deform.md), [linked mesh](../../lessons/033-editor-linked-mesh.md) và [hai skin khác màu](../../lessons/034-editor-linked-skins.md). Các thay đổi editor vẫn nằm trong phiên Trial, chưa lưu/xuất thành project.
 
 ![So sánh ba cách điều khiển ảnh](comparison.gif)
 
@@ -47,4 +47,4 @@ node scripts/check_mesh_lab.mjs
 node scripts/render_mesh_lab.mjs
 ```
 
-Sau khi điều khiển được editor: tự tạo mesh tương tự, bind hai xương, chỉnh weights và key deform qua giao diện, rồi đối chiếu với bài này. Các thao tác đó vẫn chưa đạt.
+Các bài editor nêu ở đầu trang đã tạo mesh 27 đỉnh, bind hai xương, sửa weights, key deform và thử linked mesh qua hai skin. Đó là bài dựng trong giao diện riêng; các lệnh trên chỉ tái tạo bài runtime 15 đỉnh ban đầu.

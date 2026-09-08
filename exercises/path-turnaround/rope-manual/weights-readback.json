@@ -1,0 +1,132 @@
+{
+  "source": "Values manually transcribed from Spine Weight slider, not exported mesh data",
+  "modifiedVertices": 18,
+  "records": [
+    {
+      "columnIndexFromLeft": 3,
+      "edge": "top",
+      "bone": "link-b",
+      "displayedWeightPercent": 9.41,
+      "screenshot": "ab-246-355.png"
+    },
+    {
+      "columnIndexFromLeft": 3,
+      "edge": "bottom",
+      "bone": "link-b",
+      "displayedWeightPercent": 9.41,
+      "screenshot": "ab-246-395.png"
+    },
+    {
+      "columnIndexFromLeft": 4,
+      "edge": "top",
+      "bone": "link-b",
+      "displayedWeightPercent": 25.11,
+      "screenshot": "ab-272-355.png"
+    },
+    {
+      "columnIndexFromLeft": 4,
+      "edge": "bottom",
+      "bone": "link-b",
+      "displayedWeightPercent": 25.11,
+      "screenshot": "ab-272-395.png"
+    },
+    {
+      "columnIndexFromLeft": 5,
+      "edge": "top",
+      "bone": "link-b",
+      "displayedWeightPercent": 51.82,
+      "screenshot": "ab-298-355.png"
+    },
+    {
+      "columnIndexFromLeft": 5,
+      "edge": "bottom",
+      "bone": "link-b",
+      "displayedWeightPercent": 51.82,
+      "screenshot": "ab-298-395.png"
+    },
+    {
+      "columnIndexFromLeft": 6,
+      "edge": "top",
+      "bone": "link-b",
+      "displayedWeightPercent": 79.39,
+      "screenshot": "ab-324-355.png"
+    },
+    {
+      "columnIndexFromLeft": 6,
+      "edge": "bottom",
+      "bone": "link-b",
+      "displayedWeightPercent": 79.39,
+      "screenshot": "ab-324-395.png"
+    },
+    {
+      "columnIndexFromLeft": 7,
+      "edge": "top",
+      "bone": "link-b",
+      "displayedWeightPercent": 95.5,
+      "screenshot": "ab-350-355.png"
+    },
+    {
+      "columnIndexFromLeft": 7,
+      "edge": "bottom",
+      "bone": "link-b",
+      "displayedWeightPercent": 95.5,
+      "screenshot": "ab-350-395.png"
+    },
+    {
+      "columnIndexFromLeft": 10,
+      "edge": "top",
+      "bone": "link-c",
+      "displayedWeightPercent": 15.78,
+      "screenshot": "bc-428-355.png"
+    },
+    {
+      "columnIndexFromLeft": 10,
+      "edge": "bottom",
+      "bone": "link-c",
+      "displayedWeightPercent": 15.78,
+      "screenshot": "bc-428-395.png"
+    },
+    {
+      "columnIndexFromLeft": 11,
+      "edge": "top",
+      "bone": "link-c",
+      "displayedWeightPercent": 40.37,
+      "screenshot": "bc-466-355.png"
+    },
+    {
+      "columnIndexFromLeft": 11,
+      "edge": "bottom",
+      "bone": "link-c",
+      "displayedWeightPercent": 40.37,
+      "screenshot": "bc-466-395.png"
+    },
+    {
+      "columnIndexFromLeft": 12,
+      "edge": "top",
+      "bone": "link-c",
+      "displayedWeightPercent": 79.39,
+      "screenshot": "bc-504-355.png"
+    },
+    {
+      "columnIndexFromLeft": 12,
+      "edge": "bottom",
+      "bone": "link-c",
+      "displayedWeightPercent": 79.39,
+      "screenshot": "bc-504-395.png"
+    },
+    {
+      "columnIndexFromLeft": 13,
+      "edge": "top",
+      "bone": "link-c",
+      "displayedWeightPercent": 95.5,
+      "screenshot": "bc-543-355.png"
+    },
+    {
+      "columnIndexFromLeft": 13,
+      "edge": "bottom",
+      "bone": "link-c",
+      "displayedWeightPercent": 95.5,
+      "screenshot": "bc-543-395.png"
+    }
+  ]
+}

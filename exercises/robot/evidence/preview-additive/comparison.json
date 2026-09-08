@@ -1,0 +1,20 @@
+{
+  "crop": [
+    380,
+    140,
+    720,
+    745
+  ],
+  "differences": {
+    "base vs additive": null,
+    "replace vs toggle-only": null,
+    "base vs base-restored": null,
+    "replace vs replace-repeated": null,
+    "replace vs additive": [
+      60,
+      211,
+      156,
+      485
+    ]
+  }
+}

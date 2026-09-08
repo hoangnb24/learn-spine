@@ -1,0 +1,16 @@
+{
+  "crop": [
+    380,
+    140,
+    720,
+    745
+  ],
+  "differences": {
+    "controlled-base20 vs controlled-add0": null,
+    "controlled-base20 vs controlled-replace100": null,
+    "controlled-add50 vs reference30": null,
+    "controlled-add100 vs reference40": null,
+    "controlled-base20 vs restored-base20": null
+  },
+  "method": "Direct UI key30/key40 reference compared with additive20 on base20; original key restored20."
+}

@@ -1,0 +1,153 @@
+{
+  "source": "Manual readback from Spine 4.3.25 Trial UI; rounded displayed World values, not export",
+  "skeleton": "path-turnaround",
+  "constraint": "chain-route",
+  "bones": [
+    "link-a",
+    "link-b",
+    "link-c"
+  ],
+  "lengths": [
+    100,
+    150,
+    80
+  ],
+  "rotationMode": "Tangent",
+  "rotateMix": 100,
+  "translateMix": [
+    100,
+    100
+  ],
+  "rotateOffset": 0,
+  "positionMode": "Percent",
+  "samples": [
+    {
+      "spacingMode": "Fixed",
+      "spacing": 100,
+      "position": 25,
+      "evidencePrefix": "fixed100",
+      "bones": [
+        {
+          "name": "link-a",
+          "x": -704.08,
+          "y": -320.28,
+          "rotation": 38.817,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-b",
+          "x": -621.72,
+          "y": -263.33,
+          "rotation": 29.818,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-c",
+          "x": -530.12,
+          "y": -223.6,
+          "rotation": 16.322,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ]
+    },
+    {
+      "spacingMode": "Length",
+      "spacing": 0,
+      "position": 25,
+      "evidencePrefix": "length0",
+      "bones": [
+        {
+          "name": "link-a",
+          "x": -704.08,
+          "y": -320.28,
+          "rotation": 38.817,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-b",
+          "x": -621.72,
+          "y": -263.33,
+          "rotation": 29.818,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-c",
+          "x": -481.24,
+          "y": -212.95,
+          "rotation": 8.14,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ]
+    },
+    {
+      "spacingMode": "Percent",
+      "spacing": 25,
+      "position": 25,
+      "evidencePrefix": "percent25",
+      "bones": [
+        {
+          "name": "link-a",
+          "x": -704.08,
+          "y": -320.28,
+          "rotation": 38.817,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-b",
+          "x": -436.39,
+          "y": -209.57,
+          "rotation": 0.495,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-c",
+          "x": -178.56,
+          "y": -336.86,
+          "rotation": 317.207,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ]
+    },
+    {
+      "spacingMode": "Proportional",
+      "spacing": 100,
+      "position": 0,
+      "evidencePrefix": "proportional100",
+      "bones": [
+        {
+          "name": "link-a",
+          "x": -912.85,
+          "y": -529.15,
+          "rotation": 47.862,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-b",
+          "x": -552.08,
+          "y": -230.77,
+          "rotation": 19.831,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        {
+          "name": "link-c",
+          "x": 45.934,
+          "y": -529.15,
+          "rotation": 326.31,
+          "scaleX": 1,
+          "scaleY": 1
+        }
+      ]
+    }
+  ]
+}

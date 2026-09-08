@@ -1,0 +1,40 @@
+{
+  "crop": [
+    178,
+    48,
+    938,
+    520
+  ],
+  "comparisons": [
+    {
+      "a": "source0.jpg",
+      "b": "linked0.jpg",
+      "difference_bbox": null
+    },
+    {
+      "a": "source30.jpg",
+      "b": "linked30.jpg",
+      "difference_bbox": null
+    },
+    {
+      "a": "inherit-on30-selected.jpg",
+      "b": "inherit-restored30-selected.jpg",
+      "difference_bbox": null
+    },
+    {
+      "a": "inherit-on30-selected.jpg",
+      "b": "inherit-off30-selected.jpg",
+      "difference_bbox": [
+        0,
+        0,
+        760,
+        472
+      ]
+    },
+    {
+      "a": "source0.jpg",
+      "b": "source-after-weight-test0.jpg",
+      "difference_bbox": null
+    }
+  ]
+}

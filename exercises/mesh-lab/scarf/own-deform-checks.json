@@ -1,0 +1,11 @@
+{
+  "own-final0 vs own-final60": {
+    "equal": true
+  },
+  "own-final15 vs own-final45": {
+    "equal": true
+  },
+  "isolated-30 vs own-final30": {
+    "equal": false
+  }
+}

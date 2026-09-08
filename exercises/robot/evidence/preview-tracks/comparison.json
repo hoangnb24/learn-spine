@@ -1,0 +1,40 @@
+{
+  "crop": [
+    193,
+    70,
+    811,
+    759
+  ],
+  "comparisons": [
+    {
+      "a": "alpha100.jpg",
+      "b": "alpha100-restored.jpg",
+      "difference_bbox": null
+    },
+    {
+      "a": "clear-baseline-alpha0.jpg",
+      "b": "clear-after-mix0.jpg",
+      "difference_bbox": null
+    },
+    {
+      "a": "alpha0.jpg",
+      "b": "alpha50.jpg",
+      "difference_bbox": [
+        7,
+        18,
+        391,
+        514
+      ]
+    },
+    {
+      "a": "alpha50.jpg",
+      "b": "alpha100.jpg",
+      "difference_bbox": [
+        7,
+        25,
+        384,
+        395
+      ]
+    }
+  ]
+}

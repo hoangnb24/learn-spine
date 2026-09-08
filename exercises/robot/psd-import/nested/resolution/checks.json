@@ -1,0 +1,32 @@
+{
+  "head": {
+    "before_size": [
+      228,
+      209
+    ],
+    "half_size": [
+      115,
+      106
+    ],
+    "restored_size": [
+      228,
+      209
+    ],
+    "restored_rgba_identical": true
+  },
+  "body": {
+    "before_size": [
+      205,
+      206
+    ],
+    "half_size": [
+      104,
+      104
+    ],
+    "restored_size": [
+      205,
+      206
+    ],
+    "restored_rgba_identical": true
+  }
+}

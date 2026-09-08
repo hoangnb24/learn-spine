@@ -1,0 +1,20 @@
+{
+  "neutral": {
+    "central_bottom_green_y_max": 460,
+    "green_pixels_bottom_roi": 3572
+  },
+  "compress": {
+    "central_bottom_green_y_max": 460,
+    "green_pixels_bottom_roi": 3572
+  },
+  "stretch": {
+    "central_bottom_green_y_max": 460,
+    "green_pixels_bottom_roi": 3572
+  },
+  "restored": {
+    "central_bottom_green_y_max": 460,
+    "green_pixels_bottom_roi": 3572
+  },
+  "neutral_restored_outline_rgb_equal": true,
+  "method": "RGB green: G-R>20 and G-B>5; ROI x780:900,y430:465. Screen pixels, not bone coordinates."
+}

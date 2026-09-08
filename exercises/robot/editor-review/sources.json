@@ -1,0 +1,28 @@
+{
+  "idle": {
+    "source": "exercises/robot/evidence/handbuilt-idle-review",
+    "source_frames": "0..59; endpoint 60 excluded",
+    "crop": [
+      445,
+      140,
+      610,
+      480
+    ],
+    "duration_ms": 2000,
+    "gif_frames": 60,
+    "scope": "30 sampled editor poses per second, historical orange skin; not live recording or Spine export"
+  },
+  "wave": {
+    "source": "exercises/robot/evidence/handbuilt-wave-ik-review",
+    "source_frames": "0..59; endpoint 60 excluded",
+    "crop": [
+      350,
+      140,
+      595,
+      480
+    ],
+    "duration_ms": 2000,
+    "gif_frames": 60,
+    "scope": "30 sampled editor poses per second, historical orange skin; not live recording or Spine export"
+  }
+}

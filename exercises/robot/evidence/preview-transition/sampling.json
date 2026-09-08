@@ -1,0 +1,27 @@
+{
+  "forward_ms": [
+    379,
+    429,
+    479,
+    529,
+    579,
+    629,
+    679,
+    729
+  ],
+  "reverse_ms": [
+    882,
+    1440,
+    1990,
+    2540,
+    3091,
+    3650,
+    4200,
+    4760,
+    5320,
+    5881,
+    6430,
+    6989
+  ],
+  "note": "Wall clock after click returns; not exact animation time."
+}

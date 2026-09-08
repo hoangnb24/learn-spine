@@ -1,0 +1,122 @@
+{
+  "source": "Manually transcribed from Spine UI screenshots; not exported skeleton data",
+  "animation": "head-chain",
+  "body_keys": "copy of head-settle: translate at 0/6/90",
+  "configuration": {
+    "head_length": 100,
+    "tip_length": 80,
+    "tip_local_translation": [
+      100,
+      0
+    ],
+    "fps": 60,
+    "inertia": 50,
+    "strength": 100,
+    "damping": 15,
+    "mass": 100,
+    "wind": 0,
+    "gravity": 0,
+    "rotation": 100,
+    "deterministic": true
+  },
+  "both_enabled_samples": [
+    {
+      "frame": 6,
+      "head_world_degrees": 2.336,
+      "tip_world_degrees": 3.677,
+      "tip_world_position": [
+        99.417,
+        74.575
+      ],
+      "expected_head_endpoint_from_rounded_ui": [
+        99.41689823341244,
+        74.57595969237931
+      ],
+      "endpoint_error": 0.0009650730030686571
+    },
+    {
+      "frame": 12,
+      "head_world_degrees": -0.345,
+      "tip_world_degrees": 1.173,
+      "tip_world_position": [
+        99.498,
+        69.898
+      ],
+      "expected_head_endpoint_from_rounded_ui": [
+        99.49818715105789,
+        69.89786504668739
+      ],
+      "endpoint_error": 0.00023073342855457697
+    },
+    {
+      "frame": 24,
+      "head_world_degrees": 0.102,
+      "tip_world_degrees": -0.2,
+      "tip_world_position": [
+        99.5,
+        70.678
+      ],
+      "expected_head_endpoint_from_rounded_ui": [
+        99.49984153806008,
+        70.67802348967021
+      ],
+      "endpoint_error": 0.00016019347992140534
+    },
+    {
+      "frame": 45,
+      "head_world_degrees": 0.004,
+      "tip_world_degrees": -0.012,
+      "tip_world_position": [
+        99.5,
+        70.506
+      ],
+      "expected_head_endpoint_from_rounded_ui": [
+        99.49999975630607,
+        70.5069813170023
+      ],
+      "endpoint_error": 0.000981317032558109
+    },
+    {
+      "frame": 90,
+      "head_world_degrees": 0,
+      "tip_world_degrees": 0,
+      "tip_world_position": [
+        99.5,
+        70.5
+      ],
+      "expected_head_endpoint_from_rounded_ui": [
+        99.5,
+        70.5
+      ],
+      "endpoint_error": 0.0
+    }
+  ],
+  "frame6_tip_world_degrees_by_mix": [
+    {
+      "head_mix": 0,
+      "tip_mix": 0,
+      "tip_angle": 0
+    },
+    {
+      "head_mix": 100,
+      "tip_mix": 0,
+      "tip_angle": 2.336
+    },
+    {
+      "head_mix": 0,
+      "tip_mix": 100,
+      "tip_angle": 2.918
+    },
+    {
+      "head_mix": 100,
+      "tip_mix": 100,
+      "tip_angle": 3.677
+    }
+  ],
+  "restored_tip_frame12": 1.173,
+  "source_head_settle_tip_frame6": {
+    "mix": 0,
+    "angle": 2.336
+  },
+  "final": "head-chain active; both Mix keys at 0 restored to 100; frame 0 stopped; Setup tip Mix 0"
+}

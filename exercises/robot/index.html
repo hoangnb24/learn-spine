@@ -10,16 +10,19 @@
 <label>Màu robot <select id="skin"><option value="default">Cam</option><option value="mint">Xanh</option></select></label>
 <label>Động tác <select id="animation"><option value="setup">Tư thế gốc</option><option value="idle" selected>Đứng nhún</option><option value="wave">Vẫy tay</option><option value="squat">Hạ hông · giữ chân</option><option value="step">Nhấc chân tại chỗ · bản đầu</option><option value="walk_side">Bước ngang · thử tiếp đất</option></select></label>
 <button id="play">Tạm dừng</button>
+<button id="restart">Về đầu</button>
 <label>Tốc độ <select id="speed"><option value="0.25">¼ tốc độ</option><option value="0.5">½ tốc độ</option><option value="1" selected>Bình thường</option></select></label>
-<label>Thời gian <output id="time">0.00 s</output><input id="scrub" type="range" min="0" max="2" step="0.01" value="0"></label>
+<label>Thời gian trong vòng <output id="time">0.00 s</output><input id="scrub" type="range" min="0" max="2" step="0.01" value="0"></label>
+<p id="travel" hidden></p>
 <label><input id="bones" type="checkbox"> Hiện điểm khớp</label>
-<p id="details"></p><small>Đây là dữ liệu tự tạo chạy bằng Spine Runtime 4.2. Chưa nhập và kiểm tra trong Spine editor; không phải file xuất từ Trial.</small>
+<p id="details"></p><small>Dữ liệu tự tạo chạy bằng Spine Runtime 4.2. Bản chuyển sang 4.3 đã được nhập và kiểm tra một số tư thế trong editor; đây không phải file xuất từ Trial hay bản rig dựng tay đang mở trong Spine.</small>
 </aside></section></main>
 <script src="../../node_modules/@esotericsoftware/spine-canvas/dist/iife/spine-canvas.js"></script>
-<script>
+<script type="module">
+import { applyLoopPose, rootTravel } from './loop-motion.mjs';
 const canvas=document.querySelector('#stage'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
 const select=document.querySelector('#animation'),scrub=document.querySelector('#scrub'),play=document.querySelector('#play');
-let skeleton,renderer,animation,time=0,duration=2,playing=true,last=performance.now();
+let skeleton,renderer,animation,elapsed=0,duration=2,playing=true,scrubbed=false,last=performance.now(),travel={x:0,y:0};
 async function init(){
  const assets=new spine.AssetManager('./');assets.loadText('robot-ik.json');assets.loadTextureAtlas('robot.atlas');await assets.loadAll();
  const loader=new spine.SkeletonJson(new spine.AtlasAttachmentLoader(assets.require('robot.atlas')));
@@ -28,25 +31,38 @@ async function init(){
  document.querySelector('#skin').onchange=e=>{skeleton.setSkinByName(e.target.value);skeleton.setSlotsToSetupPose()};
  animation=data.findAnimation('idle');status.textContent=`Đã tải ${data.bones.length} xương · ${data.slots.length} mảnh`;
  document.querySelector('#details').textContent='Quan sát bàn chân, khớp vai và cổ tay ở tốc độ chậm; kéo thanh thời gian để xem từng tư thế.';
- select.onchange=()=>{animation=data.findAnimation(select.value);duration=animation?.duration||0;time=0;scrub.max=duration||1};
- play.onclick=()=>{playing=!playing;play.textContent=playing?'Tạm dừng':'Phát'};
- scrub.oninput=()=>{time=+scrub.value;playing=false;play.textContent='Phát'};
+ select.onchange=()=>{animation=data.findAnimation(select.value);duration=animation?.duration||0;elapsed=0;scrubbed=false;scrub.max=duration||1;
+  travel=animation?.name==='walk_side'?rootTravel(spine,data,animation):{x:0,y:0};
+  document.querySelector('#travel').hidden=animation?.name!=='walk_side';
+  document.querySelector('#details').textContent=animation?.name==='walk_side'
+   ?'Robot đi tiếp qua mỗi vòng. Camera đi theo robot; các cột mốc trên mặt đất giữ vị trí. Kéo thanh thời gian để xem lại vòng đầu.'
+   :'Quan sát bàn chân, khớp vai và cổ tay ở tốc độ chậm; kéo thanh thời gian để xem từng tư thế.';
+ };
+ play.onclick=()=>{playing=!playing;if(playing)scrubbed=false;play.textContent=playing?'Tạm dừng':'Phát'};
+ document.querySelector('#restart').onclick=()=>{elapsed=0;scrubbed=false};
+ scrub.oninput=()=>{elapsed=+scrub.value;scrubbed=true;playing=false;play.textContent='Phát'};
  requestAnimationFrame(frame);
 }
 function frame(now){
  let delta=Math.min((now-last)/1000,.1);last=now;
- if(playing&&duration)time=(time+delta*+document.querySelector('#speed').value)%duration;
- skeleton.setToSetupPose();if(animation)animation.apply(skeleton,0,time,false,[],1,spine.MixBlend.replace,spine.MixDirection.mixIn);
- skeleton.updateWorldTransform(spine.Physics.update);
+ if(playing&&duration)elapsed+=delta*+document.querySelector('#speed').value;
+ const sample=applyLoopPose(spine,skeleton,animation,elapsed,travel);
  const w=canvas.width,h=canvas.height,scale=.88;
  ctx.clearRect(0,0,w,h);ctx.save();ctx.translate(w/2,h-45);ctx.scale(scale,-scale);
  const rootX=skeleton.findBone('root').worldX;ctx.translate(-rootX,0);
- ctx.strokeStyle='#637088';ctx.lineWidth=1/scale;ctx.beginPath();ctx.moveTo(-w/2,0);ctx.lineTo(w/2,0);ctx.stroke();
- if(animation?.name==='walk_side'){ctx.beginPath();for(let x=-420;x<560;x+=35){ctx.moveTo(x,0);ctx.lineTo(x,-10)}ctx.stroke()}
+ const left=rootX-w/(2*scale),right=rootX+w/(2*scale);
+ ctx.strokeStyle='#637088';ctx.lineWidth=1/scale;ctx.beginPath();ctx.moveTo(left,0);ctx.lineTo(right,0);ctx.stroke();
+ if(animation?.name==='walk_side'){
+  ctx.beginPath();for(let x=Math.floor(left/35)*35;x<=right;x+=35){ctx.moveTo(x,0);ctx.lineTo(x,-10)}ctx.stroke();
+  ctx.save();ctx.scale(1,-1);ctx.fillStyle='#abbad0';ctx.font='13px system-ui';ctx.textAlign='center';
+  for(let x=Math.ceil(left/140)*140;x<=right;x+=140)ctx.fillText(String(x),x,30);
+  ctx.restore();document.querySelector('#travel').textContent=`Đã đi ${rootX.toFixed(1)} đơn vị · vòng ${sample.cycles+1}`;
+ }
  renderer.draw(skeleton);
  if(document.querySelector('#bones').checked){ctx.strokeStyle='#61e4da';ctx.fillStyle='#ffd57c';ctx.lineWidth=1.5/scale;
   for(const b of skeleton.bones){if(b.parent){ctx.beginPath();ctx.moveTo(b.parent.worldX,b.parent.worldY);ctx.lineTo(b.worldX,b.worldY);ctx.stroke()}ctx.beginPath();ctx.arc(b.worldX,b.worldY,3/scale,0,7);ctx.fill()}}
- ctx.restore();document.querySelector('#time').textContent=time.toFixed(2)+' s';scrub.value=time;
+ ctx.restore();const visibleTime=scrubbed?elapsed:sample.time;
+ document.querySelector('#time').textContent=visibleTime.toFixed(2)+' s';scrub.value=visibleTime;
  requestAnimationFrame(frame);
 }
 init().catch(e=>{status.textContent='Lỗi: '+e.message;console.error(e)});

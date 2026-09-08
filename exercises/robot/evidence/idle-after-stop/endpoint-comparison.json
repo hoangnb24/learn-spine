@@ -1,0 +1,22 @@
+{
+  "feet": {
+    "box": [
+      827,
+      670,
+      1004,
+      724
+    ],
+    "identical": true,
+    "changed_pixels": 0
+  },
+  "full_robot": {
+    "box": [
+      795,
+      180,
+      1010,
+      724
+    ],
+    "identical": false,
+    "changed_pixels": 56591
+  }
+}

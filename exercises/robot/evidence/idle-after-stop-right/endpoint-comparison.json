@@ -1,0 +1,22 @@
+{
+  "feet": {
+    "region": [
+      827,
+      670,
+      1004,
+      724
+    ],
+    "equal": true,
+    "changed_pixels": 0
+  },
+  "body": {
+    "region": [
+      630,
+      150,
+      1036,
+      735
+    ],
+    "equal": false,
+    "changed_pixels": 59621
+  }
+}

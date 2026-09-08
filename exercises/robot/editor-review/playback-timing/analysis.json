@@ -1,0 +1,16 @@
+{
+  "linear_frames_read_from_screenshots": [
+    9,
+    19,
+    29,
+    38,
+    48,
+    58,
+    68,
+    77
+  ],
+  "linear_elapsed_seconds_between_response_times": 2.2729520419985056,
+  "timeline_frames_per_second_estimate": 29.917041250113936,
+  "measurement_limit": "Response timestamps bracket screenshot acquisition; this estimates timeline progression, not display refresh or rendered FPS.",
+  "loop_observation": "About 1.06 seconds per observed cycle; investigate end hold before changing keys."
+}

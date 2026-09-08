@@ -1,0 +1,21 @@
+{
+  "runtime": "@esotericsoftware/spine-core 4.2.120",
+  "clip": "walk_side",
+  "duration": 1,
+  "cycleDisplacement": {
+    "x": 70,
+    "y": 0
+  },
+  "oldRootJump": 69.99992999871253,
+  "maxExactSeamGap": 2.7755575615628914e-17,
+  "maxNearSeamGap": 0.0003211213103497812,
+  "maxPlantDrift": 0.0000031124218986266067,
+  "contactSamples": 968,
+  "rootXAt3_25Seconds": 227.5,
+  "restartAndAnimationSwitch": "passed",
+  "limitations": [
+    "Translation-only placement; does not handle rotational root motion or animation blending.",
+    "Verifies generated runtime data, not the handbuilt editor rig or editor export.",
+    "Does not prove matching velocity at every joint or final animation quality."
+  ]
+}

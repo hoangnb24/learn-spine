@@ -1,0 +1,29 @@
+{
+  "crop": [
+    380,
+    140,
+    720,
+    745
+  ],
+  "each_sample_vs_before": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "base0_vs_before20": [
+    83,
+    291,
+    181,
+    485
+  ],
+  "restored_base_difference": null
+}

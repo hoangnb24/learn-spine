@@ -1,0 +1,31 @@
+{
+  "before-head.png vs synced-head.png": {
+    "bbox": null,
+    "max_channel_difference": 0
+  },
+  "before-arm.png vs synced-arm.png": {
+    "bbox": null,
+    "max_channel_difference": 0
+  },
+  "before-arm.png vs restored.png": {
+    "bbox": null,
+    "max_channel_difference": 0
+  },
+  "restored_image_pixels": {
+    "mint/thigh-left.png": 0,
+    "mint/thigh-right.png": 0,
+    "mint/hand-right.png": 0,
+    "mint/shin-left.png": 0,
+    "mint/foot-right.png": 0,
+    "mint/forearm-left.png": 0,
+    "mint/upper-arm-right.png": 0,
+    "mint/forearm-right.png": 0,
+    "mint/body.png": 0,
+    "mint/hand-left.png": 0,
+    "mint/head.png": 0,
+    "mint/upper-arm-left.png": 0,
+    "mint/shin-right.png": 0,
+    "mint/foot-left.png": 0,
+    "mint/pelvis.png": 0
+  }
+}

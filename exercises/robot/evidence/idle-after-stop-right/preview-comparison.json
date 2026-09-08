@@ -1,0 +1,52 @@
+[
+  {
+    "image": "preview-idle-frozen",
+    "feet": 0,
+    "upper": 0
+  },
+  {
+    "image": "preview-mix-0",
+    "feet": 0,
+    "upper": 26644
+  },
+  {
+    "image": "preview-mix-1",
+    "feet": 0,
+    "upper": 27519
+  },
+  {
+    "image": "preview-mix-2",
+    "feet": 0,
+    "upper": 27961
+  },
+  {
+    "image": "preview-mix-3",
+    "feet": 0,
+    "upper": 27945
+  },
+  {
+    "image": "preview-mix-4",
+    "feet": 0,
+    "upper": 28303
+  },
+  {
+    "image": "preview-mix-5",
+    "feet": 0,
+    "upper": 28320
+  },
+  {
+    "image": "preview-mix-6",
+    "feet": 0,
+    "upper": 29739
+  },
+  {
+    "image": "preview-mix-7",
+    "feet": 0,
+    "upper": 30037
+  },
+  {
+    "image": "preview-mix-late",
+    "feet": 0,
+    "upper": 36024
+  }
+]

@@ -2,15 +2,19 @@
 
 Ngày: 06/09/2026.
 
-## Xem kết quả
+## Bộ robot dựng trong Spine
 
-- `robot-study.mp4`: 8,5 giây, gồm đứng nhún, vẫy tay, hạ hông, nhấc chân tại chỗ và bước ngang.
-- `side-step.gif`: bài kiểm tra tiếp đất khi bước ngang.
-- `wave.gif`: vòng vẫy tay.
-- `index.html`: bản xem tương tác, có phát/dừng, tốc độ chậm, kéo thời gian và điểm khớp.
-- Chạy `npm run serve` ở thư mục gốc rồi mở `http://127.0.0.1:8765/exercises/robot/`.
+Đã dựng rig FK/IK bằng thao tác editor và tạo `idle-handbuilt`, `wave-handbuilt`, `walk-wide`. Ba animation vẫn có trong cửa sổ khi kiểm tra ngày 07/09/2026. Bài 67 thêm một xương con thử Physics; phần rig robot chính có 18 xương và 15 region.
 
-Đây là ảnh tự tạo và dữ liệu Spine viết bằng code, chạy bằng runtime chính thức. Chưa nhập vào editor, chưa có project `.spine`, không phải sản phẩm xuất từ Spine Trial. Mục tiêu thực hành editor trong kế hoạch vẫn giữ nguyên.
+- [Xem đứng nhún, vẫy tay và đi bộ](editor-review/README.md): bản ghép các tư thế chụp từ editor, có ghi thời gian và nguồn.
+- [Rà tiêu chí hoàn thiện](../../lessons/068-core-plan-audit.md): bằng chứng khớp, chân trụ, nối vòng và phần còn thiếu.
+- [Tiến độ và bài dựng lại](../../PROGRESS.md): hướng dẫn thao tác, lỗi đã sửa và giới hạn từng bài.
+
+Chưa có project `.spine` lưu từ editor hoặc dữ liệu export của rig dựng tay. Các ảnh chụp và GIF không thay thế được project mở lại; nhịp playback liên tục của bộ cuối còn cần đánh giá.
+
+## Bản runtime viết bằng code
+
+`index.html`, `robot-study.mp4`, `side-step.gif` và `wave.gif` ở thư mục này thuộc bản dữ liệu tự tạo chạy bằng runtime chính thức. Chúng phục vụ các bài runtime và không phải bản export của rig dựng tay hiện tại. Chạy `npm run serve` từ thư mục gốc, rồi mở [bản runtime cục bộ](http://127.0.0.1:8765/exercises/robot/).
 
 ## Tài nguyên
 
@@ -23,7 +27,7 @@ ImageGen tích hợp tạo concept và các bản tách; prompt đầy đủ tro
 - `images/parts/`: 15 PNG có alpha thật, tách từ v2 bằng Python sau khi người dùng cho phép. Ba mảnh chân bên còn lại được lật ngang; bản này phù hợp bài chính diện, chưa phải bộ ảnh nhiều góc nhìn.
 - `parts-contact-sheet.png`: kiểm tra mảnh trên nền tối. Nét cắt dùng mask nhị phân; cần kiểm tra thêm ở kích thước lớn nếu dùng cho sản phẩm hoàn thiện.
 
-## Các lần sửa và kết luận
+## Lịch sử bản runtime và tài nguyên
 
 1. **Tách ảnh:** dùng nét viền kín để giữ phần màu kem bên trong và bỏ nền nối với biên ảnh. Không xóa mọi pixel sáng, vì sẽ làm thủng phần thân màu kem.
 2. **Rig đầu:** 16 xương, 15 slot. Bàn chân hướng vào nhau và tay vẫy quá duỗi. Bản gốc lưu ở `revisions/robot-v1.json`.
@@ -34,13 +38,9 @@ ImageGen tích hợp tạo concept và các bản tách; prompt đầy đủ tro
 
 ## Những phần chưa đạt
 
-- `step` chỉ là bài nhấc chân tại chỗ, chưa phải dáng đi hoàn chỉnh có chuyển trọng lượng.
-- Kiểm tra đầu/cuối vòng bằng nhau mới chứng minh tư thế nối khớp; chưa đủ chứng minh toàn bộ chuyển động có chất lượng tốt.
-- Cần kiểm tra toàn bộ biên độ khớp, vị trí bàn tay ở các pha vẫy và khoảng chồng ảnh tại cổ tay/cổ chân.
-- Chưa kiểm chứng nhập JSON, thao tác, lưu và xuất trong editor.
-- Đã làm skin màu xanh trong cùng rig; bài mesh/weights nằm riêng ở `exercises/mesh-lab`. Các thao tác này trong editor, các constraint khác và phần mở rộng vẫn còn.
+Phần còn thiếu của bộ robot editor được tập trung trong [bảng rà tiêu chí](../../lessons/068-core-plan-audit.md). Các phép kiểm tra runtime dưới đây chỉ áp dụng dữ liệu do script tạo; chúng không chứng minh đã lưu/xuất thành công animation từ Spine.
 
-## Chạy lại
+## Chạy lại bản runtime
 
 Tại thư mục gốc:
 
@@ -51,6 +51,7 @@ python3 scripts/build_robot.py
 python3 scripts/build_robot_ik.py
 node scripts/check_robot.mjs
 node scripts/check_state_lab.mjs
+node scripts/check_loop_motion.mjs
 node scripts/render_robot.mjs
 npm run serve
 ```
@@ -67,6 +68,7 @@ Các lệnh tạo lại ghi đè sản phẩm sinh tự động; ảnh nguồn I
 
 ## Bằng chứng và nguồn
 
+- `loop-motion-checks.json`: kiểm tra nối vị trí qua bốn chu kỳ, 968 mẫu chân trụ, về đầu và đổi animation. Bản xem cộng chuyển vị trí mỗi vòng cho `walk_side`; camera theo root và vạch mặt đất giữ tọa độ thế giới. [Bài 23](../../lessons/023-runtime-walk-loop-placement.md) ghi cách sửa và giới hạn.
 - `runtime-checks.json`: các phép đo chạy bằng runtime chính thức.
 - `evidence/squat-ik.png`: tư thế hạ hông cùng điểm khớp trong trình duyệt.
 - `evidence/wave-v2.png`: tư thế vẫy đã sửa.
@@ -74,3 +76,7 @@ Các lệnh tạo lại ghi đè sản phẩm sinh tự động; ảnh nguồn I
 - [JSON format](https://esotericsoftware.com/spine-json-format): cấu trúc dữ liệu và đường Bezier.
 - [Runtime source](https://github.com/EsotericSoftware/spine-runtimes/tree/4.2/spine-ts): loader, IK và bộ render dùng trong bài.
 - Runtime giữ nguyên thông báo giấy phép trong dependency; đây là bài đánh giá cục bộ, chưa phát hành ứng dụng.
+
+### Nội suy tại tiếp đất
+
+[Bài 24](../../lessons/024-runtime-contact-velocity.md) giữ tư thế key và sửa tốc độ giữa các key của `walk_side`. Chạy `node scripts/check_walk_velocity.mjs` để so sánh với animation trước sửa đã lưu. Mức đổi tốc độ đột ngột tại ba mốc giảm khoảng 90%; đây là tinh chỉnh nhỏ của dữ liệu tự tạo, chưa chứng minh dáng đi đẹp hoặc animation trong editor đã được sửa.

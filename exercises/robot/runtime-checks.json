@@ -26,8 +26,8 @@
     },
     {
       "name": "walk_side: 121 tư thế",
-      "maxIKEndpointError": 0.0000024107705241113604,
-      "maxPlantedFootDrift": 0.0000026373702548648903
+      "maxIKEndpointError": 0.0000024114861304541795,
+      "maxPlantedFootDrift": 0.0000026356178452790678
     },
     {
       "name": "idle: đầu/cuối vòng",

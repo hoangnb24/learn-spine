@@ -1,0 +1,39 @@
+{
+  "scope": "Editor screenshots, whole mesh viewport crop [250,48,815,522]. Null means identical pixels. Earlier captures affected by transient tooltips or selected-bone handle were recaptured.",
+  "loop0_60": null,
+  "baseline_vs_corrective_0": [
+    197,
+    232,
+    358,
+    472
+  ],
+  "baseline_vs_corrective_15": [
+    197,
+    416,
+    358,
+    472
+  ],
+  "baseline_vs_corrective_30": [
+    197,
+    111,
+    295,
+    241
+  ],
+  "baseline_vs_corrective_45": null,
+  "baseline_vs_corrective_60": [
+    197,
+    232,
+    295,
+    369
+  ],
+  "straight_pose_15_full_mesh_crop": {
+    "crop": [
+      250,
+      150,
+      815,
+      410
+    ],
+    "difference_bbox": null,
+    "reason": "Straight mesh lies entirely inside this rectangle. The larger viewport also contains transient UI tooltips below the mesh."
+  }
+}

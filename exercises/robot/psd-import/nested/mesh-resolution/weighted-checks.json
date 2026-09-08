@@ -1,0 +1,17 @@
+{
+  "outline_crop": [
+    780,
+    100,
+    945,
+    325
+  ],
+  "restored_poses": {
+    "0": true,
+    "15": true,
+    "30": true,
+    "45": true,
+    "60": true
+  },
+  "body_rgba_restored": true,
+  "head_rgba_restored": true
+}

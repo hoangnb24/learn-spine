@@ -5,6 +5,8 @@ Workspace: `/Users/tubakhuym/projects/learn-spine`.
 
 Đây là bản kiểm kê khả năng hiện tại, không phải chứng nhận đã thành thạo các công cụ.
 
+**Cập nhật mới nhất:** đã gỡ lỗi nhận diện và thao tác được Spine Editor qua Computer Use. Xem [cách mở đã kiểm chứng](spine-editor-control.md). Các phần ghi chưa điều khiển được bên dưới là kết quả trước lần sửa này.
+
 **Cập nhật sau bài 1 cùng ngày:** đã mở Spine qua Finder và xác nhận tiến trình chạy. Computer Use vẫn báo `Invalid app`, nên chưa xác nhận nội dung cửa sổ editor. Đã tải và phân tích JSON mẫu Spineboy Essential chính thức; xem [bài thực hành](../lessons/001-foundations.md). Bảng dưới giữ kết quả kiểm kê ban đầu.
 
 **Cập nhật CLI:** `--version` báo launcher 4.3.06 và editor **4.3.23 Trial**. `--help` của bản Trial không liệt kê nhóm nhập/xuất. Xem [bài 2](../lessons/002-contact-and-mesh.md).

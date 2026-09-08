@@ -1,0 +1,26 @@
+{
+  "head": {
+    "new_import_size": [
+      115,
+      106
+    ],
+    "same_pixels_as_sync": true,
+    "original_still_restored": true,
+    "new_region_scale_read_in_editor": [
+      2,
+      2
+    ]
+  },
+  "body": {
+    "new_import_size": [
+      104,
+      104
+    ],
+    "same_pixels_as_sync": true,
+    "original_still_restored": true,
+    "new_region_scale_read_in_editor": [
+      2,
+      2
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "source": "Spine Outline UI screenshots, not editor export",
+  "frames": 61,
+  "frame_range": [
+    0,
+    60
+  ],
+  "crop": [
+    650,
+    70,
+    970,
+    399
+  ],
+  "endpoint_pixel_difference_bbox": null,
+  "unique_pose_crops": 60,
+  "gif_duration_ms_per_frame": 80,
+  "gif_purpose": "Slowed visual review; not a claim about project FPS"
+}

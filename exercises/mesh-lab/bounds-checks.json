@@ -1,0 +1,26 @@
+{
+  "scope": "Independent official 4.2 runtime test; does not validate editor export.",
+  "initialPolygon": [
+    128,
+    24,
+    228,
+    24,
+    128,
+    -26
+  ],
+  "rotatedPolygon": [
+    104,
+    -0.0000011138449735881295,
+    103.99999237060547,
+    100,
+    154,
+    0.000001206665388053807
+  ],
+  "insideHit": true,
+  "aabbFalsePositiveRejectedByPolygon": true,
+  "segmentHit": true,
+  "staleHitBeforeBoundsUpdate": true,
+  "oldPointMissAfterUpdate": true,
+  "rotatedPointHitAfterUpdate": true,
+  "hiddenAttachmentIgnored": true
+}

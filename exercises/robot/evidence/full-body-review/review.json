@@ -1,0 +1,92 @@
+{
+  "source": "Spine Trial UI screenshots; not project export",
+  "viewport_crop": [
+    700,
+    145,
+    1000,
+    740
+  ],
+  "walk_frames": [
+    0,
+    8,
+    15,
+    23,
+    30
+  ],
+  "walk_0_30_pixel_equal": true,
+  "idle_frames": [
+    0,
+    60
+  ],
+  "idle_repeat_same_frame_pixel_equal": true,
+  "idle_0_60_difference_bbox_in_crop": [
+    51,
+    334,
+    236,
+    592
+  ],
+  "idle_0_60_changed_pixels": 18282,
+  "body_display_0_and_60": {
+    "rotate": 0,
+    "translate": [
+      -0.5,
+      2.5
+    ],
+    "scale": [
+      1,
+      1
+    ],
+    "shear": [
+      0,
+      0
+    ]
+  },
+  "limitations": [
+    "Five walk poses only; not continuous playback review.",
+    "Idle difference reproducible; cause not established.",
+    "No animation data changed during this audit."
+  ],
+  "idle_endpoint_diagnosis": {
+    "targets_0_and_60": {
+      "left": [
+        -48.5,
+        -391.5,
+        0
+      ],
+      "right": [
+        47.5,
+        -391.5,
+        0
+      ]
+    },
+    "feet_0_and_60": {
+      "left": [
+        -48.5,
+        -391.5,
+        0
+      ],
+      "right": [
+        47.5,
+        -391.5,
+        0
+      ]
+    },
+    "thigh_left_rotate": [
+      268.181,
+      268.18
+    ],
+    "shin_left_rotate": [
+      269.091,
+      269.092
+    ],
+    "shin_left_translate_x": [
+      -46.5,
+      -46.503
+    ],
+    "pixel_channel_delta_max": 24,
+    "pixels_max_channel_delta_gt8": 107,
+    "pixels_max_channel_delta_gt32": 0,
+    "mean_max_channel_delta": 0.21517086834733892,
+    "decision": "No corrective keys: measured endpoints keep both feet fixed at UI precision; left-knee difference is very small. Exact numerical cause is not established. Continue motion-quality work instead of chasing pixel equality."
+  }
+}
