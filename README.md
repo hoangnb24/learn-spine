@@ -6,7 +6,9 @@ Mục tiêu lâu dài: sử dụng Spine thành thạo để tạo animation cho
 
 ## Tài liệu
 
-- [Trạng thái hiện tại sau bài 90](docs/current-status.md) — tiêu chí đã có bằng chứng và hai phần chưa xác nhận.
+- [Sản phẩm tiếp theo: website animation dành cho agent](docs/product/README.md) — mô tả sản phẩm, phạm vi, kiến trúc/tools và ba thử nghiệm trước khi chốt công nghệ.
+
+- [Trạng thái học hiện tại sau bài 97](docs/current-status.md) — kế hoạch học đã khép trong phạm vi được thống nhất; lưu/xuất không thuộc yêu cầu của kế hoạch học.
 
 - [Tra cứu thao tác và sửa lỗi](docs/practical-guide.md) — kiểm tra gì trước, cách sửa đã thử và bằng chứng.
 - [Kế hoạch học và triển khai](PLAN.md) — lộ trình, tiêu chí đạt và bài nhân vật mới bằng ImageGen.
