@@ -7,6 +7,7 @@ Mục tiêu lâu dài: sử dụng Spine thành thạo để tạo animation cho
 ## Tài liệu
 
 - [Sản phẩm tiếp theo: website animation dành cho agent](docs/product/README.md) — mô tả sản phẩm, phạm vi, kiến trúc/tools và ba thử nghiệm trước khi chốt công nghệ.
+- [GitHub Project](https://github.com/users/hoangnb24/projects/3) — [roadmap và dependencies](https://github.com/hoangnb24/learn-spine/issues/1), [việc có thể bắt đầu](https://github.com/users/hoangnb24/projects/3/views/3), [hướng dẫn cho agent](docs/product/agent-workflow.md).
 
 - [Trạng thái học hiện tại sau bài 97](docs/current-status.md) — kế hoạch học đã khép trong phạm vi được thống nhất; lưu/xuất không thuộc yêu cầu của kế hoạch học.
 

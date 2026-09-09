@@ -40,8 +40,13 @@ Mốc thành công đầu tiên là thay thế workflow mẫu của chúng ta. T
 
 ### Tài liệu thực hiện
 
+- [GitHub repository](https://github.com/hoangnb24/learn-spine) — nhánh `main`, private.
+- [GitHub Project](https://github.com/users/hoangnb24/projects/3) và [issue điều phối](https://github.com/hoangnb24/learn-spine/issues/1).
+- [Thứ tự thực hiện, nhóm song song và links tới từng issue](execution-plan.md).
 - [Phạm vi theo giai đoạn](scope.md).
 - [Kiến trúc, project và tools](architecture.md).
 - [Ba thử nghiệm và tiêu chí quyết định](experiments.md).
+- [Quy trình nhận và bàn giao issue cho agent](agent-workflow.md).
+- [Backlog có cấu trúc và dependencies](backlog.json).
 
 Nguồn đối chứng nội bộ: [trạng thái học](../current-status.md), [tra cứu thực hành](../practical-guide.md). Các bài đã học cung cấp quy trình, lỗi và hình mẫu; không chứng minh rằng engine mới đã đúng. Lưu/xuất bị loại khỏi kế hoạch học cũ nhưng là yêu cầu bắt buộc của sản phẩm mới.

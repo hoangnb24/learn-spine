@@ -1,0 +1,986 @@
+{
+  "repository": "hoangnb24/learn-spine",
+  "project_url": "https://github.com/users/hoangnb24/projects/3",
+  "project_id": "PVT_kwHOAhZcys4Bi-CK",
+  "created": "2026-09-09",
+  "tasks": [
+    {
+      "key": "T01",
+      "title": "Chuẩn hóa assets, nguồn sử dụng và bộ fixture đối chứng",
+      "phase": "Foundation",
+      "lane": "Research",
+      "deps": [],
+      "ownership": "docs/product/research/assets.md; platform/fixtures/source/ (dữ liệu độc lập, không sửa package/config)",
+      "outcome": "Agent khác tìm được đúng PNG, bố trí, đơn vị và nguồn của robot/khăn/thạch mà không cần phiên học cũ.",
+      "work": [
+        "Khảo sát manifest và README hiện có; lập manifest nguồn với đường dẫn repo, SHA-256, kích thước, pivot/bố trí và trạng thái quyền sử dụng.",
+        "Chọn bộ art tối thiểu; ghi đâu là ảnh gốc, đâu là screenshot tham khảo. Không coi JSON Spine hiện có là định dạng native mới.",
+        "Rà giấy phép của dependencies dự kiến và assets; ghi nguồn chính thức, ngày kiểm tra và điều chưa kết luận. Tạo sơ đồ pose/điểm neo mẫu không phụ thuộc schema chưa có."
+      ],
+      "acceptance": [
+        "Mỗi mẫu có file truy cập được từ clone, hash kiểm lại được và nguồn/quyền sử dụng được phân loại rõ.",
+        "Có robot idle/wave, khăn neo cổ, thạch mắt/đáy và chân trụ; mỗi mẫu nêu vùng quan sát và bài học liên quan.",
+        "Không sao chép runtime Spine vào sản phẩm; nguồn chưa rõ không được trình bày là đã được phép phân phối.",
+        "Bàn giao manifest nguồn và hướng dẫn chuyển sang fixture native cho T05/T13/T19."
+      ],
+      "refs": [
+        "exercises/robot/parts-manifest.json",
+        "exercises/robot/README.md",
+        "exercises/soft-character/README.md",
+        "lessons/085-editor-robot-scarf-mesh.md",
+        "examples/spineboy/SOURCE.md"
+      ],
+      "exclude": "Không sinh art mới, không xây PSD importer hoặc auto-rig. Không yêu cầu mua license để khép việc khảo sát.",
+      "wave": 0,
+      "priority": "P0",
+      "readiness": "Ready",
+      "number": 2,
+      "id": 5401663604,
+      "node_id": "I_kwDOUTvul88AAAABQfbYdA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/2"
+    },
+    {
+      "key": "T02",
+      "title": "Thử agent khám phá và gọi WebMCP trên trình duyệt thực tế",
+      "phase": "Foundation",
+      "lane": "Agent",
+      "deps": [],
+      "ownership": "prototypes/webmcp-probe/; docs/product/research/webmcp.md",
+      "outcome": "Có kết luận tái lập được về khả năng kết nối của agent đích, trước khi đầu tư editor.",
+      "work": [
+        "Đọc tài liệu WebMCP chính thức tại thời điểm triển khai, ghi phiên bản trình duyệt, API, cờ/origin trial và cách chạy.",
+        "Làm trang thử độc lập, đăng ký tool đọc trạng thái và tool sửa trạng thái có thể hoàn tác; UI hiển thị cùng giá trị.",
+        "Thử discovery/invocation bằng agent thực tế; tách kiểm tra inspector/JS khỏi lời gọi WebMCP thật. Nếu không khả dụng, xác định giới hạn và đề xuất adapter/cầu nối có hợp đồng rõ."
+      ],
+      "acceptance": [
+        "Có hướng dẫn chạy từ clone, schema input/output, log đã lược dữ liệu nhạy cảm và ảnh UI trước/sau.",
+        "Báo cáo phân biệt native-pass, native-unavailable và handler-only; không giả lập kết quả native thành công.",
+        "Thử input lỗi, hủy nếu API hỗ trợ và trang tải lại; ghi hành vi thực tế.",
+        "Issue nghiên cứu có thể khép bằng bằng chứng không hỗ trợ; T12/T20 phải giữ trạng thái native chưa đạt nếu kết quả là unavailable."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không xây engine, không cài dịch vụ/mua gói trả phí, không tuyên bố mọi agent đều hỗ trợ WebMCP.",
+      "wave": 0,
+      "priority": "P0",
+      "readiness": "Ready",
+      "number": 3,
+      "id": 5401663907,
+      "node_id": "I_kwDOUTvul88AAAABQfbZow",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/3"
+    },
+    {
+      "key": "T03",
+      "title": "Chốt hợp đồng project, tọa độ, module và giao dịch tools v0",
+      "phase": "Foundation",
+      "lane": "Architecture",
+      "deps": [],
+      "ownership": "docs/product/contracts/; docs/product/architecture.md",
+      "outcome": "Các nhánh triển khai dùng một hợp đồng ổn định để làm song song, không đoán interface từ hội thoại.",
+      "work": [
+        "Đặc tả schema v0, ID ổn định, revision, assets trim/pivot, bone/slot/attachment, keyframe và các điểm mở rộng mesh/constraints.",
+        "Chốt giây/radian/X phải-Y lên, thứ tự transform, scale âm, loop boundary và chính sách rotation interpolation; đưa ví dụ số có đáp án tính tay.",
+        "Định nghĩa interface của model, commands, evaluator, renderer, storage, observation và transport; chỉ rõ sync/async và ownership.",
+        "Định nghĩa expectedRevision/requestId, atomic batch, undo/redo, checkpoint, job lifecycle, error codes và giới hạn lưu dedup."
+      ],
+      "acceptance": [
+        "Tài liệu có ít nhất project region hợp lệ và các ví dụ invalid: cycle, missing asset, NaN, revision cũ.",
+        "Mỗi ranh giới module có kiểu input/output và owner; mô tả cách dùng mock trước khi module khác merge.",
+        "Có quy tắc tăng version/migration và thông báo capability không hỗ trợ; không âm thầm bỏ dữ liệu.",
+        "Các thay đổi so với architecture đề xuất được ghi thành ADR kèm lý do; bàn giao đủ để T04-T10 không cần session cũ."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/scope.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không triển khai engine hoặc đóng đinh API tương thích Spine; web desktop là giả định đầu ra hiện tại.",
+      "wave": 0,
+      "priority": "P0",
+      "readiness": "Ready",
+      "number": 4,
+      "id": 5401664154,
+      "node_id": "I_kwDOUTvul88AAAABQfbamg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/4"
+    },
+    {
+      "key": "T04",
+      "title": "Dựng workspace sản phẩm độc lập và kiểm tra CI cơ bản",
+      "phase": "Foundation",
+      "lane": "Platform",
+      "deps": [
+        "T03"
+      ],
+      "ownership": "platform/package.json; platform/package-lock.json; platform/*config*; platform/apps/; .github/workflows/platform.yml",
+      "outcome": "Clone mới có thể cài, kiểm tra và chạy editor/player rỗng mà không phụ thuộc môi trường cá nhân.",
+      "work": [
+        "Dựng TypeScript + React + Vite dưới platform/; tách thư mục src/model, commands, engine, render, storage, observation, adapters theo hợp đồng.",
+        "Tạo script rõ ràng cho dev/build/typecheck/test và trình duyệt test; chọn phiên bản từ tài liệu hiện hành, commit lockfile.",
+        "CI chạy trên thay đổi platform; giữ nguyên package và các hiện vật học ở root. Thêm hướng dẫn yêu cầu runtime/cách chạy."
+      ],
+      "acceptance": [
+        "npm ci, npm run typecheck, npm test và npm run build chạy được tại platform/ trên clone sạch; ghi lệnh thực tế nếu chọn tên khác.",
+        "Editor và player có entry riêng, cùng import module lõi rỗng; không import @esotericsoftware/* vào bundle sản phẩm.",
+        "CI có kết quả chạy thành công hoặc lỗi môi trường cụ thể; không coi cấu hình YAML tồn tại là đã chạy pass.",
+        "T04 sở hữu lockfile/config ban đầu; các issue sau chỉ đổi khi thật sự cần và báo giao diện bị ảnh hưởng."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "package.json"
+      ],
+      "exclude": "Không thêm features animation, backend đăng nhập hoặc deploy production.",
+      "wave": 1,
+      "priority": "P0",
+      "readiness": "Blocked",
+      "number": 5,
+      "id": 5401664355,
+      "node_id": "I_kwDOUTvul88AAAABQfbbYw",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/5"
+    },
+    {
+      "key": "T05",
+      "title": "Triển khai model project v0 và kiểm tra dữ liệu đầu vào",
+      "phase": "Robot",
+      "lane": "Core",
+      "deps": [
+        "T04"
+      ],
+      "ownership": "platform/src/model/; platform/tests/model/",
+      "outcome": "Project có kiểu dữ liệu và validator dùng chung cho UI, tools, storage và player.",
+      "work": [
+        "Triển khai hợp đồng T03 cho assets, bones, slots, attachments, animations và editor state tách biệt.",
+        "Validator trả lỗi theo ID/path; kiểm tra tham chiếu, cycle, thời gian, số hữu hạn và version.",
+        "Tạo fixture synthetic nhỏ, round-trip JSON và migration dispatch từ phiên bản không hỗ trợ; extension mesh/constraint báo unsupported đến khi có implementation."
+      ],
+      "acceptance": [
+        "Unit tests có positive/negative và ví dụ transform từ T03; không chỉ kiểm tra snapshot implementation.",
+        "Không nhận cycle, dangling ID, NaN/Infinity, duplicate ID hoặc animation duration bất hợp lệ.",
+        "serialize/parse giữ semantics; editor state không lọt vào dữ liệu player bắt buộc.",
+        "Export interface công khai và fixture để T06/T07/T09 dùng mà không copy model."
+      ],
+      "refs": [
+        "docs/product/architecture.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 2,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 6,
+      "id": 5401664552,
+      "node_id": "I_kwDOUTvul88AAAABQfbcKA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/6"
+    },
+    {
+      "key": "T06",
+      "title": "Bộ lệnh atomic, revision, retry và lịch sử hoàn tác",
+      "phase": "Robot",
+      "lane": "Core",
+      "deps": [
+        "T05"
+      ],
+      "ownership": "platform/src/commands/; platform/tests/commands/",
+      "outcome": "UI và agent sửa cùng project qua giao dịch có thể phục hồi và không mất dữ liệu khi retry.",
+      "work": [
+        "Implement create_bones, attach_images, create_animation, set_keyframes/set_curves và inspect/capabilities cho region workflow.",
+        "Tất cả mutation kiểm expectedRevision, requestId và toàn bộ batch trước commit; dedup theo hợp đồng T03.",
+        "Thêm checkpoint, undo/redo và báo thay đổi theo ID; phát thông báo revision để UI cập nhật."
+      ],
+      "acceptance": [
+        "Batch có một operation lỗi không sửa gì; stale revision trả conflict và revision hiện tại.",
+        "Retry request không tạo bone/key trùng; test cùng ID với payload khác và dedup sau reload theo chính sách đã chọn.",
+        "Undo/redo/checkpoint phục hồi đúng data, revision semantics rõ ràng và không mất assets.",
+        "Tests mô phỏng user/agent sửa xen kẽ; README module có ví dụ input/output/error cho agent."
+      ],
+      "refs": [
+        "docs/product/architecture.md"
+      ],
+      "exclude": "Không trực tiếp vẽ canvas hoặc đăng ký WebMCP; không gắn hành vi vào selection UI ngầm định.",
+      "wave": 3,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 7,
+      "id": 5401664763,
+      "node_id": "I_kwDOUTvul88AAAABQfbc-w",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/7"
+    },
+    {
+      "key": "T07",
+      "title": "Tính pose xương và nội suy animation theo thời gian",
+      "phase": "Robot",
+      "lane": "Engine",
+      "deps": [
+        "T05"
+      ],
+      "ownership": "platform/src/engine/transforms.*; platform/src/engine/timeline.*; platform/tests/engine/",
+      "outcome": "Core trả pose tại thời điểm bất kỳ, độc lập DOM/renderer và không phụ thuộc thứ tự seek.",
+      "work": [
+        "Triển khai parent/local/world transforms, translate/rotate/scale và region attachment placement theo T03.",
+        "Triển khai stepped/linear/Bezier và duration/loop; chính sách rotation, scale âm và key trùng phải được kiểm chứng.",
+        "Evaluator nhận project và time, trả derived pose; setup không bị mutate."
+      ],
+      "acceptance": [
+        "Ví dụ có đáp án tính tay cho cha/con, scale âm, góc qua biên và điểm giữa đường cong.",
+        "20 thời điểm seek theo thứ tự ngẫu nhiên trùng evaluate trực tiếp trong sai số 1e-5.",
+        "Boundary t=0, duration, ngoài khoảng được xử lý theo hợp đồng; loop không âm thầm đổi setup.",
+        "Module không import React, DOM, PixiJS hoặc Spine runtime."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "lessons/027-editor-walk-swing-curves.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 3,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 8,
+      "id": 5401664964,
+      "node_id": "I_kwDOUTvul88AAAABQfbdxA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/8"
+    },
+    {
+      "key": "T08",
+      "title": "Renderer PixiJS cho ảnh gắn xương và viewport nhất quán",
+      "phase": "Robot",
+      "lane": "Renderer",
+      "deps": [
+        "T07",
+        "T01"
+      ],
+      "ownership": "platform/src/render/; platform/tests/render/",
+      "outcome": "Pose từ core được vẽ đúng bố trí, thứ tự che khuất và khung nhìn.",
+      "work": [
+        "Triển khai PixiJS renderer WebGL nhận evaluated pose; mapping tọa độ logic sang màn hình tập trung một chỗ.",
+        "Quản lý texture, alpha, draw order, camera fit và resize; giữ kích thước logic khi đổi resolution.",
+        "Dùng art đã rà T01 và fixture synthetic; đo thời gian update/render sơ bộ để T13 dùng."
+      ],
+      "acceptance": [
+        "Ảnh gắn xương khớp pose ở test translation/rotation/scale; kiểm tra pivot và trim.",
+        "Fit đủ cực trị, không cắt tay/anten; resize không đổi rig hoặc keyframes.",
+        "Giải phóng texture khi đổi project; báo asset thiếu rõ thay vì vẽ sai âm thầm.",
+        "Ghi browser/GPU và phép đo; renderer có adapter interface để player/observation dùng chung."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "exercises/robot/editor-review/README.md",
+        "lessons/081-editor-psd-scale-resolution.md"
+      ],
+      "exclude": "Không làm mesh weights hoặc editor timeline; không tối ưu WASM khi chưa có profile.",
+      "wave": 4,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 9,
+      "id": 5401665402,
+      "node_id": "I_kwDOUTvul88AAAABQfbfeg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/9"
+    },
+    {
+      "key": "T09",
+      "title": "Đóng gói project, lưu tự động và mở lại không mất assets",
+      "phase": "Robot",
+      "lane": "Storage",
+      "deps": [
+        "T05",
+        "T01"
+      ],
+      "ownership": "platform/src/storage/; platform/tests/storage/",
+      "outcome": "Project và assets được mang sang phiên/trình duyệt khác mà không dựa đường dẫn máy.",
+      "work": [
+        "Gói manifest+assets theo T03; import/export có version, kiểm hash và lỗi file thiếu.",
+        "Autosave tại trình duyệt, recovery sau reload; phân biệt bản lưu local với gói tải về.",
+        "Giới hạn kích thước và validate đường dẫn archive; migration trên bản sao, không ghi đè gói nguồn."
+      ],
+      "acceptance": [
+        "Round-trip gói giữ data và bytes/hash assets; hoạt động khi không có đường dẫn nguồn tuyệt đối.",
+        "Test archive hỏng, path traversal, asset thiếu, version mới hơn, quota/write failure và save bị ngắt.",
+        "Reload phục hồi revision nhất quán hoặc thông báo recovery rõ; không hiển thị đã lưu khi ghi thất bại.",
+        "Bàn giao API load/save cho editor/player/tools với trạng thái có cấu trúc."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 3,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 10,
+      "id": 5401665618,
+      "node_id": "I_kwDOUTvul88AAAABQfbgUg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/10"
+    },
+    {
+      "key": "T10",
+      "title": "Render pose/chuỗi ảnh, playback và vòng đời job quan sát",
+      "phase": "Robot",
+      "lane": "Observation",
+      "deps": [
+        "T08"
+      ],
+      "ownership": "platform/src/observation/; platform/tests/observation/",
+      "outcome": "Agent nhận được hình có ngữ cảnh thời gian/revision để đánh giá và sửa animation.",
+      "work": [
+        "Implement render_pose/render_sequence/preview_animation dùng renderer T08 và core T07.",
+        "Đóng băng revision đầu vào, trả metadata time/bounds/scale và media truy cập được; PNG sequence là đầu ra bắt buộc.",
+        "Job ID, status, cancel và cleanup; quota số frame/kích thước rõ."
+      ],
+      "acceptance": [
+        "Ảnh tại cùng time/camera/revision nhất quán; thay project đang chạy không trộn frame hai revision.",
+        "Đầu ra chứa 12 mốc hoặc lịch thời gian yêu cầu, không cắt cực trị khi dùng fit toàn sequence.",
+        "Hủy/dữ liệu lỗi không để job treo hoặc giữ bộ nhớ vô hạn; test export fail.",
+        "Có cách người dùng và agent thực tế xem media; chỉ trả đường dẫn máy không truy cập được là chưa đạt."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 5,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 11,
+      "id": 5401666008,
+      "node_id": "I_kwDOUTvul88AAAABQfbh2A",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/11"
+    },
+    {
+      "key": "T11",
+      "title": "Editor tối thiểu và player độc lập dùng cùng core",
+      "phase": "Robot",
+      "lane": "UI",
+      "deps": [
+        "T06",
+        "T08",
+        "T09"
+      ],
+      "ownership": "platform/apps/editor/; platform/apps/player/; platform/tests/e2e/editor/",
+      "outcome": "Người dùng nạp art, chỉnh rig/key và xem cùng trạng thái với tools; player phát gói đã xuất độc lập.",
+      "work": [
+        "Editor có canvas, cây đối tượng, thuộc tính, timeline scrub/play/pause, undo/redo và load/save.",
+        "Mọi sửa qua commands; không có bản sao project riêng trong UI. Hiển thị revision/save/error và dừng công việc.",
+        "Player nạp gói T09 và cùng core/renderer, không đọc editor globals hoặc storage ngầm."
+      ],
+      "acceptance": [
+        "E2E load → tạo xương/keys → xem → undo → save → reload giữ kết quả.",
+        "Input sai hiển thị lỗi có thể sửa, không mutate state; UI cập nhật khi command ngoài UI thay đổi project.",
+        "Player từ gói tải về chạy khi editor đã đóng; assets không cần đường dẫn workspace.",
+        "Ghi ảnh UI và hướng dẫn thao tác; chưa cần thiết kế lại toàn bộ giao diện Spine."
+      ],
+      "refs": [
+        "docs/product/README.md",
+        "docs/product/architecture.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 5,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 12,
+      "id": 5401666229,
+      "node_id": "I_kwDOUTvul88AAAABQfbitQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/12"
+    },
+    {
+      "key": "T12",
+      "title": "Kết nối tools sản phẩm qua WebMCP và công bố capabilities",
+      "phase": "Robot",
+      "lane": "Agent",
+      "deps": [
+        "T02",
+        "T06",
+        "T10",
+        "T09"
+      ],
+      "ownership": "platform/src/adapters/webmcp/; platform/tests/adapters/; docs/product/research/webmcp-integration.md; platform/src/adapters/webmcp/bridge.* (UI integration qua T13)",
+      "outcome": "Agent gọi bộ lệnh thật trên project đang hiển thị; adapter được tách khỏi core.",
+      "work": [
+        "Dựa kết quả T02, đăng ký schema/capabilities cho inspect_project, list_assets, rig, keyframes, history, observation, save_project/export_frames và get_job_status; storage dùng API T09.",
+        "Tool trả revision, IDs, errors và media/jobs; giới hạn dữ liệu trả về, hỗ trợ truy vấn chọn lọc.",
+        "Feature detection, lifecycle register/unregister và thông báo unsupported; nếu cần cầu nối, triển khai trong adapter riêng và ghi đúng loại kết nối.",
+        "Cung cấp component/entry bridge nhận project store và services, cùng harness độc lập; T13 sở hữu gắn bridge vào editor thực tế để T11 và adapter có thể phát triển song song theo hợp đồng."
+      ],
+      "acceptance": [
+        "Agent thực tế gọi tool sửa và quan sát, UI thấy cùng revision; test stale revision/retry/schema lỗi.",
+        "Không import protocol vào core; handler dùng commands/observation hiện có.",
+        "Báo cáo native-pass hay native-blocked-with-fallback; không dùng inspector-only để đánh dấu native-pass.",
+        "Capabilities chỉ liệt kê chức năng chạy được; reload/hủy/lỗi job có thông báo đủ để agent tiếp tục."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không nhét LLM API key vào frontend; không thêm cloud agent service. Native unavailable là giới hạn cần ghi cho T20, không được giấu bằng fallback.",
+      "wave": 6,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 13,
+      "id": 5401666412,
+      "node_id": "I_kwDOUTvul88AAAABQfbjbA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/13"
+    },
+    {
+      "key": "T13",
+      "title": "Gate 1 — kiểm chứng robot từ art đến project và player",
+      "phase": "Robot",
+      "lane": "Validation",
+      "deps": [
+        "T11",
+        "T12",
+        "T10"
+      ],
+      "ownership": "platform/fixtures/robot/; platform/tests/e2e/robot/; docs/product/results/experiment-1/; platform/apps/editor/entry integration (chỉ kết nối modules đã hoàn thành)",
+      "outcome": "Có bằng chứng quy trình robot độc lập với Spine và quyết định có thể mở rộng mesh/IK.",
+      "work": [
+        "Gắn bridge WebMCP T12 vào editor T11 với cùng project store, storage và observation; đây là glue tích hợp, không tự viết lại module đã có.",
+        "Dựng native robot idle/wave từ T01 qua commands; ghi brief, môi trường và revision.",
+        "Chạy toàn bộ thử nghiệm 1 trong experiments.md, gồm load/save/player/undo/error và playback.",
+        "Ghi lỗi gặp phải vào issue riêng hoặc sửa trong owner tương ứng; chỉ gọi gate đạt khi tiêu chí bắt buộc thực sự pass."
+      ],
+      "acceptance": [
+        "12 mốc mỗi animation: transform editor/player lệch <=1e-5; xem ít nhất 3 vòng và ghi chất lượng hình/nhịp.",
+        "Project đóng/mở lại và player chỉ dùng gói đã xuất; không import Spine runtime.",
+        "Đo 1280x720, 30 giây sau warm-up: p95 frame <=16.7ms trên máy ghi nhận; tách overhead capture.",
+        "Commit fixtures/log/report tái lập; nếu không đạt, giữ gate chưa hoàn thành và nêu nguyên nhân, không hạ ngưỡng sau khi đo."
+      ],
+      "refs": [
+        "docs/product/experiments.md",
+        "exercises/robot/editor-review/README.md"
+      ],
+      "exclude": "Không yêu cầu baseline Spine có export do bản Trial; không tuyên bố nhanh hơn Spine nếu chưa đo baseline mới.",
+      "wave": 7,
+      "priority": "P0",
+      "readiness": "Blocked",
+      "number": 14,
+      "id": 5401666628,
+      "node_id": "I_kwDOUTvul88AAAABQfbkRA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/14"
+    },
+    {
+      "key": "T14",
+      "title": "Mesh, bind pose, weights và deform trong core",
+      "phase": "Deformation",
+      "lane": "Engine",
+      "deps": [
+        "T13"
+      ],
+      "ownership": "platform/src/model/mesh.*; platform/src/engine/mesh.*; platform/tests/engine/mesh/",
+      "outcome": "Core tính được hình học biến dạng của khăn và thạch từ weights/keyframes.",
+      "work": [
+        "Bổ sung mesh schema/validator theo extension T03; implement bind pose, linear blend weights và deform timelines.",
+        "Định nghĩa rõ deform trước/sau skinning và cách xử lý parent transforms; ví dụ kiểm tính tay.",
+        "Dùng synthetic mesh trước art thật; xuất vertex positions cho renderer qua pose interface mở rộng có version."
+      ],
+      "acceptance": [
+        "Reject index lỗi, bone thiếu, weights âm/tổng sai >1e-5 và dữ liệu không hữu hạn.",
+        "Test rigid 100%, blended, setup recovery, negative scale và deform ở key/giữa key với expected geometry độc lập.",
+        "20 seeks ngẫu nhiên trùng evaluate trực tiếp trong 1e-5; không mutate mesh nguồn.",
+        "Bàn giao interface và fixtures cho T16/T17; không sửa evaluator IK do T15 sở hữu."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "lessons/093-editor-jelly-mesh.md",
+        "lessons/094-editor-jelly-face-weights.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 8,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 15,
+      "id": 5401666861,
+      "node_id": "I_kwDOUTvul88AAAABQfblLQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/15"
+    },
+    {
+      "key": "T15",
+      "title": "IK hai xương và chân trụ với hành vi xác định",
+      "phase": "Deformation",
+      "lane": "Constraints",
+      "deps": [
+        "T13"
+      ],
+      "ownership": "platform/src/model/ik.*; platform/src/engine/ik.*; platform/tests/engine/ik/",
+      "outcome": "Core giữ được điểm chân theo target trong phạm vi đã đặc tả.",
+      "work": [
+        "Bổ sung constraint IK hai xương, bend direction, mix và thứ tự giải; công bố policy scale/target ngoài tầm.",
+        "Viết solver độc lập mesh, tích hợp vào evaluator qua hook đã thống nhất.",
+        "Fixture chân trụ và các trường hợp degenerate; phối hợp T14 khi sửa entry chung, không ghi đè thay đổi."
+      ],
+      "acceptance": [
+        "Target trong tầm với: sai số endpoint <=0.5 pixel logic; có test 0/100% mix và góc gập hai phía.",
+        "Target ngoài tầm, chiều dài 0 và singular pose không sinh NaN; policy được mô tả và kiểm thử.",
+        "Seek ngẫu nhiên nhất quán trong 1e-5 và setup không đổi.",
+        "Bàn giao diagnostic target/endpoint để T17 dùng."
+      ],
+      "refs": [
+        "lessons/019-handbuilt-idle-and-ik.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không triển khai path/transform/physics constraints trong issue này.",
+      "wave": 8,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 16,
+      "id": 5401667182,
+      "node_id": "I_kwDOUTvul88AAAABQfbmbg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/16"
+    },
+    {
+      "key": "T16",
+      "title": "Hiển thị mesh và thay texture giữ nguyên kích thước logic",
+      "phase": "Deformation",
+      "lane": "Renderer",
+      "deps": [
+        "T14"
+      ],
+      "ownership": "platform/src/render/mesh.*; platform/tests/render/mesh/",
+      "outcome": "Geometry core được vẽ đúng với art khăn/thạch, kể cả đổi độ phân giải.",
+      "work": [
+        "Bổ sung mesh renderer vào T08, chuyển UV/indices và evaluated vertices đúng mapping tọa độ.",
+        "Giữ draw order/alpha và camera fit; overlay wireframe/weights tối thiểu phục vụ quan sát.",
+        "Thử thay ảnh nửa resolution với cùng logical dimensions, cleanup buffers/textures."
+      ],
+      "acceptance": [
+        "Ảnh tại bind/deform/extreme không lệch UV, rách vùng nối hoặc đảo mặt ngoài dự kiến.",
+        "Đổi resolution giữ bone/geometry/keyframe nguyên; test hash semantic trước/sau và ảnh cùng khung.",
+        "Capture qua T10 hoạt động với mesh và bounds bao gồm đỉnh biến dạng.",
+        "Đo chi phí cập nhật geometry trên cùng môi trường Gate 1."
+      ],
+      "refs": [
+        "lessons/088-editor-mesh-image-resolution.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 9,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 17,
+      "id": 5401667443,
+      "node_id": "I_kwDOUTvul88AAAABQfbncw",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/17"
+    },
+    {
+      "key": "T17",
+      "title": "Chẩn đoán weights, neo, trượt chân và nối vòng",
+      "phase": "Deformation",
+      "lane": "Diagnostics",
+      "deps": [
+        "T14",
+        "T15"
+      ],
+      "ownership": "platform/src/diagnostics/; platform/tests/diagnostics/",
+      "outcome": "Agent nhận lỗi chuyển động theo đối tượng/thời gian và ngưỡng có ý nghĩa.",
+      "work": [
+        "Implement validate_project/measure_motion cho weights, triangle flip, anchor drift, foot target và loop position/velocity.",
+        "Kết quả có ID, time, đơn vị, observed/threshold, sampling policy và giới hạn kết luận.",
+        "Fixtures cố tình lỗi và đối chứng tốt; phân biệt lỗi kỹ thuật với đánh giá thẩm mỹ."
+      ],
+      "acceptance": [
+        "Phát hiện weights không hợp lệ, neo drift >0.5px và chân lệch >0.5px trong fixture tương ứng.",
+        "Loop mượt: ngưỡng vị trí 0.5px, tốc độ 5% peak hoặc 0.5px/s gần đứng yên; policy sai phân/epsilon được khóa trước đo.",
+        "Fixture tốt không bị flag sai; triangle flip phân biệt negative-scale toàn hình với inversion cục bộ.",
+        "Kết quả bounded/paginated, không cần trả toàn bộ geometry để hiểu lỗi."
+      ],
+      "refs": [
+        "docs/product/experiments.md",
+        "lessons/095-editor-jelly-base-weights.md",
+        "lessons/078-editor-stop-right-support.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 9,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 18,
+      "id": 5401667689,
+      "node_id": "I_kwDOUTvul88AAAABQfboaQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/18"
+    },
+    {
+      "key": "T18",
+      "title": "Tools và điều khiển tối thiểu cho mesh, IK và chẩn đoán",
+      "phase": "Deformation",
+      "lane": "Agent",
+      "deps": [
+        "T16",
+        "T17",
+        "T12"
+      ],
+      "ownership": "platform/src/commands/mesh.*; platform/src/commands/constraints.*; platform/src/adapters/webmcp/; platform/apps/editor/mesh-controls/",
+      "outcome": "Agent tạo/sửa weights, deform và IK rồi đọc chẩn đoán trên cùng project.",
+      "work": [
+        "Thêm batch mesh/weights/deform/IK commands với revision/atomic/undo như region commands.",
+        "Expose schema và diagnostics qua adapter; UI có chọn vùng, xem weights/constraint và sửa thông số tối thiểu.",
+        "Update capabilities, storage và player compatibility qua module API; không lén bỏ mesh khi save."
+      ],
+      "acceptance": [
+        "Agent sửa một vùng weights, render rồi measure; vùng không chọn giữ nguyên.",
+        "Undo/retry/batch failure hoạt động với mesh; fixture được save/reload/player giữ geometry.",
+        "Capabilities báo đúng mesh/IK/diagnostics; invalid vertex/bone ID có lỗi rõ.",
+        "E2E có một thao tác UI và một thao tác tool trên cùng revision; các regression region vẫn pass."
+      ],
+      "refs": [
+        "docs/product/architecture.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 10,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "number": 19,
+      "id": 5401667898,
+      "node_id": "I_kwDOUTvul88AAAABQfbpOg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/19"
+    },
+    {
+      "key": "T19",
+      "title": "Gate 2 — kiểm chứng khăn, thạch và chân trụ",
+      "phase": "Deformation",
+      "lane": "Validation",
+      "deps": [
+        "T18"
+      ],
+      "ownership": "platform/fixtures/deformation/; platform/tests/e2e/deformation/; docs/product/results/experiment-2/",
+      "outcome": "Có bằng chứng mesh/IK đáp ứng thử nghiệm 2 trước khi đo agent toàn workflow.",
+      "work": [
+        "Dựng fixtures từ art T01 bằng commands: khăn neo, thạch giữ mặt/đáy, IK chân trụ.",
+        "Chạy sampling/seek/đổi ảnh/performance theo experiments.md, lưu ảnh và các thông số dùng đo.",
+        "Physics là optional và chưa thuộc gate; ghi not-tested thay vì pass nếu chưa có solver."
+      ],
+      "acceptance": [
+        "Weights tổng sai <=1e-5, neo/đáy/chân trụ <=0.5px, chiều cao mắt thay đổi <=5% trong brief giữ mặt.",
+        "Kiểm tra 60 mẫu/vòng, cực trị và playback; loop vị trí/vận tốc theo T17, 20 seeks sai <=1e-5.",
+        "Thay texture nửa resolution không đổi hình học/rig/animation.",
+        "Report gắn commit/browser/fixtures; lỗi bắt buộc chưa sửa thì gate vẫn mở."
+      ],
+      "refs": [
+        "docs/product/experiments.md",
+        "exercises/soft-character/README.md",
+        "lessons/086-editor-scarf-delayed-idle.md"
+      ],
+      "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
+      "wave": 11,
+      "priority": "P0",
+      "readiness": "Blocked",
+      "number": 20,
+      "id": 5401668227,
+      "node_id": "I_kwDOUTvul88AAAABQfbqgw",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/20"
+    },
+    {
+      "key": "T20",
+      "title": "Gate 3 — đo agent tạo và sửa animation qua WebMCP",
+      "phase": "Agent evaluation",
+      "lane": "Validation",
+      "deps": [
+        "T19"
+      ],
+      "ownership": "platform/tests/agent-evals/; docs/product/results/experiment-3/",
+      "outcome": "Đánh giá agent hoàn thành độc lập ba brief và sửa được lỗi mà không cần cứu bằng chỉnh file.",
+      "work": [
+        "Khóa 3 brief từ experiments.md, trạng thái đầu, budget, model/browser và rubric trước chạy.",
+        "Mỗi brief chạy 3 lần sạch; thu log tool, revision, media, thời gian, chi phí nếu đo được và can thiệp thủ công.",
+        "Thử lỗi retry/stale revision/atomic batch/user interruption; đo kênh không liên quan ở brief sửa wave."
+      ],
+      "acceptance": [
+        "Mỗi brief đạt >=2/3 lần trong <=15 phút và <=100 tool calls/lần; thống kê cả failure, không chọn riêng lần đẹp.",
+        "Native WebMCP có bằng chứng discovery/invocation; nếu chỉ fallback thì báo fallback-only và giữ native acceptance chưa đạt.",
+        "Project cuối mở lại được; agent quan sát và sửa lỗi weights chủ đích, không sửa trực tiếp JSON ngoài public tools.",
+        "Không đổi kênh thân trong brief giữ thân; ghi human rescue riêng feedback sáng tạo và không bịa chi phí unavailable."
+      ],
+      "refs": [
+        "docs/product/experiments.md",
+        "docs/product/architecture.md"
+      ],
+      "exclude": "Không coi kết quả 9 lần là thống kê production reliability; không tự đổi model/ngưỡng giữa lần mà không đánh dấu run mới.",
+      "wave": 12,
+      "priority": "P0",
+      "readiness": "Blocked",
+      "number": 21,
+      "id": 5401668426,
+      "node_id": "I_kwDOUTvul88AAAABQfbrSg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/21"
+    },
+    {
+      "key": "T21",
+      "title": "Chốt kiến trúc MVP và quyết định mở rộng từ bằng chứng",
+      "phase": "Decision",
+      "lane": "Architecture",
+      "deps": [
+        "T20"
+      ],
+      "ownership": "docs/product/decisions/mvp.md; docs/product/README.md; docs/product/scope.md",
+      "outcome": "Có quyết định stack/phạm vi dựa trên ba gate, cùng các đánh đổi và thứ tự đầu tư tiếp.",
+      "work": [
+        "Tổng hợp report của T13/T19/T20; phân biệt measured, chưa biết và giả định.",
+        "Chốt renderer/core/storage/agent adapter; nếu fail, lập corrective issue cụ thể và cập nhật blockers thay vì tuyên bố đạt.",
+        "Đánh giá giá trị workflow, đầu ra đích và chi phí; chỉ so Spine khi có baseline tương đương."
+      ],
+      "acceptance": [
+        "ADR có lựa chọn, bằng chứng/link commit, hạn chế và điều kiện xem lại.",
+        "Ba gate đạt trước khi đánh dấu MVP feasible; failure dẫn đến quyết định dừng/đổi hướng có lý do, không mở rộng tính năng vô điều kiện.",
+        "Mỗi backlog discovery sau đây được ưu tiên/defer rõ; dependency được cập nhật nếu thay đổi kiến trúc.",
+        "README chỉ mô tả capabilities đã chứng minh và cách chạy từ clone."
+      ],
+      "refs": [
+        "docs/product/README.md",
+        "docs/product/scope.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không tự deploy production, hứa lịch full parity hoặc triển khai các tính năng tương lai trong issue quyết định.",
+      "wave": 13,
+      "priority": "P0",
+      "readiness": "Blocked",
+      "number": 22,
+      "id": 5401668636,
+      "node_id": "I_kwDOUTvul88AAAABQfbsHA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/22"
+    },
+    {
+      "key": "T22",
+      "title": "Discovery — nhập PSD và cập nhật art giữ nguyên rig",
+      "phase": "Later discovery",
+      "lane": "Assets",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/psd-import.md; prototypes/psd-import/",
+      "outcome": "Có đặc tả và thử nghiệm nhỏ để quyết định PSD importer an toàn cho rig hiện có.",
+      "work": [
+        "Khảo sát parser/giấy phép, layer/group naming, trim, pivot và logical size; dùng mẫu đã học.",
+        "Prototype đọc một PSD nhỏ, ánh xạ stable asset ID và lập diff khi thay art; không tích hợp editor lớn.",
+        "Thiết kế xử lý rename/delete/reorder, ảnh đổi resolution và conflict với rig."
+      ],
+      "acceptance": [
+        "Báo cáo có fixtures, commands chạy, thư viện/phiên bản và mapping layer → asset.",
+        "Chứng minh pixel-only update giữ rig; trim/resolution changes có policy kiểm bằng hình và dữ liệu.",
+        "Đưa ra acceptance và các issue implementation tiếp theo với dependency rõ; nếu chưa khả thi ghi lý do."
+      ],
+      "refs": [
+        "lessons/065-editor-psd-sync.md",
+        "lessons/073-editor-psd-group-sync.md",
+        "lessons/074-editor-psd-trim-dimensions.md",
+        "lessons/088-editor-mesh-image-resolution.md"
+      ],
+      "exclude": "Đây là discovery sau MVP, không cam kết hỗ trợ mọi PSD hoặc tự triển khai importer production.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 23,
+      "id": 5401668922,
+      "node_id": "I_kwDOUTvul88AAAABQfbtOg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/23"
+    },
+    {
+      "key": "T23",
+      "title": "Discovery — mixing, chuyển tiếp, events và đồng bộ audio",
+      "phase": "Later discovery",
+      "lane": "Animation",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/mixing-events.md; prototypes/mixing/",
+      "outcome": "Chốt semantics playback nhiều track trước khi mở rộng engine.",
+      "work": [
+        "Đặc tả overwrite/additive, masks, alpha, transition-out/hold, root motion và event policy khi seek/loop.",
+        "Prototype bằng fixture số cho walk+wave và stop theo chân trụ; chỉ ra thứ tự với constraints.",
+        "Thiết kế audio clock, stop/restart và cách kiểm nghe thực tế; events metadata không thay thế xác nhận audio."
+      ],
+      "acceptance": [
+        "Có bảng truth table cho alpha/track removal/zero-speed/loop và test vectors có expected pose.",
+        "Event crossing không bị nhân đôi khi seek/loop theo policy; chuyển tiếp stop có fixture giữ chân.",
+        "Bàn giao đề xuất API, acceptance và work items riêng cho mixing và audio; ghi phần chỉ mới phân tích."
+      ],
+      "refs": [
+        "lessons/057-editor-preview-transition.md",
+        "lessons/059-editor-additive-offset.md",
+        "lessons/079-editor-stop-phase-entry.md",
+        "lessons/097-user-audio-check.md"
+      ],
+      "exclude": "Không thay evaluator MVP trước khi chốt semantics; không kết luận nghe khớp chỉ từ waveform.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 24,
+      "id": 5401669245,
+      "node_id": "I_kwDOUTvul88AAAABQfbufQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/24"
+    },
+    {
+      "key": "T24",
+      "title": "Discovery — skins, linked mesh, clipping và thứ tự vẽ",
+      "phase": "Later discovery",
+      "lane": "Attachments",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/attachments.md; prototypes/attachments/",
+      "outcome": "Có thiết kế dữ liệu/ownership cho biến thể nhân vật mà không làm hỏng animation chung.",
+      "work": [
+        "Phân tích skin selection, shared geometry/weights, deform inheritance và copy-on-write bằng mẫu khăn/helmet.",
+        "Xác định clipping start/end theo slot order và ảnh hưởng đổi skin.",
+        "Prototype fixture nhỏ chứng minh dữ liệu chia sẻ/tách; đề xuất command và storage migration."
+      ],
+      "acceptance": [
+        "Đổi skin giữ animation, tách deform không mutate mesh nguồn trong fixture.",
+        "Clipping/order cases có expected image và giới hạn hỗ trợ.",
+        "Tách backlog implementation cho skins/linked mesh và clipping, đủ acceptance/dependencies trước code production."
+      ],
+      "refs": [
+        "lessons/034-editor-linked-skins.md",
+        "lessons/075-editor-helmet-skin.md",
+        "lessons/083-editor-scarf-linked-mesh.md",
+        "lessons/007-editor-clipping.md"
+      ],
+      "exclude": "Không triển khai toàn bộ attachment system trong discovery.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 25,
+      "id": 5401669469,
+      "node_id": "I_kwDOUTvul88AAAABQfbvXQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/25"
+    },
+    {
+      "key": "T25",
+      "title": "Discovery — path và transform constraints",
+      "phase": "Later discovery",
+      "lane": "Constraints",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/path-transform.md; prototypes/path-transform/",
+      "outcome": "Đặc tả solver order và edge cases cho path/transform trước khi code engine mở rộng.",
+      "work": [
+        "Dùng dây/path đã học để xác định spacing, rotate mode, closed path, weighted path và deform.",
+        "Thiết kế local/world transform constraints, mix, cycle detection và tương tác với IK.",
+        "Tạo numerical fixture so chiều dài/spacing/điểm quay đầu; đề xuất API và chi phí tính."
+      ],
+      "acceptance": [
+        "Có expected vectors cho spacing, turnaround, deform và weighted path.",
+        "Thứ tự solver rõ, cycle báo lỗi; không lấy tên tính năng Spine làm đặc tả đầy đủ.",
+        "Bàn giao ADR và các issue implementation tách theo solver, cùng test fixtures."
+      ],
+      "refs": [
+        "lessons/011-editor-transform-constraint.md",
+        "lessons/046-editor-path-spacing.md",
+        "lessons/053-editor-path-weights.md"
+      ],
+      "exclude": "Không gộp physics vào solver path hoặc hứa tương thích bit-for-bit với Spine.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 26,
+      "id": 5401669668,
+      "node_id": "I_kwDOUTvul88AAAABQfbwJA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/26"
+    },
+    {
+      "key": "T26",
+      "title": "Discovery — physics tái lập khi seek, reset và export",
+      "phase": "Later discovery",
+      "lane": "Physics",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/physics.md; prototypes/physics/",
+      "outcome": "Có mô hình physics phụ kiện chạy lại được với timeline/player/export.",
+      "work": [
+        "Prototype chain/khăn với fixed step, initial state, reset/replay/checkpoint và bake.",
+        "Đặc tả mix với keyed motion, wind/gravity/damping và policy loop; phân biệt trở về nền với giữ nguyên pose mô phỏng.",
+        "Đo seek cost và determinism cùng máy; ghi riêng khác biệt cross-browser."
+      ],
+      "acceptance": [
+        "Bước 1/60 giây, replay cùng input đạt sai số <=1e-4 trên môi trường ghi nhận.",
+        "Loop/seek/export có policy và test; giảm mix không được đánh đồng với freeze pose.",
+        "Bàn giao thông số, evidence, giới hạn và các issue implementation sau khi quyết định tích hợp."
+      ],
+      "refs": [
+        "lessons/064-editor-physics-loop.md",
+        "lessons/067-editor-physics-chain.md",
+        "lessons/090-editor-scarf-physics-stop.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Physics không chặn Gate 2 hiện tại và không tự động được coi là production-ready từ prototype.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 27,
+      "id": 5401669909,
+      "node_id": "I_kwDOUTvul88AAAABQfbxFQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/27"
+    },
+    {
+      "key": "T27",
+      "title": "Discovery — spritesheet, video và đầu ra game engine",
+      "phase": "Later discovery",
+      "lane": "Export",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/exports.md; prototypes/exports/",
+      "outcome": "Chọn đầu ra tiếp theo theo nơi sử dụng thực tế, với kiểm tra chất lượng và chi phí.",
+      "work": [
+        "Đánh giá spritesheet/atlas (bounds, padding, alpha), video (FPS, codec, alpha/audio) và player tích hợp engine.",
+        "Tạo một export nhỏ từ native fixture; dùng frame/time từ core, không record màn hình làm chuẩn.",
+        "Ghi nhu cầu đích chưa xác nhận, so tradeoffs và đề xuất ưu tiên; không mặc định mọi engine."
+      ],
+      "acceptance": [
+        "Output sample mở được bằng consumer độc lập và không crop cực trị; metadata thời gian rõ.",
+        "Báo cáo license/toolchain, browser limitations, resolution/duration/cost và validation method.",
+        "Đưa ra issue implementation cho đầu ra được chọn; các lựa chọn còn lại ghi deferred."
+      ],
+      "refs": [
+        "docs/product/README.md",
+        "docs/product/scope.md",
+        "docs/product/experiments.md"
+      ],
+      "exclude": "Không hứa tương thích .spine/.skel hay phân phối Spine runtime; không cần triển khai mọi codec/engine.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 28,
+      "id": 5401670145,
+      "node_id": "I_kwDOUTvul88AAAABQfbyAQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/28"
+    },
+    {
+      "key": "T28",
+      "title": "Discovery — từ ảnh phẳng đến art tách lớp và rig đề xuất",
+      "phase": "Later discovery",
+      "lane": "Art pipeline",
+      "deps": [
+        "T21"
+      ],
+      "ownership": "docs/product/research/flat-art.md; prototypes/flat-art/",
+      "outcome": "Định lượng bài toán art chưa tách bộ phận trước khi đưa vào scope sản phẩm.",
+      "work": [
+        "Chọn bộ ảnh có quyền sử dụng, liệt kê occlusion, joint ambiguity và phần cần inpaint; phân biệt segmentation, completion và rig suggestion.",
+        "Đề xuất pipeline có bước người dùng sửa; khảo sát phương án local/dịch vụ cùng quyền dữ liệu và chi phí.",
+        "Nếu có thử dịch vụ cần dùng art được phép và scope đã ủy quyền; không tự gửi art riêng ra ngoài. Có thể khép bằng nghiên cứu tái lập mà chưa chạy dịch vụ."
+      ],
+      "acceptance": [
+        "Có rubric mask edges, thiếu vùng bị che, joint placement và thời gian sửa; không chỉ ảnh demo đẹp.",
+        "Báo cáo nêu phương án, bằng chứng, phần chưa thử, chi phí/điều kiện dữ liệu và điểm cần người dùng quyết định.",
+        "Đưa ra quyết định nhận/hoãn cùng backlog implementation; không làm thay đổi đầu vào PNG tách sẵn của MVP."
+      ],
+      "refs": [
+        "docs/product/README.md",
+        "exercises/robot/README.md",
+        "exercises/soft-character/README.md"
+      ],
+      "exclude": "Không tự sinh art bằng dịch vụ trả phí hoặc cam kết auto-rig cho mọi nhân vật.",
+      "wave": 14,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "number": 29,
+      "id": 5401670351,
+      "node_id": "I_kwDOUTvul88AAAABQfbyzw",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/29"
+    }
+  ],
+  "tracking_issue": {
+    "number": 1,
+    "id": 5401663321,
+    "node_id": "I_kwDOUTvul88AAAABQfbXWQ",
+    "html_url": "https://github.com/hoangnb24/learn-spine/issues/1"
+  }
+}
