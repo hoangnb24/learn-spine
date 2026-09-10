@@ -1,0 +1,253 @@
+{
+  "date": "2026-09-10T16:32:55.133Z",
+  "agent": "Codex desktop agent",
+  "os": "macOS 26.4 arm64",
+  "transport": "tab webmcp.fetchTools / tools.call; no evaluate or inspector tool invocation",
+  "discovery": "WebMCP tools available in this document:\n[\n  {\n    \"name\": \"probe_read\",\n    \"description\": \"Read the local probe value, revision and undo availability. No external data.\",\n    \"inputSchema\": {\n      \"additionalProperties\": false,\n      \"properties\": {},\n      \"type\": \"object\"\n    },\n    \"annotations\": {\n      \"readOnlyHint\": true\n    },\n    \"origin\": \"http://127.0.0.1:8766\",\n    \"pageUrl\": \"http://127.0.0.1:8766/prototypes/webmcp-probe/\"\n  },\n  {\n    \"name\": \"probe_set\",\n    \"description\": \"Set the local disposable probe integer from -100 to 100. Read current revision first. Undo is available. Optional delayMs allows testing cancellation.\",\n    \"inputSchema\": {\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"delayMs\": {\n          \"maximum\": 5000,\n          \"minimum\": 0,\n          \"type\": \"integer\"\n        },\n        \"expectedRevision\": {\n          \"minimum\": 0,\n          \"type\": \"integer\"\n        },\n        \"requestId\": {\n          \"maxLength\": 100,\n          \"minLength\": 1,\n          \"type\": \"string\"\n        },\n        \"value\": {\n          \"maximum\": 100,\n          \"minimum\": -100,\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"value\",\n        \"expectedRevision\",\n        \"requestId\"\n      ],\n      \"type\": \"object\"\n    },\n    \"annotations\": {\n      \"readOnlyHint\": false\n    },\n    \"origin\": \"http://127.0.0.1:8766\",\n    \"pageUrl\": \"http://127.0.0.1:8766/prototypes/webmcp-probe/\"\n  },\n  {\n    \"name\": \"probe_undo\",\n    \"description\": \"Undo the most recent local probe change. Read current revision first.\",\n    \"inputSchema\": {\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"expectedRevision\": {\n          \"minimum\": 0,\n          \"type\": \"integer\"\n        },\n        \"requestId\": {\n          \"maxLength\": 100,\n          \"minLength\": 1,\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"expectedRevision\",\n        \"requestId\"\n      ],\n      \"type\": \"object\"\n    },\n    \"annotations\": {\n      \"readOnlyHint\": false\n    },\n    \"origin\": \"http://127.0.0.1:8766\",\n    \"pageUrl\": \"http://127.0.0.1:8766/prototypes/webmcp-probe/\"\n  }\n]\nCall tools.call(name, input) to invoke one.",
+  "calls": [
+    {
+      "name": "probe_read",
+      "input": {},
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":0,\"revision\":0,\"canUndo\":false}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "probe_set",
+      "input": {
+        "value": 7,
+        "expectedRevision": 0,
+        "requestId": "native-set-1"
+      },
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":7,\"revision\":1,\"canUndo\":true}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "probe_set",
+      "input": {
+        "value": 7,
+        "expectedRevision": 0,
+        "requestId": "native-set-1"
+      },
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":7,\"revision\":1,\"canUndo\":true}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "probe_set",
+      "input": {
+        "value": 9,
+        "expectedRevision": 0,
+        "requestId": "native-stale"
+      },
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":false,\"error\":{\"code\":\"REVISION_CONFLICT\"},\"value\":7,\"revision\":1,\"canUndo\":true}",
+            "type": "text"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "name": "probe_set",
+      "input": {
+        "value": "bad",
+        "expectedRevision": 1,
+        "requestId": "native-invalid"
+      },
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":false,\"error\":{\"code\":\"INVALID_INPUT\"},\"value\":7,\"revision\":1,\"canUndo\":true}",
+            "type": "text"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "name": "probe_undo",
+      "input": {
+        "expectedRevision": 1,
+        "requestId": "native-undo-1"
+      },
+      "response": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":0,\"revision\":2,\"canUndo\":false}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ],
+  "connection": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "documentModelContext": true,
+    "navigatorModelContext": false,
+    "registeredTools": [
+      "probe_read",
+      "probe_set",
+      "probe_undo"
+    ],
+    "registrationErrors": [],
+    "agentInvocation": "registered-callback-observed; verify caller log separately",
+    "surface": "document.modelContext"
+  },
+  "events": [
+    {
+      "at": "2026-09-10T16:32:54.534Z",
+      "name": "probe_read",
+      "input": {},
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0,
+      "result": {
+        "ok": true,
+        "value": 0,
+        "revision": 0,
+        "canUndo": false
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.662Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 0,
+        "requestId": "native-set-1",
+        "value": 7
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0.1,
+      "result": {
+        "ok": true,
+        "value": 7,
+        "revision": 1,
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.762Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 0,
+        "requestId": "native-set-1",
+        "value": 7
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0,
+      "result": {
+        "ok": true,
+        "value": 7,
+        "revision": 1,
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.766Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 0,
+        "requestId": "native-stale",
+        "value": 9
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "REVISION_CONFLICT"
+        },
+        "value": 7,
+        "revision": 1,
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.770Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 1,
+        "requestId": "native-invalid",
+        "value": "bad"
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_INPUT"
+        },
+        "value": 7,
+        "revision": 1,
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.774Z",
+      "name": "probe_undo",
+      "input": {
+        "expectedRevision": 1,
+        "requestId": "native-undo-1"
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0.1,
+      "result": {
+        "ok": true,
+        "value": 0,
+        "revision": 2,
+        "canUndo": false
+      }
+    },
+    {
+      "at": "2026-09-10T16:32:54.889Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 2,
+        "requestId": "f8b1599a-9648-4649-8d91-c5b2028f7725",
+        "value": 99,
+        "delayMs": 1000
+      },
+      "source": "ui-handler",
+      "signalProvided": true,
+      "durationMs": 0.1,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "CANCELLED"
+        },
+        "value": 0,
+        "revision": 2,
+        "canUndo": false
+      }
+    }
+  ]
+}

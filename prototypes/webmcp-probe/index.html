@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thử kết nối agent · Animation Lab</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light; font: 16px/1.6 system-ui,sans-serif; color: #192d32; background: #edf3f1; }
+  body { max-width: 960px; margin: 48px auto; padding: 0 24px; }
+  h1 { font-size: 32px; line-height: 1.2; } h2 { font-size: 18px; }
+  section { background: white; padding: 24px; border-radius: 16px; margin: 20px 0; border: 1px solid #d5e1dc; }
+  .label { color: #516863; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  #value { font-size: 64px; font-weight: 650; line-height: 1.2; }
+  button,input { font: inherit; border-radius: 8px; border: 1px solid #a4b7b0; padding: 9px 14px; }
+  button { cursor: pointer; background: #e8f4ee; } button:hover { background: #d1e9dc; }
+  input { width: 100px; } .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; max-height: 300px; overflow: auto; }
+  #status { font-weight: 600; } .muted { color: #516863; }
+</style>
+<div class="label">Animation Lab / Foundation / #3</div>
+<h1>Agent và bạn cùng sửa một trạng thái</h1>
+<p>Trang thử kết nối trước khi xây editor animation. Các nút dưới đây thử logic tại trang; bằng chứng agent gọi công cụ được ghi riêng.</p>
+<section>
+  <div id="status" role="status">Đang kiểm tra kết nối…</div>
+  <p id="environment" class="muted"></p>
+  <div id="value" aria-label="Giá trị hiện tại">0</div>
+  <p id="revision">Revision 0</p>
+  <div class="controls">
+    <label for="next">Giá trị mới</label><input id="next" type="number" min="-100" max="100" value="7">
+    <button id="set">Áp dụng</button><button id="undo">Hoàn tác</button>
+    <button id="invalid">Thử dữ liệu lỗi</button><button id="cancel">Thử hủy trước khi sửa</button>
+    <button id="native-cancel">Thử hủy qua API trình duyệt</button>
+  </div>
+  <p id="outcome" aria-live="polite">Chưa có thao tác.</p>
+</section>
+<section><h2>Thông tin kết nối</h2><pre id="connection"></pre></section>
+<section><h2>Nhật ký trong phiên</h2><p class="muted">Tải lại trang sẽ đưa giá trị về 0 và bắt đầu phiên mới. Không gửi dữ liệu ra dịch vụ ngoài.</p><pre id="log">[]</pre></section>
+<script type="module" src="./app.mjs"></script>
+</html>

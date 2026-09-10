@@ -1,0 +1,671 @@
+{
+  "manifestVersion": 1,
+  "reviewedAt": "2026-09-10",
+  "pathBase": "repository-root",
+  "records": [
+    {
+      "id": "robot-head",
+      "path": "exercises/robot/images/parts/head.png",
+      "role": "rig-input",
+      "sha256": "a90df700e41afcdf8436eef8bc414d433c78b1a0444042f218b7ed1a043fcd0c",
+      "byteLength": 108839,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 283,
+      "pixelHeight": 259,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          65,
+          20,
+          385,
+          310
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          19,
+          14,
+          302,
+          273
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-body",
+      "path": "exercises/robot/images/parts/body.png",
+      "role": "rig-input",
+      "sha256": "e614397bb2ff17366e37b370ee75bf6a0267e56ea7fe9f3c993f5952231c8065",
+      "byteLength": 62801,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 203,
+      "pixelHeight": 204,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          415,
+          75,
+          650,
+          315
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          19,
+          18,
+          222,
+          222
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-pelvis",
+      "path": "exercises/robot/images/parts/pelvis.png",
+      "role": "rig-input",
+      "sha256": "583c839f006ebd00ec73216e64e51f8ec8f70e11662658ee66780d3bc4059fd6",
+      "byteLength": 30280,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 193,
+      "pixelHeight": 112,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          700,
+          170,
+          930,
+          310
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          20,
+          14,
+          213,
+          126
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-upper-arm-left",
+      "path": "exercises/robot/images/parts/upper-arm-left.png",
+      "role": "rig-input",
+      "sha256": "30569903c7eadb2205402724799b5bc53f955bfb6065f82f5c2a948ef3684ac0",
+      "byteLength": 27070,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 97,
+      "pixelHeight": 175,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          125,
+          365,
+          250,
+          565
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          18,
+          16,
+          115,
+          191
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-forearm-left",
+      "path": "exercises/robot/images/parts/forearm-left.png",
+      "role": "rig-input",
+      "sha256": "0ebf399545bac17961a88061b1f5ad897ec5a434fdc7f486b716f6c576de729c",
+      "byteLength": 38207,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 94,
+      "pixelHeight": 251,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          410,
+          350,
+          550,
+          635
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          23,
+          18,
+          117,
+          269
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-hand-left",
+      "path": "exercises/robot/images/parts/hand-left.png",
+      "role": "rig-input",
+      "sha256": "bee1adf7b52db6d95af3b66a82a91e758c01895e708a8b0687b9118a90d520bb",
+      "byteLength": 34948,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 203,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          700,
+          385,
+          840,
+          615
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          22,
+          13,
+          124,
+          216
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-upper-arm-right",
+      "path": "exercises/robot/images/parts/upper-arm-right.png",
+      "role": "rig-input",
+      "sha256": "7270207396e6f6b894910f3d60a87946ce29dc497eafa18c7da47d22a6e0708a",
+      "byteLength": 26316,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 95,
+      "pixelHeight": 173,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          125,
+          675,
+          255,
+          880
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          20,
+          17,
+          115,
+          190
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-forearm-right",
+      "path": "exercises/robot/images/parts/forearm-right.png",
+      "role": "rig-input",
+      "sha256": "65b15f8db39633b980705effed3d919ee61e36eda3428a22a30a3d22f504c54b",
+      "byteLength": 37706,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 93,
+      "pixelHeight": 249,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          410,
+          675,
+          560,
+          955
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          47,
+          16,
+          140,
+          265
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-hand-right",
+      "path": "exercises/robot/images/parts/hand-right.png",
+      "role": "rig-input",
+      "sha256": "bc9e3adaff8a0fe4e3dda3b33949a3a2c8a4449d7780444fda62d836074e687e",
+      "byteLength": 34919,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 203,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          695,
+          700,
+          835,
+          935
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          16,
+          16,
+          118,
+          219
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-thigh-left",
+      "path": "exercises/robot/images/parts/thigh-left.png",
+      "role": "rig-input",
+      "sha256": "1cd82a707b584d927ffda7ca278ac635554ccd836d8e22a5c08548f5ce0d9d6f",
+      "byteLength": 32409,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 214,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          110,
+          965,
+          245,
+          1210
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          17,
+          18,
+          119,
+          232
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-shin-left",
+      "path": "exercises/robot/images/parts/shin-left.png",
+      "role": "rig-input",
+      "sha256": "f637e7fd943626721de0e244d3fe55ea3db10614ec7637416110193227946eef",
+      "byteLength": 36738,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 219,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          410,
+          965,
+          555,
+          1220
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          15,
+          22,
+          117,
+          241
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-foot-left",
+      "path": "exercises/robot/images/parts/foot-left.png",
+      "role": "rig-input",
+      "sha256": "88b79ec654769ea872976bf418e5d012f5d5c978fae6033078965d3fb733c541",
+      "byteLength": 55791,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 194,
+      "pixelHeight": 176,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          670,
+          1010,
+          900,
+          1220
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          17,
+          19,
+          211,
+          195
+        ],
+        "mirroredFrom": null,
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-thigh-right",
+      "path": "exercises/robot/images/parts/thigh-right.png",
+      "role": "rig-input",
+      "sha256": "236e64788b8c0711615a4ce8b106cb8af613e4c426061740bf7e61c4c001d95f",
+      "byteLength": 32552,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 214,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          110,
+          965,
+          245,
+          1210
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          17,
+          18,
+          119,
+          232
+        ],
+        "mirroredFrom": "thigh-left.png",
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-shin-right",
+      "path": "exercises/robot/images/parts/shin-right.png",
+      "role": "rig-input",
+      "sha256": "f026beb1ec94f1f97d765743c6f87291ca643ca700f1e395c7c07bdd37624f1a",
+      "byteLength": 36858,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 102,
+      "pixelHeight": 219,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          410,
+          965,
+          555,
+          1220
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          15,
+          22,
+          117,
+          241
+        ],
+        "mirroredFrom": "shin-left.png",
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-foot-right",
+      "path": "exercises/robot/images/parts/foot-right.png",
+      "role": "rig-input",
+      "sha256": "4b49b3f8195442a413f30acc6dc067716bde5a9a9d7487f0fbfc3d134c587143",
+      "byteLength": 55480,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 194,
+      "pixelHeight": 176,
+      "layout": {
+        "sheetCropTopLeftXYXY": [
+          670,
+          1010,
+          900,
+          1220
+        ],
+        "trimWithinCropTopLeftXYXY": [
+          17,
+          19,
+          211,
+          195
+        ],
+        "mirroredFrom": "foot-left.png",
+        "note": "Crop provenance only. Native PNG has original=pixel dimensions, trim=0; joint placement is in robot-layout.json."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "scarf",
+      "path": "exercises/robot/images/parts/scarf-tail.png",
+      "role": "rig-input",
+      "sha256": "d16a903fb3e97e214c13e1b79a9c6e3cee417e2ddf6c524086eb7ee27c8dcbc2",
+      "byteLength": 23470,
+      "provenance": "lessons/083-editor-scarf-linked-mesh.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 256,
+      "pixelHeight": 96,
+      "layout": {
+        "pivotNormalizedBottomLeft": [
+          0,
+          0.5
+        ],
+        "proposedLogicalSize": [
+          153.6,
+          57.6
+        ],
+        "rotationRadians": -0.3490658503988659,
+        "anchor": "left edge / scarf-anchor",
+        "note": "Reconstruction seed from lesson 84; mesh anchor columns from lesson 85, not recovered native rig."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "jelly",
+      "path": "exercises/soft-character/images/jelly.png",
+      "role": "rig-input",
+      "sha256": "bafa80bcbeea93f80ce2983609366c76679f9b68025d0e7b2b9eabcdcfb71904",
+      "byteLength": 723136,
+      "provenance": "exercises/soft-character/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 1254,
+      "pixelHeight": 1254,
+      "layout": {
+        "pivotNormalizedBottomLeft": [
+          0.5,
+          0.145
+        ],
+        "proposedLogicalSize": [
+          300,
+          300
+        ],
+        "note": "Proposed visible-bottom pivot, visually estimated. Re-measure contour in native fixture; do not derive contour from alpha > 0."
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-source-sheet",
+      "path": "exercises/robot/images/parts-study-v2.png",
+      "role": "source-art",
+      "sha256": "a7d05816a92fdeef1443e941681bf1a7e5da74b3723b7d4c1ef17717b5dc4398",
+      "byteLength": 1211947,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 1254,
+      "pixelHeight": 1254,
+      "mimeType": "image/png"
+    },
+    {
+      "id": "scarf-source",
+      "path": "exercises/mesh-lab/scarf/source.png",
+      "role": "source-art",
+      "sha256": "134d965d408f96290cc0fe81e4cc8e0546565e0718a367a2b392e2947fb45ad4",
+      "byteLength": 1705307,
+      "provenance": "lessons/083-editor-scarf-linked-mesh.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 2048,
+      "pixelHeight": 768,
+      "mimeType": "image/png"
+    },
+    {
+      "id": "robot-idle-reference",
+      "path": "exercises/robot/editor-review/playback-timing/core/idle-live.gif",
+      "role": "editor-capture-reference",
+      "sha256": "177ddc19326e7f0482fa9bc137fea073673d85329dc24814355192264b17cd9b",
+      "byteLength": 12003487,
+      "provenance": "lessons/082-editor-live-playback.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 408,
+      "pixelHeight": 585,
+      "mimeType": "image/gif"
+    },
+    {
+      "id": "robot-wave-reference",
+      "path": "exercises/robot/editor-review/playback-timing/core/wave-live.gif",
+      "role": "editor-capture-reference",
+      "sha256": "ab77f648b12747393eb0364cb77af154c513617f605291bfa0efbd0d85c2c52a",
+      "byteLength": 12031295,
+      "provenance": "lessons/082-editor-live-playback.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "pixelWidth": 408,
+      "pixelHeight": 585,
+      "mimeType": "image/gif"
+    },
+    {
+      "id": "scarf-anchor-reference",
+      "path": "exercises/mesh-lab/scarf/anchor-weight100.png",
+      "role": "editor-capture-reference",
+      "sha256": "a687b552d49d6632eb31588e959d4edc17c781750e2a156e51a88116abb34bfc",
+      "byteLength": 193519,
+      "provenance": "lessons/085-editor-robot-scarf-mesh.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "mimeType": "image/jpeg",
+      "pixelWidth": 1524,
+      "pixelHeight": 768
+    },
+    {
+      "id": "jelly-face-reference",
+      "path": "exercises/soft-character/evidence/face-fixed-compress.png",
+      "role": "editor-capture-reference",
+      "sha256": "12881b56f4c15713b150ce5223791f4b44f8c23161cf118d7b465219bef4cc49",
+      "byteLength": 199604,
+      "provenance": "lessons/094-editor-jelly-face-weights.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "mimeType": "image/jpeg",
+      "pixelWidth": 1524,
+      "pixelHeight": 768
+    },
+    {
+      "id": "jelly-base-reference",
+      "path": "exercises/soft-character/evidence/base-blend-compress.png",
+      "role": "editor-capture-reference",
+      "sha256": "77a7add1fef89160604173e2c525da5d8030d089601852a11443bc132529e629",
+      "byteLength": 195682,
+      "provenance": "lessons/095-editor-jelly-base-weights.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "mimeType": "image/jpeg",
+      "pixelWidth": 1524,
+      "pixelHeight": 768
+    },
+    {
+      "id": "planted-foot-reference",
+      "path": "exercises/robot/evidence/squat-ik.png",
+      "role": "runtime-capture-reference",
+      "sha256": "b59b05dadf1bbd931f966f571509d3727ccc362608e279afa62a3f1ad5bd4451",
+      "byteLength": 85217,
+      "provenance": "exercises/robot/README.md",
+      "rights": {
+        "status": "provenance-recorded-distribution-unreviewed",
+        "use": "internal-evaluation",
+        "redistributionCleared": false
+      },
+      "mimeType": "image/jpeg",
+      "pixelWidth": 1720,
+      "pixelHeight": 1185
+    }
+  ]
+}

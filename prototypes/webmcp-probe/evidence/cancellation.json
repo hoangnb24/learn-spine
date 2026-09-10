@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-10T16:32:30.053Z",
+  "kind": "page-api-cancellation; agent clicked button, not client transport cancel",
+  "outcome": "Đã yêu cầu hủy nhưng API vẫn trả kết quả. Kiểm tra nhật ký và trạng thái; chưa đạt kiểm tra hủy.",
+  "events": [
+    {
+      "at": "2026-09-10T16:32:09.842Z",
+      "name": "probe_set",
+      "input": {
+        "expectedRevision": 0,
+        "requestId": "fcd281e1-3a00-490e-9c9f-9bc650ff5feb",
+        "value": 99,
+        "delayMs": 1000
+      },
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 1003,
+      "result": {
+        "ok": true,
+        "value": 99,
+        "revision": 1,
+        "canUndo": true
+      }
+    }
+  ],
+  "connection": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "documentModelContext": true,
+    "navigatorModelContext": false,
+    "registeredTools": [
+      "probe_read",
+      "probe_set",
+      "probe_undo"
+    ],
+    "registrationErrors": [],
+    "agentInvocation": "registered-callback-observed; verify caller log separately",
+    "surface": "document.modelContext"
+  }
+}

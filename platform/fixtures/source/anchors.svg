@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540">
+<rect width="1000" height="540" fill="#edf3f1"/>
+<style>text{font-family:system-ui,sans-serif;fill:#193c35;font-size:16px}.title{font-size:23px;font-weight:600}.small{font-size:13px}.bone{stroke:#216750;stroke-width:5;fill:none}.guide{stroke:#98aca3;stroke-dasharray:5 4;fill:none}.anchor{fill:#d95832}</style>
+<text x="30" y="35" class="title">Source fixture anchors — proposed reconstruction, not an exported rig</text>
+<rect x="25" y="60" width="455" height="210" rx="12" fill="white"/>
+<rect x="500" y="60" width="475" height="210" rx="12" fill="white"/>
+<rect x="25" y="285" width="455" height="210" rx="12" fill="white"/>
+<rect x="500" y="285" width="475" height="210" rx="12" fill="white"/>
+<text x="45" y="88">Robot / idle + wave</text>
+<path class="bone" d="M180 140L180 195L140 230M180 195L220 230M130 155L180 155L225 140L245 110"/>
+<circle cx="180" cy="125" r="20" fill="none" stroke="#216750" stroke-width="4"/>
+<path class="guide" d="M90 235H275"/>
+<circle class="anchor" cx="140" cy="230" r="6"/><circle class="anchor" cx="220" cy="230" r="6"/>
+<text x="290" y="150" class="small">Watch joint seams</text><text x="290" y="175" class="small">Hand clear of face</text><text x="290" y="200" class="small">Soles stay planted</text>
+<text x="520" y="88">Scarf / fixed left column</text>
+<path d="M550 145L660 150L760 175L910 185L875 165L910 140L760 125L660 105L550 105Z" fill="#f5b779" stroke="#b66a2a"/>
+<path class="bone" d="M550 125L660 127L760 150L885 160"/>
+<circle class="anchor" cx="550" cy="105" r="6"/><circle class="anchor" cx="550" cy="145" r="6"/>
+<text x="530" y="230" class="small">Weights: 100/0/0 → 50/50/0 → 0/50/50 → 0/0/100</text>
+<text x="45" y="315">Jelly / uniform eye weights, blended base</text>
+<path d="M80 455Q75 420 115 370Q160 315 200 370Q250 430 225 455Z" fill="#a0e2c0" stroke="#216750"/>
+<ellipse cx="135" cy="390" rx="8" ry="12" fill="#193c35"/><ellipse cx="180" cy="390" rx="8" ry="12" fill="#193c35"/>
+<path class="guide" d="M120 370H197V410H120Z"/>
+<path d="M105 455H207" stroke="#d95832" stroke-width="6"/>
+<text x="260" y="380" class="small">Eye height change ≤5%</text><text x="260" y="410" class="small">Base drift ≤0.5 logical px</text><text x="260" y="440" class="small">Inspect transition folds</text>
+<text x="520" y="315">Planted foot / reachable IK target</text>
+<path class="bone" d="M610 345L610 405L610 465"/>
+<path d="M710 370L750 415L710 465" fill="none" stroke="#699c88" stroke-width="5"/>
+<path class="guide" d="M570 470H785M610 345H710M610 465H710"/>
+<circle class="anchor" cx="610" cy="465" r="6"/><circle class="anchor" cx="710" cy="465" r="6"/>
+<text x="795" y="380" class="small">Hip lowers</text><text x="795" y="410" class="small">Target stays fixed</text><text x="795" y="440" class="small">Choose bend sign</text>
+<text x="30" y="525" class="small">X right / Y up. Diagrams are schematic; exact numbers and source references are in cases.json and robot-layout.json.</text>
+</svg>

@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "inputs": {
+    "probe_read": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "probe_set": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": -100,
+          "maximum": 100
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "delayMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        }
+      },
+      "required": [
+        "value",
+        "expectedRevision",
+        "requestId"
+      ],
+      "additionalProperties": false
+    },
+    "probe_undo": {
+      "type": "object",
+      "properties": {
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "expectedRevision",
+        "requestId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "handlerOutputSchema": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "const": true
+          },
+          "value": {
+            "type": "integer",
+            "minimum": -100,
+            "maximum": 100
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "canUndo": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok",
+          "value",
+          "revision",
+          "canUndo"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "const": false
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "enum": [
+                  "INVALID_INPUT",
+                  "UNKNOWN_TOOL",
+                  "CANCELLED",
+                  "REVISION_CONFLICT",
+                  "REQUEST_ID_REUSED",
+                  "NOTHING_TO_UNDO"
+                ]
+              }
+            },
+            "required": [
+              "code"
+            ],
+            "additionalProperties": false
+          },
+          "value": {
+            "type": "integer",
+            "minimum": -100,
+            "maximum": 100
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "canUndo": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok",
+          "error",
+          "value",
+          "revision",
+          "canUndo"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "transportEnvelope": {
+    "content": [
+      {
+        "type": "text",
+        "text": "JSON.stringify(handlerOutput)"
+      }
+    ],
+    "isError": "!handlerOutput.ok"
+  }
+}
