@@ -171,6 +171,20 @@ describe('immutable asset integration', () => {
     expect(s.snapshot().assets.get('art')![0]).toBe(1); expect(job.assets.get('art')![0]).toBe(2);
     job.assets.get('art')![0] = 100; expect(s.snapshot().assets.get('art')![0]).toBe(1);
   });
+  it('copies Uint8Array subclasses even when their slice method aliases the source', async () => {
+    const input = bundle(); const buffer = Buffer.from([1]);
+    (input.assets as Map<string, Uint8Array>).set('art', buffer);
+    const token = await prepared(input); buffer[0] = 99;
+    const s = value(createSession(token));
+    expect(s.snapshot().assets.get('art')![0]).toBe(1);
+    const cp = value(s.checkpoint({ ...req(s, 'cp'), label: '' }));
+    const snapshot = s.snapshot(); snapshot.assets.get('art')![0] = 88;
+    expect(s.snapshot().assets.get('art')![0]).toBe(1);
+    value(s.apply(put(s, 'edit'))); value(s.undo(req(s, 'undo')));
+    expect(s.snapshot().assets.get('art')![0]).toBe(1);
+    value(s.restore({ ...req(s, 'restore'), checkpointId: cp.id }));
+    expect(s.snapshot().assets.get('art')![0]).toBe(1);
+  });
   it('keeps deleted asset bytes in history and excludes them from active snapshots', async () => {
     const s = await session(); value(s.apply({ ...req(s, 'remove-art'), operations: [
       { kind: 'remove', collection: 'assets', id: 'art' }, { kind: 'remove', collection: 'attachments', id: 'region' },

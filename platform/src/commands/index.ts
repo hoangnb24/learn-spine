@@ -15,7 +15,7 @@ const ok = <T>(value: T): Result<T> => ({ ok: true, value, warnings: [] });
 const fail = (code: Problem['code'], path: string, message: string, revision?: number): Result<never> =>
   ({ ok: false, error: { code, path, message }, ...(revision === undefined ? {} : { revision }) });
 const clone = <T>(v: T): T => structuredClone(v);
-const copyBundle = (v: ProjectBundle): ProjectBundle => ({ project: clone(v.project), assets: new Map([...v.assets].map(([id, bytes]) => [id, bytes.slice()])) });
+const copyBundle = (v: ProjectBundle): ProjectBundle => ({ project: clone(v.project), assets: new Map([...v.assets].map(([id, bytes]) => [id, new Uint8Array(bytes)])) });
 
 /** An opaque result of the application's trusted PNG/hash validator, never transport JSON. */
 export interface PreparedBundle { readonly prepared: true }
