@@ -1,9 +1,10 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import {fileURLToPath} from "node:url";
 import { execFileSync } from "node:child_process";
 const run = process.env.GATE2_RUN ?? "run-01";
-const output = resolve("../docs/product/results/experiment-2", run);
+const output = fileURLToPath(new URL(`../../../../docs/product/results/experiment-2/${run}/`,import.meta.url));
 mkdirSync(output, { recursive: true });
 const save = (name: string, value: unknown) =>
   writeFileSync(resolve(output, name), JSON.stringify(value, null, 2));
