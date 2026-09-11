@@ -13,7 +13,7 @@
       "durationMs": 137
     }
   ],
-  "limitation": "Native 640x360 pose/preview viewport has 35 outside geometry samples across the cycle; actual reopened Player fit shows full scarf. Reviewer decides framing criterion.",
+  "limitation": "35 outside points apply only to render_pose input viewport. ObservationService.preview fits the continuous envelope; reviewer inspected0065/0068/0083 read_artifact images showing full scarf. No assertion of independently measured full-sequence preview geometry.",
   "rawCalls": 60,
   "discoveryCalls": 1,
   "publicTranscriptContainsReasoning": false

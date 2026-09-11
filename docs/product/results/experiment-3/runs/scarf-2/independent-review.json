@@ -1,0 +1,19 @@
+{
+  "source": "root handoff of independent reviewer conclusion",
+  "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+  "verdict": "\u0110\u1ea1t",
+  "scope": "scarf-2",
+  "independentNumericChecks": {
+    "phaseLagSeconds": 0.25,
+    "midTipAmplitude": [
+      20,
+      24
+    ],
+    "anchorCount": 10,
+    "maxAnchorDrift": 0,
+    "sampleTimes": 65,
+    "loopGeometryDiagnostics": 0,
+    "ZIPPreservationTransactionsRestore": true
+  },
+  "reason": "35 outside points apply only to render_pose input viewport. ObservationService.preview fits the continuous envelope; reviewer inspected0065/0068/0083 read_artifact images showing full scarf. No assertion of independently measured full-sequence preview geometry."
+}

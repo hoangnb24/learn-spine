@@ -1,11 +1,11 @@
 {
   "run": "scarf-1",
-  "outcome": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+  "outcome": "FAILED_MISSING_EVIDENCE",
   "publicInvocations": 57,
   "discoveryCalls": 1,
-  "budgetCalls": 58,
+  "budgetCalls": null,
   "elapsedMs": 193377.5,
-  "withinBudget": true,
+  "withinBudget": null,
   "unfinishedInvocations": [],
   "transactionChecks": {
     "identicalRetryInputAndResult": true,
@@ -136,16 +136,22 @@
     "editorPlayerMaxNumericDelta": 9.947598300641403e-14,
     "editorPlayerWithin1e5": true
   },
-  "limitation": "App public transcript stops after early inspect_project; no pagination cursor and final text missing. Root verified session and independently received subject final. Raw native starts/results/stop/download are complete; missing transcript is not backfilled.",
+  "limitation": "App public transcript stops after early inspect_project; no pagination cursor and final text missing. Root verified session and independently received subject final. Raw native starts/results/stop/download are complete; missing transcript is not backfilled. Complete budget and rescue status unknown; no project failure or rescue is inferred.",
   "subjectPreview": {
     "uniqueFrames": 24,
     "fps": 4,
     "loops": 3
   },
-  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; independent judgment pending. Two WebM recordings and24 UI images saved per run.",
-  "manualRescue": 0,
+  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; See separate independent verdict. Two WebM recordings and24 UI images saved per run.",
+  "manualRescue": null,
   "scenarioFeedback": 1,
   "tokens": null,
   "cost": null,
-  "rawSHA256": "d3c2901a4322cd8ae59fdaca2ca2b682efefe658321b0dd493d13003ce74d8fc"
+  "rawSHA256": "d3c2901a4322cd8ae59fdaca2ca2b682efefe658321b0dd493d13003ce74d8fc",
+  "independentReview": "independent-review.json",
+  "observedNativeCalls": 57,
+  "observedDiscoveryCalls": 1,
+  "observedCalls": 58,
+  "completeBudgetStatus": "UNKNOWN",
+  "rescueStatus": "UNKNOWN"
 }

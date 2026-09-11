@@ -13,9 +13,9 @@ Run from repository root, after `export.py` extraction:
 node docs/product/results/experiment-3/qa/reopen.mjs robot-2 <saved-project-filename>
 ```
 
-This script was prepared while robot-2 was active but has not yet run. Any test
-failure is retained and fixed only in the QA consumer where appropriate; production
-or subject artifacts are not repaired. Screenshot/playback review remains separate.
+This script ran for all eight emitted ZIPs after their subjects stopped. Failures
+and limitations are retained; production and subject artifacts were not repaired.
+Screenshot/playback review remains separate.
 
 Public transcript audit: use app `read_thread` with participant session id after
 completion, includeOutputs true, and a large per-item character limit. Persist only
@@ -28,6 +28,6 @@ No private reasoning/history is an evidence source.
 
 `scarf-audit.py` summarizes all three completed scarf raw logs, frozen data results,
 actual reopens and transaction checks without modifying any final project. All
-three `metrics.mjs` geometry results are retained, including scarf2 native viewport
-crop. `wave-audit.py` and `preservation.py` remain supplemental read-only consumers.
+three `metrics.mjs` geometry results are retained, including scarf2 render_pose input viewport
+crop (not the automatically fitted preview). `wave-audit.py` and `preservation.py` remain supplemental read-only consumers.
 No consumer awards independent visual acceptance.

@@ -1,6 +1,6 @@
 {
   "run": "scarf-2",
-  "outcome": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+  "outcome": "INDEPENDENTLY_ACCEPTED",
   "publicInvocations": 60,
   "discoveryCalls": 1,
   "budgetCalls": 61,
@@ -136,16 +136,17 @@
     "editorPlayerMaxNumericDelta": 1.1368683772161603e-13,
     "editorPlayerWithin1e5": true
   },
-  "limitation": "Native 640x360 pose/preview viewport has 35 outside geometry samples across the cycle; actual reopened Player fit shows full scarf. Reviewer decides framing criterion.",
+  "limitation": "35 outside points apply only to render_pose input viewport. ObservationService.preview fits the continuous envelope; reviewer inspected0065/0068/0083 read_artifact images showing full scarf. No assertion of independently measured full-sequence preview geometry.",
   "subjectPreview": {
     "uniqueFrames": 24,
     "fps": 4,
     "loops": 3
   },
-  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; independent judgment pending. Two WebM recordings and24 UI images saved per run.",
+  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; See separate independent verdict. Two WebM recordings and24 UI images saved per run.",
   "manualRescue": 0,
   "scenarioFeedback": 1,
   "tokens": null,
   "cost": null,
-  "rawSHA256": "815e1e488069d4c75db035759cec59445b9b4dcbe4eb065e4dfb3289bd4a501c"
+  "rawSHA256": "815e1e488069d4c75db035759cec59445b9b4dcbe4eb065e4dfb3289bd4a501c",
+  "independentReview": "independent-review.json"
 }

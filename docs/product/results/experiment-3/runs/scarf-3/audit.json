@@ -1,6 +1,6 @@
 {
   "run": "scarf-3",
-  "outcome": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+  "outcome": "INDEPENDENTLY_ACCEPTED",
   "publicInvocations": 56,
   "discoveryCalls": 1,
   "budgetCalls": 57,
@@ -142,10 +142,11 @@
     "fps": 4,
     "loops": 3
   },
-  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; independent judgment pending. Two WebM recordings and24 UI images saved per run.",
+  "visualAuthor": "Sampled Player frames03/09 show continuous intact scarf, anchored left seam, distinct tip motion; See separate independent verdict. Two WebM recordings and24 UI images saved per run.",
   "manualRescue": 0,
   "scenarioFeedback": 1,
   "tokens": null,
   "cost": null,
-  "rawSHA256": "41d09164b73a65651f2e22229443ffa11220f21cd8bd002278587879742b8e73"
+  "rawSHA256": "41d09164b73a65651f2e22229443ffa11220f21cd8bd002278587879742b8e73",
+  "independentReview": "independent-review.json"
 }

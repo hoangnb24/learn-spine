@@ -1,7 +1,10 @@
 {
   "failedPublicItems": [],
-  "limitation": "App public transcript stops after early inspect_project; no pagination cursor and final text missing. Root verified session and independently received subject final. Raw native starts/results/stop/download are complete; missing transcript is not backfilled.",
+  "limitation": "App public transcript stops after early inspect_project; no pagination cursor and final text missing. Root verified session and independently received subject final. Raw native starts/results/stop/download are complete; missing transcript is not backfilled. Complete budget and rescue status unknown; no project failure or rescue is inferred.",
   "rawCalls": 57,
   "discoveryCalls": 1,
-  "publicTranscriptContainsReasoning": false
+  "publicTranscriptContainsReasoning": false,
+  "completeBudgetCalls": null,
+  "rescueStatus": "UNKNOWN",
+  "observedCalls": 58
 }
