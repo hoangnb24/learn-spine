@@ -1,6 +1,8 @@
 # Ba thử nghiệm trước khi chốt nền tảng
 
-Ngày: 09/09/2026. Trạng thái tất cả thử nghiệm: chưa chạy. Các ngưỡng bên dưới là mục tiêu đề xuất, chưa phải số đo hoặc cam kết hiệu năng.
+Ngày: 09/09/2026; đối chiếu 11/09/2026. Gate 1 đã chạy, nghiệm thu chức năng và merge qua PR #48; Gate 2/3 chưa chạy. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 Ready, chưa In Progress. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
+
+Nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`, PR #48: p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms; Vite dev/React StrictMode, Headless Chromium 153/SwiftShader. Cloning instrumentation và physical presentation chưa được tách; CPU submission khoảng 0.2 ms không phải toàn frame. Giữ nguyên kết quả FAIL lịch sử và không suy nguyên nhân renderer/core từ số đo này.
 
 ## Chuẩn bị chung
 
@@ -23,9 +25,9 @@ Ngày: 09/09/2026. Trạng thái tất cả thử nghiệm: chưa chạy. Các n
 - Ở 12 thời điểm cố định mỗi animation, transform của editor và player lệch tối đa `1e-5` đơn vị logic; cùng renderer/máy có hình hiển thị nhất quán.
 - Xem playback ít nhất ba vòng: không mất bộ phận, cắt cực trị hoặc giật bất ngờ ở mốc vòng. Review hình/nhịp được ghi riêng với kiểm tra dữ liệu.
 - Undo/redo một batch keyframe phục hồi đúng project; thử nhập lỗi không làm sửa dở project.
-- Đề xuất hiệu năng: với một robot, canvas 1280×720 trên máy được ghi nhận, p95 thời gian frame không quá 16,7 ms trong 30 giây sau warm-up; đo riêng overhead của công cụ lấy ảnh.
+- Mục tiêu hiệu năng **chuyển sang Polish #51/#52 ngày 11/09/2026, không chặn nghiệm thu chức năng Gate 1**: với một robot, canvas 1280×720 trên máy được ghi nhận, p95 thời gian frame không quá 16,7 ms trong 30 giây sau warm-up; đo riêng overhead của công cụ lấy ảnh.
 
-Hiện vật: gói project, player demo, chuỗi PNG, playback, kết quả kiểm tra và số đo. Nếu thất bại, xác định nằm ở renderer, mô hình dữ liệu hay bộ lệnh trước khi thêm tính năng.
+Hiện vật: gói project, player demo, chuỗi PNG, playback, kết quả kiểm tra và số đo. [Báo cáo lịch sử tại nguồn đo](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ kết quả performance FAIL. Điều tra nguyên nhân hiệu năng theo #51; không tự chặn mesh/IK bởi mục tiêu đã chuyển Polish. [Đối chiếu](reconciliation/2026-09-11-gate1.md) ghi kết quả nghiệm thu/merge và bàn giao downstream.
 
 ## 2. Khăn và thạch: biến dạng có kiểm soát
 

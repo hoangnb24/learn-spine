@@ -439,8 +439,8 @@
       "acceptance": [
         "12 mốc mỗi animation: transform editor/player lệch <=1e-5; xem ít nhất 3 vòng và ghi chất lượng hình/nhịp.",
         "Project đóng/mở lại và player chỉ dùng gói đã xuất; không import Spine runtime.",
-        "Đo 1280x720, 30 giây sau warm-up: p95 frame <=16.7ms trên máy ghi nhận; tách overhead capture.",
-        "Commit fixtures/log/report tái lập; nếu không đạt, giữ gate chưa hoàn thành và nêu nguyên nhân, không hạ ngưỡng sau khi đo."
+        "Mục tiêu p95 <=16.7ms chuyển Polish T29/#51 và T30/#52 theo quyết định 11/09/2026; số đo 17.8/17.5ms chưa đạt, không chặn nghiệm thu chức năng.",
+        "Commit fixtures/log/report tái lập, giữ FAIL hiệu năng lịch sử; nghiệm thu chức năng và merge đã được Orchestrator chốt ngày 11/09/2026."
       ],
       "refs": [
         "docs/product/experiments.md",
@@ -453,7 +453,9 @@
       "number": 14,
       "id": 5401666628,
       "node_id": "I_kwDOUTvul88AAAABQfbkRA",
-      "html_url": "https://github.com/hoangnb24/learn-spine/issues/14"
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/14",
+      "decision": "Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 Ready, chưa In Progress. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.",
+      "status": "Done"
     },
     {
       "key": "T14",
@@ -463,7 +465,7 @@
       "deps": [
         "T13"
       ],
-      "ownership": "platform/src/model/mesh.*; platform/src/engine/mesh.*; platform/tests/engine/mesh/",
+      "ownership": "platform/src/model/{types.ts,index.ts,project-v0.schema.json} shared extension owner; platform/src/engine/mesh.*; platform/src/engine/index.ts tích hợp tuần tự; mesh tests/fixtures",
       "outcome": "Core tính được hình học biến dạng của khăn và thạch từ weights/keyframes.",
       "work": [
         "Bổ sung mesh schema/validator theo extension T03; implement bind pose, linear blend weights và deform timelines.",
@@ -479,16 +481,19 @@
       "refs": [
         "docs/product/architecture.md",
         "lessons/093-editor-jelly-mesh.md",
-        "lessons/094-editor-jelly-face-weights.md"
+        "lessons/094-editor-jelly-face-weights.md",
+        "docs/product/reconciliation/2026-09-11-gate1.md"
       ],
       "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
       "wave": 8,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 15,
       "id": 5401666861,
       "node_id": "I_kwDOUTvul88AAAABQfblLQ",
-      "html_url": "https://github.com/hoangnb24/learn-spine/issues/15"
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/15",
+      "handoff": "## Đầu vào thực tế và phối hợp — 11/09/2026\n\nMốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed và cho #15/#16 Ready; chỉ chuyển In Progress khi được giao owner triển khai.\n\n- Model đã nằm tại `platform/src/model/types.ts`, `index.ts`, `project-v0.schema.json`; `Project.formatVersion` là 0, `requiredCapabilities` chỉ có `region-v0`, attachments chỉ là Region. Validator/serialize/storage/commands dùng boundary strict này; không thêm mesh/IK bằng trường lạ hay tạo model riêng.\n- Evaluator thật ở `platform/src/engine/index.ts`: `evaluate(Project, PoseRequest): Result<Pose>`, validate và clone mỗi sample; helpers ở `transforms.ts`, `timeline.ts`. Pose hiện có `bones` và `regions`, chưa có mesh hoặc hook IK được chốt.\n- #15 sở hữu đề xuất extension chung (model types/schema/validation, format/capabilities và Pose) cùng mesh; #16 sở hữu solver IK và types/helper riêng. Hai owner thống nhất một hợp đồng trước tích hợp; common model/evaluator entry được sửa tuần tự theo bàn giao, không hai nhánh tự chọn version không tương thích.\n- Chưa chốt số format version/capability mới, migration/compatibility, shape mesh/IK/Pose và thứ tự solve/deform. Người triển khai phải đề xuất và phối hợp nghiệm thu hợp đồng dựa trên v0, không coi API dự kiến đã tồn tại. Giữ regression region-v0, consumer renderer/storage/commands và fixtures hiện có.\n- Module README, code hiện có và `platform/README.md` được đối chiếu trong đợt này là đầu vào thực thi; mô tả shell #5 cũ đã được thay bằng hiện trạng module/workflow. [Đối chiếu có ngày](https://github.com/hoangnb24/learn-spine/blob/codex/reconcile-gate1-polish/docs/product/reconciliation/2026-09-11-gate1.md).\n",
+      "status": "Todo"
     },
     {
       "key": "T15",
@@ -498,11 +503,11 @@
       "deps": [
         "T13"
       ],
-      "ownership": "platform/src/model/ik.*; platform/src/engine/ik.*; platform/tests/engine/ik/",
+      "ownership": "platform/src/engine/ik.* và IK types/helpers/tests mới; shared model/evaluator chỉ tích hợp tuần tự với #15 sau agreed contract",
       "outcome": "Core giữ được điểm chân theo target trong phạm vi đã đặc tả.",
       "work": [
         "Bổ sung constraint IK hai xương, bend direction, mix và thứ tự giải; công bố policy scale/target ngoài tầm.",
-        "Viết solver độc lập mesh, tích hợp vào evaluator qua hook đã thống nhất.",
+        "Viết solver độc lập mesh, đề xuất điểm tích hợp evaluator hiện có; thống nhất hợp đồng trước khi sửa shared entry, chưa có hook sẵn.",
         "Fixture chân trụ và các trường hợp degenerate; phối hợp T14 khi sửa entry chung, không ghi đè thay đổi."
       ],
       "acceptance": [
@@ -513,16 +518,19 @@
       ],
       "refs": [
         "lessons/019-handbuilt-idle-and-ik.md",
-        "docs/product/experiments.md"
+        "docs/product/experiments.md",
+        "docs/product/reconciliation/2026-09-11-gate1.md"
       ],
       "exclude": "Không triển khai path/transform/physics constraints trong issue này.",
       "wave": 8,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 16,
       "id": 5401667182,
       "node_id": "I_kwDOUTvul88AAAABQfbmbg",
-      "html_url": "https://github.com/hoangnb24/learn-spine/issues/16"
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/16",
+      "handoff": "## Đầu vào thực tế và phối hợp — 11/09/2026\n\nMốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed và cho #15/#16 Ready; chỉ chuyển In Progress khi được giao owner triển khai.\n\n- Model đã nằm tại `platform/src/model/types.ts`, `index.ts`, `project-v0.schema.json`; `Project.formatVersion` là 0, `requiredCapabilities` chỉ có `region-v0`, attachments chỉ là Region. Validator/serialize/storage/commands dùng boundary strict này; không thêm mesh/IK bằng trường lạ hay tạo model riêng.\n- Evaluator thật ở `platform/src/engine/index.ts`: `evaluate(Project, PoseRequest): Result<Pose>`, validate và clone mỗi sample; helpers ở `transforms.ts`, `timeline.ts`. Pose hiện có `bones` và `regions`, chưa có mesh hoặc hook IK được chốt.\n- #15 sở hữu đề xuất extension chung (model types/schema/validation, format/capabilities và Pose) cùng mesh; #16 sở hữu solver IK và types/helper riêng. Hai owner thống nhất một hợp đồng trước tích hợp; common model/evaluator entry được sửa tuần tự theo bàn giao, không hai nhánh tự chọn version không tương thích.\n- Chưa chốt số format version/capability mới, migration/compatibility, shape mesh/IK/Pose và thứ tự solve/deform. Người triển khai phải đề xuất và phối hợp nghiệm thu hợp đồng dựa trên v0, không coi API dự kiến đã tồn tại. Giữ regression region-v0, consumer renderer/storage/commands và fixtures hiện có.\n- Module README, code hiện có và `platform/README.md` được đối chiếu trong đợt này là đầu vào thực thi; mô tả shell #5 cũ đã được thay bằng hiện trạng module/workflow. [Đối chiếu có ngày](https://github.com/hoangnb24/learn-spine/blob/codex/reconcile-gate1-polish/docs/product/reconciliation/2026-09-11-gate1.md).\n",
+      "status": "Todo"
     },
     {
       "key": "T16",
@@ -975,6 +983,70 @@
       "id": 5401670351,
       "node_id": "I_kwDOUTvul88AAAABQfbyzw",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/29"
+    },
+    {
+      "key": "T29",
+      "title": "[Polish] Chuẩn hóa phép đo cadence robot và ghi baseline tách instrumentation",
+      "phase": "Polish",
+      "lane": "Validation",
+      "deps": [
+        "T13"
+      ],
+      "ownership": "Harness/profile/baseline riêng",
+      "outcome": "Chuẩn hóa phép đo, tách instrumentation và ghi baseline",
+      "work": [
+        "Không triển khai ngay; lịch Polish do Orchestrator mở."
+      ],
+      "acceptance": [
+        "Chốt và ghi môi trường retest: máy/OS/browser/GPU, dev hay production, kích thước 1280×720, warm-up, 30 giây, fixture/revision, lệnh và định nghĩa metric; phân biệt draw-call cadence, CPU submission và presentation.",
+        "So sánh bật/tắt capture, cloning và instrumentation; lưu raw logs, cấu hình, commit và phân tích phần overhead có thể quy kết, phần còn chưa biết.",
+        "Profile xác định chi phí có bằng chứng; không quy lỗi renderer/core chỉ từ khoảng cách callback.",
+        "Lưu baseline tái lập, phương pháp và môi trường đã chốt để issue tối ưu dùng nguyên trạng; ngưỡng mục tiêu p95 <=16.7 ms giữ nguyên, không đánh dấu pass nếu chưa đạt."
+      ],
+      "refs": [
+        "docs/product/reconciliation/2026-09-11-gate1.md"
+      ],
+      "exclude": "Không chặn mesh/IK/giai đoạn chức năng; không dependency #22; không nhận performance pass hồi tố.",
+      "wave": null,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "status": "Todo",
+      "number": 51,
+      "id": 5420821518,
+      "node_id": "I_kwDOUTvul88AAAABQxssDg",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/51"
+    },
+    {
+      "key": "T30",
+      "title": "[Polish] Tối ưu cadence robot và retest p95 <=16.7 ms",
+      "phase": "Polish",
+      "lane": "Validation",
+      "deps": [
+        "T29"
+      ],
+      "ownership": "Module bottleneck theo profile #51; phối hợp entry chung",
+      "outcome": "Tối ưu cadence và retest p95 <=16.7ms trên môi trường #51",
+      "work": [
+        "Không triển khai ngay; lịch Polish do Orchestrator mở."
+      ],
+      "acceptance": [
+        "Nêu bottleneck dựa trên #51; thay đổi có phạm vi và so sánh before/after trên cùng fixture, cấu hình và môi trường đã chốt.",
+        "Retest robot editor và player 1280×720, 30 giây sau warm-up theo #51: p95 <=16.7 ms; lưu raw samples, commit, lệnh, môi trường và overhead riêng.",
+        "Giữ correctness editor/player, close/reopen, undo/redo và hình/nhịp robot; kiểm tra regression phù hợp thay đổi.",
+        "Lưu báo cáo độc lập và kết luận thật; nếu vẫn vượt 16.7 ms, ghi chưa đạt và bàn giao quyết định tiếp theo, không hạ ngưỡng hay gọi số đo CPU là frame pass."
+      ],
+      "refs": [
+        "docs/product/reconciliation/2026-09-11-gate1.md"
+      ],
+      "exclude": "Không chặn mesh/IK/giai đoạn chức năng; không dependency #22; không nhận performance pass hồi tố.",
+      "wave": null,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "status": "Todo",
+      "number": 52,
+      "id": 5420823791,
+      "node_id": "I_kwDOUTvul88AAAABQxs07w",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/52"
     }
   ],
   "tracking_issue": {
@@ -983,5 +1055,6 @@
     "node_id": "I_kwDOUTvul88AAAABQfbXWQ",
     "html_url": "https://github.com/hoangnb24/learn-spine/issues/1"
   },
-  "updated": "2026-09-11"
+  "updated": "2026-09-11",
+  "reconciliation": "docs/product/reconciliation/2026-09-11-gate1.md"
 }
