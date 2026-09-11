@@ -69,6 +69,6 @@ Chưa đo baseline Spine mới (Trial), không tuyên bố nhanh hơn Spine. Ch�
 
 ## Quyết định sau run — 11/09/2026
 
-Chủ dự án nhận kết quả chức năng/hình ảnh của Gate 1; phần cadence 17,8/17,5 ms chưa đạt chuẩn cũ được chuyển sang polish thành công việc riêng. Các giới hạn instrumentation, scheduling, dev build/SwiftShader và physical presentation phía trên vẫn áp dụng. Không tự chọn nguyên nhân hay triển khai tối ưu trong PR này.
+Chủ dự án nhận kết quả chức năng/hình ảnh của Gate 1; phần cadence 17,8/17,5 ms chưa đạt chuẩn cũ được chuyển sang polish thành công việc riêng. Các giới hạn instrumentation, scheduling, dev build/SwiftShader và physical presentation phía trên vẫn áp dụng. Không tự chọn nguyên nhân hay triển khai tối ưu trong PR này. Theo dõi ở [#51 — chuẩn hóa phép đo/profile/baseline](https://github.com/hoangnb24/learn-spine/issues/51), sau đó [#52 — tối ưu và retest ≤16,7 ms](https://github.com/hoangnb24/learn-spine/issues/52), phụ thuộc #51.
 
 Orchestrator cập nhật trạng thái #14 và dependency #15/#16 theo quyết định mới sau nghiệm thu độc lập. Report không còn yêu cầu giữ downstream bị chặn chỉ vì phép đo hiệu năng này. Raw `gatePassed: false`, test exit 1, các attempts, brief và rubric là lịch sử của run ban đầu và được giữ nguyên; chức năng được nhận theo quyết định sản phẩm bổ sung này.
