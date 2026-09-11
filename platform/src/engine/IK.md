@@ -55,7 +55,11 @@ retains FK and reports `singular`. Near-zero segment lengths <=1e-12 use a finit
 deterministic one-segment/no-segment fallback and report `degenerate`. At a
 coincident target, the direction is deterministically +X; an equal-length chain
 folds fully. No warm-start or previous pose is consulted. Non-finite derived
-arithmetic returns `INVALID_INPUT` rather than exporting NaN/Infinity.
+arithmetic returns `INVALID_INPUT` rather than exporting NaN/Infinity. A full-mix
+reachable solution whose immediate world residual exceeds 0.5 logical pixels
+also returns `INVALID_INPUT` (numerical tolerance), never a false `solved` claim.
+This guards extreme finite coordinate magnitudes beyond floating-point precision;
+it does not waive the ordinary reachable-target acceptance.
 
 ## Diagnostics for #18
 

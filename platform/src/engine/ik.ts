@@ -14,8 +14,8 @@ export function solveIK(bones: readonly Bone[], constraints: readonly TwoBoneIK[
   locals: Map<string, Transform>, worlds: Map<string, Matrix>): Result<IKDiagnostic[]> {
   const source = new Map(bones.map(b => [b.id, b]));
   const diagnostics: IKDiagnostic[] = [];
-  const invalid = (): Result<never> => ({ ok: false, error: {
-    code: 'INVALID_INPUT', path: '/ikConstraints', message: 'Derived IK geometry must be finite',
+  const invalid = (message = 'Derived IK geometry must be finite'): Result<never> => ({ ok: false, error: {
+    code: 'INVALID_INPUT', path: '/ikConstraints', message,
   } });
   for (const c of [...constraints].sort((a, b) => a.order - b.order)) {
     const root = source.get(c.rootBoneId)!;
@@ -89,6 +89,8 @@ export function solveIK(bones: readonly Bone[], constraints: readonly TwoBoneIK[
     const endpoint = point(worlds.get(c.childBoneId)!, c.endpoint);
     const distance = Math.hypot(target[0] - endpoint[0], target[1] - endpoint[1]);
     if (![...endpoint, distance].every(Number.isFinite)) return invalid();
+    if (status === 'solved' && c.mix === 1 && distance > 0.5)
+      return invalid('IK solution exceeds 0.5 logical-pixel numerical tolerance');
     diagnostics.push({ constraintId: c.id, order: c.order, target, endpoint, distance, status });
   }
   // Diagnostics describe the final pose, including later constraints overriding earlier ones.
