@@ -1,0 +1,27 @@
+{
+  "run": "robot-2",
+  "source": "root orchestration handoff; raw timestamps separately verified by root",
+  "subject": "/root/eval_robot_2",
+  "participantBrowser": {
+    "family": "Codex In-app Browser",
+    "sessionId": "01a08f98-3e8a-7400-837d-65ae5ae00cee",
+    "tabId": "1"
+  },
+  "activeSetupUTC": "2026-09-11T08:40:28.127Z",
+  "rawStartUTC": "2026-09-11T08:40:28.222Z",
+  "zipSha256": "ae4ca3d37a6b3480f41d363b8a8aa766d8bbce02af3aca49f4c0c281384ab808",
+  "hashVerification": "matches locked robot input, verified by root before brief delivery",
+  "unusedSetupUTC": "2026-09-11T08:32:47.704Z",
+  "unusedSetupOwner": "root browser context, never started",
+  "briefDelivery": {
+    "content": "unchanged prompts/common.md plus prompts/robot.md",
+    "source": "root reports delivery immediately after raw-start check, approximately 08:41 UTC",
+    "exactTimestamp": null,
+    "delayIncludedInTimer": true
+  },
+  "frozenSource": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
+  "lifecycleAmendment": "e2696b0cffec27be3340baca30b2e5b2a9beb3ca",
+  "status": "IN_PROGRESS; no outcome assigned",
+  "tokens": null,
+  "cost": null
+}
