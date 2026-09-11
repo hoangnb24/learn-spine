@@ -69,3 +69,39 @@ Commands commit synchronously and do not take AbortSignal. The adapter checks ca
 From repository root: `npm ci --prefix platform`, `npm run typecheck --prefix platform`, `npm test --prefix platform`, `npm run build --prefix platform`.
 
 Tests cover atomic rollback, forward references, malformed unknown inputs, request ordering/structural dedup/FIFO eviction/reload, user-agent conflicts, history limits/revision overflow/checkpoint events, reentrant observers and byte retention through replace/remove/undo/redo/restore. The commands unit suite deliberately injects a trusted fixture validator to isolate session behavior; actual PNG/hash/ZIP/IndexedDB validation belongs to #10. Integration must supply its real `validateBundle`. No UI, renderer or transport success is claimed by these unit tests. Evidence: [issue-7](../../evidence/issue-7/README.md).
+
+## Version 1 authoring (#19)
+
+Session advertises runtime support for `mesh-v1`, `ik-v1` and
+`explicit-migration-v1` regardless of the current project's format. The project's
+`requiredCapabilities` describes its serialized data, not runtime support.
+
+Additional canonical operations (all in the same atomic batch/history/dedup):
+
+- `migrateProject { targetVersion: 1 }`: explicitly calls the existing model
+  migration on the candidate. It preserves geometry/identity and commits at the
+  next revision. Undo restores the prior version/capabilities. Place it before v1
+  operations in the same batch; any later failure rolls back the entire upgrade.
+- `putMesh { value: Mesh }`: replaces/appends a complete canonical mesh. Existing
+  imported PNG bytes are reused; no new image transport is introduced.
+- `setVertexWeights { attachmentId, vertices: [{ vertex, weights }] }`: zero-based
+  vertex indices with complete influence lists. Indices must exist and occur once;
+  all other weights, bind matrices, topology, bones and animations stay unchanged.
+  References/totals are validated by the final canonical model, with no repair.
+- `setVertexDeforms { animationId, attachmentId, time, curve, vertices: [{ vertex,
+  offset: [x,y] }] }`: changes only selected vertex offsets at an exact key time,
+  and explicitly replaces that key's curve. Missing keys/channels are created; a
+  new key starts with all-zero offsets before selected writes. Existing unselected
+  offsets, other keys, channels and attachments are preserved. Time is seconds in
+  [0,duration]; indices must exist and be unique. Read the curve/offsets with
+  inspect_deforms before editing; this avoids full-animation payloads for large keys.
+- `putIKConstraint { value: TwoBoneIK }`, and `remove` with
+  `collection: 'ikConstraints'`: complete constraints, final reference validation,
+  namespaced history changes, same undo/redo/checkpoint semantics as other entities.
+- `putAnimation` now accepts canonical optional `deforms`; it still replaces the
+  complete animation, so callers preserve unrelated channels and keys explicitly.
+
+Mesh/deform/IK writes reject format 0 with `UNSUPPORTED_VERSION`. They never upgrade
+implicitly. Successful v1 writes add their required `mesh-v1`/`ik-v1` declaration to
+the candidate, which is rolled back on failure and retained after entity removal.
+No operation bypasses the unchanged strict v0/v1 model validation or asset checks.

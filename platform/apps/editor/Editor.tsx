@@ -10,6 +10,8 @@ import { EmptyState, Header, Panel } from "../shared/Shell";
 import { Stage, usePlayback } from "../shared/Stage";
 import { editorRuntime, identity, id, type EditorRuntime } from "./runtime";
 
+import { MeshControls } from "./mesh-controls";
+
 const labels: Record<keyof Transform, string> = {
   x: "Vị trí X",
   y: "Vị trí Y",
@@ -156,6 +158,14 @@ export function Editor({
     setProperty("rotation");
     setKeyValue("0");
     setCurve({ type: "linear" });
+  }, [sessionId]);
+  const [meshId, selectMesh] = useState("");
+  const [vertices, selectVertices] = useState<number[]>([]);
+  const [weightBoneId, selectWeightBone] = useState("");
+  useEffect(() => {
+    selectMesh("");
+    selectVertices([]);
+    selectWeightBone("");
   }, [sessionId]);
   const [panel, setPanel] = useState("properties"),
     [newBone, setNewBone] = useState("Xương mới"),
@@ -416,6 +426,21 @@ export function Editor({
               time={playback.time}
               selected={selected}
               onSelect={select}
+              meshSelection={
+                panel === "mesh"
+                  ? {
+                      attachmentId: meshId,
+                      vertices,
+                      weightBoneId,
+                      onSelect: (vertex: number) =>
+                        selectVertices(
+                          vertices.includes(vertex)
+                            ? vertices.filter((v) => v !== vertex)
+                            : [...vertices, vertex],
+                        ),
+                    }
+                  : undefined
+              }
             />
           ) : (
             <EmptyState
@@ -434,6 +459,12 @@ export function Editor({
               Thuộc tính
             </button>
             <button
+              aria-pressed={panel === "mesh"}
+              onClick={() => setPanel("mesh")}
+            >
+              Lưới / IK
+            </button>
+            <button
               aria-pressed={panel === "history"}
               onClick={() => setPanel("history")}
             >
@@ -441,7 +472,21 @@ export function Editor({
             </button>
           </div>
           <div className="panel-content">
-            {panel === "history" ? (
+            {panel === "mesh" && p ? (
+              <MeshControls
+                key={`${sessionId}:${revision}:${meshId}:${vertices.join(",")}`}
+                project={p}
+                runtime={runtime}
+                meshId={meshId}
+                selectMesh={selectMesh}
+                vertices={vertices}
+                selectVertices={selectVertices}
+                weightBoneId={weightBoneId}
+                selectWeightBone={selectWeightBone}
+                animationId={animation?.id ?? null}
+                time={playback.time}
+              />
+            ) : panel === "history" ? (
               <>
                 <p className="hint">Lịch sử và mốc chỉ giữ trong phiên này.</p>
                 {session && (

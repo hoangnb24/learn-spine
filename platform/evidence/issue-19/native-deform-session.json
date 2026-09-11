@@ -1,0 +1,404 @@
+{
+  "source": "af97148a53fd7b69bbab9050d8e2a4a99716a25a",
+  "date": "2026-09-11T07:03:41.328Z",
+  "onlySelectedChanged": [
+    1
+  ],
+  "undoRestored": true,
+  "calls": [
+    {
+      "name": "get_capabilities",
+      "input": {},
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"formatVersions\":[0,1],\"features\":[\"region-v0\",\"mesh-v1\",\"ik-v1\",\"explicit-migration-v1\",\"atomic-batch\",\"undo-redo\",\"checkpoints\",\"session-dedup\",\"session-events\",\"snapshot-observation\",\"png-image-content\",\"project-zip\",\"app-owned-job-cancel\",\"diagnostics-v1\"],\"transport\":\"webmcp-document\",\"limits\":{\"dedupRequests\":1000,\"undoBatches\":100,\"checkpoints\":20,\"jobs\":2,\"packageBytes\":209715200,\"assetBytes\":20971520,\"maxImageDimension\":16384,\"inspectPage\":50,\"jsonResponseBytes\":262144,\"inlineImageBytes\":8388608,\"inputJsonBytes\":1048576,\"downloadBytes\":268435456,\"downloadFiles\":20},\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":0,\"tools\":[\"get_capabilities\",\"inspect_project\",\"inspect_animation\",\"list_assets\",\"apply_batch\",\"inspect_mesh\",\"inspect_deforms\",\"validate_project\",\"measure_motion\",\"create_bones\",\"attach_images\",\"create_animation\",\"set_keyframes\",\"set_curves\",\"undo\",\"redo\",\"create_checkpoint\",\"restore_checkpoint\",\"inspect_history\",\"render_pose\",\"render_sequence\",\"export_frames\",\"preview_animation\",\"get_job_status\",\"cancel_job\",\"release_job\",\"read_artifact\",\"save_project\"],\"lifetime\":\"Session changes/reload invalidate jobs, URLs and retry identity. Sync commit retries are retained for 1000 requests by Session; observation submissions and save are not deduplicated.\",\"cancellation\":\"cancel_job for observation jobs; native AbortSignal unavailable in tested host; completed synchronous edits require undo.\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_deforms",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "animationId": "deform",
+        "attachmentId": "mesh",
+        "keyTime": 0,
+        "limit": 50
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":0,\"animationId\":\"deform\",\"attachmentId\":\"mesh\",\"keyTime\":0,\"curve\":{\"type\":\"linear\"},\"items\":[{\"vertex\":0,\"offset\":[0,0]},{\"vertex\":1,\"offset\":[0,0]},{\"vertex\":2,\"offset\":[0,0]},{\"vertex\":3,\"offset\":[0,0]},{\"vertex\":4,\"offset\":[0,0]},{\"vertex\":5,\"offset\":[0,0]},{\"vertex\":6,\"offset\":[0,0]},{\"vertex\":7,\"offset\":[0,0]},{\"vertex\":8,\"offset\":[0,0]},{\"vertex\":9,\"offset\":[0,0]},{\"vertex\":10,\"offset\":[0,0]},{\"vertex\":11,\"offset\":[0,0]},{\"vertex\":12,\"offset\":[0,0]},{\"vertex\":13,\"offset\":[0,0]},{\"vertex\":14,\"offset\":[0,0]},{\"vertex\":15,\"offset\":[0,0]},{\"vertex\":16,\"offset\":[0,0]},{\"vertex\":17,\"offset\":[0,0]},{\"vertex\":18,\"offset\":[0,0]},{\"vertex\":19,\"offset\":[0,0]},{\"vertex\":20,\"offset\":[0,0]},{\"vertex\":21,\"offset\":[0,0]},{\"vertex\":22,\"offset\":[0,0]},{\"vertex\":23,\"offset\":[0,0]},{\"vertex\":24,\"offset\":[0,0]},{\"vertex\":25,\"offset\":[0,0]},{\"vertex\":26,\"offset\":[0,0]},{\"vertex\":27,\"offset\":[0,0]},{\"vertex\":28,\"offset\":[0,0]},{\"vertex\":29,\"offset\":[0,0]},{\"vertex\":30,\"offset\":[0,0]},{\"vertex\":31,\"offset\":[0,0]},{\"vertex\":32,\"offset\":[0,0]},{\"vertex\":33,\"offset\":[0,0]},{\"vertex\":34,\"offset\":[0,0]},{\"vertex\":35,\"offset\":[0,0]},{\"vertex\":36,\"offset\":[0,0]},{\"vertex\":37,\"offset\":[0,0]},{\"vertex\":38,\"offset\":[0,0]},{\"vertex\":39,\"offset\":[0,0]},{\"vertex\":40,\"offset\":[0,0]},{\"vertex\":41,\"offset\":[0,0]},{\"vertex\":42,\"offset\":[0,0]},{\"vertex\":43,\"offset\":[0,0]},{\"vertex\":44,\"offset\":[0,0]}],\"total\":45,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "expectedRevision": 0,
+        "requestId": "native-deform-selected-19",
+        "operations": [
+          {
+            "kind": "setVertexDeforms",
+            "animationId": "deform",
+            "attachmentId": "mesh",
+            "time": 0,
+            "curve": {
+              "type": "linear"
+            },
+            "vertices": [
+              {
+                "vertex": 1,
+                "offset": [
+                  3,
+                  4
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":1,\"changedIds\":[\"deform\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "expectedRevision": 0,
+        "requestId": "native-deform-selected-19",
+        "operations": [
+          {
+            "kind": "setVertexDeforms",
+            "animationId": "deform",
+            "attachmentId": "mesh",
+            "time": 0,
+            "curve": {
+              "type": "linear"
+            },
+            "vertices": [
+              {
+                "vertex": 1,
+                "offset": [
+                  3,
+                  4
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":1,\"changedIds\":[\"deform\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_deforms",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "animationId": "deform",
+        "attachmentId": "mesh",
+        "keyTime": 0,
+        "limit": 50
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":1,\"animationId\":\"deform\",\"attachmentId\":\"mesh\",\"keyTime\":0,\"curve\":{\"type\":\"linear\"},\"items\":[{\"vertex\":0,\"offset\":[0,0]},{\"vertex\":1,\"offset\":[3,4]},{\"vertex\":2,\"offset\":[0,0]},{\"vertex\":3,\"offset\":[0,0]},{\"vertex\":4,\"offset\":[0,0]},{\"vertex\":5,\"offset\":[0,0]},{\"vertex\":6,\"offset\":[0,0]},{\"vertex\":7,\"offset\":[0,0]},{\"vertex\":8,\"offset\":[0,0]},{\"vertex\":9,\"offset\":[0,0]},{\"vertex\":10,\"offset\":[0,0]},{\"vertex\":11,\"offset\":[0,0]},{\"vertex\":12,\"offset\":[0,0]},{\"vertex\":13,\"offset\":[0,0]},{\"vertex\":14,\"offset\":[0,0]},{\"vertex\":15,\"offset\":[0,0]},{\"vertex\":16,\"offset\":[0,0]},{\"vertex\":17,\"offset\":[0,0]},{\"vertex\":18,\"offset\":[0,0]},{\"vertex\":19,\"offset\":[0,0]},{\"vertex\":20,\"offset\":[0,0]},{\"vertex\":21,\"offset\":[0,0]},{\"vertex\":22,\"offset\":[0,0]},{\"vertex\":23,\"offset\":[0,0]},{\"vertex\":24,\"offset\":[0,0]},{\"vertex\":25,\"offset\":[0,0]},{\"vertex\":26,\"offset\":[0,0]},{\"vertex\":27,\"offset\":[0,0]},{\"vertex\":28,\"offset\":[0,0]},{\"vertex\":29,\"offset\":[0,0]},{\"vertex\":30,\"offset\":[0,0]},{\"vertex\":31,\"offset\":[0,0]},{\"vertex\":32,\"offset\":[0,0]},{\"vertex\":33,\"offset\":[0,0]},{\"vertex\":34,\"offset\":[0,0]},{\"vertex\":35,\"offset\":[0,0]},{\"vertex\":36,\"offset\":[0,0]},{\"vertex\":37,\"offset\":[0,0]},{\"vertex\":38,\"offset\":[0,0]},{\"vertex\":39,\"offset\":[0,0]},{\"vertex\":40,\"offset\":[0,0]},{\"vertex\":41,\"offset\":[0,0]},{\"vertex\":42,\"offset\":[0,0]},{\"vertex\":43,\"offset\":[0,0]},{\"vertex\":44,\"offset\":[0,0]}],\"total\":45,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "expectedRevision": 1,
+        "requestId": "native-deform-bad-19",
+        "operations": [
+          {
+            "kind": "setVertexDeforms",
+            "animationId": "deform",
+            "attachmentId": "mesh",
+            "time": 0,
+            "curve": {
+              "type": "linear"
+            },
+            "vertices": [
+              {
+                "vertex": 1,
+                "offset": [
+                  3,
+                  4
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "setVertexDeforms",
+            "animationId": "deform",
+            "attachmentId": "mesh",
+            "time": 0,
+            "curve": {
+              "type": "linear"
+            },
+            "vertices": [
+              {
+                "vertex": 999,
+                "offset": [
+                  1,
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":false,\"error\":{\"code\":\"MISSING_REFERENCE\",\"path\":\"/operations/1/vertices/0/vertex\",\"message\":\"Vertex index 999 does not exist in mesh mesh\"},\"revision\":1}",
+            "type": "text"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "name": "undo",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "expectedRevision": 1,
+        "requestId": "native-deform-undo-19"
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":2,\"changedIds\":[\"deform\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_deforms",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "animationId": "deform",
+        "attachmentId": "mesh",
+        "keyTime": 0,
+        "limit": 50
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":2,\"animationId\":\"deform\",\"attachmentId\":\"mesh\",\"keyTime\":0,\"curve\":{\"type\":\"linear\"},\"items\":[{\"vertex\":0,\"offset\":[0,0]},{\"vertex\":1,\"offset\":[0,0]},{\"vertex\":2,\"offset\":[0,0]},{\"vertex\":3,\"offset\":[0,0]},{\"vertex\":4,\"offset\":[0,0]},{\"vertex\":5,\"offset\":[0,0]},{\"vertex\":6,\"offset\":[0,0]},{\"vertex\":7,\"offset\":[0,0]},{\"vertex\":8,\"offset\":[0,0]},{\"vertex\":9,\"offset\":[0,0]},{\"vertex\":10,\"offset\":[0,0]},{\"vertex\":11,\"offset\":[0,0]},{\"vertex\":12,\"offset\":[0,0]},{\"vertex\":13,\"offset\":[0,0]},{\"vertex\":14,\"offset\":[0,0]},{\"vertex\":15,\"offset\":[0,0]},{\"vertex\":16,\"offset\":[0,0]},{\"vertex\":17,\"offset\":[0,0]},{\"vertex\":18,\"offset\":[0,0]},{\"vertex\":19,\"offset\":[0,0]},{\"vertex\":20,\"offset\":[0,0]},{\"vertex\":21,\"offset\":[0,0]},{\"vertex\":22,\"offset\":[0,0]},{\"vertex\":23,\"offset\":[0,0]},{\"vertex\":24,\"offset\":[0,0]},{\"vertex\":25,\"offset\":[0,0]},{\"vertex\":26,\"offset\":[0,0]},{\"vertex\":27,\"offset\":[0,0]},{\"vertex\":28,\"offset\":[0,0]},{\"vertex\":29,\"offset\":[0,0]},{\"vertex\":30,\"offset\":[0,0]},{\"vertex\":31,\"offset\":[0,0]},{\"vertex\":32,\"offset\":[0,0]},{\"vertex\":33,\"offset\":[0,0]},{\"vertex\":34,\"offset\":[0,0]},{\"vertex\":35,\"offset\":[0,0]},{\"vertex\":36,\"offset\":[0,0]},{\"vertex\":37,\"offset\":[0,0]},{\"vertex\":38,\"offset\":[0,0]},{\"vertex\":39,\"offset\":[0,0]},{\"vertex\":40,\"offset\":[0,0]},{\"vertex\":41,\"offset\":[0,0]},{\"vertex\":42,\"offset\":[0,0]},{\"vertex\":43,\"offset\":[0,0]},{\"vertex\":44,\"offset\":[0,0]}],\"total\":45,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "list_assets",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4"
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":2,\"collection\":\"assets\",\"items\":[{\"id\":\"scarf\",\"name\":\"scarf\",\"path\":\"assets/scarf.png\",\"mimeType\":\"image/png\",\"sha256\":\"d16a903fb3e97e214c13e1b79a9c6e3cee417e2ddf6c524086eb7ee27c8dcbc2\",\"pixelWidth\":256,\"pixelHeight\":96,\"originalWidth\":256,\"originalHeight\":96,\"trimX\":0,\"trimY\":0}],\"total\":1,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "expectedRevision": 2,
+        "requestId": "native-create-mesh-19",
+        "operations": [
+          {
+            "kind": "putMesh",
+            "value": {
+              "id": "authored-triangle",
+              "type": "mesh",
+              "assetId": "scarf",
+              "vertices": [
+                0,
+                0,
+                20,
+                0,
+                0,
+                20
+              ],
+              "uvs": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1
+              ],
+              "triangles": [
+                0,
+                1,
+                2
+              ],
+              "bindPose": [
+                {
+                  "boneId": "root",
+                  "world": [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "weights": [
+                [
+                  {
+                    "boneId": "root",
+                    "weight": 1
+                  }
+                ],
+                [
+                  {
+                    "boneId": "root",
+                    "weight": 1
+                  }
+                ],
+                [
+                  {
+                    "boneId": "root",
+                    "weight": 1
+                  }
+                ]
+              ]
+            }
+          },
+          {
+            "kind": "putSlot",
+            "value": {
+              "id": "authored-slot",
+              "name": "Authored triangle",
+              "boneId": "root",
+              "attachmentId": "authored-triangle"
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "authored-deform",
+              "name": "Authored deform",
+              "duration": 1,
+              "loop": false,
+              "channels": [],
+              "deforms": [
+                {
+                  "attachmentId": "authored-triangle",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "offsets": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "offsets": [
+                        0,
+                        0,
+                        2,
+                        0,
+                        0,
+                        2
+                      ],
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":3,\"changedIds\":[\"authored-triangle\",\"authored-slot\",\"authored-deform\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_mesh",
+      "input": {
+        "sessionId": 1,
+        "projectId": "mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4",
+        "attachmentId": "authored-triangle",
+        "section": "vertices",
+        "limit": 3
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"mesh-scarf-0e2de5a4-cce8-4073-b89d-dcdc80c6b6a4\",\"revision\":3,\"attachmentId\":\"authored-triangle\",\"section\":\"vertices\",\"items\":[{\"vertex\":0,\"position\":[0,0],\"uv\":[0,0],\"weights\":[{\"boneId\":\"root\",\"weight\":1}]},{\"vertex\":1,\"position\":[20,0],\"uv\":[1,0],\"weights\":[{\"boneId\":\"root\",\"weight\":1}]},{\"vertex\":2,\"position\":[0,20],\"uv\":[0,1],\"weights\":[{\"boneId\":\"root\",\"weight\":1}]}],\"total\":3,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ]
+}

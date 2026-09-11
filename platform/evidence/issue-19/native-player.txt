@@ -1,0 +1,31 @@
+- banner:
+  - link "learn-spine, về Editor":
+    - /url: ./index.html
+    - generic: ◇
+    - text: learn-spine
+    - generic: / Player
+  - navigation "Ứng dụng":
+    - link "Editor":
+      - /url: ./index.html
+    - link "Player":
+      - /url: ./player.html
+  - generic: Không gian sáng tạo 2D
+- text: Mở gói project
+- button "Mở gói project"
+- generic: T01 scarf mesh renderer fixture
+- main "Player":
+  - button "Vừa khung"
+  - text: Thu phóng
+  - combobox "Thu phóng":
+    - option "50%"
+    - option "100%" [selected]
+    - option "200%"
+- combobox "Chọn chuyển động":
+  - option "Tư thế Setup"
+  - option "Deform" [selected]
+- button "Phát"
+- slider "Thanh thời gian" [active]: "1"
+- status: 1.00 s
+- contentinfo:
+  - generic: Player
+  - generic: Bản 2 · 1 ảnh trong gói

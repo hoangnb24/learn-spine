@@ -52,7 +52,12 @@ export type Operation =
   | { kind: 'putSlot'; value: Slot }
   | { kind: 'putRegion'; value: Region }
   | { kind: 'putAnimation'; value: Animation }
-  | { kind: 'remove'; collection: 'assets' | 'bones' | 'slots' | 'attachments' | 'animations'; id: Id }
+  | { kind: 'migrateProject'; targetVersion: 1 }
+  | { kind: 'putMesh'; value: Mesh }
+  | { kind: 'setVertexWeights'; attachmentId: Id; vertices: { vertex: number; weights: Mesh['weights'][number] }[] }
+  | { kind: 'putIKConstraint'; value: TwoBoneIK }
+  | { kind: 'setVertexDeforms'; animationId: Id; attachmentId: Id; time: number; curve: Curve; vertices: { vertex: number; offset: [number, number] }[] }
+  | { kind: 'remove'; collection: 'assets' | 'bones' | 'slots' | 'attachments' | 'animations' | 'ikConstraints'; id: Id }
   | { kind: 'setSlotOrder'; ids: Id[] };
 export interface RevisionRequest { projectId: Id; expectedRevision: number; requestId: Id }
 export interface Batch extends RevisionRequest { operations: Operation[] }
