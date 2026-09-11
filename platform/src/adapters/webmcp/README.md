@@ -18,8 +18,10 @@ Read tools omit large geometry by default:
 - `inspect_mesh { attachmentId, section: 'vertices'|'triangles'|'bindPose', offset?,
   limit? }`: vertex pages include stable zero-based index, bind-world position,
   normalized UV and weights; triangle indices and bind matrices have separate pages.
-- `inspect_deforms { animationId, attachmentId?, offset?, limit? }`: channel counts
-  without attachmentId, complete key pages for the named attachment otherwise.
+- `inspect_deforms { animationId, attachmentId?, keyTime?, offset?, limit? }`: channel
+  counts without attachmentId, key summaries (time/curve/vertexCount) with it. Add
+  keyTime for a page of `{vertex, offset:[x,y]}`. Large keys remain readable without
+  sending the entire offsets array. Use `setVertexDeforms` to edit them locally.
 - `validate_project { offset?, limit? }` and `measure_motion { animationId,
   anchors?, loopPoints?, offset?, limit? }`: consume the current snapshot, with the
   fixed policy from [diagnostics](../../diagnostics/README.md). Anchors require an
@@ -28,7 +30,7 @@ Read tools omit large geometry by default:
   Successful transport with `passed:false` never establishes motion quality.
 
 Every read carries session/project/source revision. Pages default 20, max 50;
-JSON output is capped at 256 KiB (oversized keys/influences return LIMIT_EXCEEDED,
+JSON output is capped at 256 KiB (oversized influence lists return LIMIT_EXCEEDED,
 never partial data). Input is ordinary finite JSON capped at 1 MiB; exact schemas
 reject extra properties. Diagnostic policy/work limits remain owned by diagnostics,
 not user-overridable thresholds. Pagination reruns against the current revision;

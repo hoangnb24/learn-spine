@@ -88,6 +88,13 @@ Additional canonical operations (all in the same atomic batch/history/dedup):
   vertex indices with complete influence lists. Indices must exist and occur once;
   all other weights, bind matrices, topology, bones and animations stay unchanged.
   References/totals are validated by the final canonical model, with no repair.
+- `setVertexDeforms { animationId, attachmentId, time, curve, vertices: [{ vertex,
+  offset: [x,y] }] }`: changes only selected vertex offsets at an exact key time,
+  and explicitly replaces that key's curve. Missing keys/channels are created; a
+  new key starts with all-zero offsets before selected writes. Existing unselected
+  offsets, other keys, channels and attachments are preserved. Time is seconds in
+  [0,duration]; indices must exist and be unique. Read the curve/offsets with
+  inspect_deforms before editing; this avoids full-animation payloads for large keys.
 - `putIKConstraint { value: TwoBoneIK }`, and `remove` with
   `collection: 'ikConstraints'`: complete constraints, final reference validation,
   namespaced history changes, same undo/redo/checkpoint semantics as other entities.

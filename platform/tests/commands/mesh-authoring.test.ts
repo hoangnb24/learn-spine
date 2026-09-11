@@ -324,3 +324,163 @@ describe("v1 authoring transactions", () => {
     expect(s.inspect().revision).toBe(1);
   });
 });
+
+describe("selected deform keys and large offset pages", () => {
+  it("edits only selected offsets at existing/new times and restores full animation on undo/retry", async () => {
+    const s = await session(createMeshProject()),
+      before = s.inspect();
+    const batch = {
+      ...req(s, "local-deform"),
+      operations: [
+        {
+          kind: "setVertexDeforms",
+          animationId: "bend",
+          attachmentId: "triangle",
+          time: 1,
+          curve: { type: "stepped" },
+          vertices: [{ vertex: 1, offset: [5, 6] }],
+        },
+      ],
+    };
+    const first = value(s.apply(batch));
+    const after = s.inspect();
+    expect(after.animations[0].channels).toEqual(before.animations[0].channels);
+    expect(after.animations[0].deforms![0].keys[0]).toEqual(
+      before.animations[0].deforms![0].keys[0],
+    );
+    expect(after.animations[0].deforms![0].keys[1]).toEqual({
+      time: 1,
+      curve: { type: "stepped" },
+      offsets: [2, 0, 5, 6, 2, 0],
+    });
+    expect(after.attachments).toEqual(before.attachments);
+    value(s.undo(req(s, "undo-local")));
+    expect(s.inspect()).toEqual({ ...before, revision: 2 });
+    expect(value(s.apply(batch))).toEqual(first);
+    expect(s.inspect().revision).toBe(2);
+    value(
+      s.apply({
+        ...req(s, "new-key"),
+        operations: [
+          {
+            kind: "setVertexDeforms",
+            animationId: "bend",
+            attachmentId: "triangle",
+            time: 0.5,
+            curve: { type: "linear" },
+            vertices: [{ vertex: 2, offset: [3, 4] }],
+          },
+        ],
+      }),
+    );
+    expect(
+      s.inspect().animations[0].deforms![0].keys.map((k) => k.time),
+    ).toEqual([0, 0.5, 1]);
+    expect(s.inspect().animations[0].deforms![0].keys[1].offsets).toEqual([
+      0, 0, 0, 0, 3, 4,
+    ]);
+    const snapshot = s.snapshot();
+    for (const patch of [
+      { time: 2 },
+      { animationId: "missing" },
+      { attachmentId: "missing" },
+      { vertices: [{ vertex: 3, offset: [0, 0] }] },
+      {
+        vertices: [
+          { vertex: 0, offset: [0, 0] },
+          { vertex: 0, offset: [1, 1] },
+        ],
+      },
+    ])
+      expect(
+        s.apply({
+          ...req(s, "failed-local"),
+          operations: [weights, { ...batch.operations[0], ...patch }],
+        }).ok,
+      ).toBe(false);
+    expect(s.snapshot()).toEqual(snapshot);
+  });
+  it("reads and edits an 8000-vertex key through bounded pages without sending the whole animation", async () => {
+    const p = createMeshProject(),
+      mesh = p.attachments[0];
+    mesh.vertices = Array(16000).fill(0.12345678901234567);
+    mesh.uvs = Array(16000).fill(0);
+    mesh.weights = Array.from({ length: 8000 }, () => [
+      { boneId: "root", weight: 1 },
+    ]);
+    for (const key of p.animations[0].deforms![0].keys)
+      key.offsets = Array(16000).fill(0.12345678901234567);
+    const s = await session(p),
+      bridge = new WebMCPBridge({
+        getSession: () => s,
+        observation: new ObservationService(),
+        storage: {} as Storage,
+      }),
+      scope = { sessionId: s.sessionId, projectId: p.projectId };
+    expect(
+      await bridge.dispatch("inspect_deforms", {
+        ...scope,
+        animationId: "bend",
+        attachmentId: "triangle",
+        limit: 1,
+      }),
+    ).toMatchObject({
+      ok: true,
+      value: { items: [{ time: 0, vertexCount: 8000 }], nextOffset: 1 },
+    });
+    const read = {
+      ...scope,
+      animationId: "bend",
+      attachmentId: "triangle",
+      keyTime: 1,
+      offset: 7999,
+      limit: 1,
+    };
+    expect(await bridge.dispatch("inspect_deforms", read)).toMatchObject({
+      ok: true,
+      value: {
+        total: 8000,
+        nextOffset: null,
+        items: [
+          { vertex: 7999, offset: [0.12345678901234567, 0.12345678901234567] },
+        ],
+      },
+    });
+    expect(
+      await bridge.dispatch("inspect_deforms", {
+        ...scope,
+        animationId: "bend",
+        keyTime: 1,
+      }),
+    ).toMatchObject({ ok: false, error: { code: "INVALID_INPUT" } });
+    expect(
+      await bridge.dispatch("inspect_deforms", { ...read, keyTime: 0.25 }),
+    ).toMatchObject({ ok: false, error: { code: "MISSING_REFERENCE" } });
+    const request = {
+      ...scope,
+      ...req(s, "large-local"),
+      operations: [
+        {
+          kind: "setVertexDeforms",
+          animationId: "bend",
+          attachmentId: "triangle",
+          time: 1,
+          curve: { type: "linear" },
+          vertices: [{ vertex: 7999, offset: [1, 2] }],
+        },
+      ],
+    };
+    expect(await bridge.dispatch("apply_batch", request)).toMatchObject({
+      ok: true,
+      value: { revision: 1 },
+    });
+    expect(await bridge.dispatch("inspect_deforms", read)).toMatchObject({
+      ok: true,
+      value: { items: [{ vertex: 7999, offset: [1, 2] }] },
+    });
+    const expected = structuredClone(p);
+    expected.revision = 1;
+    expected.animations[0].deforms![0].keys[1].offsets.splice(15998, 2, 1, 2);
+    expect(s.inspect()).toEqual(expected);
+  });
+});

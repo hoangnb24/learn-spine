@@ -9,8 +9,8 @@ selection is applied. Optional wireframe/selected-bone weight color uses rendere
 
 The panel can set absolute deform XY on selected vertices at the current timeline
 time. Existing key offsets and curve are preserved for unselected vertices; a new
-key starts with zero offsets. This is explicitly shown in the UI. The complete
-animation is submitted through `putAnimation` at the rendered revision. IK mix,
+key starts with zero offsets. This is explicitly shown in the UI. The selected offsets
+are submitted through `setVertexDeforms` at the rendered revision. IK mix,
 bend and order are editable for existing constraints. Agent `apply_batch` creates
 meshes, binds and IK constraints; the UI is a minimal parameter editor, not a
 triangulation/automatic weighting or IK rig builder.

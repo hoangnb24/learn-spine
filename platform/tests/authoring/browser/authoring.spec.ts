@@ -1,6 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import {createServer,type ViteDevServer} from 'vite';
+let server:ViteDevServer;
+test.use({baseURL:'http://127.0.0.1:4197'});
+test.beforeAll(async()=>{server=await createServer({root:fileURLToPath(new URL('../../..',import.meta.url)),server:{host:'127.0.0.1',port:4197,strictPort:true}});await server.listen();});
+test.afterAll(async()=>{await server.close();});
 const output = fileURLToPath(
   new URL("../../../evidence/issue-19", import.meta.url),
 );
@@ -198,7 +203,7 @@ test("actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and
   const player = await browser.newPage({
     viewport: { width: 1500, height: 1000 },
   });
-  await player.goto("http://127.0.0.1:4199/player.html");
+  await player.goto("http://127.0.0.1:4197/player.html");
   await player.evaluate(async () => {
     const path = "/src/render/index.ts";
     const { PixiRenderer } = await import(/* @vite-ignore */ path);
@@ -315,3 +320,141 @@ test("new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo r
     requiredCapabilities: ["region-v0"],
   });
 });
+
+for (const kind of ["jelly", "ik"] as const)
+  test(`${kind} authored geometry persists in ZIP and real player draws`, async ({
+    page,
+    browser,
+  }) => {
+    await page.goto("/tests/authoring/browser/index.html");
+    await page
+      .getByRole("button", {
+        name: kind === "ik" ? "Nạp mẫu IK" : "Nạp mẫu thạch",
+        exact: true,
+      })
+      .click();
+    await expect(page.locator(".stage")).toHaveAttribute(
+      "data-rendered-revision",
+      "0",
+    );
+    const packed = await page.evaluate(async (kind) => {
+      const h = window.issue19,
+        s = h.runtime.session!,
+        p = s.inspect();
+      const request = {
+        sessionId: s.sessionId,
+        projectId: p.projectId,
+        expectedRevision: p.revision,
+        requestId: "roundtrip-" + kind,
+        operations:
+          kind === "ik"
+            ? [
+                {
+                  kind: "putIKConstraint",
+                  value: { ...p.ikConstraints![0], mix: 0.8 },
+                },
+              ]
+            : [
+                {
+                  kind: "setVertexDeforms",
+                  animationId: "deform",
+                  attachmentId: "mesh",
+                  time: 1,
+                  curve: { type: "linear" },
+                  vertices: [{ vertex: 10, offset: [2, 3] }],
+                },
+              ],
+      };
+      const commit = await h.bridge.dispatch("apply_batch", request);
+      if (!commit.ok) throw Error(JSON.stringify(commit));
+      const snapshot = s.snapshot(),
+        packed = await h.runtime.storage.pack(snapshot);
+      if (!packed.ok) throw Error(JSON.stringify(packed));
+      const reopened = await h.runtime.storage.unpack(packed.value);
+      if (!reopened.ok) throw Error(JSON.stringify(reopened));
+      if (
+        JSON.stringify(snapshot.project) !==
+        JSON.stringify(reopened.value.project)
+      )
+        throw Error("ZIP project mismatch");
+      const animation = snapshot.project.animations[0];
+      return {
+        bytes: Array.from(packed.value),
+        project: snapshot.project,
+        animationId: animation.id,
+        times: [0, animation.duration / 2, animation.duration * 0.9],
+        poses: [0, animation.duration / 2, animation.duration * 0.9].map(
+          (time) =>
+            h.evaluate(snapshot.project, { animationId: animation.id, time }),
+        ),
+      };
+    }, kind);
+    const zip = `${output}/authored-${kind}.zip`;
+    await writeFile(zip, new Uint8Array(packed.bytes));
+    await page.reload();
+    await page.getByLabel("Mở gói project", { exact: true }).setInputFiles(zip);
+    await expect(page.locator(".stage")).toHaveAttribute(
+      "data-rendered-revision",
+      "1",
+    );
+    expect(
+      await page.evaluate(() => window.issue19.runtime.session!.inspect()),
+    ).toEqual(packed.project);
+    const player = await browser.newPage();
+    await player.goto("http://127.0.0.1:4197/player.html");
+    await player.evaluate(async () => {
+      const path = "/src/render/index.ts";
+      const { PixiRenderer } = await import(/* @vite-ignore */ path);
+      const draw = PixiRenderer.prototype.draw;
+      PixiRenderer.prototype.draw = function (
+        pose: unknown,
+        viewport: unknown,
+      ) {
+        const result = draw.call(this, pose, viewport);
+        (window as unknown as { drawn: unknown }).drawn = {
+          pose: structuredClone(pose),
+          ok: result.ok,
+        };
+        return result;
+      };
+    });
+    await player
+      .getByLabel("Mở gói project", { exact: true })
+      .setInputFiles(zip);
+    await expect(player.locator(".stage")).toHaveAttribute(
+      "data-rendered-revision",
+      "1",
+    );
+    const playerPoses = [];
+    for (const [i, time] of packed.times.entries()) {
+      await player.getByLabel("Thanh thời gian").fill(String(time));
+      await expect(player.locator(".stage")).toHaveAttribute(
+        "data-rendered-time",
+        String(time),
+      );
+      const drawn = await player.evaluate(
+        () =>
+          (window as unknown as { drawn: { pose: unknown; ok: boolean } })
+            .drawn,
+      );
+      expect(drawn.ok).toBe(true);
+      expect(packed.poses[i]).toMatchObject({ ok: true, value: drawn.pose });
+      playerPoses.push(drawn.pose);
+    }
+    await player.screenshot({ path: `${output}/${kind}-player.png` });
+    await writeFile(
+      `${output}/${kind}-roundtrip.json`,
+      JSON.stringify(
+        {
+          browser: browser.version(),
+          project: packed.project,
+          times: packed.times,
+          poses: packed.poses,
+          playerPoses,
+        },
+        null,
+        2,
+      ),
+    );
+    await player.close();
+  });

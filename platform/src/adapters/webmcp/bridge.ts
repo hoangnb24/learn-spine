@@ -285,8 +285,14 @@ export class WebMCPBridge {
       const { sessionId: _, projectId: __, ...parameters } = p;
       const report =
         name === "validate_project"
-          ? validate_project(project, { ...parameters, limit: Number(p.limit ?? 20) })
-          : measure_motion(project, { ...parameters, limit: Number(p.limit ?? 20) } as unknown as MotionRequest);
+          ? validate_project(project, {
+              ...parameters,
+              limit: Number(p.limit ?? 20),
+            })
+          : measure_motion(project, {
+              ...parameters,
+              limit: Number(p.limit ?? 20),
+            } as unknown as MotionRequest);
       return report.ok ? bounded(report.value) : report;
     }
     if (name === "inspect_mesh") {
@@ -341,6 +347,12 @@ export class WebMCPBridge {
           "Animation not found",
           project.revision,
         );
+      if (p.keyTime !== undefined && !p.attachmentId)
+        return fail(
+          "INVALID_INPUT",
+          "Provide attachmentId with keyTime",
+          project.revision,
+        );
       if (p.attachmentId) {
         const deform = animation.deforms?.find(
           (d) => d.attachmentId === p.attachmentId,
@@ -351,10 +363,46 @@ export class WebMCPBridge {
             "Deform channel not found",
             project.revision,
           );
+        if (p.keyTime !== undefined) {
+          const key = deform.keys.find((k) => k.time === p.keyTime);
+          if (!key)
+            return fail(
+              "MISSING_REFERENCE",
+              "Deform key time not found",
+              project.revision,
+            );
+          const offset = Number(p.offset ?? 0),
+            limit = Number(p.limit ?? 20),
+            total = key.offsets.length / 2;
+          const items = Array.from(
+            { length: Math.max(0, Math.min(limit, total - offset)) },
+            (_, i) => ({
+              vertex: offset + i,
+              offset: key.offsets.slice((offset + i) * 2, (offset + i) * 2 + 2),
+            }),
+          );
+          return bounded({
+            animationId: animation.id,
+            attachmentId: p.attachmentId,
+            keyTime: key.time,
+            curve: key.curve,
+            items,
+            total,
+            nextOffset:
+              offset + items.length < total ? offset + items.length : null,
+          });
+        }
         return bounded({
           animationId: animation.id,
           attachmentId: p.attachmentId,
-          ...page(deform.keys, p),
+          ...page(
+            deform.keys.map((k) => ({
+              time: k.time,
+              curve: k.curve,
+              vertexCount: k.offsets.length / 2,
+            })),
+            p,
+          ),
         });
       }
       return bounded({

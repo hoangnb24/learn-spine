@@ -60,6 +60,31 @@ const operation = {
       },
     }),
     object({
+      kind: { const: "setVertexDeforms" },
+      animationId: id,
+      attachmentId: id,
+      time: { type: "number", minimum: 0 },
+      curve: ref("curve"),
+      vertices: {
+        type: "array",
+        minItems: 1,
+        maxItems: 1000,
+        items: object({
+          vertex: {
+            type: "integer",
+            minimum: 0,
+            maximum: Number.MAX_SAFE_INTEGER,
+          },
+          offset: {
+            type: "array",
+            items: { type: "number" },
+            minItems: 2,
+            maxItems: 2,
+          },
+        }),
+      },
+    }),
+    object({
       kind: { const: "setSlotOrder" },
       ids: { type: "array", items: id, uniqueItems: true },
     }),

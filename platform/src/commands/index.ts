@@ -533,6 +533,7 @@ function perform(
     operation.kind === "putMesh" ||
     operation.kind === "putIKConstraint" ||
     operation.kind === "setVertexWeights" ||
+    operation.kind === "setVertexDeforms" ||
     (operation.kind === "putAnimation" && operation.value.deforms !== undefined)
   ) {
     if (project.formatVersion !== 1)
@@ -545,6 +546,65 @@ function perform(
     const feature = operation.kind === "putIKConstraint" ? "ik-v1" : "mesh-v1";
     if (!project.requiredCapabilities.includes(feature))
       project.requiredCapabilities.push(feature);
+  }
+  if (operation.kind === "setVertexDeforms") {
+    const mesh = project.attachments.find(
+      (a) => a.id === operation.attachmentId,
+    );
+    if (!mesh || mesh.type !== "mesh")
+      return missing(
+        "/attachmentId",
+        "Expected an existing mesh attachment ID",
+      );
+    const animation = project.animations.find(
+      (a) => a.id === operation.animationId,
+    );
+    if (!animation)
+      return missing("/animationId", "Expected an existing animation ID");
+    if (operation.time > animation.duration)
+      return {
+        code: "INVALID_INPUT",
+        path: "/time",
+        message: "Key time exceeds animation duration",
+      };
+    const seen = new Set<number>();
+    for (const [i, entry] of operation.vertices.entries()) {
+      if (entry.vertex >= mesh.weights.length)
+        return missing(
+          `/vertices/${i}/vertex`,
+          `Vertex index ${entry.vertex} does not exist in mesh ${mesh.id}`,
+        );
+      if (seen.has(entry.vertex))
+        return {
+          code: "INVALID_INPUT",
+          path: `/vertices/${i}/vertex`,
+          message: "Duplicate vertex index",
+        };
+      seen.add(entry.vertex);
+    }
+    animation.deforms ??= [];
+    let channel = animation.deforms.find((d) => d.attachmentId === mesh.id);
+    if (!channel) {
+      channel = { attachmentId: mesh.id, keys: [] };
+      animation.deforms.push(channel);
+    }
+    let key = channel.keys.find((k) => k.time === operation.time);
+    if (!key) {
+      key = {
+        time: operation.time,
+        offsets: mesh.vertices.map(() => 0),
+        curve: operation.curve,
+      };
+      channel.keys.push(key);
+    }
+    key.curve = operation.curve;
+    for (const { vertex, offset } of operation.vertices) {
+      key.offsets[vertex * 2] = offset[0];
+      key.offsets[vertex * 2 + 1] = offset[1];
+    }
+    channel.keys.sort((a, b) => a.time - b.time);
+    changed.push({ collection: "animations", id: animation.id });
+    return;
   }
   if (operation.kind === "setVertexWeights") {
     const mesh = project.attachments.find(

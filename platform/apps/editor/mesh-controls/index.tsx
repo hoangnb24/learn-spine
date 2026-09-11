@@ -203,36 +203,28 @@ export function MeshControls({
               <button
                 disabled={!vertices.length}
                 onClick={() => {
-                  const animation = structuredClone(
-                    project.animations.find((a) => a.id === animationId)!,
-                  );
-                  animation.deforms ??= [];
-                  let channel = animation.deforms.find(
-                    (d) => d.attachmentId === mesh.id,
-                  );
-                  if (!channel) {
-                    channel = { attachmentId: mesh.id, keys: [] };
-                    animation.deforms.push(channel);
-                  }
-                  let key = channel.keys.find((k) => k.time === time);
-                  if (!key) {
-                    key = {
+                  const curve = project.animations
+                    .find((a) => a.id === animationId)
+                    ?.deforms?.find((d) => d.attachmentId === mesh.id)
+                    ?.keys.find((k) => k.time === time)?.curve ?? {
+                    type: "linear" as const,
+                  };
+                  apply([
+                    {
+                      kind: "setVertexDeforms",
+                      animationId,
+                      attachmentId: mesh.id,
                       time,
-                      offsets: mesh.vertices.map(() => 0),
-                      curve: { type: "linear" },
-                    };
-                    channel.keys.push(key);
-                  }
-                  for (const vertex of vertices) {
-                    key.offsets[vertex * 2] = offsetX.trim()
-                      ? Number(offsetX)
-                      : NaN;
-                    key.offsets[vertex * 2 + 1] = offsetY.trim()
-                      ? Number(offsetY)
-                      : NaN;
-                  }
-                  channel.keys.sort((a, b) => a.time - b.time);
-                  apply([{ kind: "putAnimation", value: animation }]);
+                      curve,
+                      vertices: vertices.map((vertex) => ({
+                        vertex,
+                        offset: [
+                          offsetX.trim() ? Number(offsetX) : NaN,
+                          offsetY.trim() ? Number(offsetY) : NaN,
+                        ],
+                      })),
+                    },
+                  ]);
                 }}
               >
                 Đặt key biến dạng vùng chọn

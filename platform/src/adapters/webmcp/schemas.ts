@@ -67,6 +67,24 @@ const operation = {
       ),
     }),
     object({
+      kind: { const: "setVertexDeforms" },
+      animationId: id,
+      attachmentId: id,
+      time: { type: "number", minimum: 0 },
+      curve: ref("curve"),
+      vertices: array(
+        object({
+          vertex: integer,
+          offset: {
+            type: "array",
+            items: { type: "number" },
+            minItems: 2,
+            maxItems: 2,
+          },
+        }),
+      ),
+    }),
+    object({
       kind: { const: "remove" },
       collection: { enum: collections },
       id,
@@ -159,12 +177,18 @@ const definitions: Array<[string, string, boolean, object]> = [
   ],
   [
     "inspect_deforms",
-    "Read deform channel summaries or key pages for a named attachment. Offsets are bind-world XY before skinning.",
+    "Read deform channel/key summaries. Add attachmentId and keyTime for a vertex offset page; offsets are absolute bind-world XY before skinning.",
     true,
-    object({ ...scope, animationId: id, attachmentId: id, ...pagination }, [
-      ...Object.keys(scope),
-      "animationId",
-    ]),
+    object(
+      {
+        ...scope,
+        animationId: id,
+        attachmentId: id,
+        keyTime: { type: "number", minimum: 0 },
+        ...pagination,
+      },
+      [...Object.keys(scope), "animationId"],
+    ),
   ],
   [
     "validate_project",
