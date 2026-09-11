@@ -1,0 +1,182 @@
+[
+  {
+    "requestedTime": 0.7334000000000002,
+    "effectiveInput": 0.7334,
+    "normalizedTime": 0.7334,
+    "referenceTime": 0.7334000000000002,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 3.552713678800501e-15,
+    "delta": 3.552713678800501e-15
+  },
+  {
+    "requestedTime": 0.11670000000000005,
+    "effectiveInput": 0.1167,
+    "normalizedTime": 0.1166999999999998,
+    "referenceTime": 0.11670000000000005,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 7.105427357601002e-15,
+    "delta": 7.105427357601002e-15
+  },
+  {
+    "requestedTime": 1.5666999999999989,
+    "effectiveInput": 1.5667,
+    "normalizedTime": 1.5667,
+    "referenceTime": 1.5666999999999989,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 0.3167000000000001,
+    "effectiveInput": 0.3167,
+    "normalizedTime": 0.3167,
+    "referenceTime": 0.3167000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 5.684341886080802e-14,
+    "delta": 5.684341886080802e-14
+  },
+  {
+    "requestedTime": 1.9999999999999993,
+    "effectiveInput": 2,
+    "normalizedTime": 0,
+    "referenceTime": 0,
+    "referenceSource": "recorded initial successful draw",
+    "requestedReferenceDelta": 5.684341886080802e-14,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.016700000000000045,
+    "effectiveInput": 0.0167,
+    "normalizedTime": 0.01670000000000016,
+    "referenceTime": 0.016700000000000045,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 7.105427357601002e-15,
+    "delta": 7.105427357601002e-15
+  },
+  {
+    "requestedTime": 1.2665999999999997,
+    "effectiveInput": 1.2666,
+    "normalizedTime": 1.2666,
+    "referenceTime": 1.2665999999999997,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 1.4210854715202004e-14,
+    "delta": 1.4210854715202004e-14
+  },
+  {
+    "requestedTime": 0.5334,
+    "effectiveInput": 0.5334,
+    "normalizedTime": 0.5333999999999999,
+    "referenceTime": 0.5334,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.7833999999999992,
+    "effectiveInput": 1.7834,
+    "normalizedTime": 1.7834000000000003,
+    "referenceTime": 1.7833999999999992,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 0.9500000000000005,
+    "effectiveInput": 0.950000000000001,
+    "normalizedTime": 0.9500000000000011,
+    "referenceTime": 0.9500000000000005,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 1.4210854715202004e-14,
+    "delta": 1.4210854715202004e-14
+  },
+  {
+    "requestedTime": 0.2167000000000001,
+    "effectiveInput": 0.2167,
+    "normalizedTime": 0.2166999999999999,
+    "referenceTime": 0.2167000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 1.466599999999999,
+    "effectiveInput": 1.4666,
+    "normalizedTime": 1.4665999999999997,
+    "referenceTime": 1.466599999999999,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 0.6334000000000001,
+    "effectiveInput": 0.6334,
+    "normalizedTime": 0.6334,
+    "referenceTime": 0.6334000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 3.552713678800501e-15,
+    "delta": 3.552713678800501e-15
+  },
+  {
+    "requestedTime": 1.8832999999999989,
+    "effectiveInput": 1.8833,
+    "normalizedTime": 1.8833000000000002,
+    "referenceTime": 1.8832999999999989,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 1.0500000000000005,
+    "effectiveInput": 1.05,
+    "normalizedTime": 1.0499999999999998,
+    "referenceTime": 1.0500000000000005,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 0.4334,
+    "effectiveInput": 0.4334,
+    "normalizedTime": 0.4333999999999998,
+    "referenceTime": 0.4334,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.6832999999999987,
+    "effectiveInput": 1.6833,
+    "normalizedTime": 1.6833,
+    "referenceTime": 1.6832999999999987,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 1.509903313490213e-14,
+    "delta": 1.509903313490213e-14
+  },
+  {
+    "requestedTime": 0.8500000000000004,
+    "effectiveInput": 0.85,
+    "normalizedTime": 0.8500000000000001,
+    "referenceTime": 0.8500000000000004,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 1.4210854715202004e-14,
+    "delta": 1.4210854715202004e-14
+  },
+  {
+    "requestedTime": 1.3665999999999994,
+    "effectiveInput": 1.3666,
+    "normalizedTime": 1.3666,
+    "referenceTime": 1.3665999999999994,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.842170943040401e-14,
+    "delta": 2.842170943040401e-14
+  },
+  {
+    "requestedTime": 1.1500000000000001,
+    "effectiveInput": 1.15,
+    "normalizedTime": 1.15,
+    "referenceTime": 1.1500000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 2.1316282072803006e-14,
+    "delta": 2.1316282072803006e-14
+  }
+]

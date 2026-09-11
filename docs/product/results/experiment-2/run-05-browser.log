@@ -1,0 +1,12 @@
+[WebServer] (node:68885) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:68886) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks scarf (18.5s)
+  ✓  2 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks jelly (54.6s)
+  ✓  3 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks ik (17.9s)
+
+  3 passed (1.5m)

@@ -1,0 +1,8 @@
+/local-*/
+/run-01/**
+!/run-01/README.md
+!/run-01/inventory.json
+!/run-01/arithmetic-verification.json
+/run-02/**
+!/run-02/README.md
+!/run-02/inventory.json

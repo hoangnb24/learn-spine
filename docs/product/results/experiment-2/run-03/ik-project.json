@@ -1,0 +1,250 @@
+{
+  "formatVersion": 1,
+  "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+  "revision": 3,
+  "requiredCapabilities": [
+    "region-v0",
+    "ik-v1"
+  ],
+  "metadata": {
+    "name": "Gate2 ik"
+  },
+  "assets": [
+    {
+      "id": "robot-thigh-left",
+      "name": "robot-thigh-left",
+      "path": "assets/robot-thigh-left.png",
+      "mimeType": "image/png",
+      "sha256": "1cd82a707b584d927ffda7ca278ac635554ccd836d8e22a5c08548f5ce0d9d6f",
+      "pixelWidth": 102,
+      "pixelHeight": 214,
+      "originalWidth": 102,
+      "originalHeight": 214,
+      "trimX": 0,
+      "trimY": 0
+    },
+    {
+      "id": "robot-shin-left",
+      "name": "robot-shin-left",
+      "path": "assets/robot-shin-left.png",
+      "mimeType": "image/png",
+      "sha256": "f637e7fd943626721de0e244d3fe55ea3db10614ec7637416110193227946eef",
+      "pixelWidth": 102,
+      "pixelHeight": 219,
+      "originalWidth": 102,
+      "originalHeight": 219,
+      "trimX": 0,
+      "trimY": 0
+    },
+    {
+      "id": "robot-foot-left",
+      "name": "robot-foot-left",
+      "path": "assets/robot-foot-left.png",
+      "mimeType": "image/png",
+      "sha256": "88b79ec654769ea872976bf418e5d012f5d5c978fae6033078965d3fb733c541",
+      "pixelWidth": 194,
+      "pixelHeight": 176,
+      "originalWidth": 194,
+      "originalHeight": 176,
+      "trimX": 0,
+      "trimY": 0
+    }
+  ],
+  "bones": [
+    {
+      "id": "root",
+      "name": "Gốc",
+      "parentId": null,
+      "setup": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "hip",
+      "name": "hip",
+      "parentId": null,
+      "setup": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "shin",
+      "name": "shin",
+      "parentId": "hip",
+      "setup": {
+        "x": 100,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "foot",
+      "name": "foot",
+      "parentId": "shin",
+      "setup": {
+        "x": 100,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "target",
+      "name": "target",
+      "parentId": null,
+      "setup": {
+        "x": 120,
+        "y": -100,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    }
+  ],
+  "slots": [
+    {
+      "id": "thigh",
+      "name": "thigh",
+      "boneId": "hip",
+      "attachmentId": "thigh"
+    },
+    {
+      "id": "shin",
+      "name": "shin",
+      "boneId": "shin",
+      "attachmentId": "shin"
+    },
+    {
+      "id": "foot",
+      "name": "foot",
+      "boneId": "target",
+      "attachmentId": "foot"
+    }
+  ],
+  "attachments": [
+    {
+      "id": "thigh",
+      "type": "region",
+      "assetId": "robot-thigh-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 1.5707963267948966,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 48,
+      "height": 110,
+      "pivotX": 24,
+      "pivotY": 100
+    },
+    {
+      "id": "shin",
+      "type": "region",
+      "assetId": "robot-shin-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 1.5707963267948966,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 48,
+      "height": 110,
+      "pivotX": 24,
+      "pivotY": 100
+    },
+    {
+      "id": "foot",
+      "type": "region",
+      "assetId": "robot-foot-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 55,
+      "height": 50,
+      "pivotX": 24,
+      "pivotY": 42
+    }
+  ],
+  "animations": [
+    {
+      "id": "cycle",
+      "name": "Cycle",
+      "duration": 2,
+      "loop": true,
+      "channels": [
+        {
+          "boneId": "hip",
+          "property": "y",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": {
+                "type": "bezier",
+                "x1": 0.3333333333333333,
+                "y1": 0,
+                "x2": 0.6666666666666666,
+                "y2": 1
+              }
+            },
+            {
+              "time": 1,
+              "value": -30,
+              "curve": {
+                "type": "bezier",
+                "x1": 0.3333333333333333,
+                "y1": 0,
+                "x2": 0.6666666666666666,
+                "y2": 1
+              }
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": {
+                "type": "bezier",
+                "x1": 0.3333333333333333,
+                "y1": 0,
+                "x2": 0.6666666666666666,
+                "y2": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ikConstraints": [
+    {
+      "id": "leg",
+      "type": "two-bone-ik",
+      "rootBoneId": "hip",
+      "childBoneId": "shin",
+      "targetBoneId": "target",
+      "endpoint": [
+        100,
+        0
+      ],
+      "bend": 1,
+      "mix": 1,
+      "order": 0
+    }
+  ]
+}

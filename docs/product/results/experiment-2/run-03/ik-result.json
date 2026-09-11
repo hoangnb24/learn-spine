@@ -1,0 +1,1195 @@
+{
+  "sourceCommit": "75ac03a989e3612a1338dbfe82d55ef09bafebdb",
+  "protocolCommit": "d836e8c87c5a8a095d9e5761ff87ef6991f7e7b6",
+  "browser": "153.0.8010.12",
+  "classification": "public commands + browser UI; no native WebMCP claim",
+  "playbackResult": {
+    "frames": 391,
+    "wraps": 3,
+    "comparisons": [
+      {
+        "time": 0.7333,
+        "delta": 0
+      },
+      {
+        "time": 0.11660000000000015,
+        "delta": 0
+      },
+      {
+        "time": 1.5666000000000009,
+        "delta": 0
+      },
+      {
+        "time": 0.3167000000000001,
+        "delta": 0
+      },
+      {
+        "time": 1.999900000000001,
+        "delta": 0
+      },
+      {
+        "time": 0.016700000000000045,
+        "delta": 0
+      },
+      {
+        "time": 1.2666000000000006,
+        "delta": 0
+      },
+      {
+        "time": 0.5332999999999999,
+        "delta": 0
+      },
+      {
+        "time": 1.783200000000001,
+        "delta": 0
+      },
+      {
+        "time": 0.9499000000000001,
+        "delta": 0
+      },
+      {
+        "time": 0.21660000000000018,
+        "delta": 0
+      },
+      {
+        "time": 1.4666000000000008,
+        "delta": 0
+      },
+      {
+        "time": 0.6332,
+        "delta": 0
+      },
+      {
+        "time": 1.8833000000000009,
+        "delta": 0
+      },
+      {
+        "time": 1.0499,
+        "delta": 0
+      },
+      {
+        "time": 0.43329999999999996,
+        "delta": 0
+      },
+      {
+        "time": 1.6833000000000007,
+        "delta": 0
+      },
+      {
+        "time": 0.8499,
+        "delta": 0
+      },
+      {
+        "time": 1.3666000000000007,
+        "delta": 0
+      },
+      {
+        "time": 1.1500000000000006,
+        "delta": 0
+      }
+    ]
+  },
+  "perfResult": {
+    "duration": 30009.39999999851,
+    "frames": 1800,
+    "p95RafIntervalMs": 16.700000000004366,
+    "p95DrawIntervalMs": 17.600000001490116,
+    "p95CpuSubmissionMs": 0.10000000149011612,
+    "physicalPresentation": "unavailable",
+    "performanceGate": "not specified for Gate2; report only",
+    "instrumentation": "draw timing excludes cloning; record numeric timestamps only; screenshots/sequence/encoding outside window; browser video inactive; MediaRecorder stopped and tracks released before warmup"
+  },
+  "playerPlayback": {
+    "frames": 391,
+    "wraps": 3,
+    "comparisons": [
+      {
+        "time": 0.7333000000000002,
+        "delta": 0
+      },
+      {
+        "time": 0.11670000000000005,
+        "delta": 4.440892098500626e-16
+      },
+      {
+        "time": 1.5664999999999991,
+        "delta": 3.730349362740526e-14
+      },
+      {
+        "time": 0.3167000000000001,
+        "delta": 0
+      },
+      {
+        "time": 1.9998999999999993,
+        "delta": 0
+      },
+      {
+        "time": 0.016600000000000024,
+        "delta": 7.979727989493313e-17
+      },
+      {
+        "time": 1.2665999999999997,
+        "delta": 1.4210854715202004e-14
+      },
+      {
+        "time": 0.5332,
+        "delta": 0
+      },
+      {
+        "time": 1.7831999999999988,
+        "delta": 4.263256414560601e-14
+      },
+      {
+        "time": 0.9500000000000004,
+        "delta": 3.552713678800501e-15
+      },
+      {
+        "time": 0.21660000000000007,
+        "delta": 8.881784197001252e-16
+      },
+      {
+        "time": 1.4664999999999992,
+        "delta": 4.263256414560601e-14
+      },
+      {
+        "time": 0.6332,
+        "delta": 0
+      },
+      {
+        "time": 1.8831999999999989,
+        "delta": 2.842170943040401e-14
+      },
+      {
+        "time": 1.0499000000000003,
+        "delta": 3.552713678800501e-15
+      },
+      {
+        "time": 0.4333000000000001,
+        "delta": 0
+      },
+      {
+        "time": 1.683199999999999,
+        "delta": 4.263256414560601e-14
+      },
+      {
+        "time": 0.8499000000000002,
+        "delta": 0
+      },
+      {
+        "time": 1.3665999999999994,
+        "delta": 3.197442310920451e-14
+      },
+      {
+        "time": 1.1499,
+        "delta": 0
+      }
+    ]
+  },
+  "playerPerf": {
+    "duration": 30010,
+    "frames": 1800,
+    "p95RafIntervalMs": 16.700000000004366,
+    "p95DrawIntervalMs": 17.600000001490116,
+    "p95CpuSubmissionMs": 0.19999999552965164,
+    "physicalPresentation": "unavailable",
+    "performanceGate": "not specified for Gate2; report only",
+    "instrumentation": "draw timing excludes cloning; record numeric timestamps only; screenshots/sequence/encoding outside window; browser video inactive; MediaRecorder stopped and tracks released before warmup"
+  },
+  "playerSamples": [
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120.00000000000001,
+              -100
+            ],
+            "distance": 1.4210854715202004e-14,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 0,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.20020497054894448,
+            -0.9797540353412668,
+            0.9797540353412668,
+            0.20020497054894448,
+            0,
+            0
+          ],
+          "shin": [
+            0.9997950294510557,
+            -0.020245964658733212,
+            0.020245964658733212,
+            0.9997950294510557,
+            20.02049705489445,
+            -97.97540353412668
+          ],
+          "foot": [
+            0.9997950294510557,
+            -0.020245964658733212,
+            0.020245964658733212,
+            0.9997950294510557,
+            120.00000000000001,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9797540353412668,
+              0.20020497054894443,
+              -0.20020497054894443,
+              0.9797540353412668,
+              0,
+              0
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              0.020245964658733274,
+              0.9997950294510557,
+              -0.9997950294510557,
+              0.020245964658733274,
+              20.02049705489445,
+              -97.97540353412668
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              119.99999999999997,
+              -99.99999999999999
+            ],
+            "distance": 3.1776437161565096e-14,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 0.25,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.200353805624056,
+            -0.9797236102962702,
+            0.9797236102962702,
+            0.200353805624056,
+            0,
+            -4.6875
+          ],
+          "shin": [
+            0.9996461943759437,
+            0.026598610296270447,
+            -0.026598610296270447,
+            0.9996461943759437,
+            20.0353805624056,
+            -102.65986102962702
+          ],
+          "foot": [
+            0.9996461943759437,
+            0.026598610296270447,
+            -0.026598610296270447,
+            0.9996461943759437,
+            119.99999999999997,
+            -99.99999999999999
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9797236102962702,
+              0.20035380562405594,
+              -0.20035380562405594,
+              0.9797236102962702,
+              0,
+              -4.6875
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.026598610296270385,
+              0.9996461943759437,
+              -0.9996461943759437,
+              -0.026598610296270385,
+              20.0353805624056,
+              -102.65986102962702
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120,
+              -100
+            ],
+            "distance": 0,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 0.5,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.20823598143426383,
+            -0.9780786144457453,
+            0.9780786144457453,
+            0.20823598143426383,
+            0,
+            -15
+          ],
+          "shin": [
+            0.9917640185657363,
+            0.12807861444574525,
+            -0.12807861444574525,
+            0.9917640185657363,
+            20.823598143426384,
+            -112.80786144457453
+          ],
+          "foot": [
+            0.9917640185657363,
+            0.12807861444574525,
+            -0.12807861444574525,
+            0.9917640185657363,
+            120,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9780786144457453,
+              0.20823598143426378,
+              -0.20823598143426378,
+              0.9780786144457453,
+              0,
+              -15
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.1280786144457452,
+              0.9917640185657363,
+              -0.9917640185657363,
+              -0.1280786144457452,
+              20.823598143426384,
+              -112.80786144457453
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120.00000000000001,
+              -100
+            ],
+            "distance": 1.4210854715202004e-14,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 0.75,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.2261556545387393,
+            -0.9740911763896408,
+            0.9740911763896408,
+            0.2261556545387393,
+            0,
+            -25.3125
+          ],
+          "shin": [
+            0.9738443454612609,
+            0.22721617638964084,
+            -0.22721617638964084,
+            0.9738443454612609,
+            22.615565453873927,
+            -122.72161763896408
+          ],
+          "foot": [
+            0.9738443454612609,
+            0.22721617638964084,
+            -0.22721617638964084,
+            0.9738443454612609,
+            120.00000000000001,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9740911763896408,
+              0.22615565453873923,
+              -0.22615565453873923,
+              0.9740911763896408,
+              0,
+              -25.3125
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.22721617638964078,
+              0.9738443454612609,
+              -0.9738443454612609,
+              -0.22721617638964078,
+              22.615565453873927,
+              -122.72161763896408
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120,
+              -100
+            ],
+            "distance": 0,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 1,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.23752791781615204,
+            -0.9713807123151681,
+            0.9713807123151681,
+            0.23752791781615204,
+            0,
+            -30
+          ],
+          "shin": [
+            0.962472082183848,
+            0.2713807123151681,
+            -0.2713807123151681,
+            0.962472082183848,
+            23.752791781615205,
+            -127.1380712315168
+          ],
+          "foot": [
+            0.962472082183848,
+            0.2713807123151681,
+            -0.2713807123151681,
+            0.962472082183848,
+            120,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9713807123151681,
+              0.23752791781615198,
+              -0.23752791781615198,
+              0.9713807123151681,
+              0,
+              -30
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.271380712315168,
+              0.962472082183848,
+              -0.962472082183848,
+              -0.271380712315168,
+              23.752791781615205,
+              -127.1380712315168
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120.00000000000001,
+              -100
+            ],
+            "distance": 1.4210854715202004e-14,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 1.25,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.2261556545387393,
+            -0.9740911763896408,
+            0.9740911763896408,
+            0.2261556545387393,
+            0,
+            -25.3125
+          ],
+          "shin": [
+            0.9738443454612609,
+            0.22721617638964084,
+            -0.22721617638964084,
+            0.9738443454612609,
+            22.615565453873927,
+            -122.72161763896408
+          ],
+          "foot": [
+            0.9738443454612609,
+            0.22721617638964084,
+            -0.22721617638964084,
+            0.9738443454612609,
+            120.00000000000001,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9740911763896408,
+              0.22615565453873923,
+              -0.22615565453873923,
+              0.9740911763896408,
+              0,
+              -25.3125
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.22721617638964078,
+              0.9738443454612609,
+              -0.9738443454612609,
+              -0.22721617638964078,
+              22.615565453873927,
+              -122.72161763896408
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              120,
+              -100
+            ],
+            "distance": 0,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 1.5,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.20823598143426383,
+            -0.9780786144457453,
+            0.9780786144457453,
+            0.20823598143426383,
+            0,
+            -15
+          ],
+          "shin": [
+            0.9917640185657363,
+            0.12807861444574525,
+            -0.12807861444574525,
+            0.9917640185657363,
+            20.823598143426384,
+            -112.80786144457453
+          ],
+          "foot": [
+            0.9917640185657363,
+            0.12807861444574525,
+            -0.12807861444574525,
+            0.9917640185657363,
+            120,
+            -100
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9780786144457453,
+              0.20823598143426378,
+              -0.20823598143426378,
+              0.9780786144457453,
+              0,
+              -15
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.1280786144457452,
+              0.9917640185657363,
+              -0.9917640185657363,
+              -0.1280786144457452,
+              20.823598143426384,
+              -112.80786144457453
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    },
+    {
+      "pose": {
+        "poseVersion": 1,
+        "meshes": [],
+        "ik": [
+          {
+            "constraintId": "leg",
+            "order": 0,
+            "target": [
+              120,
+              -100
+            ],
+            "endpoint": [
+              119.99999999999997,
+              -99.99999999999999
+            ],
+            "distance": 3.1776437161565096e-14,
+            "status": "solved"
+          }
+        ],
+        "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+        "revision": 3,
+        "animationId": "cycle",
+        "sampledTime": 1.75,
+        "bones": {
+          "root": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "hip": [
+            0.200353805624056,
+            -0.9797236102962702,
+            0.9797236102962702,
+            0.200353805624056,
+            0,
+            -4.6875
+          ],
+          "shin": [
+            0.9996461943759437,
+            0.026598610296270447,
+            -0.026598610296270447,
+            0.9996461943759437,
+            20.0353805624056,
+            -102.65986102962702
+          ],
+          "foot": [
+            0.9996461943759437,
+            0.026598610296270447,
+            -0.026598610296270447,
+            0.9996461943759437,
+            119.99999999999997,
+            -99.99999999999999
+          ],
+          "target": [
+            1,
+            0,
+            0,
+            1,
+            120,
+            -100
+          ]
+        },
+        "regions": [
+          {
+            "slotId": "thigh",
+            "attachmentId": "thigh",
+            "assetId": "robot-thigh-left",
+            "world": [
+              0.9797236102962702,
+              0.20035380562405594,
+              -0.20035380562405594,
+              0.9797236102962702,
+              0,
+              -4.6875
+            ]
+          },
+          {
+            "slotId": "shin",
+            "attachmentId": "shin",
+            "assetId": "robot-shin-left",
+            "world": [
+              -0.026598610296270385,
+              0.9996461943759437,
+              -0.9996461943759437,
+              -0.026598610296270385,
+              20.0353805624056,
+              -102.65986102962702
+            ]
+          },
+          {
+            "slotId": "foot",
+            "attachmentId": "foot",
+            "assetId": "robot-foot-left",
+            "world": [
+              1,
+              0,
+              0,
+              1,
+              120,
+              -100
+            ]
+          }
+        ]
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "centerX": 62.655791863137225,
+        "centerY": -69.17437434024677,
+        "zoom": 3.9151634693135664,
+        "devicePixelRatio": 1,
+        "background": "#253542"
+      },
+      "ok": true
+    }
+  ],
+  "requests": [
+    "http://127.0.0.1:4196/player.html",
+    "http://127.0.0.1:4196/@vite/client",
+    "http://127.0.0.1:4196/apps/player/main.tsx",
+    "http://127.0.0.1:4196/@react-refresh",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/react.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/react-dom_client.js?v=7360120e",
+    "http://127.0.0.1:4196/apps/player/Player.tsx",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/vite/dist/client/env.mjs",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/rolldown-runtime-DC62tzP2.js?v=7360120e",
+    "http://127.0.0.1:4196/src/storage/index.ts",
+    "http://127.0.0.1:4196/apps/shared/Shell.tsx",
+    "http://127.0.0.1:4196/apps/shared/Stage.tsx",
+    "http://127.0.0.1:4196/src/model/index.ts",
+    "http://127.0.0.1:4196/src/storage/zip.ts",
+    "http://127.0.0.1:4196/apps/shared/styles.css",
+    "http://127.0.0.1:4196/src/engine/index.ts",
+    "http://127.0.0.1:4196/src/render/index.ts",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/ajv_dist_2020__js.js?v=7360120e",
+    "http://127.0.0.1:4196/src/model/project-v0.schema.json?import",
+    "http://127.0.0.1:4196/src/model/project-v1.schema.json?import",
+    "http://127.0.0.1:4196/src/model/mesh.ts",
+    "http://127.0.0.1:4196/src/model/ik.ts",
+    "http://127.0.0.1:4196/src/model/json.ts",
+    "http://127.0.0.1:4196/src/engine/transforms.ts",
+    "http://127.0.0.1:4196/src/engine/timeline.ts",
+    "http://127.0.0.1:4196/src/engine/mesh.ts",
+    "http://127.0.0.1:4196/src/engine/ik.ts",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/pixi__js.js?v=7360120e",
+    "http://127.0.0.1:4196/src/render/geometry.ts",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/react-dom.js?v=7360120e",
+    "http://127.0.0.1:4196/src/render/mesh.ts",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/colorToUniform-D5pBwj1K.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/CanvasTextSystem-B88bId5N.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/FederatedEventTarget-DGXZ8vIk.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/SharedSystems-Ds7JNoma.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/CanvasPool-BQW3I704.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/browserAll-rUaZ9tq9.js?v=7360120e",
+    "http://127.0.0.1:4196/node_modules/.vite/deps/init-DvmKG3sm.js?v=7360120e"
+  ],
+  "errors": [],
+  "physics": "NOT TESTED"
+}
