@@ -166,7 +166,7 @@
       "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
       "wave": 2,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 6,
       "id": 5401664552,
       "node_id": "I_kwDOUTvul88AAAABQfbcKA",
@@ -199,7 +199,7 @@
       "exclude": "Không trực tiếp vẽ canvas hoặc đăng ký WebMCP; không gắn hành vi vào selection UI ngầm định.",
       "wave": 3,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 7,
       "id": 5401664763,
       "node_id": "I_kwDOUTvul88AAAABQfbc-w",
@@ -233,7 +233,7 @@
       "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
       "wave": 3,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 8,
       "id": 5401664964,
       "node_id": "I_kwDOUTvul88AAAABQfbdxA",
@@ -269,7 +269,7 @@
       "exclude": "Không làm mesh weights hoặc editor timeline; không tối ưu WASM khi chưa có profile.",
       "wave": 4,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 9,
       "id": 5401665402,
       "node_id": "I_kwDOUTvul88AAAABQfbfeg",
@@ -304,7 +304,7 @@
       "exclude": "Không mở rộng tính năng ngoài phạm vi issue.",
       "wave": 3,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 10,
       "id": 5401665618,
       "node_id": "I_kwDOUTvul88AAAABQfbgUg",
@@ -982,5 +982,6 @@
     "id": 5401663321,
     "node_id": "I_kwDOUTvul88AAAABQfbXWQ",
     "html_url": "https://github.com/hoangnb24/learn-spine/issues/1"
-  }
+  },
+  "updated": "2026-09-11"
 }
