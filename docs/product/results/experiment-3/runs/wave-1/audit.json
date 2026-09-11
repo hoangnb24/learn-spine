@@ -1,0 +1,47 @@
+{
+  "run": "wave-1",
+  "outcome": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+  "publicInvocations": 68,
+  "discoveryCalls": 1,
+  "budgetCalls": 69,
+  "elapsedMs": 211950.5,
+  "withinBudget": true,
+  "unfinishedInvocations": [],
+  "subjectCounterNote": "helper missed24directread_artifactcalls; raw68+actualdiscovery1 gives69",
+  "transactionChecks": {
+    "retryExactPayloadAndResult": true,
+    "retryNoRevisionIncrement": true,
+    "staleRejectedNoRevisionChange": true,
+    "atomicRejectedNoRevisionChange": true,
+    "atomicBonesPreserved": true,
+    "historyOneBatch": true,
+    "restoredForearmKeys": true
+  },
+  "preservation": {
+    "originalFrozenScorer": false,
+    "supplementalStructuralAudit": true,
+    "reason": "Object property insertion order differs, not JSON values. Supplement ignores object order only; arrays/channels/keys/curves remain strictly ordered. Both outputs and original script retained. Reviewer decides acceptance."
+  },
+  "slowing": "forearm2oscillations to1 atdoublepeakinterval1.2to2.4s, upperarm/duration unchanged",
+  "finalZIP": "0162-gate3-wave.zip",
+  "revision": 3,
+  "reopen": "actual Editor/Player fullProject15PNGhashmatchstop",
+  "maxEditorPlayerNumericDelta": 1.9326762412674725e-12,
+  "sampledCropping": "0outsidecorners at61uniform+keys",
+  "nativeEvidence": "participantfetchTools/call transcript and rawwebmcp-document results",
+  "visual": "author inspected4Playersamples: intactrobot, slowraisedgreeting andreturn; independentpending",
+  "subjectPlayback": "24PNG2fps over3loops plus UIbeforeafter",
+  "qaPlayback": "4actualWebM>=3wraps perappanimation",
+  "browserObservations": {
+    "DOMSnapshots": 1,
+    "screenshotCalls": 3,
+    "stateAttributeChecks": 2,
+    "metadataChecks": 2,
+    "source": "subjectfinal; publicarguments retained"
+  },
+  "manualRescue": 0,
+  "scenarioFeedback": 1,
+  "tokens": null,
+  "cost": null,
+  "rawSHA256": "d7b3f0fa18fe98db1ec1fedb0e0f20a544e9204e422a9192553d5118b2547a7a"
+}

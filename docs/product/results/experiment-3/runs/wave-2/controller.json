@@ -14,5 +14,17 @@
   "exactDeliveryTimestamp": null,
   "delayIncludedInTimer": true,
   "frozenSource": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
-  "status": "IN_PROGRESS"
+  "status": "DONE; postrunQA pending",
+  "rawStopUTC": "2026-09-11T09:00:33.368Z",
+  "rootReportedCalls": {
+    "starts": 66,
+    "completions": 66,
+    "discovery": 1
+  },
+  "rootReportedZIP": {
+    "name": "gate3-wave.zip",
+    "revision": 3,
+    "bytes": 666887
+  },
+  "auditCaution": "Subject final mentions image display error and documentation unavailable; reconcile public transcript for any pre-dispatch native invocation before final budget count."
 }

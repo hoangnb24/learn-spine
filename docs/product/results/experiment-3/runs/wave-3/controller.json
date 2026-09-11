@@ -1,0 +1,18 @@
+{
+  "run": "wave-3",
+  "source": "root handoff",
+  "subject": "/root/eval_wave_3",
+  "participantBrowser": {
+    "family": "Codex In-app Browser",
+    "alias": "2",
+    "tabId": "1",
+    "sessionId": null
+  },
+  "rawSetupUTC": "2026-09-11T09:01:59.851Z",
+  "rawStartUTC": "2026-09-11T09:01:59.950Z",
+  "zipSha256": "806aa61c672cc5cc03a5cecc903be52dd4d91007c661e1e17152a1992e8208f5",
+  "hashVerification": "rootmatched beforeunchangedcommon+wave delivery",
+  "exactDeliveryTimestamp": null,
+  "delayIncludedInTimer": true,
+  "status": "IN_PROGRESS"
+}

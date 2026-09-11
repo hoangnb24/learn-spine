@@ -1,0 +1,8 @@
+{
+  "source": "root handoff of reviewer21 message/final",
+  "verdict": "Đạt",
+  "reviewedCommit": "c254c4c8fccb2403253a85ebee95091ef99fbe04",
+  "scope": "robot-3; robot brief now2/3,robot1FAIL_ENV retained",
+  "evidence": "66calls249.39s;transactions/rootonlyrestore;ZIPproject15hash;visualsamples/playbackrecords",
+  "limitations": "sampled screenshots and playback records, not direct WebM review"
+}
