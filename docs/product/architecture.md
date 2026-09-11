@@ -2,9 +2,9 @@
 
 Ngày: 09/09/2026; cập nhật 11/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
-## Hiện trạng sau PR #62 — 11/09/2026
+## Hiện trạng sau Gate 2 PR #64 — 11/09/2026
 
-#15–#19 Done (completed); PR #62 đã merge main `016ba56fde8310848e062b75ed016fd5771a8c4a`. #20 In Progress/Ready, sole author `/root/implement_issue20` từ main này theo quyết định Orchestrator; #21 Blocked chờ Gate 2. #51/#52 và discovery #23–#29 giữ Deferred; không đổi DAG.
+#20 Gate 2 Đạt/Done (completed), PR #64 đã merge main `538f939d9c76e29a55bc7680f8e36943095e4326` sau reviewer Đạt exact `fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f` và hai CI pass. #21 In Progress/Ready, sole author `/root/implement_issue21`; #22 Blocked chờ Gate 3 và quyết định sản phẩm. #51/#52, discovery #23–#29 giữ Deferred. Protocol/initial states/budgets Gate 3 còn phải khóa trước đánh giá; chưa ghi nhận chín native runs đã bắt đầu hoặc đạt.
 
 Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` đã được tích hợp ở PR #55; xem hợp đồng IK bên dưới.
 
@@ -126,3 +126,11 @@ API/types cùng ở `platform/src/diagnostics/index.ts`: `validate_project(unkno
 MotionRequest chọn animationId, optional explicit anchors (bone-local point, slot/vertex hoặc IK endpoint, fixed-world target và inclusive stance interval), loopPoints, offset/limit. Empty loopPoints chủ ý bỏ loop checks. Foot residual lấy final Pose.ik.distance; anchor với target world cố định còn phát hiện target IK trượt dù residual zero. Sampling/epsilon/threshold đã khóa trong README (60 intervals cộng keys/stance endpoints/key neighbors, h=min(1/600,duration/600), 0.5px và max(0.5px/s,5% sampled peak)); #19 không biến ngưỡng thành tùy chọn để làm pass.
 
 API module thuần đã được #19 bọc bằng validate_project/measure_motion trong adapter; transport vẫn giữ fixed policy và bounded report. Finite sampling và local triangle orientation không chứng minh continuous extrema, self-intersection/tearing, eye-height hoặc artistic quality. [API/policy](../../platform/src/diagnostics/README.md) · [fixtures](../../platform/fixtures/diagnostics/synthetic.ts) · [evidence](../../platform/evidence/issue-18/README.md).
+
+## Giới hạn consumer cần mang sang Gate 3
+
+Default `measure_motion` #18 không tự bao region corners: default points là bone origins, mesh vertices và IK endpoints. Gate 2 bổ sung `platform/tests/e2e/deformation/metrics.ts` dùng public `render.corners(region,asset,Pose.regions.world)` và cùng sampling/h/ngưỡng để đo 12 góc của ba IK regions. Region-corner velocity max 0.000754437px/s; rotation-only negative control giữ origin vẫn làm bốn foot corners fail vị trí dù origin-only diagnostics pass. Đây là supplemental gate measurement, không phải capability region-corner được thêm vào diagnostics/tool.
+
+Future consumers phải nêu coverage points rõ; `passed:true` của tool không chứng minh mọi rendered surface/seam. Giữ supplemental corner check/visual review khi rubric cần nó, không âm thầm advertise diagnostics completeness. Measurements hữu hạn không là continuous proof. Gate 2 dùng browser bridge; không native WebMCP pass. Physics NOT TESTED; performance chỉ tách rAF/draw intervals/CPU submission, không physical presentation hoặc performance pass, không baseline Spine/speedup claim.
+
+[Gate 2 đã nghiệm thu và đầu vào native evaluation](reconciliation/2026-09-11-gate2.md).
