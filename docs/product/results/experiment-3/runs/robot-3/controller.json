@@ -1,0 +1,23 @@
+{
+  "run": "robot-3",
+  "source": "root orchestration handoff",
+  "subject": "/root/eval_robot_3",
+  "participantBrowser": {
+    "family": "Codex In-app Browser",
+    "alias": "2",
+    "sessionId": null,
+    "tabId": "1"
+  },
+  "activeSetupUTC": "2026-09-11T08:45:45.294Z",
+  "rawStartUTC": "2026-09-11T08:45:45.384Z",
+  "zipSha256": "ae4ca3d37a6b3480f41d363b8a8aa766d8bbce02af3aca49f4c0c281384ab808",
+  "hashVerification": "matched by root before unchanged brief delivery",
+  "briefDelivery": {
+    "approximateUTC": "2026-09-11T08:46Z",
+    "exactTimestamp": null,
+    "delayIncludedInTimer": true
+  },
+  "frozenSource": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
+  "status": "IN_PROGRESS",
+  "loadProvenance": "Robot2 post-run headless QA began during preflight and may overlap this run. No performance benchmark claim or added time allowance."
+}

@@ -1,0 +1,44 @@
+{
+  "run": "robot-2",
+  "outcome": "PROVISIONAL_SUCCESS_PENDING_INDEPENDENT_VISUAL_REVIEW",
+  "countsTowardThreeRuns": true,
+  "sourceCommit": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
+  "publicInvocations": 64,
+  "discoveryCalls": 1,
+  "budgetCalls": 65,
+  "elapsedMs": 219568.30000000447,
+  "withinBudget": true,
+  "nativeEvidence": "participant public transcript fetchTools/call with completed tool calls; actual page adapter transport webmcp-document in raw result",
+  "rawStartStop": "both present; unused earlier root setup retained",
+  "transactionChecks": {
+    "exactRetrySameInputResult": true,
+    "exactRetryNoRevisionIncrement": true,
+    "staleRejected": true,
+    "atomicRejected": true,
+    "postFailureBones": true,
+    "checkpointRestoredRootOnly": true
+  },
+  "projectRepair": "subject independently corrected mistaken pixel pivots after render at revision3, rendered revision4 then adjusted motion at revision5",
+  "finalZIP": "0167-gate3-robot.zip",
+  "finalRevision": 5,
+  "reopen": "actual Editor and Player file input passed; completeProject and PNG hashes match instrumented stop",
+  "editorPlayerNumericDeltaMax": 1.9895196601282805e-12,
+  "sampledCornerCropping": "0 outside points at61uniform+allkeytimes per animation in final subject viewport",
+  "playback": "subject inspected36 native previewframes over3loops at2fps; separate postrun actual30fpsWebM recorded>=3wraps perapp peranimation",
+  "browserObservations": {
+    "inTaskDOMSnapshots": 3,
+    "stopButtonCheck": 1,
+    "source": "subject final; mcp public arguments also available"
+  },
+  "manualRescue": 0,
+  "scenarioFeedback": 1,
+  "tokens": null,
+  "cost": null,
+  "transcriptLimitations": [
+    "read_thread maximum output chars per item is20000; requests with larger values were rejected during audit.",
+    "App public mcp entries provide arguments/status/duration, not full result bodies; raw collector is result authority.",
+    "Reasoning items excluded before writing; collaboration feedback body/timing comes from controller records."
+  ],
+  "visualReview": "author observed connected robot, subtle idle, raisedright greeting and return-to-rest at savedsamples; final independent verdict pending",
+  "rawSHA256": "9612ce3eb86c64b0c62eee0c7ed379fb19d271e66fadc78f554bea146fff5e0f"
+}
