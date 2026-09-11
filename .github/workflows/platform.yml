@@ -1,0 +1,41 @@
+name: Platform
+on:
+  push:
+    branches: [main, 'codex/**']
+    paths: ['platform/**', '.github/workflows/platform.yml']
+  pull_request:
+    paths: ['platform/**', '.github/workflows/platform.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: platform-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: platform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: platform/.nvmrc
+          cache: npm
+          cache-dependency-path: platform/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: platform-browser-report
+          path: |
+            platform/playwright-report/
+            platform/test-results/
+          retention-days: 14
