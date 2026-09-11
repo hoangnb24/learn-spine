@@ -33,6 +33,8 @@ export function zip(files: Map<string, Uint8Array>): Uint8Array {
 export async function unzip(input: Uint8Array, signal?: AbortSignal): Promise<Map<string,Uint8Array>> {
   check(signal);
   if (input.length > MAX_BYTES + 1024*1024) throw new StorageProblem('LIMIT_EXCEEDED','Archive too large');
+  // Own the archive before DEFLATE yields; Buffer.slice() is only a view.
+  input = new Uint8Array(input);
   const v = new DataView(input.buffer,input.byteOffset,input.byteLength);
   const bad = () => new StorageProblem('INVALID_INPUT','Malformed or unsupported ZIP');
   if (input.length < 22) throw bad();

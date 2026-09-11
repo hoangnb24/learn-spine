@@ -12,21 +12,24 @@ async function boundary<T>(fn:()=>Promise<T>, fallback: 'INVALID_INPUT'|'STORAGE
   try { return success(await fn()); } catch(e) { return {ok:false,error:e instanceof StorageProblem?{code:e.code,path:e.path,message:e.message}:{code:fallback,path:'',message:e instanceof Error?e.message:'Operation failed'}}; }
 }
 async function browserDecode(bytes:Uint8Array) {
-  const bitmap=await createImageBitmap(new Blob([bytes.slice()],{type:'image/png'}));
+  const bitmap=await createImageBitmap(new Blob([new Uint8Array(bytes)],{type:'image/png'}));
   try { return {width:bitmap.width,height:bitmap.height}; } finally { bitmap.close(); }
 }
 export async function validatePng(asset:Asset, bytes:Uint8Array, signal?:AbortSignal, decode=browserDecode):Promise<Result<void>> {
   return boundary(async()=>{
     check(signal);
+    // Concrete typed arrays avoid Buffer.slice/subclass species returning aliased views.
+    bytes = new Uint8Array(bytes);
+    asset = { ...asset };
     if(bytes.length>20*1024*1024) throw new StorageProblem('LIMIT_EXCEEDED','PNG exceeds 20 MiB',asset.path);
     const signature=[137,80,78,71,13,10,26,10];
     if(bytes.length<33||!signature.every((b,i)=>bytes[i]===b)||String.fromCharCode(...bytes.subarray(12,16))!=='IHDR') throw new StorageProblem('ASSET_DECODE_FAILED','Invalid PNG header',asset.path);
     const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength), width=view.getUint32(16),height=view.getUint32(20);
     if(view.getUint32(8)!==13||!width||!height||width>16384||height>16384) throw new StorageProblem('LIMIT_EXCEEDED','PNG dimensions exceed limits',asset.path);
     if(width!==asset.pixelWidth||height!==asset.pixelHeight) throw new StorageProblem('ASSET_DECODE_FAILED','PNG dimensions differ from manifest',asset.path);
-    const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes.slice())),b=>b.toString(16).padStart(2,'0')).join('');
+    const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new Uint8Array(bytes))),b=>b.toString(16).padStart(2,'0')).join('');
     if(hash!==asset.sha256) throw new StorageProblem('ASSET_HASH_MISMATCH','PNG hash differs from manifest',asset.path);
-    let decoded; try { decoded=await decode(bytes.slice()); } catch { throw new StorageProblem('ASSET_DECODE_FAILED','PNG decoder rejected image',asset.path); }
+    let decoded; try { decoded=await decode(new Uint8Array(bytes)); } catch { throw new StorageProblem('ASSET_DECODE_FAILED','PNG decoder rejected image',asset.path); }
     check(signal);
     if(width!==asset.pixelWidth||height!==asset.pixelHeight||decoded.width!==width||decoded.height!==height) throw new StorageProblem('ASSET_DECODE_FAILED','PNG dimensions differ from manifest or decoder',asset.path);
   });
@@ -40,7 +43,7 @@ async function validated(input:unknown, signal?:AbortSignal, decode=browserDecod
   let total=new TextEncoder().encode(JSON.stringify(project)).length,pixels=0;
   for(const asset of project.assets) {
     const source=input.assets.get(asset.id); if(!(source instanceof Uint8Array)) throw new StorageProblem('MISSING_REFERENCE','Asset bytes missing',asset.path);
-    const bytes=source.slice(); total+=bytes.length; pixels+=asset.pixelWidth*asset.pixelHeight;
+    const bytes=new Uint8Array(source); total+=bytes.length; pixels+=asset.pixelWidth*asset.pixelHeight;
     if(total>MAX_BYTES||pixels>64000000) throw new StorageProblem('LIMIT_EXCEEDED','Bundle exceeds byte or pixel budget');
     assets.set(asset.id,bytes);
   }
@@ -80,7 +83,7 @@ export function createStorage(options:StorageOptions={}):Storage & {validateBund
       check(signal); return zip(files);
     }),
     unpack:(bytes,signal)=>boundary(async()=>{
-      const files=await unzip(bytes.slice(),signal); const manifest=files.get('project.json');
+      const files=await unzip(bytes,signal); const manifest=files.get('project.json');
       if(!manifest) throw new StorageProblem('MISSING_REFERENCE','project.json missing');
       const project=unwrap(parse(new TextDecoder('utf-8',{fatal:true}).decode(manifest)));
       if(files.size!==project.assets.length+1||[...files.keys()].some(path=>path!=='project.json'&&!project.assets.some(a=>a.path===path))) throw new StorageProblem('INVALID_INPUT','Unexpected archive files');
