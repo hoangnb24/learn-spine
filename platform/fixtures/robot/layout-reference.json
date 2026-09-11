@@ -1,0 +1,305 @@
+{
+  "kind": "source-placement-not-native-project",
+  "units": "logical pixel, radians; X right Y up",
+  "source": "scripts/build_robot.py (author-created FK placement); not handbuilt editor export",
+  "joints": [
+    {
+      "name": "root",
+      "parent": null,
+      "localXY": [
+        0,
+        0
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "localXY": [
+        0,
+        310
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "pelvis",
+      "parent": "body",
+      "localXY": [
+        0,
+        -10
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "localXY": [
+        0,
+        170
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "upper-arm-left",
+      "parent": "body",
+      "localXY": [
+        -98,
+        130
+      ],
+      "rotationRadians": -0.17453292519943295
+    },
+    {
+      "name": "forearm-left",
+      "parent": "upper-arm-left",
+      "localXY": [
+        0,
+        -67
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "hand-left",
+      "parent": "forearm-left",
+      "localXY": [
+        0,
+        -96
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "thigh-left",
+      "parent": "pelvis",
+      "localXY": [
+        -43,
+        -20
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "shin-left",
+      "parent": "thigh-left",
+      "localXY": [
+        0,
+        -100
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "foot-left",
+      "parent": "shin-left",
+      "localXY": [
+        0,
+        -107
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "upper-arm-right",
+      "parent": "body",
+      "localXY": [
+        98,
+        130
+      ],
+      "rotationRadians": 0.17453292519943295
+    },
+    {
+      "name": "forearm-right",
+      "parent": "upper-arm-right",
+      "localXY": [
+        0,
+        -67
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "hand-right",
+      "parent": "forearm-right",
+      "localXY": [
+        0,
+        -96
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "thigh-right",
+      "parent": "pelvis",
+      "localXY": [
+        43,
+        -20
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "shin-right",
+      "parent": "thigh-right",
+      "localXY": [
+        0,
+        -100
+      ],
+      "rotationRadians": 0.0
+    },
+    {
+      "name": "foot-right",
+      "parent": "shin-right",
+      "localXY": [
+        0,
+        -107
+      ],
+      "rotationRadians": 0.0
+    }
+  ],
+  "placements": [
+    {
+      "joint": "body",
+      "art": "robot-body",
+      "pivotPixelsBottomLeft": [
+        102,
+        20
+      ],
+      "logicalScale": 1
+    },
+    {
+      "joint": "head",
+      "art": "robot-head",
+      "pivotPixelsBottomLeft": [
+        140,
+        15
+      ],
+      "logicalScale": 0.8
+    },
+    {
+      "joint": "pelvis",
+      "art": "robot-pelvis",
+      "pivotPixelsBottomLeft": [
+        96,
+        67
+      ],
+      "logicalScale": 0.65
+    },
+    {
+      "joint": "upper-arm-left",
+      "art": "robot-upper-arm-left",
+      "pivotPixelsBottomLeft": [
+        48,
+        132
+      ],
+      "logicalScale": 0.6
+    },
+    {
+      "joint": "forearm-left",
+      "art": "robot-forearm-left",
+      "pivotPixelsBottomLeft": [
+        47,
+        227
+      ],
+      "logicalScale": 0.45
+    },
+    {
+      "joint": "hand-left",
+      "art": "robot-hand-left",
+      "pivotPixelsBottomLeft": [
+        50,
+        183
+      ],
+      "logicalScale": 0.38
+    },
+    {
+      "joint": "thigh-left",
+      "art": "robot-thigh-left",
+      "pivotPixelsBottomLeft": [
+        51,
+        189
+      ],
+      "logicalScale": 0.58
+    },
+    {
+      "joint": "shin-left",
+      "art": "robot-shin-left",
+      "pivotPixelsBottomLeft": [
+        51,
+        184
+      ],
+      "logicalScale": 0.58
+    },
+    {
+      "joint": "foot-left",
+      "art": "robot-foot-right",
+      "pivotPixelsBottomLeft": [
+        124,
+        160
+      ],
+      "logicalScale": 0.45
+    },
+    {
+      "joint": "upper-arm-right",
+      "art": "robot-upper-arm-right",
+      "pivotPixelsBottomLeft": [
+        48,
+        130
+      ],
+      "logicalScale": 0.6
+    },
+    {
+      "joint": "forearm-right",
+      "art": "robot-forearm-right",
+      "pivotPixelsBottomLeft": [
+        47,
+        225
+      ],
+      "logicalScale": 0.45
+    },
+    {
+      "joint": "hand-right",
+      "art": "robot-hand-right",
+      "pivotPixelsBottomLeft": [
+        50,
+        183
+      ],
+      "logicalScale": 0.38
+    },
+    {
+      "joint": "thigh-right",
+      "art": "robot-thigh-right",
+      "pivotPixelsBottomLeft": [
+        51,
+        189
+      ],
+      "logicalScale": 0.58
+    },
+    {
+      "joint": "shin-right",
+      "art": "robot-shin-right",
+      "pivotPixelsBottomLeft": [
+        51,
+        184
+      ],
+      "logicalScale": 0.58
+    },
+    {
+      "joint": "foot-right",
+      "art": "robot-foot-left",
+      "pivotPixelsBottomLeft": [
+        70,
+        160
+      ],
+      "logicalScale": 0.45
+    }
+  ],
+  "drawOrder": [
+    "thigh-left",
+    "shin-left",
+    "foot-left",
+    "thigh-right",
+    "shin-right",
+    "foot-right",
+    "pelvis",
+    "upper-arm-left",
+    "forearm-left",
+    "hand-left",
+    "body",
+    "upper-arm-right",
+    "forearm-right",
+    "hand-right",
+    "head"
+  ]
+}
