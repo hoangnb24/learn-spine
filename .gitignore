@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 exercises/robot/frames/
 exercises/mesh-lab/frames/
+platform/dist/
+platform/playwright-report/
+platform/test-results/
