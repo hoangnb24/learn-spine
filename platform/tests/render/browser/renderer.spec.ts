@@ -27,7 +27,7 @@ test('real WebGL pixels, lifecycle, robot extremes and timings',async({page,brow
  const poses=[];for(let i=0;i<=24;i++){const p=structuredClone(bot.project);p.bones.find((b:any)=>b.id==='upper-arm-right').setup.rotation=i*Math.PI/12;poses.push(u(h.evaluate(p,{animationId:null,time:0})));}
  const fitted=u(h.fitCamera(bot.project,poses,{...v,width:1280,height:720,background:'#263442'},32));
  const contact=document.createElement('canvas');contact.width=1280;contact.height=720;const ctx=contact.getContext('2d')!;
- for(let i=0;i<25;i++){u(r.draw(poses[i],fitted.viewport));ctx.drawImage(r.canvas,(i%5)*256,Math.floor(i/5)*144,256,144);}
+ for(let i=0;i<25;i++){const png=u(await r.capture(poses[i],fitted.viewport));const bitmap=await createImageBitmap(new Blob([png],{type:'image/png'}));ctx.drawImage(bitmap,(i%5)*256,Math.floor(i/5)*144,256,144);bitmap.close();}
  const contactPng=[...new Uint8Array(await (await new Promise<Blob>(resolve=>contact.toBlob(b=>resolve(b!)))).arrayBuffer())];
  const samples=[];for(let i=0;i<360;i++){const start=performance.now();u(r.draw(poses[i%poses.length],fitted.viewport));if(i>=60)samples.push(performance.now()-start);}
  samples.sort((a,b)=>a-b);u(r.draw(poses[9],fitted.viewport));
