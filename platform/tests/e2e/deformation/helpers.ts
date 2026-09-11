@@ -57,29 +57,23 @@ export async function drawn(page: Page) {
   return page.evaluate(() => (window as any).__gate2.latest);
 }
 export async function seek(page: Page, app: "editor" | "player", time: number) {
-  if (app === "editor")
-    await page
-      .getByLabel("Thời gian (giây)", { exact: true })
-      .fill(String(time));
-  else
-    await page
-      .getByLabel("Thanh thời gian", { exact: true })
-      .evaluate((node: any, value) => {
-        node.step = "any";
-        Object.getOwnPropertyDescriptor(
-          HTMLInputElement.prototype,
-          "value",
-        )!.set!.call(node, String(value));
-        node.dispatchEvent(new Event("input", { bubbles: true }));
-        node.dispatchEvent(new Event("change", { bubbles: true }));
-      }, time);
-  const effectiveInput = Number(
-    await page
-      .getByLabel(app === "editor" ? "Thời gian (giây)" : "Thanh thời gian", {
-        exact: true,
-      })
-      .inputValue(),
-  );
+  // Read the browser-accepted value before dispatch. Editor formats its displayed
+  // value to 2 decimals after React handles the event; that display is not its time.
+  const effectiveInput = await page
+    .getByLabel(app === "editor" ? "Thời gian (giây)" : "Thanh thời gian", {
+      exact: true,
+    })
+    .evaluate((node: HTMLInputElement, value) => {
+      if (node.type === "range") node.step = "any";
+      Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        "value",
+      )!.set!.call(node, String(value));
+      const accepted = Number(node.value);
+      node.dispatchEvent(new Event("input", { bubbles: true }));
+      node.dispatchEvent(new Event("change", { bubbles: true }));
+      return accepted;
+    }, time);
   const normalizedTime = ((effectiveInput % 2) + 2) % 2;
   await expect
     .poll(async () => (await drawn(page))?.pose.sampledTime)
