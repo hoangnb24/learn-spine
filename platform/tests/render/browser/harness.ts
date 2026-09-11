@@ -20,3 +20,4 @@ async function synthetic(half=false):Promise<ProjectBundle>{
 }
 const renderer=unwrap(await PixiRenderer.create());document.body.append(renderer.canvas);
 Object.assign(window,{harness:{renderer,robot,synthetic,unwrap,evaluate,fitCamera,viewport}});
+import './mesh-harness';

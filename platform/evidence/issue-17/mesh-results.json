@@ -1,0 +1,487 @@
+{
+  "browserVersion": "153.0.8010.12",
+  "reports": [
+    {
+      "kind": "scarf",
+      "semanticBefore": "590cae0b28dd77071588d8b99032f3cbc3c47450273b5a14ab06739b84e75314",
+      "semanticAfter": "590cae0b28dd77071588d8b99032f3cbc3c47450273b5a14ab06739b84e75314",
+      "poseHashes": [
+        "646f791701037af88a0308dc27c1a77a3c1303454c1a612515efb136265fc65f",
+        "646f791701037af88a0308dc27c1a77a3c1303454c1a612515efb136265fc65f"
+      ],
+      "triangleAreas": [
+        {
+          "min": -1518.75,
+          "max": -1518.75
+        },
+        {
+          "min": -1631.7601126045574,
+          "max": -1369.4009551829492
+        },
+        {
+          "min": -1777.9117159154277,
+          "max": -1120.8013087917916
+        }
+      ],
+      "geometrySample": [
+        {
+          "time": 0,
+          "firstThreeVertices": [
+            -180,
+            67.5,
+            -135,
+            67.5,
+            -90,
+            67.5
+          ]
+        },
+        {
+          "time": 0.5,
+          "firstThreeVertices": [
+            -180,
+            67.5,
+            -137.03988798046112,
+            67.37265647883184,
+            -95.05717238481498,
+            69.89994807048218
+          ]
+        },
+        {
+          "time": 1,
+          "firstThreeVertices": [
+            -180,
+            67.5,
+            -137.53365494004225,
+            66.75480685484183,
+            -98.83389164948343,
+            70.57399444075261
+          ]
+        }
+      ],
+      "unchanged": true,
+      "fit": {
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 6.065236900007193,
+          "centerY": 47.58460471727419,
+          "zoom": 1.5908398846103238,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -180,
+          "minY": -67.5,
+          "maxX": 192.13047380001439,
+          "maxY": 162.66920943454838
+        },
+        "poseCount": 3
+      },
+      "pixelBounds": [
+        {
+          "minX": -180,
+          "maxX": 180,
+          "minY": -67.5,
+          "maxY": 67.5
+        },
+        {
+          "minX": -180,
+          "maxX": 192.13047380001439,
+          "minY": -67.5,
+          "maxY": 121.44200548726023
+        },
+        {
+          "minX": -180,
+          "maxX": 184.14516612601273,
+          "minY": -67.5,
+          "maxY": 162.66920943454838
+        }
+      ],
+      "comparisons": [
+        {
+          "meanAbsoluteRGBA": 0.7290250651041666
+        },
+        {
+          "meanAbsoluteRGBA": 0.7152042643229166
+        },
+        {
+          "meanAbsoluteRGBA": 0.6819742838541667
+        }
+      ],
+      "manifest": {
+        "version": 1,
+        "projectId": "mesh-scarf",
+        "revision": 0,
+        "kind": "sequence",
+        "fps": null,
+        "fit": "continuous-animation-envelope",
+        "frames": [
+          {
+            "projectId": "mesh-scarf",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 0,
+            "sampledTime": 0,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 20.42504119359134,
+              "centerY": 47.65842945171311,
+              "zoom": 1.476861365412381,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -180,
+              "maxX": 220.85008238718268,
+              "minY": -81.11669412906089,
+              "maxY": 176.4335530324871
+            },
+            "scale": 1.476861365412381,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0000.png",
+            "artifactId": "287e0f80-2069-49e7-a5df-f2522b0aff12"
+          },
+          {
+            "projectId": "mesh-scarf",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 0.5,
+            "sampledTime": 0.5,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 20.42504119359134,
+              "centerY": 47.65842945171311,
+              "zoom": 1.476861365412381,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -180,
+              "maxX": 220.85008238718268,
+              "minY": -81.11669412906089,
+              "maxY": 176.4335530324871
+            },
+            "scale": 1.476861365412381,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0001.png",
+            "artifactId": "498dc95e-7aca-497e-8522-e1c6da9fa5a3"
+          },
+          {
+            "projectId": "mesh-scarf",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 1,
+            "sampledTime": 1,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 20.42504119359134,
+              "centerY": 47.65842945171311,
+              "zoom": 1.476861365412381,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -180,
+              "maxX": 220.85008238718268,
+              "minY": -81.11669412906089,
+              "maxY": 176.4335530324871
+            },
+            "scale": 1.476861365412381,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0002.png",
+            "artifactId": "97483fe0-59b6-4950-aa27-704a59ebc59c"
+          }
+        ]
+      },
+      "directMetadata": {
+        "projectId": "mesh-scarf",
+        "revision": 0,
+        "animationId": "deform",
+        "time": 0.5,
+        "sampledTime": 0.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 6.065236900007193,
+          "centerY": 47.58460471727419,
+          "zoom": 1.5908398846103238,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -180,
+          "minY": -67.5,
+          "maxX": 192.13047380001439,
+          "maxY": 121.44200548726023
+        },
+        "scale": 1.5908398846103238,
+        "pixelWidth": 640,
+        "pixelHeight": 480
+      },
+      "performance": {
+        "kind": "CPU geometry update and WebGL submission; not GPU completion or frame cadence",
+        "vertices": 45,
+        "triangles": 64,
+        "warmup": 60,
+        "samples": 300,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.29999999701976776
+      }
+    },
+    {
+      "kind": "jelly",
+      "semanticBefore": "d41253a0b6dd3f6e50432d2f57d6250b16249b9f9b4df9d43e1834d8e8d72b09",
+      "semanticAfter": "d41253a0b6dd3f6e50432d2f57d6250b16249b9f9b4df9d43e1834d8e8d72b09",
+      "poseHashes": [
+        "e4bd77cf329bff9752b6a84f808912835f71576da1fa87ed6fc64dd2dacef8ef",
+        "e4bd77cf329bff9752b6a84f808912835f71576da1fa87ed6fc64dd2dacef8ef"
+      ],
+      "triangleAreas": [
+        {
+          "min": -2112.5,
+          "max": -2112.5
+        },
+        {
+          "min": -2398.677734375,
+          "max": -1632.236328125
+        },
+        {
+          "min": -2702.6796875,
+          "max": -1062.8515625
+        }
+      ],
+      "geometrySample": [
+        {
+          "time": 0,
+          "firstThreeVertices": [
+            -130,
+            130,
+            -97.5,
+            130,
+            -65,
+            130
+          ]
+        },
+        {
+          "time": 0.5,
+          "firstThreeVertices": [
+            -139.75,
+            100.75,
+            -104.8125,
+            100.75,
+            -69.875,
+            100.75
+          ]
+        },
+        {
+          "time": 1,
+          "firstThreeVertices": [
+            -149.5,
+            71.5,
+            -112.125,
+            71.5,
+            -74.75,
+            71.5
+          ]
+        }
+      ],
+      "unchanged": true,
+      "fit": {
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": 0,
+          "zoom": 1.6615384615384616,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -149.5,
+          "minY": -130,
+          "maxX": 149.5,
+          "maxY": 130
+        },
+        "poseCount": 3
+      },
+      "pixelBounds": [
+        {
+          "minX": -130,
+          "maxX": 130,
+          "minY": -130,
+          "maxY": 130
+        },
+        {
+          "minX": -139.75,
+          "maxX": 139.75,
+          "minY": -130,
+          "maxY": 100.75
+        },
+        {
+          "minX": -149.5,
+          "maxX": 149.5,
+          "minY": -130,
+          "maxY": 71.5
+        }
+      ],
+      "comparisons": [
+        {
+          "meanAbsoluteRGBA": 0.15040690104166668
+        },
+        {
+          "meanAbsoluteRGBA": 0.14533284505208333
+        },
+        {
+          "meanAbsoluteRGBA": 0.13525553385416667
+        }
+      ],
+      "manifest": {
+        "version": 1,
+        "projectId": "mesh-jelly",
+        "revision": 0,
+        "kind": "sequence",
+        "fps": null,
+        "fit": "continuous-animation-envelope",
+        "frames": [
+          {
+            "projectId": "mesh-jelly",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 0,
+            "sampledTime": 0,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 0,
+              "centerY": 0,
+              "zoom": 1.6615384615384616,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -149.5,
+              "maxX": 149.5,
+              "minY": -130,
+              "maxY": 130
+            },
+            "scale": 1.6615384615384616,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0000.png",
+            "artifactId": "8a747794-215e-4ddf-a050-0880b62e116d"
+          },
+          {
+            "projectId": "mesh-jelly",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 0.5,
+            "sampledTime": 0.5,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 0,
+              "centerY": 0,
+              "zoom": 1.6615384615384616,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -149.5,
+              "maxX": 149.5,
+              "minY": -130,
+              "maxY": 130
+            },
+            "scale": 1.6615384615384616,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0001.png",
+            "artifactId": "dc059269-844d-4919-98d8-5236d8f22d51"
+          },
+          {
+            "projectId": "mesh-jelly",
+            "revision": 0,
+            "animationId": "deform",
+            "time": 1,
+            "sampledTime": 1,
+            "viewport": {
+              "width": 640,
+              "height": 480,
+              "centerX": 0,
+              "centerY": 0,
+              "zoom": 1.6615384615384616,
+              "devicePixelRatio": 1,
+              "background": "#263442"
+            },
+            "bounds": {
+              "minX": -149.5,
+              "maxX": 149.5,
+              "minY": -130,
+              "maxY": 130
+            },
+            "scale": 1.6615384615384616,
+            "pixelWidth": 640,
+            "pixelHeight": 480,
+            "file": "frame-0002.png",
+            "artifactId": "52a35004-f7a2-4759-b453-5866c05f4532"
+          }
+        ]
+      },
+      "directMetadata": {
+        "projectId": "mesh-jelly",
+        "revision": 0,
+        "animationId": "deform",
+        "time": 0.5,
+        "sampledTime": 0.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": 0,
+          "zoom": 1.6615384615384616,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -139.75,
+          "minY": -130,
+          "maxX": 139.75,
+          "maxY": 100.75
+        },
+        "scale": 1.6615384615384616,
+        "pixelWidth": 640,
+        "pixelHeight": 480
+      },
+      "performance": {
+        "kind": "CPU geometry update and WebGL submission; not GPU completion or frame cadence",
+        "vertices": 45,
+        "triangles": 64,
+        "warmup": 60,
+        "samples": 300,
+        "p50": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.20000000298023224
+      }
+    }
+  ],
+  "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "beforeDispose": {
+    "backend": "webgl",
+    "textureCount": 1,
+    "geometryCount": 1,
+    "disposed": false
+  },
+  "disposed": {
+    "backend": "webgl",
+    "textureCount": 0,
+    "geometryCount": 0,
+    "disposed": true
+  }
+}

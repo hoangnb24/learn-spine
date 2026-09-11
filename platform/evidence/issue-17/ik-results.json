@@ -1,0 +1,187 @@
+{
+  "contained": true,
+  "manifest": {
+    "version": 1,
+    "projectId": "standing-leg",
+    "revision": 0,
+    "kind": "sequence",
+    "fps": null,
+    "fit": "continuous-animation-envelope",
+    "frames": [
+      {
+        "projectId": "standing-leg",
+        "revision": 0,
+        "animationId": "idle",
+        "time": 0,
+        "sampledTime": 0,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": -15,
+          "zoom": 0.6189111747851003,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -334,
+          "maxX": 334,
+          "minY": -364,
+          "maxY": 334
+        },
+        "scale": 0.6189111747851003,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0000.png",
+        "artifactId": "cad3d973-21c1-4832-a4d1-3087176cd9d6"
+      },
+      {
+        "projectId": "standing-leg",
+        "revision": 0,
+        "animationId": "idle",
+        "time": 0.5,
+        "sampledTime": 0.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": -15,
+          "zoom": 0.6189111747851003,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -334,
+          "maxX": 334,
+          "minY": -364,
+          "maxY": 334
+        },
+        "scale": 0.6189111747851003,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0001.png",
+        "artifactId": "1b6c365c-50b7-4a9d-bd61-7d1eaa7f8fed"
+      },
+      {
+        "projectId": "standing-leg",
+        "revision": 0,
+        "animationId": "idle",
+        "time": 1,
+        "sampledTime": 1,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": -15,
+          "zoom": 0.6189111747851003,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -334,
+          "maxX": 334,
+          "minY": -364,
+          "maxY": 334
+        },
+        "scale": 0.6189111747851003,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0002.png",
+        "artifactId": "974738a1-35f4-4005-800e-9d1afaf95f24"
+      },
+      {
+        "projectId": "standing-leg",
+        "revision": 0,
+        "animationId": "idle",
+        "time": 1.5,
+        "sampledTime": 1.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 0,
+          "centerY": -15,
+          "zoom": 0.6189111747851003,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -334,
+          "maxX": 334,
+          "minY": -364,
+          "maxY": 334
+        },
+        "scale": 0.6189111747851003,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0003.png",
+        "artifactId": "3a65258a-c95d-4eb3-9621-57c181da3adc"
+      }
+    ]
+  },
+  "diagnostics": [
+    [
+      {
+        "constraintId": "leg",
+        "order": 0,
+        "target": [
+          120,
+          -100
+        ],
+        "endpoint": [
+          120.00000000000001,
+          -100
+        ],
+        "distance": 1.4210854715202004e-14,
+        "status": "solved"
+      }
+    ],
+    [
+      {
+        "constraintId": "leg",
+        "order": 0,
+        "target": [
+          120,
+          -100
+        ],
+        "endpoint": [
+          120,
+          -100
+        ],
+        "distance": 0,
+        "status": "solved"
+      }
+    ],
+    [
+      {
+        "constraintId": "leg",
+        "order": 0,
+        "target": [
+          120,
+          -100
+        ],
+        "endpoint": [
+          120,
+          -100
+        ],
+        "distance": 0,
+        "status": "solved"
+      }
+    ],
+    [
+      {
+        "constraintId": "leg",
+        "order": 0,
+        "target": [
+          120,
+          -100
+        ],
+        "endpoint": [
+          120,
+          -100
+        ],
+        "distance": 0,
+        "status": "solved"
+      }
+    ]
+  ]
+}

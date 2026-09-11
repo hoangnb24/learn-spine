@@ -1,9 +1,8 @@
-# PixiJS region renderer (#9)
+# PixiJS region and mesh renderer (#9 / #17)
 
 `PixiRenderer` implements the canonical `Renderer` in `model/types.ts`. It uses
 PixiJS **8.13.2** (MIT) WebGL directly; no Spine runtime and no animation ticker.
-Editor/player and observation use this same module. The app shells are not wired
-in this issue; integration belongs to #11/#12.
+Editor/player and observation use this same module.
 
 ```ts
 import { PixiRenderer, fitCamera } from './render';
@@ -92,8 +91,41 @@ Dependency lock audit: `npm audit --omit=dev` reports zero vulnerabilities; this
 not an audit of all future distribution obligations. Keep PixiJS MIT notice with
 redistribution. T01 art remains internal evaluation per its source manifest.
 
-## Versioned pose boundary (#15)
+## Mesh v1 (#17)
 
-The renderer accepts `poseVersion:1` for region geometry. `rendererCapabilities`
-lists only region-v0; prepare/draw/camera reject mesh-v1 until #17. Failed mesh
-prepare preserves the previous prepared region. [Mesh handoff](../../../docs/product/contracts/mesh-v1.md).
+`rendererCapabilities` advertises `poseVersions:[1]`, `region-v0` and `mesh-v1`.
+Prepare accepts validated v0/v1 bundles. `poseGeometry` interleaves Pose regions and
+meshes by project slot order, validating each relative order, reference, vertex count,
+finite positions and unchanged UV/index topology. Mesh world XY is already skinned;
+only `screenPoint` is applied. No attachment/slot transform, trim or pivot is applied
+again. UV (0,0) remains the decoded PNG top left. Reused attachments have separate
+slot draws. PNG alpha uses the same source-over blending as regions; the model has
+no per-slot alpha channel.
+
+Geometry is allocated once per prepare and position buffers are updated in place on
+draw. Winding reversal and zero animated scale render naturally; there is no culling
+or automatic topology repair. `fitCamera` includes every evaluated vertex of every
+supplied mesh pose. Observation's continuous envelope also includes deform curves,
+weighted bind inverses, animated worlds and constrained local rotations (see its
+README); renderer itself never solves IK.
+
+`renderer.setOverlay({wireframe:true, weightBoneId:'tip'})` enables optional cyan
+triangle edges and per-vertex selected-bone weights (blue=0, red=1, radius 3 CSS px).
+Use `{}` to turn it off. Overlays are display state only and do not modify Project,
+Pose, fit bounds or storage. They are above all attachments and appear in subsequent
+`capture` calls on this renderer. Observation's owned renderers default to no overlay.
+No mesh authoring/editor UI or WebMCP geometry tool is introduced here (#19).
+
+Replacement is transactional: textures and geometries are prepared before releasing
+the old snapshot. Failures/cancellation retain it. Destroying geometry explicitly
+passes `true` to destroy its owned vertex, UV and index buffers; texture sources,
+bitmaps and overlay graphics are released as well. `diagnostics.geometryCount` joins
+textureCount for lifecycle inspection. Browser tests inspect the actual owned
+buffers' destroyed states, closed ImageBitmaps and context-loss error behavior.
+
+Changing source PNG pixel dimensions while preserving mesh vertices, UVs, bind poses,
+weights, bones and keys requires no rig edit. The T01 fixture uses full/half sources,
+compares semantic and evaluated-pose hashes, renders both with identical viewports,
+and records bounded first-three-vertex inspection rather than dumping large poses.
+See [durable #17 evidence](../../evidence/issue-17/README.md) and
+[mesh contract](../../../docs/product/contracts/mesh-v1.md).

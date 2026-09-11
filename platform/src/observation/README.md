@@ -30,7 +30,15 @@ Bezier value control point. The convex-hull property bounds Bezier overshoot eve
 when time inversion is nonlinear. Rotation sine/cosine ranges include their turning
 points; intervals covering a full turn or huge angles conservatively use [-1,1].
 Interval multiplication/addition propagates affine transforms parent-first, then
-includes all trimmed texture corners after attachment transform. Negative scales,
+includes all trimmed region texture corners after attachment transform. For mesh-v1,
+it bounds each pre-skin deform component using all key values and Bezier value
+controls, applies each explicit inverse bind matrix and animated world interval,
+then sums nonnegative weighted contributions. Every final mesh vertex participates
+in the envelope, including deforms between requested frames. Constrained IK root
+and child local rotations use the full [-π,π] range; translations/scales retain
+their animated intervals. This contains solver rotations, FK fallbacks, descendants
+and reflected/affine ancestors without rerunning the solver. The full-turn IK
+envelope may leave extra whitespace; it must not clip a successful capture. Negative scales,
 shear, multiple turns and channels with different key times remain bounded.
 
 This is an envelope, not an exact extrema optimizer: treating correlated values as

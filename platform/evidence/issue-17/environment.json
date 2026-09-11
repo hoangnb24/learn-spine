@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-09-11T06:28:08.687Z",
+  "sourceCommit": "3deda2099dc2ef1fe49ec9777c37a5c1b0e9c25d",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "hardware": {
+    "model": "Mac16,9",
+    "cpu": "Apple M4 Max",
+    "memoryBytes": "38654705664"
+  },
+  "reference": "docs/product/results/experiment-1/environment.json; same local Mac Studio and Chromium 153/SwiftShader; no hardware GPU or cadence pass implied"
+}

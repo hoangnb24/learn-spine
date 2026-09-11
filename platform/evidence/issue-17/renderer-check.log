@@ -1,0 +1,14 @@
+[WebServer] (node:84890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:85035) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/render/browser/mesh-boundary.spec.ts:5:1 › mesh v1 ZIP uses real PNG decode and rendering supports mesh and invalid replacement retains prior mesh (337ms)
+  ✓  2 tests/render/browser/mesh-ik.spec.ts:3:1 › accepted IK output renders mixed mesh/region and continuous observation includes it (646ms)
+  ✓  3 tests/render/browser/mesh-pixels.spec.ts:3:1 › mesh pixel oracle: UV, seam, alpha, mixed order, reflection and resource lifetime (543ms)
+  ✓  4 tests/render/browser/mesh.spec.ts:4:1 › T01 mesh bind/deform/extreme, resolution, real observation and geometry update cost (10.2s)
+  ✓  5 tests/render/browser/renderer.spec.ts:4:1 › real WebGL pixels, lifecycle, robot extremes and timings (3.8s)
+
+  5 passed (17.0s)

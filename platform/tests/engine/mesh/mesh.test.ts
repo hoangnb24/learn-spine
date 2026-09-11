@@ -107,9 +107,9 @@ describe('bind-world pre-skin linear blend geometry',()=>{
     expect(p).toEqual(before);direct[0].meshes[0].vertices[0]=999;direct[0].meshes[0].uvs[0]=.7;
     expect(p).toEqual(before);expect(pose(p,times[0])).not.toEqual(direct[0]);
   });
-  it('reports derived overflow and refuses renderer geometry until #17',()=>{
+  it('reports derived overflow and hands finite vertices to renderer',()=>{
     const p=createMeshProject();p.attachments[0].vertices[0]=Number.MAX_VALUE;p.bones[0].setup.scaleX=2;
     expect(evaluate(p,{time:0,animationId:null})).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
-    const mesh=createMeshProject();expect(poseGeometry(mesh,pose(mesh))).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+    const mesh=createMeshProject();expect(poseGeometry(mesh,pose(mesh))).toMatchObject({ok:true,value:[pose(mesh).meshes[0].vertices]});
   });
 });
