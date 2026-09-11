@@ -1,6 +1,6 @@
 # Công cụ animation 2D dành cho agent
 
-Ngày: 09/09/2026; cập nhật 10/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) trong nhánh triển khai Foundation. Chưa có prototype animation hoặc số đo của ba gate; đầu vào downstream có hiệu lực sau merge.
+Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#4 đã Done; #5 đang In Progress và đủ đầu vào. Chưa có prototype animation hoặc số đo của ba gate.
 
 ## Sản phẩm trong một trang
 
@@ -43,6 +43,7 @@ Mốc thành công đầu tiên là thay thế workflow mẫu của chúng ta. T
 - [GitHub repository](https://github.com/hoangnb24/learn-spine) — nhánh `main`, private.
 - [GitHub Project](https://github.com/users/hoangnb24/projects/3) và [issue điều phối](https://github.com/hoangnb24/learn-spine/issues/1).
 - [Thứ tự thực hiện, nhóm song song và links tới từng issue](execution-plan.md).
+- [Audit sản phẩm và brief UX ngày 11/09/2026](research/product-ux-brief-2026-09-11.md) — bản đồ chức năng, ranh giới preview và điểm cần chốt.
 - [Phạm vi theo giai đoạn](scope.md).
 - [Kiến trúc, project và tools](architecture.md).
 - [Ba thử nghiệm và tiêu chí quyết định](experiments.md).
