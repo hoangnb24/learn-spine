@@ -10,6 +10,7 @@
 2. Đọc `docs/product/README.md`, `architecture.md`, `experiments.md` và các tài liệu cụ thể được link trong issue. Đường dẫn `platform/`, `prototypes/`, `contracts/`, `results/` có thể là đầu ra cần tạo; không mặc định đã tồn tại.
 3. Checkout nhánh riêng từ `main` mới nhất, tên `codex/issue-<number>-<slug>`. Ghi phạm vi mình sở hữu trong PR. Có thể dùng worktree riêng để tránh nhiều agent sửa cùng checkout.
 4. Khảo sát code thực tế trước khi quyết định. File/module trong issue xác định trách nhiệm dự kiến; nếu cần đổi cấu trúc, giữ ranh giới trách nhiệm và cập nhật hợp đồng/đường dẫn bàn giao.
+5. Đọc kết luận đối chiếu kế hoạch gần nhất nếu có. Báo Orchestrator khi code/API/dependency hoặc công việc còn lại khác mô tả issue; không tiếp tục làm theo giả định cũ chỉ vì nó nằm trong backlog. Orchestrator cập nhật kế hoạch theo mục “Đối chiếu thực tế và định hình lại kế hoạch” trong WORKFLOW.
 
 ## Làm song song
 
@@ -43,6 +44,9 @@ Bằng chứng:
 
 Giới hạn:
 - Phần chưa thử, lỗi còn mở, issue chặn và điều kiện tiếp tục.
+
+Chênh lệch so với kế hoạch:
+- Giả định không còn đúng, việc đã làm thêm hoặc còn thiếu, issue/dependency/tài liệu cần cập nhật; ghi rõ nếu không có.
 ```
 
 ## Ranh giới sản phẩm
