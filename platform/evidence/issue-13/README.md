@@ -1,6 +1,6 @@
 # Issue 13 evidence
 
-11 September 2026. Native invocation code: **9a25e873d7948afda76d0b4d3db48c83d20bf668**. Combined regression after merging #12/main: **690af9ecdb611d3e6213195eb14f70438445764f**; that merge did not change adapter/harness code. Documentation/evidence commits following those SHAs do not change behavior.
+11 September 2026. Native invocation code: **9a25e873d7948afda76d0b4d3db48c83d20bf668**. Combined regression after merging #12/main: **690af9ecdb611d3e6213195eb14f70438445764f**; that merge did not change adapter/harness code. Default CI wrapper: **1e77885afd88b4ecf5d715acfd61916d752aed05**; [default-ci.log](default-ci.log) records typecheck and all15browser tests including adapter media. Documentation/evidence commits following those SHAs do not change behavior.
 
 Environment: macOS 26.4 (25E246), arm64; Node v22.22.3, npm 10.9.8. Native agent: Codex desktop with Browser skill; In-app Browser user-agent `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36`. Loopback Vite http://127.0.0.1:4183, no flags/extensions/tokens changed. Real Pixi WebGL + T01 robot PNGs. Automated media test uses installed Playwright Chromium, explicitly bridge-only.
 
