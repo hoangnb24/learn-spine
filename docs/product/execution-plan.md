@@ -13,7 +13,7 @@ Website animation 2D độc lập, agent dùng tools trên trang để dựng ri
 
 ## Bắt đầu và điều phối
 
-Có thể bắt đầu song song ngay: **[#2](https://github.com/hoangnb24/learn-spine/issues/2) (T01), [#3](https://github.com/hoangnb24/learn-spine/issues/3) (T02), [#4](https://github.com/hoangnb24/learn-spine/issues/4) (T03)**. Sau hợp đồng T03 và workspace/model, commands, evaluator và storage có thể tách nhánh. Renderer mở khóa observation; UI và adapter WebMCP có thể làm song song khi đủ đầu vào. Sau Gate 1, mesh và IK là hai nhánh độc lập; sau mesh, renderer và diagnostics có thể chạy song song. Ba gate là mốc tuần tự. Discovery tương lai bị chặn bởi quyết định MVP.
+Snapshot 11/09/2026: **#2/#3/#4 đã Done** sau merge [PR #30](https://github.com/hoangnb24/learn-spine/pull/30); **#5 đang In Progress / Ready**. Tiếp theo #6; sau #6 có thể tách #7/#8/#10. Sau hợp đồng T03 và workspace/model, commands, evaluator và storage có thể tách nhánh. Renderer mở khóa observation; UI và adapter WebMCP có thể làm song song khi đủ đầu vào. Sau Gate 1, mesh và IK là hai nhánh độc lập; sau mesh, renderer và diagnostics có thể chạy song song. Ba gate là mốc tuần tự. Discovery tương lai bị chặn bởi quyết định MVP.
 
 GitHub blocked-by là dependency kỹ thuật trực tiếp; sub-issues chỉ là phân cấp theo dõi, không phải thứ tự thực thi. Wave là đợt sớm nhất theo DAG, không yêu cầu chờ toàn bộ một đợt. Chỉ nhận việc khi dependency đã merge và đạt, tôn trọng ownership/file chung; không coi issue bị hủy là đầu vào đã sẵn sàng.
 
@@ -26,7 +26,7 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#2](https://github.com/hoangnb24/learn-spine/issues/2) Chuẩn hóa assets, nguồn sử dụng và bộ fixture đối chứng | Foundation | 0 | — | Ready |
 | [#3](https://github.com/hoangnb24/learn-spine/issues/3) Thử agent khám phá và gọi WebMCP trên trình duyệt thực tế | Foundation | 0 | — | Ready |
 | [#4](https://github.com/hoangnb24/learn-spine/issues/4) Chốt hợp đồng project, tọa độ, module và giao dịch tools v0 | Foundation | 0 | — | Ready |
-| [#5](https://github.com/hoangnb24/learn-spine/issues/5) Dựng workspace sản phẩm độc lập và kiểm tra CI cơ bản | Foundation | 1 | [#4](https://github.com/hoangnb24/learn-spine/issues/4) | Blocked |
+| [#5](https://github.com/hoangnb24/learn-spine/issues/5) Dựng workspace sản phẩm độc lập và kiểm tra CI cơ bản | Foundation | 1 | [#4](https://github.com/hoangnb24/learn-spine/issues/4) | Ready |
 | [#6](https://github.com/hoangnb24/learn-spine/issues/6) Triển khai model project v0 và kiểm tra dữ liệu đầu vào | Robot | 2 | [#5](https://github.com/hoangnb24/learn-spine/issues/5) | Blocked |
 | [#7](https://github.com/hoangnb24/learn-spine/issues/7) Bộ lệnh atomic, revision, retry và lịch sử hoàn tác | Robot | 3 | [#6](https://github.com/hoangnb24/learn-spine/issues/6) | Blocked |
 | [#8](https://github.com/hoangnb24/learn-spine/issues/8) Tính pose xương và nội suy animation theo thời gian | Robot | 3 | [#6](https://github.com/hoangnb24/learn-spine/issues/6) | Blocked |

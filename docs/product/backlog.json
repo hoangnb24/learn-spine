@@ -133,7 +133,7 @@
       "exclude": "Không thêm features animation, backend đăng nhập hoặc deploy production.",
       "wave": 1,
       "priority": "P0",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 5,
       "id": 5401664355,
       "node_id": "I_kwDOUTvul88AAAABQfbbYw",
