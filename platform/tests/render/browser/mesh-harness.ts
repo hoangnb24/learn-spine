@@ -1,4 +1,4 @@
-import {gridProject} from '../mesh/fixture';
+import {gridProject,ikRenderProject} from '../mesh/fixture';
 import manifest from '../../../fixtures/source/manifest.json';
 import {ObservationService} from '../../../src/observation';
 import {poseGeometry} from '../../../src/render/geometry';
@@ -11,4 +11,4 @@ async function bundle(kind:'scarf'|'jelly',half=false){
  const asset={id:kind,name:kind,path:`assets/${kind}.png`,mimeType:'image/png' as const,sha256:await hash(bytes),pixelWidth:width,pixelHeight:height,originalWidth:width,originalHeight:height,trimX:0,trimY:0};
  return {project:gridProject(asset,kind),assets:new Map([[kind,bytes]])};
 }
-Object.assign(window,{meshHarness:{bundle,hash,gridProject,ObservationService,poseGeometry}});
+Object.assign(window,{meshHarness:{bundle,hash,gridProject,ikRenderProject,ObservationService,poseGeometry}});

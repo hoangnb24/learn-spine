@@ -12,7 +12,8 @@ strictly region-only. Format 1 requires `region-v0`; any mesh/deform data additi
 requires `mesh-v1`. IK constraint data requires `ik-v1`; its integrated rules are
 in the [IK contract](../../../platform/src/engine/IK.md). Unknown capabilities are rejected. Capabilities cannot silently enable ignored data.
 `modelCapabilities` and `evaluatorCapabilities` expose support separately from
-`rendererCapabilities`, which still lists region only.
+`rendererCapabilities`. After #17 the renderer lists region-v0 and mesh-v1; it
+consumes solved Pose world geometry without evaluating constraints itself.
 
 `migrate(input, 1)` validates and copies 0→1, changing only `formatVersion`:
 identity, revision, region geometry and animation remain identical. Identity 0→0
@@ -77,9 +78,15 @@ Both arrays preserve relative slot order. Interleave region/mesh entries by
 canonical `project.slots` order and `slotId`; do not draw every region then every
 mesh. Reused attachments produce distinct draw entries per slot.
 
-Current renderer prepare, drawing and camera geometry reject `mesh-v1` with
-`UNSUPPORTED_CAPABILITY`; preparation failure preserves the prior prepared region.
-No rendered-mesh, mesh bounds/diagnostics, Gate 2 or performance claim is made.
+Renderer #17 prepares and draws mesh-v1 using this Pose contract, including mixed
+region/mesh slot order, PNG alpha and deformed-vertex camera fit. Malformed pose
+references/topology return INVALID_INPUT; failed preparation preserves the prior
+snapshot. Observation captures meshes and uses a conservative continuous envelope
+for pre-skin deforms, weighted worlds and solved IK rotations. Optional wireframe
+and selected-bone weight overlays are renderer display state. See
+[renderer API](../../../platform/src/render/README.md) and
+[actual evidence](../../../platform/evidence/issue-17/README.md). Gate 2 motion
+quality and the deferred performance gate are not implied by renderer support.
 
 ## Coordinated #16 integration
 
@@ -112,4 +119,6 @@ setup `[12,20,14,20,12,22]`, end key `[18,20,16,24,15,22]`; independent analytic
 answers at 20 seeded times, midpoint, negative parent scale, shear bind inverse,
 Bezier/stepped, migration, malformed input and source/result isolation.
 [Browser boundary test](../../../platform/tests/render/browser/mesh-boundary.spec.ts)
-uses a real generated PNG and real decoder for ZIP roundtrip plus renderer refusal.
+uses a real generated PNG and real decoder for ZIP roundtrip, mesh rendering and
+failed-replacement retention. The #15 refusal result is historical; #17 tests the
+new supported consumer.

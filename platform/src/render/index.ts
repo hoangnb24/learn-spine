@@ -66,8 +66,9 @@ export class PixiRenderer implements Renderer {
       if (cancelled()) {cleanup();return error('CANCELLED','Preparation cancelled');}
       for (const slot of checked.value.slots) if (slot.attachmentId !== null) {
         const region=checked.value.attachments.find(a=>a.id===slot.attachmentId)!;
-        const mesh=new Mesh({texture:pending.get(region.assetId)!.texture,geometry:new MeshGeometry({positions:new Float32Array(region.type==='mesh'?region.vertices.length:8),uvs:new Float32Array(region.type==='mesh'?region.uvs:[0,0,1,0,1,1,0,1]),indices:new Uint32Array(region.type==='mesh'?region.triangles:[0,1,2,0,2,3])})});
-        pendingMeshes.push(mesh);
+        const geometry=new MeshGeometry({positions:new Float32Array(region.type==='mesh'?region.vertices.length:8),uvs:new Float32Array(region.type==='mesh'?region.uvs:[0,0,1,0,1,1,0,1]),indices:new Uint32Array(region.type==='mesh'?region.triangles:[0,1,2,0,2,3])});
+        try { pendingMeshes.push(new Mesh({texture:pending.get(region.assetId)!.texture,geometry})); }
+        catch(e) { geometry.destroy(true); throw e; }
       }
       this.clear();this.resources=pending;this.project=checked.value;this.meshes=pendingMeshes;
       for(const mesh of this.meshes)this.stage.addChild(mesh);

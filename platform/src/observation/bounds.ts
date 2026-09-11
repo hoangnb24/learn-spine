@@ -55,7 +55,7 @@ export function animationBounds(
   };
   // IK only rotates these locals. A full turn safely bounds solver reach/clamping,
   // reflected scales and interactions between ordered constraints without solving twice.
-  const ikBones=new Set((p as Project & {ikConstraints?: {rootBoneId:string;childBoneId:string}[]}).ikConstraints?.flatMap(c=>[c.rootBoneId,c.childBoneId])??[]);
+  const ikBones=new Set(p.ikConstraints?.flatMap(c=>[c.rootBoneId,c.childBoneId])??[]);
   const remaining = [...p.bones];
   while (remaining.length) {
     const i = remaining.findIndex(
