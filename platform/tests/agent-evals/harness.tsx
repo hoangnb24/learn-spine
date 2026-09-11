@@ -24,10 +24,16 @@ const bridge = new WebMCPBridge({getSession:()=>runtime.session,storage:runtime.
 }});
 const dispatch=bridge.dispatch.bind(bridge);
 bridge.dispatch=async(name,input,signal)=>{
- const begin=performance.now(), before=runtime.session?.inspect().revision;
- const result=await dispatch(name,input,signal);
- record({kind:'tool',name,input,result,beforeRevision:before,afterRevision:runtime.session?.inspect().revision,durationMs:performance.now()-begin,elapsedMs:started===null?null:performance.now()-started,callNumber:++count,afterStop:stopped});
- return result;
+ const begin=performance.now(), before=runtime.session?.inspect().revision, invocationId=++count;
+ record({kind:'tool-start',invocationId,name,input,beforeRevision:before,elapsedMs:started===null?null:begin-started,afterStop:stopped});
+ try {
+  const result=await dispatch(name,input,signal);
+  record({kind:'tool',invocationId,name,input,result,beforeRevision:before,afterRevision:runtime.session?.inspect().revision,durationMs:performance.now()-begin,elapsedMs:started===null?null:performance.now()-started,callNumber:invocationId,afterStop:stopped});
+  return result;
+ } catch(error) {
+  record({kind:'tool-thrown',invocationId,name,message:String(error),durationMs:performance.now()-begin,afterRevision:runtime.session?.inspect().revision,afterStop:stopped});
+  throw error;
+ }
 };
 runtime.subscribe(()=>bridge.refresh());
 const bytes = new Uint8Array(await (await fetch(`./initial/${brief}.zip`)).arrayBuffer());

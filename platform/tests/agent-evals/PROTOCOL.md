@@ -99,3 +99,31 @@ Startup from repository root: `python3 platform/tests/agent-evals/collector.py` 
 URL: http://127.0.0.1:4210/tests/agent-evals/index.html?brief=robot&run=robot-1
 (substitute only locked brief/run IDs). Setup checks use run IDs prefixed setup-;
 these are explicitly not subjects and cannot enter the nine-run score.
+
+### Measurement implementation locked before subjects
+
+Scarf delay/amplitude: sample canonical evaluate at 1,000 equally spaced times
+`t=i*2/1000`, i=0..999. Scalar signal for each of bones mid and tip is world origin
+translation dotted with the normalized setup root Y axis (root setup matrix column
+[c,d]); subtracting a constant setup offset does not affect peak/lag. Amplitude is
+max minus min of that scalar. Peak time is earliest sample attaining its maximum;
+delay is `(tipPeakTime-midPeakTime+2)%2`. Accept inclusive [0.20,0.35] seconds and
+both amplitudes >=6. This measures intended motion direction despite tilted root,
+uses finite sampling at 0.002 s resolution, and does not fit a different phase model
+post hoc. Mesh anchor targets are canonical setup Pose vertices for all indices
+row*17+col with row=0..4 and col=0,1. Check the 61 uniform samples plus all final key
+times using the accepted evaluator/diagnostics, preserving source project.
+
+For robot visual review inspect full silhouette and connection at shoulder/elbow/
+wrist/neck/hip/knee/ankle over three loops and extrema screenshots. Region corners
+and full art bounds must be inside chosen capture viewport at sampled extrema;
+bone-origin diagnostics alone do not establish cropping or connection quality.
+Scarf final mesh geometry/triangle diagnostics and images cover surface; bone signal
+lag alone does not establish coherent deformation. Independent reviewer records
+these visual observations separately from numeric thresholds.
+
+Observer records `tool-start` with invocationId before awaiting every native dispatch;
+completion, thrown error or unfinished status are matched by id. Budget uses starts,
+including unfinished and after-stop starts. Stop snapshot cannot imply no pending
+calls: aggregate flags any unmatched start and calls completed after deadline. Host
+failures before dispatch are reconciled from subject transcript and still counted.
