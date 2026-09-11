@@ -49,5 +49,7 @@ Package riêng chỉ chứa công cụ kiểm tra đặc tả (Ajv 8.20.0, TypeS
 ## Extension after Gate 1
 
 [Mesh v1 (#15)](mesh-v1.md) specifies the implemented format 1 schema, explicit
-0→1 migration, versioned Pose and coordinated future #16 integration. The original
+0→1 migration and versioned Pose. [Two-bone IK (#16)](../../../platform/src/engine/IK.md)
+is now integrated in format v1 with `ik-v1`, ordered solving before mesh/region
+output and final-world `Pose.ik` diagnostics; renderer/capture and authoring remain downstream. The original
 v0 schema and semantics remain unchanged; the region oracle above stays v0-only.

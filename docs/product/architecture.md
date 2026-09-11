@@ -2,11 +2,11 @@
 
 Ngày: 09/09/2026; cập nhật 11/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
-## Hiện trạng sau PR #56 — 11/09/2026
+## Hiện trạng sau PR #55 — 11/09/2026
 
-#15 đã Closed (completed)/Done sau PR #56 tại main `91bdd3af82683ea3c9391b28ccd51d6c6b786449`; #16 In Progress/Ready, đang tích hợp IK vào shared main này; #17 In Progress/Ready, sole author `/root/implement_issue17`; #18 vẫn Blocked chờ #16, #19 chờ #17/#18. #51/#52 giữ Todo/Deferred/P2 ở Polish.
+#15/#16 Done (completed); PR #55 đã merge main `700b18c73c88ef2a6c48cee21d037ffd97bfb462` sau reviewer Đạt exact `cdee4e120f02883ef99ee6d07e92409965cd0216`. #17 tiếp tục In Progress/Ready; #18 In Progress/Ready, sole author `/root/implement_issue18` từ main này; #19 vẫn Blocked chờ #17 và #18. #51/#52 giữ Todo/Deferred/P2 ở Polish.
 
-Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` vẫn bị từ chối đến khi #16 tích hợp.
+Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` đã được tích hợp ở PR #55; xem hợp đồng IK bên dưới.
 
 `evaluate(Project, PoseRequest): Result<Pose>` tại `platform/src/engine/index.ts` trả `poseVersion:1`, `bones`, `regions`, `meshes:DrawMesh[]` (rỗng với region-only). DrawMesh gồm `slotId`, `attachmentId`, `assetId`, `vertices`, `uvs`, `triangles`; vertices là world XY sau deform/skinning, chỉ áp world-to-screen, không cộng lại slot-bone/attachment transform. Interleave regions/meshes theo `project.slots` và `slotId`, không vẽ hết regions rồi mới meshes.
 
@@ -14,7 +14,15 @@ Mesh vertices/deform dùng bind-world XY; deform là offset tuyệt đối trư�
 
 Renderer prepare/draw/camera hiện vẫn từ chối `mesh-v1`, giữ prepared region cũ khi prepare thất bại. Observation chưa có mesh bounds; `platform/src/observation/bounds.ts` trả null khi gặp mesh. Model/evaluator support không đồng nghĩa renderer/tool support. Session giữ/read/save/reopen v1 nhưng feature list và command schema còn region-only; `putAnimation` chưa nhận deform authoring. Không có mesh UI/tools, diagnostics hoàn chỉnh, Gate 2 hoặc performance pass từ PR #56.
 
-Điểm tích hợp #16 đã ghi trong engine sau FK worlds và trước mesh skinning. Hợp đồng tương lai `solveIK(bones, constraints, locals, worlds): Result<IKDiagnostic[]>` chỉ sửa fresh maps của lần evaluate; rebuild worlds trước skinning. Shape IK/diagnostics trong mesh-v1 là thỏa thuận bàn giao chưa được loader hiện tại nhận; downstream phải dùng kết quả #16 đã merge/nghiệm thu, không giả định `ik-v1` đã có.
+IK core đã được nhận: format v1/schema strict hỗ trợ `ik-v1`; `Project.ikConstraints?: TwoBoneIK[]` yêu cầu capability khi field có mặt (mảng rỗng hợp lệ), v0 vẫn region-only. `TwoBoneIK` tại `platform/src/model/ik.ts` có id/type, rootBoneId, childBoneId, targetBoneId, endpoint child-local XY, bend ±1, mix [0,1], order unique nonnegative safe integer. Child là con trực tiếp root; target ở ngoài toàn bộ root subtree. Target lấy world origin của target bone; mix/bend/order tĩnh ở phiên bản này.
+
+`evaluate` giải sampled FK → IK theo order tăng dần → mesh skinning/region transforms; chỉ sửa fresh locals/worlds, rebuild descendants, không mutate setup/bind/channel. `animationId:null` vẫn áp IK vào setup locals; mix 0 giữ FK của constraint đó. Pose vẫn `poseVersion:1`; `Pose.ik?: IKDiagnostic[]` chỉ xuất khi input có `ikConstraints`. Mỗi diagnostic có constraintId/order, target/endpoint world XY, distance Euclidean logic và status. Các tọa độ/distance đo trên pose cuối sau mọi constraint; status là kết quả lúc constraint được áp dụng. Vì vậy `solved` hoặc partial mix không tự chứng minh chân trụ: dùng residual cuối; constraint sau có thể dịch endpoint trước.
+
+Accuracy full-mix reachable áp dụng khi root có |scaleX|=|scaleY| khác 0 và ancestor matrix khả nghịch; reflection/shear ở ancestors và child scale/endpoint lệch trục theo hợp đồng được hỗ trợ. `unsupported-scale`/`singular` giữ FK; unreachable clamp không stretch, degenerate dùng fallback xác định. Nonfinite arithmetic hoặc residual tức thời full-mix reachable >0.5 trả INVALID_INPUT. Chi tiết miền scale, mix, bend/order và final diagnostic theo `platform/src/engine/IK.md`; không suy mọi status là thành công.
+
+Core IK/model/evaluator/JSON-ZIP được nghiệm thu không thay nghiệm thu renderer/capture/bounds #17 hoặc diagnostics đo chuyển động #18 và authoring/tools/UI #19. Renderer/observation mesh và envelope có IK còn thuộc #17; Session/storage giữ v1 không có nghĩa schema command đã hỗ trợ authoring mesh/deform/constraints. Không nhận Gate 2/3 hoặc performance pass từ PR #55.
+
+[Hợp đồng IK đã merge](../../platform/src/engine/IK.md).
 
 [Hợp đồng đã merge](contracts/mesh-v1.md) · [Handoff](reconciliation/2026-09-11-mesh-core-handoff.md).
 
@@ -32,7 +40,7 @@ flowchart TD
     G --> H[Player dùng cùng lõi tính pose]
 ```
 
-React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript đã tính transform/nội suy, weights và deform mesh-v1; constraints IK đang được #16 tích hợp, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
+React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript đã tính transform/nội suy, weights và deform mesh-v1; constraints IK đã được #16 nghiệm thu, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
 
 WebGL là ứng viên mặc định cho thử nghiệm; đo WebGPU khi có nhu cầu. PixiJS có mesh tùy chỉnh nhưng không thay thế phần tính animation. Web Worker và WASM là phương án tối ưu sau khi đo được điểm nghẽn, không phải yêu cầu ban đầu.
 
