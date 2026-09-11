@@ -68,3 +68,20 @@ Hai corrective có căn cứ được đề nghị để chủ dự án cân nh�
 **Quyết định chủ dự án: CHƯA CÓ.** Đề nghị chốt một phương án ở đầu ADR: MVP nội bộ PNG→ZIP/web Player, giữ stack, chấp nhận performance tiếp tục Deferred; ưu tiên Polish rồi discovery theo nhu cầu xác nhận. Duyệt phương án không tự duyệt deploy, chi phí/dịch vụ, full parity hay toàn bộ discovery implementation.
 
 Sau quyết định, Orchestrator giao updater ghi nguyên quyết định/ngày/phạm vi, đồng bộ #22/README/scope và tracker; chỉ đổi trạng thái các việc được cho phép. Nếu không chấp nhận ngoại lệ hiệu năng, giữ quyết định MVP chờ #51→#52 và xem lại số đo. Review tài liệu Đạt chỉ xác nhận đề xuất đúng bằng chứng, không thay quyết định sản phẩm và không tự hoàn tất #22.
+
+## Kiểm tra bản đề xuất — 11/09/2026
+
+Nội dung đề xuất được kiểm tra tại commit `0ae337ddb05772cc00a2458aaa07571e7583ef06` (chỉ ba file docs trên base `564d9ea`); phần ghi kết quả này được bổ sung sau kiểm tra, không đổi production. Môi trường macOS 26.4 arm64, Node 22.22.3, npm 10.9.8, Playwright Chromium hiện có trên máy.
+
+| Lệnh từ root worktree | Actual result |
+| --- | --- |
+| `npm ci --prefix platform` | 70 packages cài từ lockfile; audit 0 vulnerabilities tại lần chạy này |
+| `npm run typecheck --prefix platform` | Exit 0 |
+| `npm test --prefix platform` | 163 passed, 1 skipped (scorer Gate 3 cần GATE3_RUN); không gọi lượt skipped là pass |
+| `npm run build --prefix platform` | Exit 0, còn warning chunk >500 kB như trước |
+| `npm run test:browser --prefix platform` | 19/19 passed, 9.9 s; real browser Editor/Player/storage/authoring/bridge. Không phải native gate hoặc benchmark mới |
+| `npm run dev --prefix platform` | Vite ready tại 127.0.0.1:5173; HTTP GET `/index.html` và `/player.html` đều 200; server đã dừng sau kiểm tra |
+| Kiểm tra Markdown relative targets của ba file bằng Python pathlib + regex | 45/45 đường dẫn tồn tại trước bổ sung mục này |
+| `git diff --check` | Exit 0 |
+
+Đã cài dependencies sạch trong worktree riêng; không chạy lại thao tác clone/auth vì repo đã checkout. Chromium đã có sẵn nên không chạy lại bước tải browser/OS dependencies. Browser suite sinh lại ảnh/ZIP evidence cũ trong worktree; đã loại đúng các output do lần kiểm tra này tạo khỏi diff để giữ nguyên historical evidence. Không sửa source/schema/API, không chạy lại native Gate 1–3, không claim kiểm visual mới từ HTTP 200. Fixtures/scripts/contracts tái lập đều đã link đến file trong repo; report lịch sử là bằng chứng gate, các kết quả trên chỉ xác minh tài liệu và cách chạy.
