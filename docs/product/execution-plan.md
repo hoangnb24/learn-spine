@@ -13,7 +13,7 @@ Website animation 2D độc lập, agent dùng tools trên trang để dựng ri
 
 ## Bắt đầu và điều phối
 
-Snapshot 11/09/2026: **#2–#6, #8 và #10 đã Done** qua PR #30/#32/#33/#34/#36; **#7 đang review, #9 đang triển khai (In Progress / Ready)**. #11 chờ #9; #12 chờ #7/#9; #13 chờ #7/#11. Sau hợp đồng T03 và workspace/model, commands, evaluator và storage có thể tách nhánh. Renderer mở khóa observation; UI và adapter WebMCP có thể làm song song khi đủ đầu vào. Sau Gate 1, mesh và IK là hai nhánh độc lập; sau mesh, renderer và diagnostics có thể chạy song song. Ba gate là mốc tuần tự. Discovery tương lai bị chặn bởi quyết định MVP.
+Snapshot 11/09/2026: **#2–#8 đã Done** qua PR #30/#32/#33/#34/#37; **#9 đang triển khai; #10 mở lại để sửa lỗi sao chép bytes sau PR #36 (In Progress / Ready)**. #11 chờ #9; #12 chờ #9/#10; #13 chờ #10/#11. Sau hợp đồng T03 và workspace/model, commands, evaluator và storage có thể tách nhánh. Renderer mở khóa observation; UI và adapter WebMCP có thể làm song song khi đủ đầu vào. Sau Gate 1, mesh và IK là hai nhánh độc lập; sau mesh, renderer và diagnostics có thể chạy song song. Ba gate là mốc tuần tự. Discovery tương lai bị chặn bởi quyết định MVP.
 
 GitHub blocked-by là dependency kỹ thuật trực tiếp; sub-issues chỉ là phân cấp theo dõi, không phải thứ tự thực thi. Wave là đợt sớm nhất theo DAG, không yêu cầu chờ toàn bộ một đợt. Chỉ nhận việc khi dependency đã merge và đạt, tôn trọng ownership/file chung; không coi issue bị hủy là đầu vào đã sẵn sàng.
 
