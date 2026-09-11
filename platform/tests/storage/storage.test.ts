@@ -44,7 +44,17 @@ describe('portable ZIP boundary',()=>{
     v.setUint32(c,0x02014b50,true);v.setUint16(c+10,8,true);v.setUint32(c+16,crc32(content),true);v.setUint32(c+20,compressed.length,true);v.setUint32(c+24,content.length,true);v.setUint16(c+28,name.length,true);out.set(name,c+46);
     v.setUint32(e,0x06054b50,true);v.setUint16(e+8,1,true);v.setUint16(e+10,1,true);v.setUint32(e+12,58,true);v.setUint32(e+16,c,true);
     expect((await unzip(out)).get('project.json')).toEqual(content);
+    // Node Buffer.slice returns a view. Mutate the entire source while DEFLATE yields.
+    const source=Buffer.from(out), pending=unzip(source); source.fill(0);
+    expect((await pending).get('project.json')).toEqual(content);
     v.setUint32(22,10,true);v.setUint32(c+24,10,true);await expect(unzip(out)).rejects.toMatchObject({code:'LIMIT_EXCEEDED'});
+  });
+  it('unpack owns a Node Buffer before async parsing and output mutation stays isolated',async()=>{
+    const original=bundle(), source=Buffer.from(zip(new Map([['project.json',text(JSON.stringify(original.project))]])));
+    const pending=storage.unpack(source);source.fill(0);
+    const result=await pending;expect(result).toEqual({ok:true,value:original,warnings:[]});
+    if(result.ok)result.value.project.metadata.name='changed';
+    expect(original.project.metadata.name).toBe('Synthetic robot');
   });
   it('returns cancellation and unavailable storage as Results',async()=>{
     const abort=new AbortController();abort.abort();await code(storage.pack(bundle(),abort.signal),'CANCELLED');await code(storage.recover('synthetic'),'STORAGE_FAILED');
