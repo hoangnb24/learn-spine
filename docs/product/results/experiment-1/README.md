@@ -1,6 +1,8 @@
-# Gate 1 — chưa đạt, giữ #15 / #16 bị chặn
+# Gate 1 — nhận về chức năng/hình ảnh; hiệu năng chuyển sang polish
 
-Ngày 11/09/2026. Robot đã hoàn tất đường đi art → native tools → editor → ZIP → mở lại → player độc lập. **Gate 1 chưa đạt điều kiện hiệu năng**, nên chưa có bằng chứng để mở rộng mesh/IK. Không đổi ngưỡng 16,7 ms sau đo.
+Ngày 11/09/2026. Robot đã hoàn tất đường đi art → native tools → editor → ZIP → mở lại → player độc lập. **Chủ dự án chấp nhận Gate 1 về chức năng và hình ảnh ngày 11/09/2026**, đồng thời chuyển phần hiệu năng sang giai đoạn polish. Kết quả run ban đầu vẫn không đạt ngưỡng 16,7 ms; không đổi số đo, rubric hoặc lịch sử.
+
+Quyết định sau review: “Phần này có thể để sau ở giai đoạn polish thành issues mới. Mình chấp nhận khi chức năng đạt.” Đây là thay đổi tiêu chí nhận bàn giao sản phẩm, không phải một lần benchmark pass mới.
 
 [Brief và rubric](brief.md) được commit trước khi chạy tại `8d533fb8eedb8df38a5938fbfdb90ce6aa0c596a`. Lần Gate đầy đủ đo source app và harness tại `a91c27cd93541b7b320b9b54c2451894b8fcd018`; [gate-results.json](gate-results.json) ghi SHA này. Những commit sau bổ sung report, scripts/media, formatting và bằng chứng; không tối ưu renderer, evaluator, commands hoặc thời gian animation.
 
@@ -49,7 +51,7 @@ npx playwright test -c tests/e2e/robot/playwright.config.ts
 npx playwright test -c tests/e2e/robot/media.playwright.config.ts
 ```
 
-Gate test cố ý trả exit 1 khi cadence không đạt; không xfail, không bỏ assertion. Nó ghi kết quả đầy đủ trước hai assertion hiệu năng cuối. Không dùng `npm run test:browser` đồng thời với server 4184 vì suite cũ tự chiếm port đó. Gate/performance không nằm trong CI mặc định; CI xanh không có nghĩa Gate xanh.
+Lệnh Gate ở trên tái chạy phép đo theo rubric ban đầu, không phải bộ chặn nghiệm thu chức năng theo quyết định mới. Test vẫn trả exit 1 khi cadence không đạt; không xfail, không bỏ assertion. Nó ghi kết quả đầy đủ trước hai assertion hiệu năng cuối. Không dùng `npm run test:browser` đồng thời với server 4184 vì suite cũ tự chiếm port đó. Gate/performance không nằm trong CI mặc định; CI xanh không chứng minh hiệu năng đạt 16,7 ms.
 
 Native reproduction: mở editor, chọn art-input.zip, dùng Browser skill lấy handle thật `tab.capabilities.get('webmcp').fetchTools()`. Chạy [native-recipe.mjs](../../../../platform/tests/e2e/robot/native-recipe.mjs) với [commands.json](../../../../platform/fixtures/robot/commands.json), [corrected-wave.json](corrected-wave.json) và callback hiển thị/lưu image block thật. Sau save, nhấn link “Tải kết quả bản 5”. Recipe không chọc vào editor globals hay sửa project file; input assets được người dùng/host nạp qua UI. [Transcript media](native-media-session.json) ghi tham số preview_animation/get_job_status/read_artifact. Preview idle 72 PNG, wave 144 PNG, fps12/loops3, viewport480×360; tải ZIP qua link từ tool và giữ thành [idle-preview.zip](idle-preview.zip)/[wave-preview.zip](wave-preview.zip).
 
@@ -65,6 +67,8 @@ Lần playback đầu có screenshot crop không ổn định khi DOM status dà
 
 Chưa đo baseline Spine mới (Trial), không tuyên bố nhanh hơn Spine. Chưa benchmark production build/hardware acceleration/browser khác, chưa đo tổng CPU frame hoặc GPU presentation; không suy pass cho phần chưa đo. Đây một workflow Gate 1, không phải Gate 3 ba lần/budget/token benchmark. Chi phí/token riêng của native brief không được API cung cấp. Native execution AbortSignal vẫn unavailable theo #13; cancel_job là cơ chế app-owned đã có, không phải tuyên bố đã sửa transport.
 
-## Quyết định cần giữ
+## Quyết định sau run — 11/09/2026
 
-Giữ #14 chưa hoàn thành, #15/#16 bị chặn. Đề xuất bước tiếp là một corrective investigation giới hạn để tách instrumentation và lập profile cadence trên cấu hình đã ghi; nếu muốn đổi sang production build/GPU tăng tốc làm môi trường mục tiêu thì chủ dự án cần chọn trước một run mới. **Không mở mesh/IK hoặc đổi ngưỡng bằng việc nhận PR evidence này.** Kết luận kỹ thuật độc lập và quyết định sản phẩm do Orchestrator/chủ dự án chốt.
+Chủ dự án nhận kết quả chức năng/hình ảnh của Gate 1; phần cadence 17,8/17,5 ms chưa đạt chuẩn cũ được chuyển sang polish thành công việc riêng. Các giới hạn instrumentation, scheduling, dev build/SwiftShader và physical presentation phía trên vẫn áp dụng. Không tự chọn nguyên nhân hay triển khai tối ưu trong PR này.
+
+Orchestrator cập nhật trạng thái #14 và dependency #15/#16 theo quyết định mới sau nghiệm thu độc lập. Report không còn yêu cầu giữ downstream bị chặn chỉ vì phép đo hiệu năng này. Raw `gatePassed: false`, test exit 1, các attempts, brief và rubric là lịch sử của run ban đầu và được giữ nguyên; chức năng được nhận theo quyết định sản phẩm bổ sung này.

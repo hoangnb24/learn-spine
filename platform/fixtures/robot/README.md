@@ -15,4 +15,4 @@ Source hashes, rights and placements remain in `../source/manifest.json` and
 `../source/robot-layout.json`; these are internal evaluation assets.
 
 See the locked brief and full evidence under docs/product/results/experiment-1.
-This fixture's existence is not a claim that Gate 1 passed.
+On 2026-09-11 the project owner accepted Gate 1 functionality/visual quality and deferred performance to polish. The original 17.8/17.5 ms cadence results still fail the locked 16.7 ms target; raw evidence and performance assertions remain unchanged.

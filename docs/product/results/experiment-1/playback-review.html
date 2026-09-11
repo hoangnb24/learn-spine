@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><title>Robot playback review</title><style>body{margin:20px;background:#14212b;color:white;font:16px system-ui}video{display:block;width:480px;height:360px;max-width:100%;background:#253542}button{margin:10px;padding:10px}output{display:block}p{max-width:700px}</style>
-<h1>Robot · native revision 5</h1><p>Each video contains exactly three loops at 12 fps. Visual review only; the frame-performance gate remains failed.</p><p id="environment"></p><video id="playback" controls preload="auto" src="idle-three-loops.mp4"></video><button onclick="review('idle')">Play idle three loops</button><button onclick="review('wave')">Play wave three loops</button><output id="status">Ready</output>
+<h1>Robot · native revision 5</h1><p>Each video contains exactly three loops at 12 fps. Visual review only; the original performance measurement remains failed; functionality/visuals were accepted by the owner on 2026-09-11, with performance deferred to polish.</p><p id="environment"></p><video id="playback" controls preload="auto" src="idle-three-loops.mp4"></video><button onclick="review('idle')">Play idle three loops</button><button onclick="review('wave')">Play wave three loops</button><output id="status">Ready</output>
 <script>
 document.getElementById('environment').textContent=navigator.userAgent;
 let timer;

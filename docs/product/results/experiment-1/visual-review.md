@@ -10,7 +10,7 @@ Bản nháp native revision4 có thêm một nhịp vẫy so với brief. Sau qu
 
 Các preview dùng continuous envelope480×360 nên khung khác kích thước editor; không dùng việc đổi camera này để so pixel. Pixel parity dùng actual editor/player canvas cùng viewport1280×720. PNG của ba vòng preview trùng bytes theo từng phase; log playback chứng minh trình phát đã đi đến hết video, và contact screenshot giúp kiểm tra nhịp theo thời gian thực. Video12fps là bằng chứng quan sát, không chứng nhận gate60fps hoặc physical presentation.
 
-Kết luận hình/nhịp theo brief: đạt trong mẫu robot này. Kết luận Gate1 chung: **chưa đạt** do phép đo cadence, độc lập với nhận định hình.
+Kết luận hình/nhịp theo brief: đạt trong mẫu robot này. Kết luận run ban đầu: **chưa đạt chuẩn hiệu năng** do phép đo cadence. Quyết định chủ dự án ngày 11/09/2026 sau review: nhận Gate 1 về chức năng/hình ảnh, chuyển hiệu năng sang polish; không sửa kết quả đo cũ.
 
 ## Phụ lục review độc lập
 
