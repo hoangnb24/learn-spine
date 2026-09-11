@@ -45,3 +45,9 @@ Package riêng chỉ chứa công cụ kiểm tra đặc tả (Ajv 8.20.0, TypeS
 ## Bàn giao
 
 #5 có thể dựng workspace sau merge; #6 dùng schema, semantic rules và fixture; #7 dùng giao dịch; #8 dùng tọa độ/nội suy; #9 dùng trim/pivot/viewport; #10 dùng gói/giới hạn; #11 dùng snapshot/job. #13 nhận thêm [kết quả thử WebMCP](../research/webmcp.md). [Bộ mẫu #2](../research/assets.md) cung cấp art và quan sát đối chứng; không dùng JSON Spine làm project native.
+
+## Extension after Gate 1
+
+[Mesh v1 (#15)](mesh-v1.md) specifies the implemented format 1 schema, explicit
+0→1 migration, versioned Pose and coordinated future #16 integration. The original
+v0 schema and semantics remain unchanged; the region oracle above stays v0-only.

@@ -4,7 +4,7 @@ Ngày: 09/09/2026; cập nhật 10/09/2026. Đây là tổng quan thiết kế; 
 
 ## Hiện trạng tại main b6577a3 — 11/09/2026
 
-Mốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed và cho #15/#16 Ready; chỉ chuyển In Progress khi được giao owner triển khai.
+Mốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed; sau PR #53 merge tại `0c1597cbf323d36e83c36db06dea18d2747d5917`, #15/#16 In Progress / Ready với sole authors `/root/implement_issue15` (shared extension/mesh) và `/root/implement_issue16` (solver/types IK riêng). Hai owner thống nhất hợp đồng trước tích hợp shared entry tuần tự.
 
 - Model đã nằm tại `platform/src/model/types.ts`, `index.ts`, `project-v0.schema.json`; `Project.formatVersion` là 0, `requiredCapabilities` chỉ có `region-v0`, attachments chỉ là Region. Validator/serialize/storage/commands dùng boundary strict này; không thêm mesh/IK bằng trường lạ hay tạo model riêng.
 - Evaluator thật ở `platform/src/engine/index.ts`: `evaluate(Project, PoseRequest): Result<Pose>`, validate và clone mỗi sample; helpers ở `transforms.ts`, `timeline.ts`. Pose hiện có `bones` và `regions`, chưa có mesh hoặc hook IK được chốt.
@@ -26,7 +26,7 @@ flowchart TD
     G --> H[Player dùng cùng lõi tính pose]
 ```
 
-React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript hiện tính transform/nội suy region-v0; weights và constraints là phần #15/#16 chưa triển khai, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
+React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript hiện tính transform/nội suy region-v0; weights và constraints là phần #15/#16 đang triển khai, chưa nghiệm thu, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
 
 WebGL là ứng viên mặc định cho thử nghiệm; đo WebGPU khi có nhu cầu. PixiJS có mesh tùy chỉnh nhưng không thay thế phần tính animation. Web Worker và WASM là phương án tối ưu sau khi đo được điểm nghẽn, không phải yêu cầu ban đầu.
 

@@ -2,11 +2,13 @@ import { validate } from '../model';
 import type { Bone, Evaluator, Matrix, Pose, PoseRequest, Project, Result } from '../model/types';
 import { localMatrix, multiply } from './transforms';
 import { sample, sampledTime } from './timeline';
+import { skinMesh } from './mesh';
 
+export const evaluatorCapabilities = { poseVersion: 1, features: ['region-v0', 'mesh-v1'] } as const;
 const invalid = (path: string, message: string): Result<never> =>
   ({ ok: false, error: { code: 'INVALID_INPUT', path, message } });
 
-/** Stateless v0 evaluator; validates both boundaries and never retains project references. */
+/** Stateless versioned evaluator; validates both boundaries and never retains project references. */
 export function evaluate(project: Project, request: PoseRequest): Result<Pose> {
   const checked = validate(project);
   if (!checked.ok) return checked;
@@ -49,15 +51,24 @@ export function evaluate(project: Project, request: PoseRequest): Result<Pose> {
     }
   }
   const attachments = new Map(p.attachments.map(a => [a.id, a]));
+  // #16 integration point: solveIK operates on fresh locals/worlds here, before skinning.
   const regions: Pose['regions'] = [];
+  const meshes: Pose['meshes'] = [];
   for (const [i, slot] of p.slots.entries()) {
     if (slot.attachmentId === null) continue;
     const attachment = attachments.get(slot.attachmentId)!;
+    if (attachment.type === 'mesh') {
+      const geometry = skinMesh(attachment, worlds, animation?.deforms?.find(d => d.attachmentId === attachment.id), at);
+      if (!geometry.ok) return geometry;
+      meshes.push({slotId:slot.id,attachmentId:attachment.id,assetId:attachment.assetId,
+        vertices:geometry.value,uvs:[...attachment.uvs],triangles:[...attachment.triangles]});
+      continue;
+    }
     const world = multiply(worlds.get(slot.boneId)!, localMatrix(attachment.transform));
     if (!world.every(Number.isFinite)) return invalid(`/slots/${i}`, 'Derived region matrix must be finite');
     regions.push({ slotId: slot.id, attachmentId: attachment.id, assetId: attachment.assetId, world });
   }
-  return { ok: true, value: { projectId: p.projectId, revision: p.revision, animationId: id as string | null,
+  return { ok: true, value: { poseVersion: 1, meshes, projectId: p.projectId, revision: p.revision, animationId: id as string | null,
     sampledTime: at, bones: Object.fromEntries(p.bones.map(b => [b.id, worlds.get(b.id)!])), regions }, warnings: [] };
 }
 export const evaluator: Evaluator = { evaluate };

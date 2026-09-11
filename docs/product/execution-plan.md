@@ -1,5 +1,15 @@
 # Kế hoạch thực thi trên GitHub
 
+## Bàn giao triển khai sau PR #53 — 11/09/2026
+
+PR #53 đã được review Đạt, CI pass và Orchestrator merge thành main `0c1597cbf323d36e83c36db06dea18d2747d5917`. Từ mốc này, #15/#16 **In Progress / Ready**, đã được giao sole authors:
+
+- #15: `/root/implement_issue15` sở hữu đề xuất extension dùng chung (model/schema/format/capabilities/Pose) và mesh.
+- #16: `/root/implement_issue16` sở hữu solver IK cùng types/helpers riêng.
+- Hai owner thống nhất hợp đồng chung trước khi tích hợp. Shared model/evaluator entry được sửa tuần tự theo bàn giao; không tự tạo hai version hoặc model không tương thích, không ghi đè thay đổi của nhau. Việc giao triển khai không chứng minh extension/API mới đã được nghiệm thu.
+
+#14 giữ Done; #51/#52 giữ Todo / Deferred / P2 ở Polish. Các snapshot nghiệm thu Gate 1 trước mốc này ghi #15/#16 Todo/Ready là lịch sử; trạng thái triển khai hiện tại theo mốc bàn giao này và GitHub Project.
+
 ## Mục tiêu và nguồn sự thật
 
 Website animation 2D độc lập, agent dùng tools trên trang để dựng rig, tạo/sửa animation, quan sát và xuất project. Web player là đích đầu tiên; full Spine parity là lộ trình dài hạn.
@@ -13,9 +23,9 @@ Website animation 2D độc lập, agent dùng tools trên trang để dựng ri
 
 ## Bắt đầu và điều phối
 
-Snapshot 11/09/2026: #2–#13 đã Done; main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`, PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 Ready, chưa In Progress. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
+Snapshot 11/09/2026: #2–#13 đã Done; main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`, PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 đã In Progress / Ready sau PR #53 theo mốc bàn giao bên dưới. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
 
-Mesh/IK có thể chuẩn bị nhánh riêng sau #14, nhưng chia sẻ model/schema và evaluator: #15 own extension chung/mesh, #16 own solver IK/types riêng, tích hợp common entry tuần tự sau agreed contract. Xem [đối chiếu](reconciliation/2026-09-11-gate1.md).
+Mesh/IK đã được giao triển khai từ main sau PR #53, nhưng chia sẻ model/schema và evaluator: #15 own extension chung/mesh, #16 own solver IK/types riêng, tích hợp common entry tuần tự sau agreed contract. Xem [đối chiếu](reconciliation/2026-09-11-gate1.md).
 
 GitHub blocked-by là dependency kỹ thuật trực tiếp; sub-issues chỉ là phân cấp theo dõi, không phải thứ tự thực thi. Wave là đợt sớm nhất theo DAG, không yêu cầu chờ toàn bộ một đợt. Chỉ nhận việc khi dependency đã merge và đạt, tôn trọng ownership/file chung; không coi issue bị hủy là đầu vào đã sẵn sàng.
 

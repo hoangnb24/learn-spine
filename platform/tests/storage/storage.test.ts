@@ -21,7 +21,7 @@ describe('portable ZIP boundary',()=>{
   });
   it('rejects unsupported versions and duplicate JSON keys before migration',async()=>{
     const p=JSON.stringify(bundle().project);
-    await code(storage.unpack(zip(new Map([['project.json',text(p.replace('"formatVersion":0','"formatVersion":1'))]]))),'UNSUPPORTED_VERSION');
+    await code(storage.unpack(zip(new Map([['project.json',text(p.replace('"formatVersion":0','"formatVersion":2'))]]))),'UNSUPPORTED_VERSION');
     await code(storage.unpack(zip(new Map([['project.json',text(p.replace('"revision":0','"revision":0,"revision":1'))]]))),'INVALID_INPUT');
   });
   it('rejects duplicate central paths, symlinks, encryption, sizes and CRC corruption',async()=>{
