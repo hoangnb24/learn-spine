@@ -1,0 +1,22 @@
+{
+  "publicFailedItems": [
+    {
+      "id": "exec-e26fb51b-8128-4567-afb2-7ef7c5090ba1",
+      "status": "failed",
+      "code": "nodeRepl.write(await webmcp.documentation()); const desc=wt.description(); nodeRepl.write(desc.slice(desc.indexOf('\"name\": \"measure_motion\"'),desc.indexOf('\"name\": \"create_bones\"')));"
+    },
+    {
+      "id": "exec-e9058e79-374a-45f2-9478-f92abcd4943c",
+      "status": "failed",
+      "code": "const canonical=(v)=>JSON.stringify(v,(_,x)=>x&&typeof x==='object'&&!Array.isArray(x)?Object.fromEntries(Object.entries(x).sort(([a],[b])=>a.localeCompare(b))):x); nodeRepl.write({unrelatedWaveUnchanged:finalKeys.slice(3).every((k,i)=>canonical(k.items)===canonical(waveKeys[i+3].items)),upperArmUnchanged:canonical(finalKeys[0].items)===canonical(waveKeys[0].items)}); const motion=await call('measure_motion',{...ctx,animationId:'wave',loopPoints:[{kind:'bone',boneId:'hand-right'},{kind:'bone',boneId:'forearm-right'},{kind:'bone',boneId:'upper-arm-right'}]}); const vp={width:600,height:600,centerX:30,centerY:310,zoom:0.85,devicePixelRatio:1,background:'#243641'}; const pose=await wt.call('render_pose',{...ctx,animationId:'wave',time:2,viewport:vp}); for(const c of pose.content){if(c.type==='image')await nodeRepl.emitImage(c); else nodeRepl.write(c);}"
+    }
+  ],
+  "classification": "Documentation unavailable, then image presentation failed after successful measure_motion/render_pose. Next item emits already-returned image, no additional native call.",
+  "rawEvidence": {
+    "motion37ok": true,
+    "render38ok": true,
+    "nextNative39": "preview_animation"
+  },
+  "budgetCalls": 67,
+  "method": "App public code execution order plus raw product results, not helper counter. App omits MCP output bodies."
+}

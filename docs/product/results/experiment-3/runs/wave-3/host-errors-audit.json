@@ -1,0 +1,28 @@
+{
+  "publicFailedItems": [
+    {
+      "id": "exec-1cc0de16-1709-4497-be17-3fdf42b69c14",
+      "status": "failed",
+      "code": "async function see(i){count++; const r=await wm.call('read_artifact',{...base,jobId:preview.value.id,artifactId:status.value.items[i].id}); nodeRepl.write({call:count,frame:i,time:i/2}); for(const c of r.content??[])if(c.type==='image')await nodeRepl.emitImage(c);else if(c.type==='text')nodeRepl.write(c.text);} for(let i=0;i<8;i++)await see(i);"
+    }
+  ],
+  "classification": "First read_artifact succeeded, image presentation failed; next item rereads frame0 and both native calls are counted.",
+  "rawEvidence": {
+    "firstRead36": {
+      "artifactId": "e511a133-c403-4aa5-9f69-a3ca023c5b5a",
+      "jobId": "5c0396b6-a072-41cd-9c71-25c24f389a4b",
+      "projectId": "gate3-wave",
+      "sessionId": 1
+    },
+    "secondRead37": {
+      "artifactId": "e511a133-c403-4aa5-9f69-a3ca023c5b5a",
+      "jobId": "5c0396b6-a072-41cd-9c71-25c24f389a4b",
+      "projectId": "gate3-wave",
+      "sessionId": 1
+    },
+    "sameArtifact": true,
+    "bothNativeOk": true
+  },
+  "budgetCalls": 76,
+  "method": "App public code execution order plus raw product results, not helper counter. App omits MCP output bodies."
+}

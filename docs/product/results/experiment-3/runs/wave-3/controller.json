@@ -6,7 +6,7 @@
     "family": "Codex In-app Browser",
     "alias": "2",
     "tabId": "1",
-    "sessionId": null
+    "sessionId": "01a08fb3-2422-7bc0-af16-fd3abaee0be1"
   },
   "rawSetupUTC": "2026-09-11T09:01:59.851Z",
   "rawStartUTC": "2026-09-11T09:01:59.950Z",
@@ -14,5 +14,13 @@
   "hashVerification": "rootmatched beforeunchangedcommon+wave delivery",
   "exactDeliveryTimestamp": null,
   "delayIncludedInTimer": true,
-  "status": "IN_PROGRESS"
+  "status": "DONE; postrunQA pending",
+  "rootReportedStopUTC": "2026-09-11T09:06:11.550Z",
+  "rootReportedProductCalls": 75,
+  "rootReportedDiscoveryCalls": 1,
+  "rootReportedZIP": {
+    "revision": 3,
+    "bytes": 666799
+  },
+  "subjectObservation": "24nativepreviewframes2fps3loops; wrongImageContent displayerror, reread artifact call counted"
 }

@@ -1,0 +1,416 @@
+{
+  "run": "wave-2",
+  "method": "Deep JSON equality ignores dictionary key order, preserves every list element order/value including channels/keys/curves. Excludes only project.revision and the three allowed wave rotation channels.",
+  "structuralPreservation": true,
+  "initialRetainedSHA256": "972c848b91f65e9583c9442ed655f92d60762643f33a27506cc7375e06bc954b",
+  "finalRetainedSHA256": "972c848b91f65e9583c9442ed655f92d60762643f33a27506cc7375e06bc954b",
+  "originalFrozenScorer": "Retained unchanged; its JSON.stringify comparison is object-key-order-sensitive. False raw output is retained, not overwritten.",
+  "independentVerdict": "pending reviewer; supplemental audit is not self-awarded acceptance",
+  "rotationChannels": {
+    "forearm-right": {
+      "initial": {
+        "boneId": "forearm-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 1.25
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 1.4,
+            "value": 0.8
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2,
+            "value": 1.25
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2.6,
+            "value": 0.8
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 1.25
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0
+          }
+        ],
+        "property": "rotation"
+      },
+      "final": {
+        "boneId": "forearm-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 1.25
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2,
+            "value": 0.8
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 1.25
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0
+          }
+        ],
+        "property": "rotation"
+      }
+    },
+    "hand-right": {
+      "initial": {
+        "boneId": "hand-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 1.4,
+            "value": -0.12
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2,
+            "value": 0.12
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2.6,
+            "value": -0.12
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0
+          }
+        ],
+        "property": "rotation"
+      },
+      "final": {
+        "boneId": "hand-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 1.6,
+            "value": -0.12
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 2.4,
+            "value": 0.12
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 0
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0
+          }
+        ],
+        "property": "rotation"
+      }
+    },
+    "upper-arm-right": {
+      "initial": {
+        "boneId": "upper-arm-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0.174532925
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 1.4
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 1.4
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0.174532925
+          }
+        ],
+        "property": "rotation"
+      },
+      "final": {
+        "boneId": "upper-arm-right",
+        "keys": [
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0,
+            "value": 0.174532925
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 0.8,
+            "value": 1.4
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 3.2,
+            "value": 1.4
+          },
+          {
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "x2": 0.58,
+              "y1": 0,
+              "y2": 1
+            },
+            "time": 4,
+            "value": 0.174532925
+          }
+        ],
+        "property": "rotation"
+      }
+    }
+  }
+}
