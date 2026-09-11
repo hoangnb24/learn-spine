@@ -20,7 +20,8 @@
       "items": {
         "enum": [
           "region-v0",
-          "mesh-v1"
+          "mesh-v1",
+          "ik-v1"
         ]
       },
       "uniqueItems": true,
@@ -81,6 +82,12 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/animation"
+      }
+    },
+    "ikConstraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/twoBoneIK"
       }
     }
   },
@@ -603,6 +610,66 @@
       "required": [
         "attachmentId",
         "keys"
+      ],
+      "additionalProperties": false
+    },
+    "twoBoneIK": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "type": {
+          "const": "two-bone-ik"
+        },
+        "rootBoneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "childBoneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "targetBoneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "endpoint": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "bend": {
+          "enum": [
+            1,
+            -1
+          ]
+        },
+        "mix": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "rootBoneId",
+        "childBoneId",
+        "targetBoneId",
+        "endpoint",
+        "bend",
+        "mix",
+        "order"
       ],
       "additionalProperties": false
     }

@@ -55,5 +55,12 @@ loop/clamp, missing/cyclic/duplicate-key input, overflow, prototype-like IDs,
 `evaluate` also skins versioned meshes and returns `poseVersion:1` with `meshes`
 (empty for region-only input). See [mesh contract](../../../docs/product/contracts/mesh-v1.md)
 for exact pre-skin deformation, explicit bind matrices, output arrays and #16 hook.
-No IK solver is present yet. Numerical and browser-boundary evidence is in
+Numerical and browser-boundary evidence for mesh is in
 [evidence/issue-15](../../evidence/issue-15/README.md).
+
+## Two-bone IK (#16)
+
+The evaluator solves optional v1 `ikConstraints` after FK and before region/mesh
+output. [IK contract](IK.md) defines bend/mix/order, supported scale domain, finite
+fallbacks and final-pose target/endpoint diagnostics in optional `Pose.ik`.
+[Evidence](../../evidence/issue-16/README.md) includes public seek/roundtrip tests.

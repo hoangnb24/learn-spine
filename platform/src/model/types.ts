@@ -1,3 +1,5 @@
+import type { TwoBoneIK, IKDiagnostic } from './ik.js';
+export type { TwoBoneIK, IKDiagnostic } from './ik.js';
 /** Normative versioned boundary types. No runtime/DOM/Spine imports. */
 export type Id = string;
 export type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
@@ -31,7 +33,8 @@ export interface Keyframe { time: number; value: number; curve: Curve }
 export interface Channel { boneId: Id; property: keyof Transform; keys: Keyframe[] }
 export interface Animation { id: Id; name: string; duration: number; loop: boolean; channels: Channel[]; deforms?: DeformChannel[] }
 export interface Project {
-  formatVersion: 0 | 1; projectId: Id; revision: number; requiredCapabilities: ('region-v0' | 'mesh-v1')[];
+  formatVersion: 0 | 1; projectId: Id; revision: number; requiredCapabilities: ('region-v0' | 'mesh-v1' | 'ik-v1')[];
+  ikConstraints?: TwoBoneIK[];
   metadata: { name: string; notes?: string };
   assets: Asset[]; bones: Bone[]; slots: Slot[]; attachments: Attachment[]; animations: Animation[];
 }
@@ -85,6 +88,7 @@ export interface DrawMesh {
   vertices: number[]; uvs: number[]; triangles: number[];
 }
 export interface Pose {
+  ik?: IKDiagnostic[];
   poseVersion: 1; meshes: DrawMesh[];
   projectId: Id; revision: number; animationId: Id | null; sampledTime: number;
   bones: Record<Id, Matrix>; regions: DrawRegion[];

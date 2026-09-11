@@ -3,8 +3,9 @@ import type { Bone, Evaluator, Matrix, Pose, PoseRequest, Project, Result } from
 import { localMatrix, multiply } from './transforms';
 import { sample, sampledTime } from './timeline';
 import { skinMesh } from './mesh';
+import { solveIK } from './ik';
 
-export const evaluatorCapabilities = { poseVersion: 1, features: ['region-v0', 'mesh-v1'] } as const;
+export const evaluatorCapabilities = { poseVersion: 1, features: ['region-v0', 'mesh-v1', 'ik-v1'] } as const;
 const invalid = (path: string, message: string): Result<never> =>
   ({ ok: false, error: { code: 'INVALID_INPUT', path, message } });
 
@@ -51,7 +52,8 @@ export function evaluate(project: Project, request: PoseRequest): Result<Pose> {
     }
   }
   const attachments = new Map(p.attachments.map(a => [a.id, a]));
-  // #16 integration point: solveIK operates on fresh locals/worlds here, before skinning.
+  const ik = solveIK(p.bones, p.ikConstraints ?? [], locals, worlds);
+  if (!ik.ok) return ik;
   const regions: Pose['regions'] = [];
   const meshes: Pose['meshes'] = [];
   for (const [i, slot] of p.slots.entries()) {
@@ -68,7 +70,7 @@ export function evaluate(project: Project, request: PoseRequest): Result<Pose> {
     if (!world.every(Number.isFinite)) return invalid(`/slots/${i}`, 'Derived region matrix must be finite');
     regions.push({ slotId: slot.id, attachmentId: attachment.id, assetId: attachment.assetId, world });
   }
-  return { ok: true, value: { poseVersion: 1, meshes, projectId: p.projectId, revision: p.revision, animationId: id as string | null,
+  return { ok: true, value: { poseVersion: 1, meshes, ...(p.ikConstraints === undefined ? {} : { ik: ik.value }), projectId: p.projectId, revision: p.revision, animationId: id as string | null,
     sampledTime: at, bones: Object.fromEntries(p.bones.map(b => [b.id, worlds.get(b.id)!])), regions }, warnings: [] };
 }
 export const evaluator: Evaluator = { evaluate };
