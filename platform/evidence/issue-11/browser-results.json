@@ -1,0 +1,353 @@
+{
+  "browser": "153.0.8010.12",
+  "hashesMatch": true,
+  "poseDeterministic": true,
+  "manifest": {
+    "version": 1,
+    "projectId": "renderer-robot",
+    "revision": 0,
+    "kind": "sequence",
+    "fps": null,
+    "fit": "continuous-animation-envelope",
+    "frames": [
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0,
+        "sampledTime": 0,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0000.png",
+        "artifactId": "cabfff1a-cb73-4a53-b341-0742946dc768"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0.16666666666666666,
+        "sampledTime": 0.16666666666666666,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0001.png",
+        "artifactId": "66451e4d-65fb-4f5b-acea-0803d65420e8"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0.3333333333333333,
+        "sampledTime": 0.3333333333333333,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0002.png",
+        "artifactId": "a361f1ca-c57f-4cea-9eb5-6ec57d30a0ac"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0.5,
+        "sampledTime": 0.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0003.png",
+        "artifactId": "baf8ef4f-31a6-40ee-8899-71ae3ba91add"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0.6666666666666666,
+        "sampledTime": 0.6666666666666666,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0004.png",
+        "artifactId": "f4ba0510-02ff-4378-97e8-257c51e61cad"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 0.8333333333333334,
+        "sampledTime": 0.8333333333333334,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0005.png",
+        "artifactId": "efe3ac3b-6e2b-4a08-8a8c-981d363c7ebc"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1,
+        "sampledTime": 1,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0006.png",
+        "artifactId": "d1c356c3-3845-4b2b-b2bf-e3dbc41b085a"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1.1666666666666667,
+        "sampledTime": 1.1666666666666667,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0007.png",
+        "artifactId": "0b8de8eb-a9c6-48fb-9bc5-a60019983437"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1.3333333333333333,
+        "sampledTime": 1.3333333333333333,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0008.png",
+        "artifactId": "1e6bcc94-46e7-4144-a0b3-c75e3105b918"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1.5,
+        "sampledTime": 1.5,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0009.png",
+        "artifactId": "7196b550-b38b-4305-9ffa-83c5859a3e15"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1.6666666666666667,
+        "sampledTime": 1.6666666666666667,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0010.png",
+        "artifactId": "9b53788a-90d2-42ab-88f9-219e599d0ce9"
+      },
+      {
+        "projectId": "renderer-robot",
+        "revision": 0,
+        "animationId": "wave",
+        "time": 1.8333333333333333,
+        "sampledTime": 1.8333333333333333,
+        "viewport": {
+          "width": 640,
+          "height": 480,
+          "centerX": 96.60425272905005,
+          "centerY": 338.1,
+          "zoom": 0.6407594185701572,
+          "devicePixelRatio": 1,
+          "background": "#263442"
+        },
+        "bounds": {
+          "minX": -157.09149454189992,
+          "maxX": 350.3,
+          "minY": 1,
+          "maxY": 675.2
+        },
+        "scale": 0.6407594185701572,
+        "pixelWidth": 640,
+        "pixelHeight": 480,
+        "file": "frame-0011.png",
+        "artifactId": "17099a73-5d2f-47ce-9f68-3c4861628a5a"
+      }
+    ]
+  },
+  "previewFrames": 72,
+  "invalidStatus": "failed",
+  "inlinePixels": [
+    640,
+    480
+  ],
+  "playbackObservedFrames": 60,
+  "playbackObservedMilliseconds": 6500,
+  "cleanup": {
+    "removed": true,
+    "expired": false,
+    "remainingUrls": 0,
+    "createdUrls": 73
+  }
+}
