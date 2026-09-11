@@ -92,6 +92,8 @@ export function animationBounds(
   for (const slot of p.slots) {
     const region = p.attachments.find((r) => r.id === slot.attachmentId);
     if (!region) continue;
+    // Mesh bounds require the versioned geometry consumer (#17). No region envelope claim.
+    if (region.type !== "region") return null;
     const asset = p.assets.find((a) => a.id === region.assetId)!;
     const t = region.transform,
       c = Math.cos(t.rotation),

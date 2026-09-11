@@ -14,3 +14,10 @@ Synthetic fixtures: `platform/fixtures/model/synthetic.ts` exports a fresh `crea
 #7 owns commands and validates the final transaction state through this API. #8 owns evaluating transforms/time and reporting non-finite derived matrices; model validation only validates stored numbers. #10 owns PNG decode/hash/size/package budgets and passes complete JSON through `parse` (never directly through `JSON.parse`, which loses duplicate keys). Model does not fetch asset paths or decode PNG. Each downstream owns its own module index and need not edit the shell `src/index.ts`.
 
 Checks from repository root: `npm ci --prefix platform`, `npm run typecheck --prefix platform`, `npm test --prefix platform`, `npm run build --prefix platform`. Contract oracle: `npm ci --ignore-scripts --prefix docs/product/contracts`, `npm test --prefix docs/product/contracts`, `npm run typecheck --prefix docs/product/contracts`.
+
+## Mesh v1 extension (#15)
+
+Model now accepts format 0 and 1 with separate strict schemas; migrate supports
+0→1 and identity, rejecting downgrade. See [normative extension](../../../docs/product/contracts/mesh-v1.md)
+for bind/weight/deform rules, migration and capability boundaries. The v0 notes
+above describe the original #6 scope; `ik-v1` remains unsupported until #16.

@@ -2,6 +2,7 @@ import { Container, Mesh, MeshGeometry, Texture, WebGLRenderer } from 'pixi.js';
 import { validate } from '../model';
 import type { Pose, Project, ProjectBundle, Renderer, Result, Viewport, Problem } from '../model/types';
 import { failure, poseGeometry, screenPoint, success, validateViewport } from './geometry';
+export const rendererCapabilities = { poseVersions: [1], features: ['region-v0'] } as const;
 export { corners, fitCamera, screenPoint } from './geometry';
 export type { Bounds } from './geometry';
 const error = (code: Problem['code'], message: string, path = ''): Result<never> => ({ok:false,error:{code,message,path}});
@@ -35,6 +36,7 @@ export class PixiRenderer implements Renderer {
     if (this.disposed) return error('RENDER_FAILED','Renderer disposed');
     const generation=++this.generation;
     const checked=validate(bundle.project); if (!checked.ok) return checked;
+    if (checked.value.requiredCapabilities.includes('mesh-v1')) return error('UNSUPPORTED_CAPABILITY','Renderer does not yet support mesh-v1','/requiredCapabilities');
     if (checked.value.assets.length > 256 || checked.value.assets.reduce((n,a)=>n+a.pixelWidth*a.pixelHeight,0)>64e6) return error('LIMIT_EXCEEDED','Asset decode limits exceeded');
     const pending=new Map<string,{texture:Texture;bitmap:ImageBitmap}>();
     const cleanup=() => { for (const r of pending.values()) {r.texture.destroy(true);r.bitmap.close();} };

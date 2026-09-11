@@ -1,10 +1,14 @@
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import schema from './project-v0.schema.json';
+import schemaV1 from './project-v1.schema.json';
+import { meshProblem } from './mesh';
 import type { Model, Project, Result, Problem } from './types';
 import { readJson } from './json';
+export const modelCapabilities = { formatVersions: [0, 1], features: ['region-v0', 'mesh-v1'] } as const;
 export type * from './types';
 
 const shape = new Ajv2020({ strict: true, allErrors: false, ownProperties: true }).compile<Project>(schema);
+const shapeV1 = new Ajv2020({ strict: true, allErrors: false, ownProperties: true }).compile<Project>(schemaV1);
 const pointer = (key: string) => key.replace(/~/g, '~0').replace(/\//g, '~1');
 const fail = (code: Problem['code'], path: string, message: string, ids?: string[]): Result<never> =>
   ({ ok: false, error: { code, path, message, ...(ids ? { ids } : {}) } });
@@ -38,14 +42,14 @@ export function validate(input: unknown): Result<Project> {
   // Read headers through descriptors so invalid accessors are never executed.
   const object = input !== null && typeof input === 'object' ? input : {};
   const version = Object.getOwnPropertyDescriptor(object, 'formatVersion');
-  if (version && 'value' in version && version.value !== 0)
-    return fail('UNSUPPORTED_VERSION', '/formatVersion', 'Only formatVersion 0 is supported');
+  if (version && 'value' in version && version.value !== 0 && version.value !== 1)
+    return fail('UNSUPPORTED_VERSION', '/formatVersion', 'Supported formatVersions are 0 and 1');
   const caps = Object.getOwnPropertyDescriptor(object, 'requiredCapabilities');
   if (caps && 'value' in caps && Array.isArray(caps.value)) {
     for (let i = 0; i < caps.value.length; i++) {
       const cap = Object.getOwnPropertyDescriptor(caps.value, String(i));
-      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0')
-        return fail('UNSUPPORTED_CAPABILITY', `/requiredCapabilities/${i}`, 'Only region-v0 is supported');
+      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0' && !(version && 'value' in version && version.value === 1 && cap.value === 'mesh-v1'))
+        return fail('UNSUPPORTED_CAPABILITY', `/requiredCapabilities/${i}`, 'Capability is not supported for this format');
     }
   }
   const memoryError = jsonProblem(input);
@@ -53,18 +57,21 @@ export function validate(input: unknown): Result<Project> {
   if (input && typeof input === 'object' && !Array.isArray(input)) {
     const fields = input as Record<string, unknown>;
     if (Object.hasOwn(fields, 'constraints')) return fail('UNSUPPORTED_CAPABILITY', '/constraints', 'Constraints require a future format');
-    if (Array.isArray(fields.attachments)) {
+    if (fields.formatVersion === 0 && Array.isArray(fields.attachments)) {
       for (const [i, attachment] of fields.attachments.entries())
         if (attachment && typeof attachment === 'object' && attachment.type === 'mesh')
           return fail('UNSUPPORTED_CAPABILITY', `/attachments/${i}/type`, 'Meshes require a future format');
     }
   }
-  if (!shape(input)) {
-    const error = shape.errors![0];
+  const check = version && 'value' in version && version.value === 1 ? shapeV1 : shape;
+  if (!check(input)) {
+    const error = check.errors![0];
     const key = error.params.missingProperty ?? error.params.additionalProperty;
     return fail('INVALID_INPUT', error.instancePath + (key ? `/${pointer(key)}` : ''), error.message ?? 'Invalid project');
   }
   const p = input;
+  const meshError = meshProblem(p);
+  if (meshError) return { ok: false, error: meshError };
   const collections = ['assets', 'bones', 'slots', 'attachments', 'animations'] as const;
   for (const name of collections) {
     const seen = new Set<string>();
@@ -129,9 +136,13 @@ export function validate(input: unknown): Result<Project> {
   return { ok: true, value: structuredClone(p), warnings: [] };
 }
 
-export function migrate(input: unknown, targetVersion: 0): Result<Project> {
-  if (targetVersion !== 0) return fail('UNSUPPORTED_VERSION', '/formatVersion', 'Only identity migration 0 to 0 is supported');
-  return validate(input);
+export function migrate(input: unknown, targetVersion: 0 | 1): Result<Project> {
+  if (targetVersion !== 0 && targetVersion !== 1) return fail('UNSUPPORTED_VERSION', '/formatVersion', 'Supported targets are 0 and 1');
+  const checked = validate(input);
+  if (!checked.ok) return checked;
+  if (checked.value.formatVersion > targetVersion) return fail('UNSUPPORTED_VERSION', '/formatVersion', 'Downgrade is not supported');
+  checked.value.formatVersion = targetVersion;
+  return checked;
 }
 export function parse(text: string): Result<Project> {
   const json = readJson(text);

@@ -1,0 +1,19 @@
+{
+  "browserVersion": "153.0.8010.12",
+  "sameProject": true,
+  "samePose": true,
+  "zipBytes": 2077,
+  "unsupported": {
+    "ok": false,
+    "error": {
+      "code": "UNSUPPORTED_CAPABILITY",
+      "message": "Renderer does not yet support mesh-v1",
+      "path": "/requiredCapabilities"
+    }
+  },
+  "retained": {
+    "ok": true,
+    "warnings": []
+  },
+  "textureCount": 1
+}

@@ -46,3 +46,8 @@ Nguồn: [React versions](https://react.dev/versions), [Vite runtime requirement
 `npm test` kiểm tra entry có thể render khi không có DOM, assets, live project và Player không mang panel editor. `npm run test:browser` kiểm tra cả hai trang build, reload, điều hướng, lỗi runtime/console, keyboard và bố cục 390px. GitHub Actions chạy clean install, typecheck, tests, build và Chromium smoke khi `platform/` hoặc workflow đổi. Báo cáo browser được upload 14 ngày, không dùng làm nơi lưu duy nhất của fixture.
 
 Gate 1 đã đo và PR #48 đã merge như trên; chưa có tuyên bố đạt hiệu năng hoặc kiểm tra Safari/Firefox. Bằng chứng visual thực tế và handoff nằm trong `evidence/issue-5/`.
+
+Mesh core extension (#15): [versioned contract](../docs/product/contracts/mesh-v1.md),
+[fixtures](fixtures/mesh/synthetic.ts), [checks and limits](evidence/issue-15/README.md).
+Format 1 supports core mesh/deform evaluation; rendering and editor mesh authoring
+remain downstream. Existing region-v0 projects retain their format and geometry.

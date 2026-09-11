@@ -49,3 +49,11 @@ parent/child worlds, negative scale, trimmed region corners, rotation across the
 angle boundary, multiple turns, Bezier inversion/overshoot, stepped endpoints,
 loop/clamp, missing/cyclic/duplicate-key input, overflow, prototype-like IDs,
 20 shuffled seeks, nonmutation and result isolation.
+
+## Mesh v1 (#15)
+
+`evaluate` also skins versioned meshes and returns `poseVersion:1` with `meshes`
+(empty for region-only input). See [mesh contract](../../../docs/product/contracts/mesh-v1.md)
+for exact pre-skin deformation, explicit bind matrices, output arrays and #16 hook.
+No IK solver is present yet. Numerical and browser-boundary evidence is in
+[evidence/issue-15](../../evidence/issue-15/README.md).

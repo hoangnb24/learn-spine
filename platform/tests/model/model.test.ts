@@ -35,7 +35,7 @@ describe('v0 model', () => {
     const migrated = migrate(p, 0); expect(migrated).toEqual(validate(p));
     if (migrated.ok) expect(migrated.value).not.toBe(p);
     expect(migrate({ ...p, formatVersion: 1 }, 0)).toMatchObject({ ok: false, error: { code: 'UNSUPPORTED_VERSION' } });
-    expect(migrate(p, 1 as 0)).toMatchObject({ ok: false, error: { code: 'UNSUPPORTED_VERSION' } });
+    expect(migrate(p, 1)).toMatchObject({ ok: true, value: {formatVersion: 1} });
   });
   it('preserves T03 transform/trim vectors without prematurely implementing evaluator', () => {
     const result = validate(createSyntheticProject()); if (!result.ok) throw Error(result.error.message);
@@ -45,6 +45,7 @@ describe('v0 model', () => {
     expect([root.setup.x - child.setup.y, root.setup.y + 2 * child.setup.x]).toEqual(t03Vectors.rotatedChildWorldOrigin);
     expect([10 - child.setup.x, 20 + child.setup.y]).toEqual(t03Vectors.mirroredChildWorldOrigin);
     const a = result.value.assets[0], r = result.value.attachments[0];
+    if (r.type !== 'region') throw Error('Expected region fixture');
     expect([a.trimX * r.width / a.originalWidth - r.pivotX, (a.originalHeight - a.trimY - a.pixelHeight) * r.height / a.originalHeight - r.pivotY]).toEqual(t03Vectors.trimmedBottomLeft);
   });
   it('accepts multiple roots, reused regions, null slots, negative/zero scale, overshoot and outside pivots', () => {

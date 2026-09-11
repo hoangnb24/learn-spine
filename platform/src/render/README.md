@@ -91,3 +91,9 @@ Pinned package types/source were used for version-specific mesh lifetime and res
 Dependency lock audit: `npm audit --omit=dev` reports zero vulnerabilities; this is
 not an audit of all future distribution obligations. Keep PixiJS MIT notice with
 redistribution. T01 art remains internal evaluation per its source manifest.
+
+## Versioned pose boundary (#15)
+
+The renderer accepts `poseVersion:1` for region geometry. `rendererCapabilities`
+lists only region-v0; prepare/draw/camera reject mesh-v1 until #17. Failed mesh
+prepare preserves the previous prepared region. [Mesh handoff](../../../docs/product/contracts/mesh-v1.md).
