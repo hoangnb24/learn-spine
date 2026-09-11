@@ -449,7 +449,7 @@
       "exclude": "Không yêu cầu baseline Spine có export do bản Trial; không tuyên bố nhanh hơn Spine nếu chưa đo baseline mới.",
       "wave": 7,
       "priority": "P0",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 14,
       "id": 5401666628,
       "node_id": "I_kwDOUTvul88AAAABQfbkRA",
