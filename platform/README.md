@@ -24,16 +24,16 @@ Dev: [Editor](http://127.0.0.1:5173/index.html), [Player](http://127.0.0.1:5173/
 Editor: tạo project → chọn/thêm xương → nạp PNG → sửa Setup → tạo animation/đặt key → xem playback → lưu trình duyệt hoặc xuất ZIP. Sau reload dùng Khôi phục bản lưu; Player chỉ mở ZIP được chọn. [Hướng dẫn editor và giới hạn UI](apps/editor/README.md) mô tả runtime, import, autosave và thao tác cụ thể.
 
 - `apps/editor/`, `apps/player/`: React entry độc lập; `apps/editor/runtime.ts` sở hữu Session/Storage chung, `apps/shared/Stage.tsx` dùng renderer hiển thị pose.
-- [Model](src/model/README.md): types/schema/validator v0 tại `src/model/`; chỉ region-v0, chưa mesh/IK. `src/index.ts` không phải model.
+- [Model](src/model/README.md): types/schema/validator v0 tại `src/model/`; format 0 region-v0 và format 1 mesh-v1 qua schema riêng; IK chưa merge. `src/index.ts` không phải model.
 - [Commands](src/commands/README.md): Session, revision, atomic batch, undo/redo và checkpoints.
 - [Engine](src/engine/README.md): evaluate pose thuần, transform/timeline; [renderer](src/render/README.md): Pixi region và capture.
 - [Storage](src/storage/README.md): validate PNG/bundle, pack/unpack ZIP, autosave/recover; [observation](src/observation/README.md): ảnh, sequence/preview và jobs.
 - `src/adapters/webmcp/{index.ts,bridge.ts,schemas.ts}`: adapter #13 đã merge; việc gắn vào chính runtime editor và chứng cứ robot đã merge qua PR #48. Không coi handler tests là bằng chứng native end-to-end.
-- #15 đề xuất extension chung types/schema/format/capabilities/Pose và mesh; #16 solver IK/types riêng. Chưa có hợp đồng mesh/IK mới hay hook IK sẵn. Hai owner phối hợp common model/evaluator entry và tích hợp tuần tự.
+- #15 đã bàn giao [mesh-v1](../docs/product/contracts/mesh-v1.md): model v1, Pose version 1 với world mesh arrays và điểm IK sau FK/trước skinning. #16 đang tích hợp IK; #17 sở hữu renderer/observation mesh, hiện các consumer này vẫn chưa hỗ trợ mesh. Session/storage giữ v1 nhưng mesh/deform authoring chưa có; xem [handoff](../docs/product/reconciliation/2026-09-11-mesh-core-handoff.md).
 
 ## Gate 1 và Polish
 
-Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15/#16 In Progress / Ready sau bàn giao từ main `0c1597cbf323d36e83c36db06dea18d2747d5917`. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
+Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15 Done sau PR #56; #16/#17 In Progress / Ready, #18 Blocked chờ #16. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
 
 [#51](https://github.com/hoangnb24/learn-spine/issues/51) chuẩn hóa phép đo/profile/baseline, rồi [#52](https://github.com/hoangnb24/learn-spine/issues/52) tối ưu/retest p95 <=16.7 ms: P2/Polish/Deferred, không chặn giai đoạn chức năng. [Đối chiếu có ngày](../docs/product/reconciliation/2026-09-11-gate1.md) ghi mốc main, nguồn đo và nghiệm thu.
 

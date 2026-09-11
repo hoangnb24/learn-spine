@@ -1,16 +1,22 @@
 # Kiến trúc và hợp đồng dữ liệu đề xuất
 
-Ngày: 09/09/2026; cập nhật 10/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
+Ngày: 09/09/2026; cập nhật 11/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
-## Hiện trạng tại main b6577a3 — 11/09/2026
+## Hiện trạng sau PR #56 — 11/09/2026
 
-Mốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed; sau PR #53 merge tại `0c1597cbf323d36e83c36db06dea18d2747d5917`, #15/#16 In Progress / Ready với sole authors `/root/implement_issue15` (shared extension/mesh) và `/root/implement_issue16` (solver/types IK riêng). Hai owner thống nhất hợp đồng trước tích hợp shared entry tuần tự.
+#15 đã Closed (completed)/Done sau PR #56 tại main `91bdd3af82683ea3c9391b28ccd51d6c6b786449`; #16 In Progress/Ready, đang tích hợp IK vào shared main này; #17 In Progress/Ready, sole author `/root/implement_issue17`; #18 vẫn Blocked chờ #16, #19 chờ #17/#18. #51/#52 giữ Todo/Deferred/P2 ở Polish.
 
-- Model đã nằm tại `platform/src/model/types.ts`, `index.ts`, `project-v0.schema.json`; `Project.formatVersion` là 0, `requiredCapabilities` chỉ có `region-v0`, attachments chỉ là Region. Validator/serialize/storage/commands dùng boundary strict này; không thêm mesh/IK bằng trường lạ hay tạo model riêng.
-- Evaluator thật ở `platform/src/engine/index.ts`: `evaluate(Project, PoseRequest): Result<Pose>`, validate và clone mỗi sample; helpers ở `transforms.ts`, `timeline.ts`. Pose hiện có `bones` và `regions`, chưa có mesh hoặc hook IK được chốt.
-- #15 sở hữu đề xuất extension chung (model types/schema/validation, format/capabilities và Pose) cùng mesh; #16 sở hữu solver IK và types/helper riêng. Hai owner thống nhất một hợp đồng trước tích hợp; common model/evaluator entry được sửa tuần tự theo bàn giao, không hai nhánh tự chọn version không tương thích.
-- Chưa chốt số format version/capability mới, migration/compatibility, shape mesh/IK/Pose và thứ tự solve/deform. Người triển khai phải đề xuất và phối hợp nghiệm thu hợp đồng dựa trên v0, không coi API dự kiến đã tồn tại. Giữ regression region-v0, consumer renderer/storage/commands và fixtures hiện có.
-- Module README, code hiện có và `platform/README.md` được đối chiếu trong đợt này là đầu vào thực thi; mô tả shell #5 cũ đã được thay bằng hiện trạng module/workflow. [Đối chiếu có ngày](reconciliation/2026-09-11-gate1.md).
+Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` vẫn bị từ chối đến khi #16 tích hợp.
+
+`evaluate(Project, PoseRequest): Result<Pose>` tại `platform/src/engine/index.ts` trả `poseVersion:1`, `bones`, `regions`, `meshes:DrawMesh[]` (rỗng với region-only). DrawMesh gồm `slotId`, `attachmentId`, `assetId`, `vertices`, `uvs`, `triangles`; vertices là world XY sau deform/skinning, chỉ áp world-to-screen, không cộng lại slot-bone/attachment transform. Interleave regions/meshes theo `project.slots` và `slotId`, không vẽ hết regions rồi mới meshes.
+
+Mesh vertices/deform dùng bind-world XY; deform là offset tuyệt đối trước skinning. Weights không tự normalize; tổng cho phép sai lệch 1e-5. Bind matrices rõ ràng và invertible; UV theo ảnh decode, (0,0) góc trên trái; geometry độc lập độ phân giải texture. Arrays Pose là bản sao mới. Fixture `platform/fixtures/mesh/synthetic.ts` có expected setup `[12,20,14,20,12,22]`, end key `[18,20,16,24,15,22]`; metadata synthetic không phải PNG bundle.
+
+Renderer prepare/draw/camera hiện vẫn từ chối `mesh-v1`, giữ prepared region cũ khi prepare thất bại. Observation chưa có mesh bounds; `platform/src/observation/bounds.ts` trả null khi gặp mesh. Model/evaluator support không đồng nghĩa renderer/tool support. Session giữ/read/save/reopen v1 nhưng feature list và command schema còn region-only; `putAnimation` chưa nhận deform authoring. Không có mesh UI/tools, diagnostics hoàn chỉnh, Gate 2 hoặc performance pass từ PR #56.
+
+Điểm tích hợp #16 đã ghi trong engine sau FK worlds và trước mesh skinning. Hợp đồng tương lai `solveIK(bones, constraints, locals, worlds): Result<IKDiagnostic[]>` chỉ sửa fresh maps của lần evaluate; rebuild worlds trước skinning. Shape IK/diagnostics trong mesh-v1 là thỏa thuận bàn giao chưa được loader hiện tại nhận; downstream phải dùng kết quả #16 đã merge/nghiệm thu, không giả định `ik-v1` đã có.
+
+[Hợp đồng đã merge](contracts/mesh-v1.md) · [Handoff](reconciliation/2026-09-11-mesh-core-handoff.md).
 
 ## Tách lõi khỏi giao diện và giao thức
 
@@ -26,7 +32,7 @@ flowchart TD
     G --> H[Player dùng cùng lõi tính pose]
 ```
 
-React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript hiện tính transform/nội suy region-v0; weights và constraints là phần #15/#16 đang triển khai, chưa nghiệm thu, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
+React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript đã tính transform/nội suy, weights và deform mesh-v1; constraints IK đang được #16 tích hợp, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
 
 WebGL là ứng viên mặc định cho thử nghiệm; đo WebGPU khi có nhu cầu. PixiJS có mesh tùy chỉnh nhưng không thay thế phần tính animation. Web Worker và WASM là phương án tối ưu sau khi đo được điểm nghẽn, không phải yêu cầu ban đầu.
 
