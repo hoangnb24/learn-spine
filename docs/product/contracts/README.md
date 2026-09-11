@@ -55,3 +55,5 @@ output and final-world `Pose.ik` diagnostics; renderer/capture is accepted throu
 v0 schema and semantics remain unchanged; the region oracle above stays v0-only.
 
 [Motion diagnostics #18](../../../platform/src/diagnostics/README.md) is an accepted consumer API with fixed policy, final-pose measurements and bounded reports. #19 has integrated the diagnostic tools and canonical v1 authoring operations; Gate 2/3 still require their own evidence.
+
+Gate 2 (#20) is accepted at PR #64. Default motion diagnostics still omit region corners; [Gate 2 supplemental coverage](../reconciliation/2026-09-11-gate2.md) uses public render.corners and a rotation-only negative control. This did not add a new diagnostic/tool capability. Gate 3 requires independent native-agent runs; no protocol/run pass is implied by these module contracts.
