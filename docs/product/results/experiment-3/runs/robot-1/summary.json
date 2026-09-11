@@ -1,0 +1,19 @@
+{
+  "productInvocations": 0,
+  "unfinishedInvocations": [],
+  "thrownInvocations": [],
+  "afterStopStarts": 0,
+  "discoveryCalls": "reconcile subject transcript",
+  "elapsedMs": null,
+  "startCount": 1,
+  "stopCount": 0,
+  "setupCount": 1,
+  "prestartInvocations": 0,
+  "errors": [],
+  "media": [],
+  "visualRubric": "pending independent review",
+  "reopen": "pending",
+  "manualRescue": "reconcile transcript",
+  "tokens": null,
+  "cost": null
+}

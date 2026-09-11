@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-09-11T08:29:42.102118+00:00",
+  "source": "direct message from independent reviewer /root/review_issue21",
+  "assessment": "Same-active-turn READY then wait then brief preserves independence if an amendment is fixed before remaining runs, robot-1 failure is retained and there are no hints, resets or threshold changes.",
+  "reviewerObserved": "Reviewer followup bootstrap also had no IAB; list showed Chrome only using documented troubleshooting.",
+  "unproven": "Retention recovery has not yet been demonstrated. Fresh subject must confirm IAB binding survives wait/message boundary before timer starts.",
+  "constraints": [
+    "No browser substitution",
+    "No proxy",
+    "No replacement for robot-1",
+    "No source, fixture, brief, budget or rubric change"
+  ]
+}

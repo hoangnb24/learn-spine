@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-09-11T08:29:23.542553+00:00",
+  "source": "root orchestration message; not an instrumented tool event",
+  "subject": "eval_robot_1",
+  "run": "robot-1",
+  "protocolCommit": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
+  "controllerReportedStartUTC": "2026-09-11T08:23:42Z",
+  "controllerReportedStopUTC": "2026-09-11T08:28:01Z",
+  "stopPrecision": "seconds",
+  "subjectReported": {
+    "nativeDiscoveryCalls": 0,
+    "productInvocations": 0,
+    "actions": "browser bootstrap/list/troubleshooting only",
+    "projectEdits": 0,
+    "finalZIP": null
+  },
+  "interruptionScenario": "not reached; no first edit",
+  "manualRescue": 0,
+  "connectionRecoveryAttempts": "skill bootstrap and read-only discovery/troubleshooting; no project repair",
+  "replacementRun": false
+}
