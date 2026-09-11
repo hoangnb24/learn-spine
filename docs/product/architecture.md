@@ -2,9 +2,9 @@
 
 Ngày: 09/09/2026; cập nhật 11/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
-## Hiện trạng sau Gate 2 PR #64 — 11/09/2026
+## Hiện trạng sau Gate 3 PR #66 — 11/09/2026
 
-#20 Gate 2 Đạt/Done (completed), PR #64 đã merge main `538f939d9c76e29a55bc7680f8e36943095e4326` sau reviewer Đạt exact `fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f` và hai CI pass. #21 In Progress/Ready, sole author `/root/implement_issue21`; #22 Blocked chờ Gate 3 và quyết định sản phẩm. #51/#52, discovery #23–#29 giữ Deferred. Protocol/initial states/budgets Gate 3 còn phải khóa trước đánh giá; chưa ghi nhận chín native runs đã bắt đầu hoặc đạt.
+Gate 3 #21 đã nghiệm thu Đạt/Project Done, PR #66 squash-merged main `fe112ca002513e3767715e9d32ecbfb58dde833a`, accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, CI run 34585694942 SUCCESS. #21 đã Closed (completed)/Done; trạng thái đóng được kiểm tra lại trên GitHub. #22 Todo/Ready để chuẩn bị đề xuất quyết định, chủ dự án chưa chốt MVP. #23–#29 và #51/#52 vẫn Deferred; không mở production.
 
 Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` đã được tích hợp ở PR #55; xem hợp đồng IK bên dưới.
 
@@ -134,3 +134,17 @@ Default `measure_motion` #18 không tự bao region corners: default points là 
 Future consumers phải nêu coverage points rõ; `passed:true` của tool không chứng minh mọi rendered surface/seam. Giữ supplemental corner check/visual review khi rubric cần nó, không âm thầm advertise diagnostics completeness. Measurements hữu hạn không là continuous proof. Gate 2 dùng browser bridge; không native WebMCP pass. Physics NOT TESTED; performance chỉ tách rAF/draw intervals/CPU submission, không physical presentation hoặc performance pass, không baseline Spine/speedup claim.
 
 [Gate 2 đã nghiệm thu và đầu vào native evaluation](reconciliation/2026-09-11-gate2.md).
+
+## Kết quả ba gate và giới hạn quyết định
+
+- Gate 1: chức năng đã được nhận theo quyết định 11/09/2026; performance vẫn FAIL 17.8/17.5 ms so với 16.7 ms, tách sang Polish #51 → #52 Deferred. Không đổi kết quả đo thành pass.
+- Gate 2: nghiệm thu exact fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f, merge 538f939d9c76e29a55bc7680f8e36943095e4326. Authored fixtures/seek/ZIP/playback/eyeROI/anchors đã đạt; physics NOT TESTED, browser bridge không native pass. Region-corners là phép đo supplemental public render.corners, không phải default diagnostics completeness.
+- Gate 3: robot 2/3, wave 3/3, scarf 2/3 = 7/9; đủ ngưỡng mỗi brief, không thay lượt. Robot 1 fail browser/session environment trước native invocation; scarf 1 fail missing public observation/outside-native evidence, không chứng minh project fail hoặc rescue. Scarf 1 complete budget/rescue UNKNOWN; giữ 57 native calls + 1 discovery đã quan sát và 193.3775 s, không lấp bằng self-report.
+
+Source/harness/protocol frozen tại 57eed3122782fe1c8b2d5eb536bc1e27a4ebc360 trên production 538f939; evidence/read-only QA thêm sau lock không sửa solution. Tám ZIP đã emit reopen Editor/Player, có native logs/revisions/transactions và media. Giữ wave frozen property-order false cùng structural supplement được reviewer nhận, crop viewport wave 2/scarf 2 cùng later full preview/Player và discrepancy manual 59/audited 57 scarf 3. Sampled visual/playback records không bị diễn giải thành reviewer trực tiếp xem mọi WebM. Không native cancellation, performance, statistical reliability hoặc production-readiness claim.
+
+## Đầu vào #22 và quyền quyết định
+
+#22 Ready chỉ chuẩn bị ĐỀ XUẤT stack/phạm vi/tradeoffs/thứ tự đầu tư, chưa In Progress/Done hoặc MVP approved. Tổng hợp exact reports/aggregate, chọn phương án đề xuất và điều kiện xem lại; chủ dự án quyết định sản phẩm. Cost/token totals, deeper provider version và comparable Spine baseline unavailable; không bịa giá trị hay speedup. Gate 3 feasibility threshold không tự chốt MVP feasible/production-ready, nhất là performance Deferred và coverage/physics/native-cancellation limits còn nguyên. Không tự tạo corrective implementation hoặc mở discovery/production từ kết quả này; chỉ nêu finding có bằng chứng trong đề xuất.
+
+[Đối chiếu và exact inputs](reconciliation/2026-09-11-three-gates.md).

@@ -1,10 +1,10 @@
 # Kế hoạch thực thi trên GitHub
 
-## Trạng thái sau Gate 2 PR #64 — 11/09/2026
+## Trạng thái sau Gate 3 PR #66 — 11/09/2026
 
-#20 Gate 2 Đạt/Done (completed), PR #64 đã merge main `538f939d9c76e29a55bc7680f8e36943095e4326` sau reviewer Đạt exact `fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f` và hai CI pass. #21 In Progress/Ready, sole author `/root/implement_issue21`; #22 Blocked chờ Gate 3 và quyết định sản phẩm. #51/#52, discovery #23–#29 giữ Deferred. Protocol/initial states/budgets Gate 3 còn phải khóa trước đánh giá; chưa ghi nhận chín native runs đã bắt đầu hoặc đạt.
+Gate 3 #21 đã nghiệm thu Đạt/Project Done, PR #66 squash-merged main `fe112ca002513e3767715e9d32ecbfb58dde833a`, accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, CI run 34585694942 SUCCESS. #21 đã Closed (completed)/Done; trạng thái đóng được kiểm tra lại trên GitHub. #22 Todo/Ready để chuẩn bị đề xuất quyết định, chủ dự án chưa chốt MVP. #23–#29 và #51/#52 vẫn Deferred; không mở production.
 
-[Đối chiếu Gate 2 → Gate 3](reconciliation/2026-09-11-gate2.md).
+[Đối chiếu ba gate → đề xuất MVP](reconciliation/2026-09-11-three-gates.md).
 
 ## Lịch sử bàn giao sau PR #53 — 11/09/2026
 
@@ -14,7 +14,7 @@ PR #53 đã được review Đạt, CI pass và Orchestrator merge thành main `
 - #16: `/root/implement_issue16` sở hữu solver IK cùng types/helpers riêng.
 - Hai owner thống nhất hợp đồng chung trước khi tích hợp. Shared model/evaluator entry được sửa tuần tự theo bàn giao; không tự tạo hai version hoặc model không tương thích, không ghi đè thay đổi của nhau. Việc giao triển khai không chứng minh extension/API mới đã được nghiệm thu.
 
-#14 giữ Done; #51/#52 giữ Todo / Deferred / P2 ở Polish. Các snapshot nghiệm thu Gate 1 trước mốc này ghi #15/#16 Todo/Ready là lịch sử; đây là trạng thái tại mốc lịch sử PR #53; trạng thái hiện tại theo mốc PR #64 ở đầu tài liệu và GitHub Project.
+#14 giữ Done; #51/#52 giữ Todo / Deferred / P2 ở Polish. Các snapshot nghiệm thu Gate 1 trước mốc này ghi #15/#16 Todo/Ready là lịch sử; đây là trạng thái tại mốc lịch sử PR #53; trạng thái hiện tại theo mốc PR #66 ở đầu tài liệu và GitHub Project.
 
 ## Mục tiêu và nguồn sự thật
 
@@ -29,9 +29,9 @@ Website animation 2D độc lập, agent dùng tools trên trang để dựng ri
 
 ## Bắt đầu và điều phối
 
-Snapshot 11/09/2026: #2–#13 đã Done; main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`, PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15–#20 Done; #21 In Progress / Ready, #22 Blocked theo mốc PR #64 bên dưới. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
+Snapshot 11/09/2026: #2–#13 đã Done; main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`, PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15–#20 Done; #21 accepted/Done, #22 Ready chuẩn bị đề xuất theo mốc PR #66 bên dưới. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
 
-Core/authoring và Gate 2 #15–#20 đã nghiệm thu. #21 được giao khóa protocol/initial states/budgets và đánh giá chín native runs bằng fresh test subjects do Orchestrator cung cấp; chưa ghi nhận protocol hoặc runs đã đạt. #22 chờ #21, xem đối chiếu Gate 2. Xem [đối chiếu](reconciliation/2026-09-11-gate1.md).
+Ba gate đã có nghiệm thu theo phạm vi đã ghi; #21 native 7/9 đạt ngưỡng, #22 Ready để chuẩn bị đề xuất cho chủ dự án. Không tự chốt MVP hoặc mở production/discovery, xem đối chiếu ba gate. Xem [đối chiếu](reconciliation/2026-09-11-gate1.md).
 
 GitHub blocked-by là dependency kỹ thuật trực tiếp; sub-issues chỉ là phân cấp theo dõi, không phải thứ tự thực thi. Wave là đợt sớm nhất theo DAG, không yêu cầu chờ toàn bộ một đợt. Chỉ nhận việc khi dependency đã merge và đạt, tôn trọng ownership/file chung; không coi issue bị hủy là đầu vào đã sẵn sàng.
 
@@ -61,7 +61,7 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#19](https://github.com/hoangnb24/learn-spine/issues/19) Tools và điều khiển tối thiểu cho mesh, IK và chẩn đoán | Deformation | 10 | [#17](https://github.com/hoangnb24/learn-spine/issues/17), [#18](https://github.com/hoangnb24/learn-spine/issues/18), [#13](https://github.com/hoangnb24/learn-spine/issues/13) | Ready |
 | [#20](https://github.com/hoangnb24/learn-spine/issues/20) Gate 2 — kiểm chứng khăn, thạch và chân trụ | Deformation | 11 | [#19](https://github.com/hoangnb24/learn-spine/issues/19) | Ready |
 | [#21](https://github.com/hoangnb24/learn-spine/issues/21) Gate 3 — đo agent tạo và sửa animation qua WebMCP | Agent evaluation | 12 | [#20](https://github.com/hoangnb24/learn-spine/issues/20) | Ready |
-| [#22](https://github.com/hoangnb24/learn-spine/issues/22) Chốt kiến trúc MVP và quyết định mở rộng từ bằng chứng | Decision | 13 | [#21](https://github.com/hoangnb24/learn-spine/issues/21) | Blocked |
+| [#22](https://github.com/hoangnb24/learn-spine/issues/22) Chốt kiến trúc MVP và quyết định mở rộng từ bằng chứng | Decision | 13 | [#21](https://github.com/hoangnb24/learn-spine/issues/21) | Ready |
 | [#23](https://github.com/hoangnb24/learn-spine/issues/23) Discovery — nhập PSD và cập nhật art giữ nguyên rig | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#24](https://github.com/hoangnb24/learn-spine/issues/24) Discovery — mixing, chuyển tiếp, events và đồng bộ audio | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#25](https://github.com/hoangnb24/learn-spine/issues/25) Discovery — skins, linked mesh, clipping và thứ tự vẽ | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
