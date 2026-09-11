@@ -1,0 +1,28 @@
+
+Running 1 test using 1 worker
+
+(node:1413) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player (42.1s)
+
+
+  1) tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ──────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      73 |  for(const id of ['idle','wave'])for(let i=0;i<12;i++){
+      74 |   const e=editorSamples[id][i],p=playerSamples[id][i];expect(p.viewport).toEqual(e.viewport);expect(p.pose.projectId).toBe(e.pose.projectId);expect(p.pose.revision).toBe(e.pose.revision);expect(Object.keys(p.pose.bones)).toEqual(Object.keys(e.pose.bones));
+    > 75 |   const ev=[...Object.values(e.pose.bones).flat(),...e.pose.regions.flatMap((r:any)=>r.world)] as number[],pv=[...Object.values(p.pose.bones).flat(),...p.pose.regions.flatMap((r:any)=>r.world)] as number[];const delta=Math.max(...ev.map((v,n)=>Math.abs(v-pv[n])));maxDelta=Math.max(maxDelta,delta);expect(delta).toBeLessThanOrEqual(1e-5);const pngBytesIdentical=readFileSync(resolve(output,e.filename)).equals(readFileSync(resolve(output,p.filename)));expect(pngBytesIdentical).toBe(true);matches.push({animation:id,time:e.pose.sampledTime,maxMatrixDelta:delta,pngBytesIdentical});
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+      76 |  }
+      77 |  const playerPerf=await performanceRun(player,'player');await player.screenshot({path:resolve(output,'player-full.png'),fullPage:true});expect(requests.filter(u=>/apps\/editor|exercises\/|fixtures\/source|spine-canvas/.test(u))).toEqual([]);expect(await player.evaluate(()=>({local:localStorage.length,editor:typeof (window as any).editorRuntime}))).toEqual({local:0,editor:'undefined'});await isolated.close();expect(errors).toEqual([]);
+      78 |  writeFileSync(resolve(output,'gate-results.json'),JSON.stringify({sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),original,recovered,history,editorSamples,playerSamples,matches,maxDelta,editorPerf,playerPerf,playerRequests:requests,errors,gatePassed:editorPerf.frameGatePassed&&playerPerf.frameGatePassed},null,2));console.log(JSON.stringify({maxDelta,editorPerf,playerPerf}));expect.soft(editorPerf.frameGatePassed,'editor p95 frame <=16.7ms').toBe(true);expect.soft(playerPerf.frameGatePassed,'player p95 frame <=16.7ms').toBe(true);
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:75:479
+
+    Error Context: test-results/gate-Gate-1-editor-ZIP-reopen-and-isolated-player/error-context.md
+
+  1 failed
+    tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ───────────────

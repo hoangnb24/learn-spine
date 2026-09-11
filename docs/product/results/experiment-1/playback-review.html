@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Robot playback review</title><style>body{margin:20px;background:#14212b;color:white;font:16px system-ui}video{display:block;width:480px;height:360px;max-width:100%;background:#253542}button{margin:10px;padding:10px}output{display:block}p{max-width:700px}</style>
+<h1>Robot · native revision 5</h1><p>Each video contains exactly three loops at 12 fps. Visual review only; the frame-performance gate remains failed.</p><p id="environment"></p><video id="playback" controls preload="auto" src="idle-three-loops.mp4"></video><button onclick="review('idle')">Play idle three loops</button><button onclick="review('wave')">Play wave three loops</button><output id="status">Ready</output>
+<script>
+document.getElementById('environment').textContent=navigator.userAgent;
+let timer;
+async function review(id){clearInterval(timer);const v=document.getElementById('playback'),o=document.getElementById('status');v.src=id+'-three-loops.mp4';v.currentTime=0;const start=performance.now(),samples=[];o.textContent='Loading '+id;await v.play();timer=setInterval(()=>{samples.push({elapsedMs:performance.now()-start,mediaTime:v.currentTime});const result={id,state:v.ended?'ended':'playing',currentTime:v.currentTime,duration:v.duration,samples};o.dataset.log=JSON.stringify(result);o.textContent=id+' · '+result.state+' · '+v.currentTime.toFixed(2)+' / '+v.duration+' s';if(v.ended)clearInterval(timer);},200);}
+</script></html>

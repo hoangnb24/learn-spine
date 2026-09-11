@@ -1,0 +1,45 @@
+
+Running 1 test using 1 worker
+
+(node:3598) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"maxDelta":1.8758328224066645e-12,"editorPerf":{"app":"editor","durationMs":30007.10000000149,"frames":1800,"p95CpuSubmissionMs":0.20000000298023224,"p95RafIntervalMs":16.700000000004366,"p95RenderedUpdateIntervalMs":17.80000000447035,"physicalPresentation":"unavailable in browser API","frameGatePassed":false},"playerPerf":{"app":"player","durationMs":30009.89999999851,"frames":1800,"p95CpuSubmissionMs":0.19999999552965164,"p95RafIntervalMs":16.700000000004366,"p95RenderedUpdateIntervalMs":17.5,"physicalPresentation":"unavailable in browser API","frameGatePassed":false}}
+  ✘  1 tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player (1.2m)
+
+
+  1) tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ──────────────
+
+    Error: editor p95 frame <=16.7ms
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      76 |  }
+      77 |  const playerPerf=await performanceRun(player,'player');await player.screenshot({path:resolve(output,'player-full.png'),fullPage:true});expect(requests.filter(u=>/apps\/editor|exercises\/|fixtures\/source|spine-canvas/.test(u))).toEqual([]);expect(await player.evaluate(()=>({local:localStorage.length,editor:typeof (window as any).editorRuntime}))).toEqual({local:0,editor:'undefined'});await isolated.close();expect(errors).toEqual([]);
+    > 78 |  writeFileSync(resolve(output,'gate-results.json'),JSON.stringify({sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),original,recovered,history,editorSamples,playerSamples,matches,maxDelta,editorPerf,playerPerf,playerRequests:requests,errors,gatePassed:editorPerf.frameGatePassed&&playerPerf.frameGatePassed},null,2));console.log(JSON.stringify({maxDelta,editorPerf,playerPerf}));expect.soft(editorPerf.frameGatePassed,'editor p95 frame <=16.7ms').toBe(true);expect.soft(playerPerf.frameGatePassed,'player p95 frame <=16.7ms').toBe(true);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^
+      79 | });
+      80 |
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:78:478
+
+    Error: player p95 frame <=16.7ms
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      76 |  }
+      77 |  const playerPerf=await performanceRun(player,'player');await player.screenshot({path:resolve(output,'player-full.png'),fullPage:true});expect(requests.filter(u=>/apps\/editor|exercises\/|fixtures\/source|spine-canvas/.test(u))).toEqual([]);expect(await player.evaluate(()=>({local:localStorage.length,editor:typeof (window as any).editorRuntime}))).toEqual({local:0,editor:'undefined'});await isolated.close();expect(errors).toEqual([]);
+    > 78 |  writeFileSync(resolve(output,'gate-results.json'),JSON.stringify({sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),original,recovered,history,editorSamples,playerSamples,matches,maxDelta,editorPerf,playerPerf,playerRequests:requests,errors,gatePassed:editorPerf.frameGatePassed&&playerPerf.frameGatePassed},null,2));console.log(JSON.stringify({maxDelta,editorPerf,playerPerf}));expect.soft(editorPerf.frameGatePassed,'editor p95 frame <=16.7ms').toBe(true);expect.soft(playerPerf.frameGatePassed,'player p95 frame <=16.7ms').toBe(true);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+      79 | });
+      80 |
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:78:557
+
+    Error Context: test-results/gate-Gate-1-editor-ZIP-reopen-and-isolated-player/error-context.md
+
+  1 failed
+    tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ───────────────

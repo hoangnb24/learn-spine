@@ -1,0 +1,23 @@
+
+Running 1 test using 1 worker
+
+(node:965) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player (39.1s)
+
+
+  1) tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ──────────────
+
+    Error: page.evaluate: TypeError: Cannot read properties of null (reading 'inspect')
+        at eval (eval at evaluate (:311:30), <anonymous>:1:76)
+        at async <anonymous>:337:30
+        at eval (eval at evaluate (:311:30), <anonymous>:1:76)
+        at async <anonymous>:337:30
+        at inspect (/Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:21:27)
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:70:192
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-14/platform/tests/e2e/robot/gate.spec.ts:70:170
+
+    Error Context: test-results/gate-Gate-1-editor-ZIP-reopen-and-isolated-player/error-context.md
+
+  1 failed
+    tests/e2e/robot/gate.spec.ts:57:1 › Gate 1 editor ZIP reopen and isolated player ───────────────

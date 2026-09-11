@@ -1,0 +1,141 @@
+{
+  "sourceCommit": "a91c27cd93541b7b320b9b54c2451894b8fcd018",
+  "transcript": [
+    {
+      "name": "preview_animation",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "animationId": "idle",
+        "fps": 12,
+        "loops": 3,
+        "viewport": {
+          "width": 480,
+          "height": 360,
+          "centerX": 0,
+          "centerY": 300,
+          "zoom": 0.5,
+          "devicePixelRatio": 1,
+          "background": "#253542"
+        }
+      },
+      "durationMs": 6,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"id\":\"8ad5bcd7-9a86-4c41-9ca7-44a3075f76a9\",\"projectId\":\"gate1-robot\",\"revision\":5,\"progress\":0,\"status\":\"queued\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "jobId": "8ad5bcd7-9a86-4c41-9ca7-44a3075f76a9",
+        "offset": 72,
+        "limit": 1
+      },
+      "durationMs": 14,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"id\":\"8ad5bcd7-9a86-4c41-9ca7-44a3075f76a9\",\"projectId\":\"gate1-robot\",\"revision\":5,\"progress\":1,\"status\":\"succeeded\",\"items\":[{\"id\":\"9a0cfc0e-ba11-498d-be76-d799f5632773\",\"mimeType\":\"application/zip\",\"byteLength\":5302756,\"sha256\":\"905bbd95e7257ad9cebed0066dbfeb000b2c4b9ce3eb92721b5a6e6a3115dc84\"}],\"total\":73,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "jobId": "8ad5bcd7-9a86-4c41-9ca7-44a3075f76a9",
+        "artifactId": "9a0cfc0e-ba11-498d-be76-d799f5632773"
+      },
+      "durationMs": 26,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":5,\"jobId\":\"8ad5bcd7-9a86-4c41-9ca7-44a3075f76a9\",\"artifact\":{\"id\":\"9a0cfc0e-ba11-498d-be76-d799f5632773\",\"mimeType\":\"application/zip\",\"byteLength\":5302756,\"sha256\":\"905bbd95e7257ad9cebed0066dbfeb000b2c4b9ce3eb92721b5a6e6a3115dc84\"},\"url\":\"blob:http://127.0.0.1:4184/fc01a07a-8802-4434-b567-ea054b4424fa\",\"filename\":\"9a0cfc0e-ba11-498d-be76-d799f5632773.zip\",\"mimeType\":\"application/zip\",\"byteLength\":5302756,\"expires\":\"session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "preview_animation",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "animationId": "wave",
+        "fps": 12,
+        "loops": 3,
+        "viewport": {
+          "width": 480,
+          "height": 360,
+          "centerX": 0,
+          "centerY": 300,
+          "zoom": 0.5,
+          "devicePixelRatio": 1,
+          "background": "#253542"
+        }
+      },
+      "durationMs": 8,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"id\":\"c3427352-6a49-4855-834d-f382085fb2a2\",\"projectId\":\"gate1-robot\",\"revision\":5,\"progress\":0,\"status\":\"queued\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "jobId": "c3427352-6a49-4855-834d-f382085fb2a2",
+        "offset": 144,
+        "limit": 1
+      },
+      "durationMs": 15,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"id\":\"c3427352-6a49-4855-834d-f382085fb2a2\",\"projectId\":\"gate1-robot\",\"revision\":5,\"progress\":1,\"status\":\"succeeded\",\"items\":[{\"id\":\"7f218ac7-82d1-42ee-934f-a89b968a5229\",\"mimeType\":\"application/zip\",\"byteLength\":10761135,\"sha256\":\"b1b12f19d3d13c75f1199c100627b1f6cfa936d6f3755cd297673d265c8e3037\"}],\"total\":145,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "jobId": "c3427352-6a49-4855-834d-f382085fb2a2",
+        "artifactId": "7f218ac7-82d1-42ee-934f-a89b968a5229"
+      },
+      "durationMs": 25,
+      "result": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":5,\"jobId\":\"c3427352-6a49-4855-834d-f382085fb2a2\",\"artifact\":{\"id\":\"7f218ac7-82d1-42ee-934f-a89b968a5229\",\"mimeType\":\"application/zip\",\"byteLength\":10761135,\"sha256\":\"b1b12f19d3d13c75f1199c100627b1f6cfa936d6f3755cd297673d265c8e3037\"},\"url\":\"blob:http://127.0.0.1:4184/98a6a694-8a42-4585-8fb4-fcbd81eae4e5\",\"filename\":\"7f218ac7-82d1-42ee-934f-a89b968a5229.zip\",\"mimeType\":\"application/zip\",\"byteLength\":10761135,\"expires\":\"session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ]
+}
