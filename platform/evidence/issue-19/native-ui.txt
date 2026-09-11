@@ -1,0 +1,252 @@
+- button "Nạp mẫu khăn"
+- button "Nạp mẫu thạch"
+- button "Nạp mẫu IK"
+- text: webmcp-document
+- link "Tải bản tool 2":
+  - /url: blob:http://127.0.0.1:4199/996daa00-e334-409a-aabf-6fd9a16c29be
+- banner:
+  - link "learn-spine, về Editor":
+    - /url: ./index.html
+    - generic: ◇
+    - text: learn-spine
+  - navigation "Ứng dụng":
+    - link "Editor":
+      - /url: ./index.html
+    - link "Player":
+      - /url: ./player.html
+  - generic: Không gian sáng tạo 2D
+- button "Project mới"
+- text: Mở gói
+- button "Mở gói project"
+- button "Khôi phục bản lưu"
+- generic: T01 scarf mesh renderer fixture
+- button "Hoàn tác"
+- button "Làm lại" [disabled]
+- button "Lưu trình duyệt"
+- button "Tải gói project"
+- button "Setup" [pressed]
+- button "Animate"
+- paragraph: Bố trí xương và gắn ảnh
+- status: Đã lưu bản 2 trên trình duyệt.
+- main "Editor":
+  - region "Cấu trúc / Ảnh":
+    - heading "Cấu trúc / Ảnh" [level=2]
+    - tree "Cây xương":
+      - treeitem "◇ Root" [level=1] [selected]
+      - treeitem "◇ Tip" [level=2]
+    - textbox "Tên xương mới": Xương mới
+    - button "Thêm xương"
+    - heading "Ảnh gắn xương" [level=3]
+    - paragraph: PNG mới gắn vào xương đang chọn, tâm ảnh tại gốc xương. Chỉnh bố trí trong Thuộc tính.
+    - text: Nạp PNG
+    - button "Nạp PNG"
+    - text: Mesh
+    - combobox "Xương của Mesh":
+      - option "Root" [selected]
+      - option "Tip"
+  - region "Vùng làm việc":
+    - img "Xương trên canvas":
+      - button "Chọn đỉnh 0 trên hình"
+      - button "Chọn đỉnh 1 trên hình"
+      - button "Chọn đỉnh 2 trên hình"
+      - button "Chọn đỉnh 3 trên hình"
+      - button "Chọn đỉnh 4 trên hình"
+      - button "Chọn đỉnh 5 trên hình"
+      - button "Chọn đỉnh 6 trên hình"
+      - button "Chọn đỉnh 7 trên hình"
+      - button "Chọn đỉnh 8 trên hình"
+      - button "Chọn đỉnh 9 trên hình"
+      - button "Chọn đỉnh 10 trên hình"
+      - button "Chọn đỉnh 11 trên hình"
+      - button "Chọn đỉnh 12 trên hình"
+      - button "Chọn đỉnh 13 trên hình"
+      - button "Chọn đỉnh 14 trên hình"
+      - button "Chọn đỉnh 15 trên hình"
+      - button "Chọn đỉnh 16 trên hình"
+      - button "Chọn đỉnh 17 trên hình"
+      - button "Chọn đỉnh 18 trên hình"
+      - button "Chọn đỉnh 19 trên hình"
+      - button "Chọn đỉnh 20 trên hình"
+      - button "Chọn đỉnh 21 trên hình"
+      - button "Chọn đỉnh 22 trên hình"
+      - button "Chọn đỉnh 23 trên hình"
+      - button "Chọn đỉnh 24 trên hình"
+      - button "Chọn đỉnh 25 trên hình"
+      - button "Chọn đỉnh 26 trên hình"
+      - button "Chọn đỉnh 27 trên hình"
+      - button "Chọn đỉnh 28 trên hình"
+      - button "Chọn đỉnh 29 trên hình"
+      - button "Chọn đỉnh 30 trên hình"
+      - button "Chọn đỉnh 31 trên hình"
+      - button "Chọn đỉnh 32 trên hình"
+      - button "Chọn đỉnh 33 trên hình"
+      - button "Chọn đỉnh 34 trên hình"
+      - button "Chọn đỉnh 35 trên hình"
+      - button "Chọn đỉnh 36 trên hình"
+      - button "Chọn đỉnh 37 trên hình"
+      - button "Chọn đỉnh 38 trên hình"
+      - button "Chọn đỉnh 39 trên hình"
+      - button "Chọn đỉnh 40 trên hình"
+      - button "Chọn đỉnh 41 trên hình"
+      - button "Chọn đỉnh 42 trên hình"
+      - button "Chọn đỉnh 43 trên hình"
+      - button "Chọn đỉnh 44 trên hình"
+      - button "Chọn xương Root"
+      - button "Chọn xương Tip"
+    - button "Vừa khung"
+    - text: Thu phóng
+    - combobox "Thu phóng":
+      - option "50%"
+      - option "100%" [selected]
+      - option "200%"
+  - region "Thuộc tính":
+    - heading "Thuộc tính" [level=2]
+    - button "Thuộc tính"
+    - button "Lưới / IK" [pressed]
+    - button "Lịch sử"
+    - text: Lưới
+    - combobox "Chọn lưới":
+      - option "Chọn lưới"
+      - option "mesh" [selected]
+    - paragraph: Chọn các đỉnh trên hình hoặc trong danh sách. Màu xanh = 0, đỏ = 1 cho xương đang xem.
+    - text: Xương xem weights
+    - combobox "Xương xem weights":
+      - option "Không tô weights"
+      - option "root"
+      - option "tip" [selected]
+    - generic "Các đỉnh lưới":
+      - checkbox "Đỉnh 0"
+      - text: Đỉnh 0
+      - checkbox "Đỉnh 1" [checked]
+      - text: Đỉnh 1
+      - checkbox "Đỉnh 2"
+      - text: Đỉnh 2
+      - checkbox "Đỉnh 3"
+      - text: Đỉnh 3
+      - checkbox "Đỉnh 4"
+      - text: Đỉnh 4
+      - checkbox "Đỉnh 5"
+      - text: Đỉnh 5
+      - checkbox "Đỉnh 6"
+      - text: Đỉnh 6
+      - checkbox "Đỉnh 7"
+      - text: Đỉnh 7
+      - checkbox "Đỉnh 8"
+      - text: Đỉnh 8
+      - checkbox "Đỉnh 9"
+      - text: Đỉnh 9
+      - checkbox "Đỉnh 10"
+      - text: Đỉnh 10
+      - checkbox "Đỉnh 11"
+      - text: Đỉnh 11
+      - checkbox "Đỉnh 12"
+      - text: Đỉnh 12
+      - checkbox "Đỉnh 13"
+      - text: Đỉnh 13
+      - checkbox "Đỉnh 14"
+      - text: Đỉnh 14
+      - checkbox "Đỉnh 15"
+      - text: Đỉnh 15
+      - checkbox "Đỉnh 16"
+      - text: Đỉnh 16
+      - checkbox "Đỉnh 17"
+      - text: Đỉnh 17
+      - checkbox "Đỉnh 18"
+      - text: Đỉnh 18
+      - checkbox "Đỉnh 19"
+      - text: Đỉnh 19
+      - checkbox "Đỉnh 20"
+      - text: Đỉnh 20
+      - checkbox "Đỉnh 21"
+      - text: Đỉnh 21
+      - checkbox "Đỉnh 22"
+      - text: Đỉnh 22
+      - checkbox "Đỉnh 23"
+      - text: Đỉnh 23
+      - checkbox "Đỉnh 24"
+      - text: Đỉnh 24
+      - checkbox "Đỉnh 25"
+      - text: Đỉnh 25
+      - checkbox "Đỉnh 26"
+      - text: Đỉnh 26
+      - checkbox "Đỉnh 27"
+      - text: Đỉnh 27
+      - checkbox "Đỉnh 28"
+      - text: Đỉnh 28
+      - checkbox "Đỉnh 29"
+      - text: Đỉnh 29
+      - checkbox "Đỉnh 30"
+      - text: Đỉnh 30
+      - checkbox "Đỉnh 31"
+      - text: Đỉnh 31
+      - checkbox "Đỉnh 32"
+      - text: Đỉnh 32
+      - checkbox "Đỉnh 33"
+      - text: Đỉnh 33
+      - checkbox "Đỉnh 34"
+      - text: Đỉnh 34
+      - checkbox "Đỉnh 35"
+      - text: Đỉnh 35
+      - checkbox "Đỉnh 36"
+      - text: Đỉnh 36
+      - checkbox "Đỉnh 37"
+      - text: Đỉnh 37
+      - checkbox "Đỉnh 38"
+      - text: Đỉnh 38
+      - checkbox "Đỉnh 39"
+      - text: Đỉnh 39
+      - checkbox "Đỉnh 40"
+      - text: Đỉnh 40
+      - checkbox "Đỉnh 41"
+      - text: Đỉnh 41
+      - checkbox "Đỉnh 42"
+      - text: Đỉnh 42
+      - checkbox "Đỉnh 43"
+      - text: Đỉnh 43
+      - checkbox "Đỉnh 44"
+      - text: Đỉnh 44
+    - paragraph: "Đã chọn: 1"
+    - heading "Weights cho vùng chọn" [level=3]
+    - text: root
+    - spinbutton "Weight root": "0.8"
+    - text: tip
+    - spinbutton "Weight tip": "0.2"
+    - paragraph: Tổng phải bằng 1. Áp dụng cùng bộ weights này cho các đỉnh đã chọn; không đổi đỉnh khác.
+    - button "Áp dụng weights vùng chọn"
+    - paragraph: Đặt offset tuyệt đối cho vùng chọn tại 0.000 giây. Giữ offsets của đỉnh khác tại key đã có; key mới bắt đầu từ 0.
+    - text: Offset X
+    - spinbutton "Deform X": "0"
+    - text: Offset Y
+    - spinbutton "Deform Y": "0"
+    - button "Đặt key biến dạng vùng chọn"
+    - heading "IK hai xương" [level=3]
+    - text: Ràng buộc
+    - combobox "Chọn IK":
+      - option "Chọn IK" [selected]
+  - region "Chuyển động":
+    - heading "Chuyển động" [level=2]
+    - button "Deform" [pressed]
+    - textbox "Tên chuyển động mới": wave
+    - button "Thêm chuyển động"
+    - button "Phát"
+    - text: Thời gian (giây)
+    - spinbutton "Thời gian (giây)": "0.00"
+    - generic: 1.00 s · Một lần
+    - slider "Thanh thời gian": "0"
+    - generic: Tip / Góc xoay (radian)
+    - button "Key 0 Góc xoay (radian)": ◆
+    - button "Key 1 Góc xoay (radian)": ◆
+    - combobox "Thuộc tính key":
+      - option "Vị trí X"
+      - option "Vị trí Y"
+      - option "Góc xoay (radian)" [selected]
+      - option "Tỉ lệ X"
+      - option "Tỉ lệ Y"
+    - spinbutton "Giá trị key": "0"
+    - combobox "Nội suy key":
+      - option "Thẳng" [selected]
+      - option "Giữ bước"
+    - button "Đặt key"
+- contentinfo:
+  - generic: Bản 2 · Đã lưu trên trình duyệt
+  - generic: webmcp-document · Tải gói để mở trong Player

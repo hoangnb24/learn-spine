@@ -1,0 +1,11 @@
+
+Running 4 tests using 1 worker
+
+(node:60758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/authoring/browser/authoring.spec.ts:12:1 › actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and independent player (2.4s)
+  ✓  2 tests/authoring/browser/authoring.spec.ts:276:1 › new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo restores v0 (461ms)
+  ✓  3 tests/authoring/browser/authoring.spec.ts:325:3 › jelly authored geometry persists in ZIP and real player draws (2.6s)
+  ✓  4 tests/authoring/browser/authoring.spec.ts:325:3 › ik authored geometry persists in ZIP and real player draws (1.3s)
+
+  4 passed (7.1s)

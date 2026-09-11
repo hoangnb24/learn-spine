@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-11",
+  "source": "af97148a53fd7b69bbab9050d8e2a4a99716a25a",
+  "base": "a0dc060d1129ae86fb3cf9b9662ad4e31654ecec",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.4\nBuildVersion:\t\t25E246\n",
+  "arch": "arm64",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "automatedBrowser": "153.0.8010.12",
+  "nativeHost": "Codex In-app Browser via Browser skill, document.modelContext, no flags changed; native UA not measured in this run",
+  "renderer": "real Pixi WebGL; no physical-GPU/performance claim"
+}
