@@ -178,6 +178,16 @@ describe('immutable asset integration', () => {
     ] }));
     expect(s.snapshot().assets.size).toBe(0); value(s.undo(req(s, 'undo'))); expect(s.snapshot().assets.get('art')).toEqual(Uint8Array.of(1));
   });
+  it('rejects aggregate resource overflow when individually prepared imports accumulate', async () => {
+    const s = await session();
+    const source = createSyntheticProject();
+    source.assets = Array.from({ length: 256 }, (_, i) => ({ ...source.assets[0], id: `import${i}`, path: `assets/import${i}.png` }));
+    source.attachments[0].assetId = 'import0';
+    const token = await prepared(bundle(source));
+    const before = s.snapshot();
+    error(s.apply({ ...req(s, 'too-many'), operations: source.assets.map(asset => ({ kind: 'putAsset', value: asset })) }, token), 'LIMIT_EXCEEDED');
+    expect(s.snapshot()).toEqual(before); expect(s.history().undo).toHaveLength(0);
+  });
   it('failed preparation and stale async preparation cannot mutate a session', async () => {
     const s = await session(); const before = s.snapshot();
     error(await prepareBundle({}, async () => ({ ok: false, error: { code: 'ASSET_HASH_MISMATCH', path: '/assets', message: 'Bad hash' } })), 'ASSET_HASH_MISMATCH');

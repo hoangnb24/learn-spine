@@ -6,7 +6,7 @@ Actual local commands/results on the source committed with this report:
 
 - `npm ci --prefix platform --ignore-scripts`: success, 57 packages, 0 vulnerabilities.
 - `npm run typecheck --prefix platform`: success.
-- `npm test --prefix platform`: success, 3 files, 42 tests (15 commands tests plus 27 existing tests).
+- `npm test --prefix platform`: success, 3 files, 43 tests (16 commands tests plus 27 existing tests).
 - `npm run build --prefix platform`: success, editor/player production bundles.
 
 The commands suite uses an injected trusted fixture validator so tests measure transactions/history and immutable byte ownership independently of #10's decoder/storage implementation. Actual PNG decoding, ZIP, IndexedDB and browser application integration are not claimed here. #10's public `validateBundle(input: unknown, signal?)` is the production preparation dependency; it copies project/bytes before its first await.
