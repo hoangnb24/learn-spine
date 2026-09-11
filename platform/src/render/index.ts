@@ -1,9 +1,11 @@
-import { Container, Mesh, MeshGeometry, Texture, WebGLRenderer } from 'pixi.js';
+import { Container, Graphics, Mesh, MeshGeometry, Texture, WebGLRenderer } from 'pixi.js';
 import { validate } from '../model';
 import type { Pose, Project, ProjectBundle, Renderer, Result, Viewport, Problem } from '../model/types';
 import { failure, poseGeometry, screenPoint, success, validateViewport } from './geometry';
-export const rendererCapabilities = { poseVersions: [1], features: ['region-v0'] } as const;
+export const rendererCapabilities = { poseVersions: [1], features: ['region-v0', 'mesh-v1'] } as const;
 export { corners, fitCamera, screenPoint } from './geometry';
+export type { MeshOverlay } from './mesh';
+import type { MeshOverlay } from './mesh';
 export type { Bounds } from './geometry';
 const error = (code: Problem['code'], message: string, path = ''): Result<never> => ({ok:false,error:{code,message,path}});
 /** One instance owns one canvas and one prepared snapshot; no shared Pixi asset cache. */
@@ -13,6 +15,9 @@ export class PixiRenderer implements Renderer {
   private project?: Project;
   private resources = new Map<string,{texture:Texture; bitmap:ImageBitmap}>();
   private meshes: Mesh[] = [];
+  private overlay = new Graphics();
+  private overlayOptions: MeshOverlay = {};
+  setOverlay(options: MeshOverlay): void { this.overlayOptions={...options}; }
   private generation = 0;
   private disposed = false;
   private frame?: { projectId:string; revision:number; animationId:string|null; sampledTime:number; viewport:Viewport; pixelWidth:number; pixelHeight:number };
@@ -21,13 +26,14 @@ export class PixiRenderer implements Renderer {
   static async create(canvas?: HTMLCanvasElement): Promise<Result<PixiRenderer>> {
     const gpu=new WebGLRenderer<HTMLCanvasElement>();
     try { await gpu.init({canvas,width:1,height:1,antialias:false,preserveDrawingBuffer:true,backgroundAlpha:0}); return success(new PixiRenderer(gpu)); }
-    catch (e) { return error('RENDER_FAILED',`WebGL initialization failed: ${String(e)}`); }
+    catch (e) { try { gpu.destroy(false); } catch { /* Partial initialization. */ } return error('RENDER_FAILED',`WebGL initialization failed: ${String(e)}`); }
   }
   get canvas(): HTMLCanvasElement { return this.gpu.canvas; }
-  get diagnostics() { return {backend:'webgl',textureCount:this.resources.size,disposed:this.disposed}; }
+  get diagnostics() { return {backend:'webgl',textureCount:this.resources.size,geometryCount:this.meshes.length,disposed:this.disposed}; }
   private clear() {
-    for (const mesh of this.meshes) { mesh.geometry.destroy(); mesh.destroy(); }
+    for (const mesh of this.meshes) { mesh.geometry.destroy(true); mesh.destroy(); }
     this.meshes=[];
+    this.overlay.clear();
     for (const r of this.resources.values()) { r.texture.destroy(true); r.bitmap.close(); }
     this.resources.clear();
     this.frame=undefined;
@@ -36,10 +42,10 @@ export class PixiRenderer implements Renderer {
     if (this.disposed) return error('RENDER_FAILED','Renderer disposed');
     const generation=++this.generation;
     const checked=validate(bundle.project); if (!checked.ok) return checked;
-    if (checked.value.requiredCapabilities.includes('mesh-v1')) return error('UNSUPPORTED_CAPABILITY','Renderer does not yet support mesh-v1','/requiredCapabilities');
     if (checked.value.assets.length > 256 || checked.value.assets.reduce((n,a)=>n+a.pixelWidth*a.pixelHeight,0)>64e6) return error('LIMIT_EXCEEDED','Asset decode limits exceeded');
     const pending=new Map<string,{texture:Texture;bitmap:ImageBitmap}>();
-    const cleanup=() => { for (const r of pending.values()) {r.texture.destroy(true);r.bitmap.close();} };
+    const pendingMeshes: Mesh[]=[];
+    const cleanup=() => { for(const mesh of pendingMeshes){mesh.geometry.destroy(true);mesh.destroy();} for (const r of pending.values()) {r.texture.destroy(true);r.bitmap.close();} };
     const cancelled=() => signal?.aborted || this.disposed || generation !== this.generation;
     try {
       for (const [i,a] of checked.value.assets.entries()) {
@@ -54,15 +60,18 @@ export class PixiRenderer implements Renderer {
         if (hash !== a.sha256) {cleanup(); return error('ASSET_HASH_MISMATCH',`PNG hash differs for ${a.id}`,`/assets/${i}/sha256`);}
         const bitmap=await createImageBitmap(new Blob([copy],{type:'image/png'}));
         if (bitmap.width !== a.pixelWidth || bitmap.height !== a.pixelHeight) {bitmap.close();cleanup();return error('ASSET_DECODE_FAILED',`PNG dimensions differ for ${a.id}`,`/assets/${i}`);}
-        pending.set(a.id,{bitmap,texture:Texture.from(bitmap,true)});
+        try { pending.set(a.id,{bitmap,texture:Texture.from(bitmap,true)}); }
+        catch(e) { bitmap.close(); throw e; }
       }
       if (cancelled()) {cleanup();return error('CANCELLED','Preparation cancelled');}
-      this.clear();this.resources=pending;this.project=checked.value;
-      for (const slot of this.project.slots) if (slot.attachmentId !== null) {
-        const region=this.project.attachments.find(a=>a.id===slot.attachmentId)!;
-        const mesh=new Mesh({texture:this.resources.get(region.assetId)!.texture,geometry:new MeshGeometry({positions:new Float32Array(8),uvs:new Float32Array([0,0,1,0,1,1,0,1]),indices:new Uint32Array([0,1,2,0,2,3])})});
-        this.meshes.push(mesh);this.stage.addChild(mesh);
+      for (const slot of checked.value.slots) if (slot.attachmentId !== null) {
+        const region=checked.value.attachments.find(a=>a.id===slot.attachmentId)!;
+        const mesh=new Mesh({texture:pending.get(region.assetId)!.texture,geometry:new MeshGeometry({positions:new Float32Array(region.type==='mesh'?region.vertices.length:8),uvs:new Float32Array(region.type==='mesh'?region.uvs:[0,0,1,0,1,1,0,1]),indices:new Uint32Array(region.type==='mesh'?region.triangles:[0,1,2,0,2,3])})});
+        pendingMeshes.push(mesh);
       }
+      this.clear();this.resources=pending;this.project=checked.value;this.meshes=pendingMeshes;
+      for(const mesh of this.meshes)this.stage.addChild(mesh);
+      this.stage.addChild(this.overlay);
       return success(undefined);
     } catch(e) {cleanup();return error('ASSET_DECODE_FAILED',`PNG preparation failed: ${String(e)}`);}
   }
@@ -79,7 +88,25 @@ export class PixiRenderer implements Renderer {
       this.canvas.style.width=`${viewport.width}px`;this.canvas.style.height=`${viewport.height}px`;
       this.gpu.background.color=viewport.background.slice(0,7);
       this.gpu.background.alpha=viewport.background.length===9?parseInt(viewport.background.slice(7),16)/255:1;
-      screen.forEach((p,i)=>{this.meshes[i].geometry.positions=new Float32Array(p);});
+      this.overlay.clear();
+      const slots=this.project.slots.filter(s=>s.attachmentId!==null);
+      screen.forEach((p,i)=>{
+        const geometry=this.meshes[i].geometry;
+        geometry.positions.set(p); geometry.getBuffer('aPosition').update();
+        const attachment=this.project!.attachments.find(a=>a.id===slots[i].attachmentId)!;
+        if(attachment.type!=='mesh')return;
+        if(this.overlayOptions.wireframe) {
+          for(let k=0;k<attachment.triangles.length;k+=3) {
+            const [a,b,c]=attachment.triangles.slice(k,k+3).map(n=>n*2);
+            this.overlay.moveTo(p[a],p[a+1]).lineTo(p[b],p[b+1]).lineTo(p[c],p[c+1]).closePath();
+          }
+          this.overlay.stroke({color:0x00ffff,width:1,alpha:.85});
+        }
+        if(this.overlayOptions.weightBoneId) attachment.weights.forEach((weights,v)=>{
+          const w=weights.find(w=>w.boneId===this.overlayOptions.weightBoneId)?.weight??0;
+          this.overlay.circle(p[v*2],p[v*2+1],3).fill({color:(Math.round(w*255)<<16)|Math.round((1-w)*255),alpha:1});
+        });
+      });
       this.gpu.render({container:this.stage,clear:true});
       this.frame={projectId:pose.projectId,revision:pose.revision,animationId:pose.animationId,sampledTime:pose.sampledTime,viewport:{...viewport},pixelWidth:this.canvas.width,pixelHeight:this.canvas.height};
       return success(undefined);
@@ -96,5 +123,5 @@ export class PixiRenderer implements Renderer {
       return success(new Uint8Array(await blob.arrayBuffer()));
     }catch(e){return error('RENDER_FAILED',String(e));}
   }
-  dispose(): void {if(this.disposed)return;this.disposed=true;++this.generation;this.clear();this.stage.destroy();this.gpu.destroy(false);this.project=undefined;}
+  dispose(): void {if(this.disposed)return;this.disposed=true;++this.generation;this.clear();this.overlay.destroy();this.stage.destroy();this.gpu.destroy(false);this.project=undefined;}
 }

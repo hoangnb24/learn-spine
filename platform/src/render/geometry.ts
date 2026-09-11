@@ -1,3 +1,4 @@
+import { meshVertices } from './mesh';
 import type { Asset, Matrix, Pose, Project, Region, Result, Viewport } from '../model/types';
 export type Bounds = { minX: number; minY: number; maxX: number; maxY: number };
 export const success = <T>(value: T): Result<T> => ({ ok: true, value, warnings: [] });
@@ -20,19 +21,28 @@ export function validateViewport(v: Viewport): Result<void> {
   return success(undefined);
 }
 export function poseGeometry(project: Project, pose: Pose): Result<number[][]> {
-  if (project.requiredCapabilities.includes('mesh-v1') || pose.meshes?.length) return {ok:false,error:{code:'UNSUPPORTED_CAPABILITY',path:'/pose/meshes',message:'Renderer does not yet support mesh-v1'}};
   if (pose.poseVersion !== 1) return failure('Unsupported pose version', '/pose/poseVersion');
   if (pose.projectId !== project.projectId || pose.revision !== project.revision) return failure('Pose does not match prepared project/revision', '/pose');
   const slots = project.slots.filter(s => s.attachmentId !== null);
-  if (pose.regions.length !== slots.length) return failure('Pose slot count differs', '/pose/regions');
-  const regions = new Map(project.attachments.map(r => [r.id,r])), assets = new Map(project.assets.map(a => [a.id,a]));
+  if (!Array.isArray(pose.regions) || !Array.isArray(pose.meshes) || pose.regions.length + pose.meshes.length !== slots.length) return failure('Pose slot count differs', '/pose');
+  const attachments = new Map(project.attachments.map(r => [r.id,r])), assets = new Map(project.assets.map(a => [a.id,a]));
   const output: number[][] = [];
-  for (const [i, d] of pose.regions.entries()) {
-    const region = regions.get(d.attachmentId), asset = assets.get(d.assetId);
-    if (d.slotId !== slots[i].id || d.attachmentId !== slots[i].attachmentId || !region || region.type !== 'region' || !asset || region.assetId !== d.assetId || d.world.length !== 6 || !d.world.every(Number.isFinite)) return failure('Invalid pose region reference or matrix', `/pose/regions/${i}`);
-    const points = corners(region,asset,d.world);
-    if (!points.every(Number.isFinite)) return failure('Nonfinite geometry', `/pose/regions/${i}`);
-    output.push(points);
+  let ri=0, mi=0;
+  for (const slot of slots) {
+    const attachment=attachments.get(slot.attachmentId!)!;
+    const d=attachment.type==='region'?pose.regions[ri++]:pose.meshes[mi++];
+    const path=attachment.type==='region'?`/pose/regions/${ri-1}`:`/pose/meshes/${mi-1}`;
+    if (!d || d.slotId!==slot.id || d.attachmentId!==attachment.id || d.assetId!==attachment.assetId || !assets.has(d.assetId)) return failure('Invalid pose attachment reference/order',path);
+    if (attachment.type==='mesh') {
+      const result=meshVertices(attachment,d as typeof pose.meshes[number],path); if(!result.ok)return result;
+      output.push(result.value);
+    } else {
+      const world=(d as typeof pose.regions[number]).world;
+      if(!Array.isArray(world)||world.length!==6||!world.every(Number.isFinite))return failure('Invalid region matrix',path);
+      const points=corners(attachment,assets.get(d.assetId)!,world);
+      if(!points.every(Number.isFinite))return failure('Nonfinite geometry',path);
+      output.push(points);
+    }
   }
   return success(output);
 }

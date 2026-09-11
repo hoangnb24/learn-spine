@@ -1,0 +1,23 @@
+{
+  "browserVersion": "153.0.8010.12",
+  "sameProject": true,
+  "samePose": true,
+  "zipBytes": 2077,
+  "supported": {
+    "ok": true,
+    "warnings": []
+  },
+  "invalid": {
+    "ok": false,
+    "error": {
+      "code": "MISSING_REFERENCE",
+      "message": "Missing PNG bytes for asset art",
+      "path": "/assets/0"
+    }
+  },
+  "retained": {
+    "ok": true,
+    "warnings": []
+  },
+  "textureCount": 1
+}

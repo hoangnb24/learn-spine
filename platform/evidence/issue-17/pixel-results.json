@@ -1,0 +1,102 @@
+{
+  "quadrants": [
+    [
+      255,
+      0,
+      0,
+      255
+    ],
+    [
+      0,
+      255,
+      0,
+      255
+    ],
+    [
+      0,
+      0,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      128
+    ]
+  ],
+  "outside": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "seam": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "reflected": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "collapsed": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "regionAbove": [
+    0,
+    255,
+    0,
+    255
+  ],
+  "meshAbove": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "repeatedAlpha": [
+    255,
+    255,
+    255,
+    192
+  ],
+  "invalid": {
+    "ok": false,
+    "error": {
+      "code": "INVALID_INPUT",
+      "path": "/pose/meshes/0",
+      "message": "Invalid mesh geometry or changed topology"
+    }
+  },
+  "cancelled": {
+    "ok": false,
+    "error": {
+      "code": "CANCELLED",
+      "message": "Preparation cancelled",
+      "path": ""
+    }
+  },
+  "retained": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "lost": {
+    "ok": false,
+    "error": {
+      "code": "RENDER_FAILED",
+      "message": "WebGL context lost; recreate renderer",
+      "path": ""
+    }
+  },
+  "replacementReleased": true,
+  "released": true
+}

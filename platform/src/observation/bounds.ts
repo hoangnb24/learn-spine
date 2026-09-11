@@ -53,6 +53,9 @@ export function animationBounds(
     }
     return [Math.min(...values), Math.max(...values)];
   };
+  // IK only rotates these locals. A full turn safely bounds solver reach/clamping,
+  // reflected scales and interactions between ordered constraints without solving twice.
+  const ikBones=new Set((p as Project & {ikConstraints?: {rootBoneId:string;childBoneId:string}[]}).ikConstraints?.flatMap(c=>[c.rootBoneId,c.childBoneId])??[]);
   const remaining = [...p.bones];
   while (remaining.length) {
     const i = remaining.findIndex(
@@ -60,7 +63,7 @@ export function animationBounds(
     );
     const bone = remaining.splice(i, 1)[0],
       t = bone.setup;
-    const r = range(bone.id, "rotation", t.rotation),
+    const r: I = ikBones.has(bone.id)?[-Math.PI,Math.PI]:range(bone.id, "rotation", t.rotation),
       s = trig(r),
       c = trig(r, true),
       sx = range(bone.id, "scaleX", t.scaleX),
@@ -92,8 +95,36 @@ export function animationBounds(
   for (const slot of p.slots) {
     const region = p.attachments.find((r) => r.id === slot.attachmentId);
     if (!region) continue;
-    // Mesh bounds require the versioned geometry consumer (#17). No region envelope claim.
-    if (region.type !== "region") return null;
+    if (region.type === "mesh") {
+      const channel=animation.deforms?.find(c=>c.attachmentId===region.id);
+      for(let v=0;v<region.vertices.length;v+=2) {
+        const coordinate=(index:number):I=>{
+          if(!channel)return [region.vertices[index],region.vertices[index]];
+          const values=channel.keys.map(k=>k.offsets[index]);
+          for(let k=0;k<channel.keys.length-1;k++) {
+            const key=channel.keys[k],next=channel.keys[k+1];
+            if(key.curve.type==='bezier') values.push(key.offsets[index]+(next.offsets[index]-key.offsets[index])*key.curve.y1,key.offsets[index]+(next.offsets[index]-key.offsets[index])*key.curve.y2);
+          }
+          return [region.vertices[index]+Math.min(...values),region.vertices[index]+Math.max(...values)];
+        };
+        const px=coordinate(v),py=coordinate(v+1);
+        let wx:I=[0,0],wy:I=[0,0];
+        for(const influence of region.weights[v/2]) {
+          if(influence.weight===0)continue;
+          const [ba,bb,bc,bd,bx,by]=region.bindPose.find(b=>b.boneId===influence.boneId)!.world;
+          const det=ba*bd-bb*bc;
+          const lx=add(add(mul([bd/det,bd/det],px),mul([-bc/det,-bc/det],py)),[(bc*by-bd*bx)/det,(bc*by-bd*bx)/det]);
+          const ly=add(add(mul([-bb/det,-bb/det],px),mul([ba/det,ba/det],py)),[(bb*bx-ba*by)/det,(bb*bx-ba*by)/det]);
+          const [a,b,c,d,x,y]=worlds.get(influence.boneId)!;
+          const w:I=[influence.weight,influence.weight];
+          wx=add(wx,mul(w,add(add(mul(a,lx),mul(c,ly)),x)));
+          wy=add(wy,mul(w,add(add(mul(b,lx),mul(d,ly)),y)));
+        }
+        if(!bounds)bounds={minX:wx[0],maxX:wx[1],minY:wy[0],maxY:wy[1]};
+        else {bounds.minX=Math.min(bounds.minX,wx[0]);bounds.maxX=Math.max(bounds.maxX,wx[1]);bounds.minY=Math.min(bounds.minY,wy[0]);bounds.maxY=Math.max(bounds.maxY,wy[1]);}
+      }
+      continue;
+    }
     const asset = p.assets.find((a) => a.id === region.assetId)!;
     const t = region.transform,
       c = Math.cos(t.rotation),
