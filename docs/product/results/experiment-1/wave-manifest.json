@@ -1,0 +1,3898 @@
+{
+  "version": 1,
+  "projectId": "gate1-robot",
+  "revision": 5,
+  "kind": "preview",
+  "fps": 12,
+  "fit": "continuous-animation-envelope",
+  "frames": [
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0,
+      "sampledTime": 0,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0000.png",
+      "artifactId": "dfa2e291-6852-4638-a775-d07b91e99c07"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.08333333333333333,
+      "sampledTime": 0.08333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0001.png",
+      "artifactId": "97792254-c63c-4ba5-a4ed-05e2b0090b6c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.16666666666666666,
+      "sampledTime": 0.16666666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0002.png",
+      "artifactId": "0e22d832-eca2-4647-9139-89d21934052f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.25,
+      "sampledTime": 0.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0003.png",
+      "artifactId": "1d5a195a-b782-4d52-a579-c2722ff3d469"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.3333333333333333,
+      "sampledTime": 0.3333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0004.png",
+      "artifactId": "c6a11cce-6f37-434c-9d08-33ac295d11b1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.4166666666666667,
+      "sampledTime": 0.4166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0005.png",
+      "artifactId": "02f286a9-7f17-4fd9-b47f-d275878622e2"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.5,
+      "sampledTime": 0.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0006.png",
+      "artifactId": "ed3f189c-2d06-4fe7-aaf9-c58910598ee6"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.5833333333333334,
+      "sampledTime": 0.5833333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0007.png",
+      "artifactId": "27b9580b-7884-45cf-82a6-8e6241f0aa81"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.6666666666666666,
+      "sampledTime": 0.6666666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0008.png",
+      "artifactId": "f336bff6-1d30-43bf-bd1d-9ba1af19383b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.75,
+      "sampledTime": 0.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0009.png",
+      "artifactId": "f6c3caa4-f9c8-4a5c-a95f-6de92a3d348b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.8333333333333334,
+      "sampledTime": 0.8333333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0010.png",
+      "artifactId": "89d507dc-72b3-4227-9a2d-57d2bb695329"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 0.9166666666666666,
+      "sampledTime": 0.9166666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0011.png",
+      "artifactId": "3a8ee38b-b991-426c-ba5b-ac176ad3f38e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1,
+      "sampledTime": 1,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0012.png",
+      "artifactId": "f0187d5a-5e98-4851-aab6-8b674c5fe3c5"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.0833333333333333,
+      "sampledTime": 1.0833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0013.png",
+      "artifactId": "9196d6e1-0635-4476-8610-8769abfc9a31"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.1666666666666667,
+      "sampledTime": 1.1666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0014.png",
+      "artifactId": "409a8443-bbc4-410f-87d7-04f5a8e30769"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.25,
+      "sampledTime": 1.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0015.png",
+      "artifactId": "bd9f6da7-825e-47dd-9575-dd52a5fb4b14"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.3333333333333333,
+      "sampledTime": 1.3333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0016.png",
+      "artifactId": "35889fe2-cb4a-424e-9761-63694d31e264"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.4166666666666667,
+      "sampledTime": 1.4166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0017.png",
+      "artifactId": "a2c1f5c7-02f1-4742-ade4-3d7fb0df3188"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.5,
+      "sampledTime": 1.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0018.png",
+      "artifactId": "ce5e810c-ffef-4384-b032-1d8962143339"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.5833333333333333,
+      "sampledTime": 1.5833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0019.png",
+      "artifactId": "20266ef9-5d08-4c4c-9567-33160f7a828e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.6666666666666667,
+      "sampledTime": 1.6666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0020.png",
+      "artifactId": "fe6af122-069c-4eb4-8fa6-93fe5c54e99c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.75,
+      "sampledTime": 1.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0021.png",
+      "artifactId": "cee8eae8-3b8f-4a39-a4c8-ec47bdfa1915"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.8333333333333333,
+      "sampledTime": 1.8333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0022.png",
+      "artifactId": "82b420a6-73f6-4450-88be-06efb6fc84d2"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 1.9166666666666667,
+      "sampledTime": 1.9166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0023.png",
+      "artifactId": "c598a1f6-d330-441f-8e89-af7817a38b6e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2,
+      "sampledTime": 2,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0024.png",
+      "artifactId": "9867563b-c42d-4999-afb5-2325b7502d90"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.0833333333333335,
+      "sampledTime": 2.0833333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0025.png",
+      "artifactId": "939cb38a-58df-4643-93b8-72af78059017"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.1666666666666665,
+      "sampledTime": 2.1666666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0026.png",
+      "artifactId": "dd81c5fa-6642-4cd6-a02c-2e2a60865102"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.25,
+      "sampledTime": 2.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0027.png",
+      "artifactId": "ce92c4cd-cbdf-4384-a865-353a0404cf3b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.3333333333333335,
+      "sampledTime": 2.3333333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0028.png",
+      "artifactId": "6af1bf1e-bb72-4cfa-9763-741a05bce44f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.4166666666666665,
+      "sampledTime": 2.4166666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0029.png",
+      "artifactId": "f63f05fe-df63-4d9b-8caa-2b6775038d34"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.5,
+      "sampledTime": 2.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0030.png",
+      "artifactId": "323638e3-77ab-46a9-8495-6c7f71826e35"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.5833333333333335,
+      "sampledTime": 2.5833333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0031.png",
+      "artifactId": "68040a64-e627-4234-b581-745f0f24169a"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.6666666666666665,
+      "sampledTime": 2.6666666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0032.png",
+      "artifactId": "01003f36-5600-4a35-a055-3fdc2cc60a13"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.75,
+      "sampledTime": 2.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0033.png",
+      "artifactId": "c230d88b-3e9e-4040-b03b-9c09c487719f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.8333333333333335,
+      "sampledTime": 2.8333333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0034.png",
+      "artifactId": "35c36046-9bd3-43be-ad44-ca84775137d8"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 2.9166666666666665,
+      "sampledTime": 2.9166666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0035.png",
+      "artifactId": "b20cf380-a440-4728-b4e0-f664ad9d5e08"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3,
+      "sampledTime": 3,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0036.png",
+      "artifactId": "1dd278ff-c599-41fd-926c-75f70b9b8cd2"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.0833333333333335,
+      "sampledTime": 3.0833333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0037.png",
+      "artifactId": "3eb202ac-e9e6-4faa-8bc0-a72269c39e7c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.1666666666666665,
+      "sampledTime": 3.1666666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0038.png",
+      "artifactId": "881eb5c2-e800-48da-a050-84eb58aeb636"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.25,
+      "sampledTime": 3.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0039.png",
+      "artifactId": "e691f28f-03f2-498c-a7a8-43a41707e6a1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.3333333333333335,
+      "sampledTime": 3.3333333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0040.png",
+      "artifactId": "58a5fda0-6fb3-4468-bae2-d106ff64b3c7"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.4166666666666665,
+      "sampledTime": 3.4166666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0041.png",
+      "artifactId": "c3363664-1e37-4e74-947d-3346b957485f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.5,
+      "sampledTime": 3.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0042.png",
+      "artifactId": "fc6b73fc-cf7d-43d2-935f-359737c94844"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.5833333333333335,
+      "sampledTime": 3.5833333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0043.png",
+      "artifactId": "b6466846-7f98-47fe-a2f3-c2dccb205e44"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.6666666666666665,
+      "sampledTime": 3.6666666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0044.png",
+      "artifactId": "92201ece-d587-4ca3-b08f-9e8542c08bd5"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.75,
+      "sampledTime": 3.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0045.png",
+      "artifactId": "406f47d4-c211-44f7-bd0f-e99217fdaa8e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.8333333333333335,
+      "sampledTime": 3.8333333333333335,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0046.png",
+      "artifactId": "2a55f433-44bf-4e67-9f68-978806479bf4"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 3.9166666666666665,
+      "sampledTime": 3.9166666666666665,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0047.png",
+      "artifactId": "d8c38041-077f-45fe-adbe-b2d9d3e6e734"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4,
+      "sampledTime": 0,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0048.png",
+      "artifactId": "1a5df75e-f6d0-42e6-9148-f41d92277b99"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.083333333333333,
+      "sampledTime": 0.08333333333333304,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0049.png",
+      "artifactId": "5a24cbee-3e7c-458a-a0a7-2bf038f1aa22"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.166666666666667,
+      "sampledTime": 0.16666666666666696,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0050.png",
+      "artifactId": "cb0e2936-2467-41ad-b56c-d673f103379a"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.25,
+      "sampledTime": 0.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0051.png",
+      "artifactId": "7b7112b3-89c1-4148-bb17-6c0795abd06b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.333333333333333,
+      "sampledTime": 0.33333333333333304,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0052.png",
+      "artifactId": "59f31dc4-5b70-465c-afd5-5eafea342f36"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.416666666666667,
+      "sampledTime": 0.41666666666666696,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0053.png",
+      "artifactId": "686cc39e-3e18-4e17-a814-6e9a7fda1fd6"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.5,
+      "sampledTime": 0.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0054.png",
+      "artifactId": "0eb93ba8-d198-4585-bf96-a9cd405e78f1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.583333333333333,
+      "sampledTime": 0.583333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0055.png",
+      "artifactId": "9556be77-325f-4fb8-aadc-f755227cbdbf"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.666666666666667,
+      "sampledTime": 0.666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0056.png",
+      "artifactId": "e0eafb9e-7aa2-4922-abf5-1f92471f4d5e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.75,
+      "sampledTime": 0.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0057.png",
+      "artifactId": "2980103e-76b1-406a-9c3b-f9fc4e2318e9"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.833333333333333,
+      "sampledTime": 0.833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0058.png",
+      "artifactId": "cb5acdcb-fc79-4fae-a68b-ea4796e98764"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 4.916666666666667,
+      "sampledTime": 0.916666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0059.png",
+      "artifactId": "c3b7bcd9-9549-49a2-9917-fa73c515c8e2"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5,
+      "sampledTime": 1,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0060.png",
+      "artifactId": "19200df2-9319-4d09-b6d5-09ec21ecc249"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.083333333333333,
+      "sampledTime": 1.083333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0061.png",
+      "artifactId": "5e7d0af3-8c39-4018-8e45-f445296630dd"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.166666666666667,
+      "sampledTime": 1.166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0062.png",
+      "artifactId": "28b60652-5576-45bd-9cb8-ef598a674f9c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.25,
+      "sampledTime": 1.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0063.png",
+      "artifactId": "b404f3b6-ae43-45c0-aea2-ee7600c4b723"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.333333333333333,
+      "sampledTime": 1.333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0064.png",
+      "artifactId": "a707f4e0-b87b-464e-9be4-e138a2fc5bd0"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.416666666666667,
+      "sampledTime": 1.416666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0065.png",
+      "artifactId": "68327dd8-5ada-4914-99ce-4b2c68d7a64a"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.5,
+      "sampledTime": 1.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0066.png",
+      "artifactId": "ba6b25f3-f150-4356-a9df-1e29108f3ecd"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.583333333333333,
+      "sampledTime": 1.583333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0067.png",
+      "artifactId": "1d5a5df1-2958-48be-b68c-a2e0fa5f3f9b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.666666666666667,
+      "sampledTime": 1.666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0068.png",
+      "artifactId": "b9e09a51-a93a-4933-90ce-14115deba695"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.75,
+      "sampledTime": 1.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0069.png",
+      "artifactId": "2ebf3aa0-5d89-4b8c-b263-2b172c044e23"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.833333333333333,
+      "sampledTime": 1.833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0070.png",
+      "artifactId": "8cd9d222-4448-4d68-9008-235193c3afe5"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 5.916666666666667,
+      "sampledTime": 1.916666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0071.png",
+      "artifactId": "0d72b854-11a1-414a-873d-afaf13195afa"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6,
+      "sampledTime": 2,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0072.png",
+      "artifactId": "ca07d2af-8a02-4352-8168-caf2c96ac0aa"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.083333333333333,
+      "sampledTime": 2.083333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0073.png",
+      "artifactId": "49242a17-33d5-42b3-b129-d70e1255a60c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.166666666666667,
+      "sampledTime": 2.166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0074.png",
+      "artifactId": "3f30c932-d69b-4f54-a486-86f2da835cae"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.25,
+      "sampledTime": 2.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0075.png",
+      "artifactId": "320c9d96-c7c3-46fe-adc9-12c3ec19b0a1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.333333333333333,
+      "sampledTime": 2.333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0076.png",
+      "artifactId": "c1cec0ed-bc8d-44a9-ac48-b67b05b102d8"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.416666666666667,
+      "sampledTime": 2.416666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0077.png",
+      "artifactId": "332b7015-fe01-4d2d-8bb5-66e8d97c99ea"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.5,
+      "sampledTime": 2.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0078.png",
+      "artifactId": "f701abda-6a15-4913-90dc-1b72e05e0ac1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.583333333333333,
+      "sampledTime": 2.583333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0079.png",
+      "artifactId": "38ea628b-112a-4555-914b-7645bd938e10"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.666666666666667,
+      "sampledTime": 2.666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0080.png",
+      "artifactId": "6c7ba482-162f-4fc0-9040-771a8893c969"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.75,
+      "sampledTime": 2.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0081.png",
+      "artifactId": "959e44ad-dd83-4a4a-8540-73e6a952cc73"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.833333333333333,
+      "sampledTime": 2.833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0082.png",
+      "artifactId": "dd99d2fa-71ef-40f1-a21a-4849aa6725a1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 6.916666666666667,
+      "sampledTime": 2.916666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0083.png",
+      "artifactId": "46adfde3-fe27-4657-8620-e0da90e35ca5"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7,
+      "sampledTime": 3,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0084.png",
+      "artifactId": "0a05fe34-2a14-49b4-bca2-0a27769b842c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.083333333333333,
+      "sampledTime": 3.083333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0085.png",
+      "artifactId": "0ecd5a62-1d20-4e9c-91ca-f75e75c6b6a0"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.166666666666667,
+      "sampledTime": 3.166666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0086.png",
+      "artifactId": "1076202b-46b7-4077-9e66-c6e38e380c02"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.25,
+      "sampledTime": 3.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0087.png",
+      "artifactId": "e33c91ca-8744-4a5a-a444-330a779111c5"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.333333333333333,
+      "sampledTime": 3.333333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0088.png",
+      "artifactId": "d31f2149-ecd7-45c7-a813-923b73839537"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.416666666666667,
+      "sampledTime": 3.416666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0089.png",
+      "artifactId": "4da98091-cc43-4944-82ee-a2b75ee10215"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.5,
+      "sampledTime": 3.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0090.png",
+      "artifactId": "554ea841-5e7c-4a07-9707-bee9527d5c69"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.583333333333333,
+      "sampledTime": 3.583333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0091.png",
+      "artifactId": "603b4eda-b97f-43f7-a282-720fa44230da"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.666666666666667,
+      "sampledTime": 3.666666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0092.png",
+      "artifactId": "36be1d3e-98f8-4e62-b59f-d17f5ddf9f5f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.75,
+      "sampledTime": 3.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0093.png",
+      "artifactId": "15618248-5ee4-4eeb-85fa-ccfb5b050cb9"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.833333333333333,
+      "sampledTime": 3.833333333333333,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0094.png",
+      "artifactId": "3dcd76d6-c703-4728-ae68-30d01799b529"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 7.916666666666667,
+      "sampledTime": 3.916666666666667,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0095.png",
+      "artifactId": "76494120-9680-4c75-8e8a-4c7d3104a506"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8,
+      "sampledTime": 0,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0096.png",
+      "artifactId": "6104ee89-f237-437e-abf3-56963aab71d9"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.083333333333334,
+      "sampledTime": 0.08333333333333393,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0097.png",
+      "artifactId": "ece97a59-98ae-46e1-b87e-f7a21da33ace"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.166666666666666,
+      "sampledTime": 0.16666666666666607,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0098.png",
+      "artifactId": "c46b615c-fd75-465c-b375-ec60820ec8df"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.25,
+      "sampledTime": 0.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0099.png",
+      "artifactId": "63d563a2-9227-4eca-85c7-9a9739ba32b1"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.333333333333334,
+      "sampledTime": 0.3333333333333339,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0100.png",
+      "artifactId": "9a0d2f31-7ccc-4676-ad2c-bd76a7b15818"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.416666666666666,
+      "sampledTime": 0.4166666666666661,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0101.png",
+      "artifactId": "c1cc8245-03fd-4199-8c83-58489df65595"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.5,
+      "sampledTime": 0.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0102.png",
+      "artifactId": "276fcbcd-42f6-416c-8014-ea9fee841464"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.583333333333334,
+      "sampledTime": 0.5833333333333339,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0103.png",
+      "artifactId": "3a8b2e23-2d09-4642-a50c-22bfcdd1c92e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.666666666666666,
+      "sampledTime": 0.6666666666666661,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0104.png",
+      "artifactId": "242f867d-fa1d-458a-bed5-6c6a05c1d08a"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.75,
+      "sampledTime": 0.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0105.png",
+      "artifactId": "f27100d6-af6d-4a09-8f3d-dbf04c9f1e8c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.833333333333334,
+      "sampledTime": 0.8333333333333339,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0106.png",
+      "artifactId": "c9a4961e-a103-4ed0-960e-12cd07010d90"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 8.916666666666666,
+      "sampledTime": 0.9166666666666661,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0107.png",
+      "artifactId": "fb8d26e6-60f6-418c-9a13-de3f0564de53"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9,
+      "sampledTime": 1,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0108.png",
+      "artifactId": "09f00a7a-cfc6-4d50-b936-ecd4472d2c12"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.083333333333334,
+      "sampledTime": 1.083333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0109.png",
+      "artifactId": "81a35fc3-9298-4c3e-9846-cfc243654ba9"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.166666666666666,
+      "sampledTime": 1.166666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0110.png",
+      "artifactId": "11202e63-ce4f-4d3e-81b8-ef30c430b932"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.25,
+      "sampledTime": 1.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0111.png",
+      "artifactId": "caf523cd-92a2-4740-84e9-3b1259db7580"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.333333333333334,
+      "sampledTime": 1.333333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0112.png",
+      "artifactId": "9b8e7ac2-bbaa-4fc7-953c-bace4b0c134b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.416666666666666,
+      "sampledTime": 1.416666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0113.png",
+      "artifactId": "1a3c1e5b-a406-4840-b429-5c50e698e388"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.5,
+      "sampledTime": 1.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0114.png",
+      "artifactId": "938fb6c4-fba1-44a2-948e-9825e1fb033b"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.583333333333334,
+      "sampledTime": 1.583333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0115.png",
+      "artifactId": "2906917b-ea14-46fd-8295-722ad8973926"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.666666666666666,
+      "sampledTime": 1.666666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0116.png",
+      "artifactId": "2aebf11c-50d9-4441-b5e2-82e1c8756af4"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.75,
+      "sampledTime": 1.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0117.png",
+      "artifactId": "27697dca-2ca5-4d3b-8134-4659154b5a60"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.833333333333334,
+      "sampledTime": 1.833333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0118.png",
+      "artifactId": "f939886b-c75a-499c-9c08-d6768b337229"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 9.916666666666666,
+      "sampledTime": 1.916666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0119.png",
+      "artifactId": "4bdb34bf-477c-47b9-a5ab-a0a0723675e6"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10,
+      "sampledTime": 2,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0120.png",
+      "artifactId": "9b57cc99-7e2d-4b12-9ba4-d20647bd6cea"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.083333333333334,
+      "sampledTime": 2.083333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0121.png",
+      "artifactId": "d287e84b-4aa2-452e-a3b0-6f083cb4fc4f"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.166666666666666,
+      "sampledTime": 2.166666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0122.png",
+      "artifactId": "eb463bd2-d80b-4c4b-8f19-c213daf339a0"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.25,
+      "sampledTime": 2.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0123.png",
+      "artifactId": "1c6e4e7c-8e7b-49fa-bfb6-1deb5f129a8c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.333333333333334,
+      "sampledTime": 2.333333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0124.png",
+      "artifactId": "472bcdd1-d306-46d5-96f8-1fdd9513ea46"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.416666666666666,
+      "sampledTime": 2.416666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0125.png",
+      "artifactId": "8ba54a16-0ada-416f-b058-207db38cb417"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.5,
+      "sampledTime": 2.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0126.png",
+      "artifactId": "bc36ce8f-c92d-4726-a495-4432b288d176"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.583333333333334,
+      "sampledTime": 2.583333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0127.png",
+      "artifactId": "b903f90b-b101-4098-9c8a-0cdbf50bfafb"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.666666666666666,
+      "sampledTime": 2.666666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0128.png",
+      "artifactId": "33f9b1c6-6cb0-4f5e-8114-005e019cd6c0"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.75,
+      "sampledTime": 2.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0129.png",
+      "artifactId": "fbe2ab10-f179-47af-ac49-a2ca019f620d"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.833333333333334,
+      "sampledTime": 2.833333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0130.png",
+      "artifactId": "3c178c04-9f03-436d-b677-668bd8d544c8"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 10.916666666666666,
+      "sampledTime": 2.916666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0131.png",
+      "artifactId": "0f0db820-1966-44db-a604-e306ece429dd"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11,
+      "sampledTime": 3,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0132.png",
+      "artifactId": "199c864b-f3f7-4b59-9e67-973265bc0bc0"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.083333333333334,
+      "sampledTime": 3.083333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0133.png",
+      "artifactId": "bd5ea788-f92e-441e-8069-67f8aee2b0b2"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.166666666666666,
+      "sampledTime": 3.166666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0134.png",
+      "artifactId": "1df3a3f8-45f8-4ea3-ab2a-3a436f8c4c98"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.25,
+      "sampledTime": 3.25,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0135.png",
+      "artifactId": "d2f3b7ef-db38-4d6c-be33-e04c48f4c0a4"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.333333333333334,
+      "sampledTime": 3.333333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0136.png",
+      "artifactId": "09dfab0f-3253-4dbb-a71f-e3d686c20576"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.416666666666666,
+      "sampledTime": 3.416666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0137.png",
+      "artifactId": "ba4db91c-d0ce-4efa-b1de-7cdb0aeae60e"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.5,
+      "sampledTime": 3.5,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0138.png",
+      "artifactId": "9bdd57f1-75bd-4a3c-b23a-a4fc9d079f45"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.583333333333334,
+      "sampledTime": 3.583333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0139.png",
+      "artifactId": "35fc0ddc-b91e-4de5-9dd6-9916a25cef7c"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.666666666666666,
+      "sampledTime": 3.666666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0140.png",
+      "artifactId": "9ea12c0b-800a-4ef7-a80e-df8f3df8bd66"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.75,
+      "sampledTime": 3.75,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0141.png",
+      "artifactId": "eba213e3-84ff-453b-abca-a20a6a9e7730"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.833333333333334,
+      "sampledTime": 3.833333333333334,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0142.png",
+      "artifactId": "ffc7229d-e153-4052-9fdb-b4bf6cb8e450"
+    },
+    {
+      "projectId": "gate1-robot",
+      "revision": 5,
+      "animationId": "wave",
+      "time": 11.916666666666666,
+      "sampledTime": 3.916666666666666,
+      "viewport": {
+        "background": "#253542",
+        "centerX": 178.4866083144094,
+        "centerY": 338.1,
+        "devicePixelRatio": 1,
+        "height": 360,
+        "width": 480,
+        "zoom": 0.46277069118955794
+      },
+      "bounds": {
+        "minX": -157.09149454189992,
+        "maxX": 514.0647111707187,
+        "minY": 1,
+        "maxY": 675.2
+      },
+      "scale": 0.46277069118955794,
+      "pixelWidth": 480,
+      "pixelHeight": 360,
+      "file": "frame-0143.png",
+      "artifactId": "e3ad4307-b3af-4bd3-b0c4-8228dc7736bb"
+    }
+  ]
+}

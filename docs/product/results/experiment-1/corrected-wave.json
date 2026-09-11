@@ -1,0 +1,224 @@
+{
+  "id": "wave",
+  "name": "Wave",
+  "duration": 4,
+  "loop": true,
+  "channels": [
+    {
+      "boneId": "upper-arm-right",
+      "property": "rotation",
+      "keys": [
+        {
+          "time": 0,
+          "value": 0.174532925,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 0.8,
+          "value": 1.4,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 3.2,
+          "value": 1.4,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 4,
+          "value": 0.174532925,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        }
+      ]
+    },
+    {
+      "boneId": "forearm-right",
+      "property": "rotation",
+      "keys": [
+        {
+          "time": 0,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 0.8,
+          "value": 1.25,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 1.4,
+          "value": 0.8,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 2,
+          "value": 1.25,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 2.6,
+          "value": 0.8,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 3.2,
+          "value": 1.25,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 4,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        }
+      ]
+    },
+    {
+      "boneId": "hand-right",
+      "property": "rotation",
+      "keys": [
+        {
+          "time": 0,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 0.8,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 1.4,
+          "value": -0.12,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 2,
+          "value": 0.12,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 2.6,
+          "value": -0.12,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 3.2,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        },
+        {
+          "time": 4,
+          "value": 0,
+          "curve": {
+            "type": "bezier",
+            "x1": 0.42,
+            "y1": 0,
+            "x2": 0.58,
+            "y2": 1
+          }
+        }
+      ]
+    }
+  ]
+}

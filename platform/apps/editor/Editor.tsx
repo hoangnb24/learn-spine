@@ -118,8 +118,10 @@ function BoneForm({
 }
 export function Editor({
   runtime = editorRuntime,
+  agentStatus = "Agent chưa kết nối",
 }: {
   runtime?: EditorRuntime;
+  agentStatus?: string;
 }) {
   useSyncExternalStore(
     runtime.subscribe,
@@ -701,7 +703,7 @@ export function Editor({
               ? "Chưa lưu bản hiện tại"
               : "Chưa mở project"}
         </span>
-        <span>Agent chưa kết nối · Tải gói để mở trong Player</span>
+        <span>{agentStatus} · Tải gói để mở trong Player</span>
       </footer>
     </div>
   );

@@ -1,0 +1,9 @@
+{
+  "os": "macOS-26.4-arm64-arm-64bit",
+  "machine": "arm64",
+  "hardware": "Hardware:\n\n    Hardware Overview:\n\n      Model Name: Mac Studio\n      Model Identifier: Mac16,9\n      Model Number: MU963SA/A\n      Chip: Apple M4 Max\n      Total Number of Cores: 14 (10 Performance and 4 Efficiency)\n      Memory: 36 GB\n      System Firmware Version: 18000.101.7\n      OS Loader Version: 18000.101.7\n      ",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "agent": "Codex desktop GPT-6 parent, same model worker; native Browser WebMCP document",
+  "baselineSpine": "not measured; Trial export limit; no relative speed claim"
+}

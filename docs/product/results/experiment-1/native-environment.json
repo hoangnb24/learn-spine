@@ -1,0 +1,7 @@
+{
+  "browser": "Codex In-app Browser",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+  "sourceCommit": "a91c27cd93541b7b320b9b54c2451894b8fcd018",
+  "transport": "webmcp-document",
+  "projectRevision": 5
+}

@@ -1,0 +1,923 @@
+{
+  "bones": [
+    {
+      "id": "root",
+      "name": "root",
+      "parentId": null,
+      "setup": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "parentId": "root",
+      "setup": {
+        "x": 0,
+        "y": 310,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "pelvis",
+      "name": "pelvis",
+      "parentId": "body",
+      "setup": {
+        "x": 0,
+        "y": -10,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "head",
+      "name": "head",
+      "parentId": "body",
+      "setup": {
+        "x": 0,
+        "y": 170,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "upper-arm-left",
+      "name": "upper-arm-left",
+      "parentId": "body",
+      "setup": {
+        "x": -98,
+        "y": 130,
+        "rotation": -0.17453292519943295,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "forearm-left",
+      "name": "forearm-left",
+      "parentId": "upper-arm-left",
+      "setup": {
+        "x": 0,
+        "y": -67,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "hand-left",
+      "name": "hand-left",
+      "parentId": "forearm-left",
+      "setup": {
+        "x": 0,
+        "y": -96,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "thigh-left",
+      "name": "thigh-left",
+      "parentId": "pelvis",
+      "setup": {
+        "x": -43,
+        "y": -20,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "shin-left",
+      "name": "shin-left",
+      "parentId": "thigh-left",
+      "setup": {
+        "x": 0,
+        "y": -100,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "foot-left",
+      "name": "foot-left",
+      "parentId": "shin-left",
+      "setup": {
+        "x": 0,
+        "y": -107,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "upper-arm-right",
+      "name": "upper-arm-right",
+      "parentId": "body",
+      "setup": {
+        "x": 98,
+        "y": 130,
+        "rotation": 0.17453292519943295,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "forearm-right",
+      "name": "forearm-right",
+      "parentId": "upper-arm-right",
+      "setup": {
+        "x": 0,
+        "y": -67,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "hand-right",
+      "name": "hand-right",
+      "parentId": "forearm-right",
+      "setup": {
+        "x": 0,
+        "y": -96,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "thigh-right",
+      "name": "thigh-right",
+      "parentId": "pelvis",
+      "setup": {
+        "x": 43,
+        "y": -20,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "shin-right",
+      "name": "shin-right",
+      "parentId": "thigh-right",
+      "setup": {
+        "x": 0,
+        "y": -100,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "foot-right",
+      "name": "foot-right",
+      "parentId": "shin-right",
+      "setup": {
+        "x": 0,
+        "y": -107,
+        "rotation": 0.0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "id": "body",
+      "type": "region",
+      "assetId": "robot-body",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 203,
+      "height": 204,
+      "pivotX": 102,
+      "pivotY": 20
+    },
+    {
+      "id": "head",
+      "type": "region",
+      "assetId": "robot-head",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 226.4,
+      "height": 207.20000000000002,
+      "pivotX": 112.0,
+      "pivotY": 12.0
+    },
+    {
+      "id": "pelvis",
+      "type": "region",
+      "assetId": "robot-pelvis",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 125.45,
+      "height": 72.8,
+      "pivotX": 62.400000000000006,
+      "pivotY": 43.550000000000004
+    },
+    {
+      "id": "upper-arm-left",
+      "type": "region",
+      "assetId": "robot-upper-arm-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 58.199999999999996,
+      "height": 105.0,
+      "pivotX": 28.799999999999997,
+      "pivotY": 79.2
+    },
+    {
+      "id": "forearm-left",
+      "type": "region",
+      "assetId": "robot-forearm-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 42.300000000000004,
+      "height": 112.95,
+      "pivotX": 21.150000000000002,
+      "pivotY": 102.15
+    },
+    {
+      "id": "hand-left",
+      "type": "region",
+      "assetId": "robot-hand-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 38.76,
+      "height": 77.14,
+      "pivotX": 19.0,
+      "pivotY": 69.54
+    },
+    {
+      "id": "thigh-left",
+      "type": "region",
+      "assetId": "robot-thigh-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 59.16,
+      "height": 124.11999999999999,
+      "pivotX": 29.58,
+      "pivotY": 109.61999999999999
+    },
+    {
+      "id": "shin-left",
+      "type": "region",
+      "assetId": "robot-shin-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 59.16,
+      "height": 127.02,
+      "pivotX": 29.58,
+      "pivotY": 106.72
+    },
+    {
+      "id": "foot-left",
+      "type": "region",
+      "assetId": "robot-foot-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 87.3,
+      "height": 79.2,
+      "pivotX": 55.800000000000004,
+      "pivotY": 72.0
+    },
+    {
+      "id": "upper-arm-right",
+      "type": "region",
+      "assetId": "robot-upper-arm-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 57.0,
+      "height": 103.8,
+      "pivotX": 28.799999999999997,
+      "pivotY": 78.0
+    },
+    {
+      "id": "forearm-right",
+      "type": "region",
+      "assetId": "robot-forearm-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 41.85,
+      "height": 112.05,
+      "pivotX": 21.150000000000002,
+      "pivotY": 101.25
+    },
+    {
+      "id": "hand-right",
+      "type": "region",
+      "assetId": "robot-hand-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 38.76,
+      "height": 77.14,
+      "pivotX": 19.0,
+      "pivotY": 69.54
+    },
+    {
+      "id": "thigh-right",
+      "type": "region",
+      "assetId": "robot-thigh-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 59.16,
+      "height": 124.11999999999999,
+      "pivotX": 29.58,
+      "pivotY": 109.61999999999999
+    },
+    {
+      "id": "shin-right",
+      "type": "region",
+      "assetId": "robot-shin-right",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 59.16,
+      "height": 127.02,
+      "pivotX": 29.58,
+      "pivotY": 106.72
+    },
+    {
+      "id": "foot-right",
+      "type": "region",
+      "assetId": "robot-foot-left",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 87.3,
+      "height": 79.2,
+      "pivotX": 31.5,
+      "pivotY": 72.0
+    }
+  ],
+  "slots": [
+    {
+      "id": "thigh-left",
+      "name": "thigh-left",
+      "boneId": "thigh-left",
+      "attachmentId": "thigh-left"
+    },
+    {
+      "id": "shin-left",
+      "name": "shin-left",
+      "boneId": "shin-left",
+      "attachmentId": "shin-left"
+    },
+    {
+      "id": "foot-left",
+      "name": "foot-left",
+      "boneId": "foot-left",
+      "attachmentId": "foot-left"
+    },
+    {
+      "id": "thigh-right",
+      "name": "thigh-right",
+      "boneId": "thigh-right",
+      "attachmentId": "thigh-right"
+    },
+    {
+      "id": "shin-right",
+      "name": "shin-right",
+      "boneId": "shin-right",
+      "attachmentId": "shin-right"
+    },
+    {
+      "id": "foot-right",
+      "name": "foot-right",
+      "boneId": "foot-right",
+      "attachmentId": "foot-right"
+    },
+    {
+      "id": "pelvis",
+      "name": "pelvis",
+      "boneId": "pelvis",
+      "attachmentId": "pelvis"
+    },
+    {
+      "id": "upper-arm-left",
+      "name": "upper-arm-left",
+      "boneId": "upper-arm-left",
+      "attachmentId": "upper-arm-left"
+    },
+    {
+      "id": "forearm-left",
+      "name": "forearm-left",
+      "boneId": "forearm-left",
+      "attachmentId": "forearm-left"
+    },
+    {
+      "id": "hand-left",
+      "name": "hand-left",
+      "boneId": "hand-left",
+      "attachmentId": "hand-left"
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "boneId": "body",
+      "attachmentId": "body"
+    },
+    {
+      "id": "upper-arm-right",
+      "name": "upper-arm-right",
+      "boneId": "upper-arm-right",
+      "attachmentId": "upper-arm-right"
+    },
+    {
+      "id": "forearm-right",
+      "name": "forearm-right",
+      "boneId": "forearm-right",
+      "attachmentId": "forearm-right"
+    },
+    {
+      "id": "hand-right",
+      "name": "hand-right",
+      "boneId": "hand-right",
+      "attachmentId": "hand-right"
+    },
+    {
+      "id": "head",
+      "name": "head",
+      "boneId": "head",
+      "attachmentId": "head"
+    }
+  ],
+  "idle": {
+    "id": "idle",
+    "name": "Idle",
+    "duration": 2,
+    "loop": true,
+    "channels": [
+      {
+        "boneId": "head",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": -0.025,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1,
+            "value": 0.025,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2,
+            "value": -0.025,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      },
+      {
+        "boneId": "upper-arm-left",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": -0.1745,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1,
+            "value": -0.13,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2,
+            "value": -0.1745,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      },
+      {
+        "boneId": "upper-arm-right",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": 0.1745,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1,
+            "value": 0.13,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2,
+            "value": 0.1745,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "wave": {
+    "id": "wave",
+    "name": "Wave",
+    "duration": 4,
+    "loop": true,
+    "channels": [
+      {
+        "boneId": "upper-arm-right",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": 0.174532925,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 0.8,
+            "value": 1.4,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 3.2,
+            "value": 1.4,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 4,
+            "value": 0.174532925,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      },
+      {
+        "boneId": "forearm-right",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 0.8,
+            "value": 1.25,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1.2,
+            "value": 0.8,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1.6,
+            "value": 1.25,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2,
+            "value": 0.8,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2.4,
+            "value": 1.25,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2.8,
+            "value": 0.8,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 3.2,
+            "value": 1.25,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 4,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      },
+      {
+        "boneId": "hand-right",
+        "property": "rotation",
+        "keys": [
+          {
+            "time": 0,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 0.8,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1.2,
+            "value": -0.12,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 1.6,
+            "value": 0.12,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2,
+            "value": -0.12,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2.4,
+            "value": 0.12,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 2.8,
+            "value": -0.12,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 3.2,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          },
+          {
+            "time": 4,
+            "value": 0,
+            "curve": {
+              "type": "bezier",
+              "x1": 0.42,
+              "y1": 0,
+              "x2": 0.58,
+              "y2": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -81,3 +81,17 @@ For only the editor workflow: `npx playwright test -c editor.playwright.config.t
 The integration tests start the real Vite application on 4182 so direct external Session
 commands can be tested through its normal module boundary without production test globals.
 The default suite additionally checks built editor/player shell navigation on 4173.
+
+## Entry integration #14
+
+The production editor entry now registers the generic WebMCP bridge with the exact
+`editorRuntime.session`, `editorRuntime.storage` and one app-owned ObservationService.
+`webmcp.ts` subscribes to Session lifetime changes, invalidates downloaded links on
+reopen and tears registration/jobs/URLs down on unload/HMR. Persisted pagehide keeps
+its document registration for back/forward-cache restoration. A latest-result download
+link includes source revision and says when it differs from the active project.
+Editor receives its capability status through `agentStatus`; readiness does not claim
+an agent is currently connected. Native absence is displayed explicitly.
+
+Gate scripts and evidence live in `tests/e2e/robot` and
+`docs/product/results/experiment-1`. Gate1 is not passed merely by this integration.
