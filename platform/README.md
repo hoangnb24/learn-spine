@@ -51,3 +51,11 @@ Mesh core extension (#15): [versioned contract](../docs/product/contracts/mesh-v
 [fixtures](fixtures/mesh/synthetic.ts), [checks and limits](evidence/issue-15/README.md).
 Format 1 supports core mesh/deform evaluation; rendering and editor mesh authoring
 remain downstream. Existing region-v0 projects retain their format and geometry.
+
+## IK hai xương — #16
+
+Model v1 đã có `ik-v1` và `ikConstraints`; evaluator giải sau FK, trước mesh/region.
+[Hợp đồng IK](src/engine/IK.md) ghi miền scale hỗ trợ, mix/bend/order, fallback và
+chẩn đoán target/endpoint trên pose cuối. [Bằng chứng](evidence/issue-16/README.md)
+bao gồm public seek, roundtrip ZIP và hồi quy robot. Đây là lõi IK; chưa thêm UI
+hay lệnh authoring constraints, không phải nghiệm thu Gate 2 hoặc hiệu năng.

@@ -1,7 +1,7 @@
 # Two-bone IK contract — issue #16
 
 This independent core uses no Spine runtime, mesh solver, DOM, frame history or
-physics. Integration into format v1 follows the shared extension from #15. The
+physics. Format v1 integration extends the accepted shared model from #15 (main91bdd3a). The
 strict region-v0 boundary remains unchanged; v1 requires `ik-v1` whenever an
 `ikConstraints` field is present. Empty constraints are legal. The optional
 `Pose.ik` array is emitted for projects carrying that field, including an empty
@@ -80,6 +80,8 @@ whether a foot is planted.
 foot child at its endpoint and a separate target. `../../tests/engine/ik.test.ts`
 covers both bends, exact 0 mix, full/partial mix, reflected/scaled root and child,
 affine ancestors, out-of-reach/folded targets, zero lengths and ordered constraints.
-The public evaluator/validation/seek regression tests are added upon integration
-with the accepted v1 shared model. This document makes no claim that the standalone
-hook alone completes the public project workflow.
+`../../tests/engine/ik-integration.test.ts` exercises the public evaluator, strict
+model boundary, serialization/migration, combined mesh/region output, 20 shuffled
+seeks, setup nonmutation and output isolation. `createIKProject()` provides the
+serializable planted-leg idle fixture. Run `npm test --prefix platform` from repo
+root; set `IK_EVIDENCE` to a JSON output path to record the public seek measurements.

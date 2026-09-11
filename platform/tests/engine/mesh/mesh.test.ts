@@ -55,7 +55,7 @@ describe('mesh-v1 strict model',()=>{
     const a=take(evaluate(old,{animationId:'bounce',time:.4})),b=take(evaluate(migrated,{animationId:'bounce',time:.4}));expect(a).toEqual(b);
     expect(migrate(migrated,0)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_VERSION'}});
     expect(take(migrate(mesh,1))).toEqual(mesh);
-    expect(modelCapabilities.features).toContain('mesh-v1');expect(evaluatorCapabilities.features).not.toContain('ik-v1');
+    expect(modelCapabilities.features).toContain('mesh-v1');expect(evaluatorCapabilities.features).toContain('ik-v1');
   });
 });
 describe('bind-world pre-skin linear blend geometry',()=>{

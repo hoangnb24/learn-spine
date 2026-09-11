@@ -1,0 +1,330 @@
+{
+  "sampledTimes": [
+    1.37,
+    -0.25,
+    0,
+    0.13,
+    4.8,
+    1.01,
+    0.77,
+    2,
+    1.9,
+    0.04,
+    3.2,
+    0.5,
+    -3.1,
+    0.94,
+    1.5,
+    7.3,
+    0.33,
+    1.73,
+    -1,
+    2.8
+  ],
+  "maxMatrixDelta": 0,
+  "maxEndpointResidual": 3.1776437161565096e-14,
+  "setupUnchanged": true,
+  "outputIsolated": true,
+  "samples": [
+    {
+      "time": 1.37,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000003,
+        -99.99999999999999
+      ],
+      "distance": 3.1776437161565096e-14,
+      "status": "solved"
+    },
+    {
+      "time": -0.25,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100
+      ],
+      "distance": 0,
+      "status": "solved"
+    },
+    {
+      "time": 0,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100.00000000000003
+      ],
+      "distance": 2.842170943040401e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.13,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100
+      ],
+      "distance": 0,
+      "status": "solved"
+    },
+    {
+      "time": 4.8,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000001,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 1.01,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        119.99999999999999,
+        -99.99999999999999
+      ],
+      "distance": 2.0097183471152322e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.77,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        119.99999999999999,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 2,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100.00000000000003
+      ],
+      "distance": 2.842170943040401e-14,
+      "status": "solved"
+    },
+    {
+      "time": 1.9,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000003,
+        -100
+      ],
+      "distance": 2.842170943040401e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.04,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100.00000000000001
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 3.2,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000001,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.5,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100
+      ],
+      "distance": 0,
+      "status": "solved"
+    },
+    {
+      "time": -3.1,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000001,
+        -99.99999999999999
+      ],
+      "distance": 2.0097183471152322e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.94,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -99.99999999999997
+      ],
+      "distance": 2.842170943040401e-14,
+      "status": "solved"
+    },
+    {
+      "time": 1.5,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100
+      ],
+      "distance": 0,
+      "status": "solved"
+    },
+    {
+      "time": 7.3,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        119.99999999999999,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 0.33,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120,
+        -100
+      ],
+      "distance": 0,
+      "status": "solved"
+    },
+    {
+      "time": 1.73,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000001,
+        -100.00000000000003
+      ],
+      "distance": 3.1776437161565096e-14,
+      "status": "solved"
+    },
+    {
+      "time": -1,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        119.99999999999999,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    },
+    {
+      "time": 2.8,
+      "constraintId": "leg",
+      "order": 0,
+      "target": [
+        120,
+        -100
+      ],
+      "endpoint": [
+        120.00000000000001,
+        -100
+      ],
+      "distance": 1.4210854715202004e-14,
+      "status": "solved"
+    }
+  ]
+}

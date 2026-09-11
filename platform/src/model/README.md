@@ -20,4 +20,5 @@ Checks from repository root: `npm ci --prefix platform`, `npm run typecheck --pr
 Model now accepts format 0 and 1 with separate strict schemas; migrate supports
 0→1 and identity, rejecting downgrade. See [normative extension](../../../docs/product/contracts/mesh-v1.md)
 for bind/weight/deform rules, migration and capability boundaries. The v0 notes
-above describe the original #6 scope; `ik-v1` remains unsupported until #16.
+above describe the original #6 scope; `ik-v1` now enables strict optional `ikConstraints` in v1. See the
+[IK contract](../engine/IK.md) for two-bone chain validation, scale policy and diagnostics.

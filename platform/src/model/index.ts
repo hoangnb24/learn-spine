@@ -2,9 +2,10 @@ import { Ajv2020 } from 'ajv/dist/2020.js';
 import schema from './project-v0.schema.json';
 import schemaV1 from './project-v1.schema.json';
 import { meshProblem } from './mesh';
+import { ikProblem } from './ik';
 import type { Model, Project, Result, Problem } from './types';
 import { readJson } from './json';
-export const modelCapabilities = { formatVersions: [0, 1], features: ['region-v0', 'mesh-v1'] } as const;
+export const modelCapabilities = { formatVersions: [0, 1], features: ['region-v0', 'mesh-v1', 'ik-v1'] } as const;
 export type * from './types';
 
 const shape = new Ajv2020({ strict: true, allErrors: false, ownProperties: true }).compile<Project>(schema);
@@ -48,7 +49,7 @@ export function validate(input: unknown): Result<Project> {
   if (caps && 'value' in caps && Array.isArray(caps.value)) {
     for (let i = 0; i < caps.value.length; i++) {
       const cap = Object.getOwnPropertyDescriptor(caps.value, String(i));
-      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0' && !(version && 'value' in version && version.value === 1 && cap.value === 'mesh-v1'))
+      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0' && !(version && 'value' in version && version.value === 1 && (cap.value === 'mesh-v1' || cap.value === 'ik-v1')))
         return fail('UNSUPPORTED_CAPABILITY', `/requiredCapabilities/${i}`, 'Capability is not supported for this format');
     }
   }
@@ -70,6 +71,8 @@ export function validate(input: unknown): Result<Project> {
     return fail('INVALID_INPUT', error.instancePath + (key ? `/${pointer(key)}` : ''), error.message ?? 'Invalid project');
   }
   const p = input;
+  if (p.ikConstraints !== undefined && !p.requiredCapabilities.includes('ik-v1'))
+    return fail('UNSUPPORTED_CAPABILITY', '/requiredCapabilities', 'IK constraints require ik-v1');
   const meshError = meshProblem(p);
   if (meshError) return { ok: false, error: meshError };
   const collections = ['assets', 'bones', 'slots', 'attachments', 'animations'] as const;
@@ -97,6 +100,8 @@ export function validate(input: unknown): Result<Project> {
     }
     for (const id of chain) visited.add(id);
   }
+  const ikError = ikProblem(p.bones, p.ikConstraints ?? []);
+  if (ikError) return { ok: false, error: ikError };
   for (const [i, slot] of p.slots.entries()) {
     if (!bones.has(slot.boneId)) return fail('MISSING_REFERENCE', `/slots/${i}/boneId`, 'Slot bone does not exist', [slot.id, slot.boneId]);
     if (slot.attachmentId !== null && !attachments.has(slot.attachmentId)) return fail('MISSING_REFERENCE', `/slots/${i}/attachmentId`, 'Slot attachment does not exist', [slot.id, slot.attachmentId]);

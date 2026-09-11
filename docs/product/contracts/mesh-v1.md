@@ -9,8 +9,8 @@ semantics stay unchanged. No Spine runtime is used.
 
 `validate` accepts format 0 and 1, returning defensive copies. Format 0 remains
 strictly region-only. Format 1 requires `region-v0`; any mesh/deform data additionally
-requires `mesh-v1`. Unknown capabilities, including `ik-v1` until #16 integrates
-its solver, are rejected. Capabilities cannot silently enable ignored data.
+requires `mesh-v1`. IK constraint data requires `ik-v1`; its integrated rules are
+in the [IK contract](../../../platform/src/engine/IK.md). Unknown capabilities are rejected. Capabilities cannot silently enable ignored data.
 `modelCapabilities` and `evaluatorCapabilities` expose support separately from
 `rendererCapabilities`, which still lists region only.
 
@@ -86,11 +86,11 @@ No rendered-mesh, mesh bounds/diagnostics, Gate 2 or performance claim is made.
 Order: sample local channels → parent-first FK worlds → **#16 solveIK** → mesh
 pre-skin deform and skinning → draw pose. `engine/index.ts` has the integration
 point after worlds are built. #16 owns `model/ik.ts`, `engine/ik.ts` and its tests;
-shared model/evaluator integration follows acceptance/merge of #15.
+shared model/evaluator integration extends the accepted #15 model.
 
-Agreed future shape (not accepted by #15 loader): optional `Project.ikConstraints`
+Integrated #16 shape: optional `Project.ikConstraints`
 with `{id,type:'two-bone-ik',rootBoneId,childBoneId,targetBoneId,endpoint:[x,y],
-bend:1|-1,mix,order}`; distinct nonnegative integer order. #16 adds its strict
+bend:1|-1,mix,order}`; distinct nonnegative integer order. #16 supplies its strict
 schema, references/scale rules, `ik-v1` capability and optional Pose `ik` diagnostics
 in the same integration. Hook:
 

@@ -1,4 +1,4 @@
-import type { Bone, Id, Problem } from './types';
+import type { Bone, Id, Problem } from './types.js';
 
 /** Endpoint is a point in child-bone local space; target is the target bone origin. */
 export interface TwoBoneIK {
