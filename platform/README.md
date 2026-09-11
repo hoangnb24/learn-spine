@@ -29,11 +29,11 @@ Editor: tạo project → chọn/thêm xương → nạp PNG → sửa Setup →
 - [Engine](src/engine/README.md): evaluate pose thuần, transform/timeline; [renderer](src/render/README.md): Pixi region và capture.
 - [Storage](src/storage/README.md): validate PNG/bundle, pack/unpack ZIP, autosave/recover; [observation](src/observation/README.md): ảnh, sequence/preview và jobs.
 - `src/adapters/webmcp/{index.ts,bridge.ts,schemas.ts}`: adapter #13 đã merge; việc gắn vào chính runtime editor và chứng cứ robot đã merge qua PR #48. Không coi handler tests là bằng chứng native end-to-end.
-- #15 đã bàn giao [mesh-v1](../docs/product/contracts/mesh-v1.md): model v1, Pose version 1 với world mesh arrays và điểm IK sau FK/trước skinning. #16 đã nghiệm thu IK core; #17 sở hữu renderer/observation mesh, hiện các consumer này vẫn chưa hỗ trợ mesh. Session/storage giữ v1 nhưng mesh/deform authoring chưa có; xem [handoff](../docs/product/reconciliation/2026-09-11-mesh-core-handoff.md).
+- #15 đã bàn giao [mesh-v1](../docs/product/contracts/mesh-v1.md): model v1, Pose version 1 với world mesh arrays và điểm IK sau FK/trước skinning. #16 đã nghiệm thu IK core; #17 đã nghiệm thu renderer/observation mesh+IK; controls authoring và transport schema vẫn thuộc #19. Session/storage giữ v1 nhưng mesh/deform authoring chưa có; xem [handoff](../docs/product/reconciliation/2026-09-11-mesh-core-handoff.md).
 
 ## Gate 1 và Polish
 
-Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15/#16 Done sau PR #56/#55; #17/#18 In Progress / Ready, #19 còn Blocked. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
+Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15–#18 Done; #19 In Progress / Ready, #20 còn Blocked. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
 
 [#51](https://github.com/hoangnb24/learn-spine/issues/51) chuẩn hóa phép đo/profile/baseline, rồi [#52](https://github.com/hoangnb24/learn-spine/issues/52) tối ưu/retest p95 <=16.7 ms: P2/Polish/Deferred, không chặn giai đoạn chức năng. [Đối chiếu có ngày](../docs/product/reconciliation/2026-09-11-gate1.md) ghi mốc main, nguồn đo và nghiệm thu.
 
@@ -49,8 +49,8 @@ Gate 1 đã đo và PR #48 đã merge như trên; chưa có tuyên bố đạt h
 
 Mesh core extension (#15): [versioned contract](../docs/product/contracts/mesh-v1.md),
 [fixtures](fixtures/mesh/synthetic.ts), [checks and limits](evidence/issue-15/README.md).
-Format 1 supports core mesh/deform evaluation; rendering and editor mesh authoring
-remain downstream. Existing region-v0 projects retain their format and geometry.
+Format 1 supports core mesh/deform evaluation and accepted #17 rendering/capture;
+editor mesh/IK authoring and transport writes remain #19. Existing region-v0 projects retain their format and geometry.
 
 ## IK hai xương — #16
 
@@ -59,3 +59,7 @@ Model v1 đã có `ik-v1` và `ikConstraints`; evaluator giải sau FK, trước
 chẩn đoán target/endpoint trên pose cuối. [Bằng chứng](evidence/issue-16/README.md)
 bao gồm public seek, roundtrip ZIP và hồi quy robot. Đây là lõi IK; chưa thêm UI
 hay lệnh authoring constraints, không phải nghiệm thu Gate 2 hoặc hiệu năng.
+
+[Đối chiếu consumer #19 → #20](../docs/product/reconciliation/2026-09-11-consumer-reconciliation.md) ghi các write schema/capability/UI còn thiếu và roundtrip cần kiểm.
+
+[Diagnostics API #18](src/diagnostics/README.md) đã nghiệm thu: validate_project/measure_motion là module thuần, chưa đăng ký tool; #19 đang bọc API và thêm authoring/UI.

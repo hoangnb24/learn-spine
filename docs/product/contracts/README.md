@@ -51,5 +51,7 @@ Package riêng chỉ chứa công cụ kiểm tra đặc tả (Ajv 8.20.0, TypeS
 [Mesh v1 (#15)](mesh-v1.md) specifies the implemented format 1 schema, explicit
 0→1 migration and versioned Pose. [Two-bone IK (#16)](../../../platform/src/engine/IK.md)
 is now integrated in format v1 with `ik-v1`, ordered solving before mesh/region
-output and final-world `Pose.ik` diagnostics; renderer/capture and authoring remain downstream. The original
+output and final-world `Pose.ik` diagnostics; renderer/capture is accepted through #17; authoring/transport remains #19. The original
 v0 schema and semantics remain unchanged; the region oracle above stays v0-only.
+
+[Motion diagnostics #18](../../../platform/src/diagnostics/README.md) is an accepted consumer API with fixed policy, final-pose measurements and bounded reports. #19 owns transport/command/UI integration; Gate 2/3 still require their own evidence.
