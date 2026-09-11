@@ -1,0 +1,182 @@
+[
+  {
+    "requestedTime": 0.7333000000000001,
+    "effectiveInput": 0.7333000000000001,
+    "normalizedTime": 0.7332999999999998,
+    "referenceTime": 0.7333000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.11660000000000004,
+    "effectiveInput": 0.11660000000000004,
+    "normalizedTime": 0.11660000000000004,
+    "referenceTime": 0.11660000000000004,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.5665999999999989,
+    "effectiveInput": 1.5665999999999989,
+    "normalizedTime": 1.5665999999999989,
+    "referenceTime": 1.5665999999999989,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.31660000000000005,
+    "effectiveInput": 0.31660000000000005,
+    "normalizedTime": 0.3166000000000002,
+    "referenceTime": 0.31660000000000005,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.9997999999999991,
+    "effectiveInput": 1.9997999999999991,
+    "normalizedTime": 1.9997999999999991,
+    "referenceTime": 1.9997999999999991,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.016600000000000024,
+    "effectiveInput": 0.016600000000000024,
+    "normalizedTime": 0.016599999999999948,
+    "referenceTime": 0.016600000000000024,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.2665999999999995,
+    "effectiveInput": 1.2665999999999995,
+    "normalizedTime": 1.2665999999999995,
+    "referenceTime": 1.2665999999999995,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.5332,
+    "effectiveInput": 0.5332,
+    "normalizedTime": 0.5331999999999999,
+    "referenceTime": 0.5332,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.783199999999999,
+    "effectiveInput": 1.783199999999999,
+    "normalizedTime": 1.783199999999999,
+    "referenceTime": 1.783199999999999,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.9499000000000004,
+    "effectiveInput": 0.9499000000000004,
+    "normalizedTime": 0.9499000000000004,
+    "referenceTime": 0.9499000000000004,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.21660000000000007,
+    "effectiveInput": 0.21660000000000007,
+    "normalizedTime": 0.21660000000000013,
+    "referenceTime": 0.21660000000000007,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.466599999999999,
+    "effectiveInput": 1.466599999999999,
+    "normalizedTime": 1.4665999999999988,
+    "referenceTime": 1.466599999999999,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.6332000000000001,
+    "effectiveInput": 0.6332000000000001,
+    "normalizedTime": 0.6332,
+    "referenceTime": 0.6332000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.8831999999999987,
+    "effectiveInput": 1.8831999999999987,
+    "normalizedTime": 1.8831999999999987,
+    "referenceTime": 1.8831999999999987,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.0499000000000003,
+    "effectiveInput": 1.0499000000000003,
+    "normalizedTime": 1.0499,
+    "referenceTime": 1.0499000000000003,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.4332999999999999,
+    "effectiveInput": 0.4332999999999999,
+    "normalizedTime": 0.4333,
+    "referenceTime": 0.4332999999999999,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.683199999999999,
+    "effectiveInput": 1.683199999999999,
+    "normalizedTime": 1.683199999999999,
+    "referenceTime": 1.683199999999999,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 0.8499000000000003,
+    "effectiveInput": 0.8499000000000003,
+    "normalizedTime": 0.8499000000000003,
+    "referenceTime": 0.8499000000000003,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.3664999999999994,
+    "effectiveInput": 1.3664999999999994,
+    "normalizedTime": 1.3664999999999994,
+    "referenceTime": 1.3664999999999994,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  },
+  {
+    "requestedTime": 1.1499000000000001,
+    "effectiveInput": 1.1499000000000001,
+    "normalizedTime": 1.1499000000000001,
+    "referenceTime": 1.1499000000000001,
+    "referenceSource": "recorded forward first-cycle draw",
+    "requestedReferenceDelta": 0,
+    "delta": 0
+  }
+]

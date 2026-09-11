@@ -1,0 +1,44 @@
+[WebServer] (node:67579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:67580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/deformation/gate.spec.ts:213:3 › Gate2 scarf authored and measured (1.5m)
+  ✘  2 tests/e2e/deformation/gate.spec.ts:213:3 › Gate2 jelly authored and measured (1.0m)
+(node:67770) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 tests/e2e/deformation/gate.spec.ts:213:3 › Gate2 ik authored and measured (1.5m)
+
+
+  1) tests/e2e/deformation/gate.spec.ts:213:3 › Gate2 jelly authored and measured ──────────────────
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 1.9999999999999991
+    Received: 0
+
+    Expected precision:    8
+    Expected difference: < 0.000000005
+    Received difference:   1.9999999999999991
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      72 |   await expect
+      73 |     .poll(async () => (await drawn(page))?.pose.sampledTime)
+    > 74 |     .toBeCloseTo(((time % 2) + 2) % 2, 8);
+         |      ^
+      75 |   return drawn(page);
+      76 | }
+      77 | const numbers = (p: any) =>
+        at seek (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/gate.spec.ts:74:6)
+        at playback (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/gate.spec.ts:144:16)
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/gate.spec.ts:346:28
+
+    Error Context: test-results/gate-Gate2-jelly-authored-and-measured/error-context.md
+
+  1 failed
+    tests/e2e/deformation/gate.spec.ts:213:3 › Gate2 jelly authored and measured ───────────────────
+  2 passed (4.1m)

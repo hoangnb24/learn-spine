@@ -1,0 +1,38 @@
+{
+  "scarf": {
+    "minimumWeight": 0,
+    "maximumWeightSumError": 0,
+    "maximumAnchorErrorPx": 0,
+    "minimumTriangleDoubleArea": 138.2399999999992,
+    "unexpectedTriangleFlips": 0,
+    "nonadjacentEdgeProperCrossings": 0,
+    "maximumEyeHeightRelativeChange": null,
+    "maximumIKResidualPx": null,
+    "sampleCount": 65,
+    "diagnosticPass": true
+  },
+  "jelly": {
+    "minimumWeight": 0,
+    "maximumWeightSumError": 0,
+    "maximumAnchorErrorPx": 0,
+    "minimumTriangleDoubleArea": 107.99999999999974,
+    "unexpectedTriangleFlips": 0,
+    "nonadjacentEdgeProperCrossings": 0,
+    "maximumEyeHeightRelativeChange": 1.6653345369377348e-15,
+    "maximumIKResidualPx": null,
+    "sampleCount": 61,
+    "diagnosticPass": true
+  },
+  "ik": {
+    "minimumWeight": null,
+    "maximumWeightSumError": 0,
+    "maximumAnchorErrorPx": 4.4938668397781776e-14,
+    "minimumTriangleDoubleArea": null,
+    "unexpectedTriangleFlips": 0,
+    "nonadjacentEdgeProperCrossings": 0,
+    "maximumEyeHeightRelativeChange": null,
+    "maximumIKResidualPx": 4.4938668397781776e-14,
+    "sampleCount": 61,
+    "diagnosticPass": true
+  }
+}

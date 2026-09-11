@@ -1,0 +1,128 @@
+{
+  "fixtures": {
+    "scarf": {
+      "projectId": "34c88131-825e-4d22-a9b9-320971daf812",
+      "revision": 5,
+      "zipAssetsHashVerified": true,
+      "halfLogicalSemanticsIdentical": true,
+      "seeks": [
+        {
+          "app": "editor",
+          "count": 20,
+          "maxDelta": 0,
+          "maxRequestedReferenceDelta": 0,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 1.9999999999999991,
+            "normalizedTime": 1.9999999999999991,
+            "referenceTime": 0,
+            "delta": 5.684341886080802e-14
+          }
+        },
+        {
+          "app": "player",
+          "count": 20,
+          "maxDelta": 5.684341886080802e-14,
+          "maxRequestedReferenceDelta": 5.684341886080802e-14,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 2,
+            "normalizedTime": 0,
+            "referenceTime": 0,
+            "delta": 0
+          }
+        }
+      ],
+      "reachabilityDistanceRange": null
+    },
+    "jelly": {
+      "projectId": "6b353160-af8e-450f-af46-63139aa91b03",
+      "revision": 10,
+      "zipAssetsHashVerified": true,
+      "halfLogicalSemanticsIdentical": true,
+      "seeks": [
+        {
+          "app": "editor",
+          "count": 20,
+          "maxDelta": 0,
+          "maxRequestedReferenceDelta": 0,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 1.9999999999999991,
+            "normalizedTime": 1.9999999999999991,
+            "referenceTime": 0,
+            "delta": 1.1368683772161603e-13
+          }
+        },
+        {
+          "app": "player",
+          "count": 20,
+          "maxDelta": 1.4210854715202004e-13,
+          "maxRequestedReferenceDelta": 1.4210854715202004e-13,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 2,
+            "normalizedTime": 0,
+            "referenceTime": 0,
+            "delta": 0
+          }
+        }
+      ],
+      "reachabilityDistanceRange": null
+    },
+    "ik": {
+      "projectId": "30ce8a36-35d4-4963-bb1f-3d4b21a20151",
+      "revision": 3,
+      "zipAssetsHashVerified": true,
+      "halfLogicalSemanticsIdentical": true,
+      "seeks": [
+        {
+          "app": "editor",
+          "count": 20,
+          "maxDelta": 0,
+          "maxRequestedReferenceDelta": 0,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 1.9999999999999991,
+            "normalizedTime": 1.9999999999999991,
+            "referenceTime": 0,
+            "delta": 0
+          }
+        },
+        {
+          "app": "player",
+          "count": 20,
+          "maxDelta": 7.993605777301127e-14,
+          "maxRequestedReferenceDelta": 7.993605777301127e-14,
+          "wraps": 3,
+          "boundary": {
+            "requestedTime": 1.9999999999999991,
+            "effectiveInput": 2,
+            "normalizedTime": 0,
+            "referenceTime": 0,
+            "delta": 0
+          }
+        }
+      ],
+      "reachabilityDistanceRange": [
+        138.92443989449805,
+        156.2049935181331
+      ]
+    }
+  },
+  "regionCornerCount": 12,
+  "rotationOnlyNegativeControlDetected": true,
+  "historicalArchives": {
+    "run-01": {
+      "filesVerified": 253
+    },
+    "run-02": {
+      "filesVerified": 74
+    }
+  }
+}

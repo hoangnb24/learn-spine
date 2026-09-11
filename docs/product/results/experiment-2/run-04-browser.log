@@ -1,0 +1,111 @@
+[WebServer] (node:68685) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:68686) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/deformation/capture.spec.ts:24:3 › observation supplement scarf (1.2s)
+  ✓  2 tests/e2e/deformation/capture.spec.ts:24:3 › observation supplement jelly (841ms)
+  ✓  3 tests/e2e/deformation/capture.spec.ts:24:3 › observation supplement ik (1.0s)
+  ✘  4 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks scarf (14.1s)
+(node:68739) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks jelly (14.6s)
+(node:68746) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks ik (13.8s)
+
+
+  1) tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks scarf ──────────────────
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 0.73
+    Received: 0.7334000000000003
+
+    Expected precision:    8
+    Expected difference: < 0.000000005
+    Received difference:   0.0034000000000002917
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at helpers.ts:86
+
+      84 |   await expect
+      85 |     .poll(async () => (await drawn(page))?.pose.sampledTime)
+    > 86 |     .toBeCloseTo(normalizedTime, 8);
+         |      ^
+      87 |   return {
+      88 |     ...(await drawn(page)),
+      89 |     requestedTime: time,
+        at seek (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:86:6)
+        at playback (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:171:16)
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/recheck.spec.ts:31:20
+
+    Error Context: test-results/recheck-recheck-recorded-UI-seeks-scarf/error-context.md
+
+  2) tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks jelly ──────────────────
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 0.73
+    Received: 0.7333000000000001
+
+    Expected precision:    8
+    Expected difference: < 0.000000005
+    Received difference:   0.0033000000000000806
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at helpers.ts:86
+
+      84 |   await expect
+      85 |     .poll(async () => (await drawn(page))?.pose.sampledTime)
+    > 86 |     .toBeCloseTo(normalizedTime, 8);
+         |      ^
+      87 |   return {
+      88 |     ...(await drawn(page)),
+      89 |     requestedTime: time,
+        at seek (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:86:6)
+        at playback (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:171:16)
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/recheck.spec.ts:31:20
+
+    Error Context: test-results/recheck-recheck-recorded-UI-seeks-jelly/error-context.md
+
+  3) tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks ik ─────────────────────
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 0.73
+    Received: 0.7333000000000002
+
+    Expected precision:    8
+    Expected difference: < 0.000000005
+    Received difference:   0.0033000000000001917
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       at helpers.ts:86
+
+      84 |   await expect
+      85 |     .poll(async () => (await drawn(page))?.pose.sampledTime)
+    > 86 |     .toBeCloseTo(normalizedTime, 8);
+         |      ^
+      87 |   return {
+      88 |     ...(await drawn(page)),
+      89 |     requestedTime: time,
+        at seek (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:86:6)
+        at playback (/Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/helpers.ts:171:16)
+        at /Users/tubakhuym/projects/learn-spine-worktrees/issue-20/platform/tests/e2e/deformation/recheck.spec.ts:31:20
+
+    Error Context: test-results/recheck-recheck-recorded-UI-seeks-ik/error-context.md
+
+  3 failed
+    tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks scarf ───────────────────
+    tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks jelly ───────────────────
+    tests/e2e/deformation/recheck.spec.ts:17:3 › recheck recorded UI seeks ik ──────────────────────
+  3 passed (47.0s)

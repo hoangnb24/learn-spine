@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-09-11T07:43:46.337666+00:00",
+  "sourceCommit": "75ac03a989e3612a1338dbfe82d55ef09bafebdb",
+  "protocolCommit": "d836e8c87c5a8a095d9e5761ff87ef6991f7e7b6",
+  "os": "macOS-26.4-arm64-arm-64bit",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "hardware": {
+    "model": "Mac16,9",
+    "cpu": "Apple M4 Max",
+    "memoryBytes": "38654705664"
+  },
+  "agent": "Codex desktop GPT-6 worker; public command authoring, automated browser; no native WebMCP claim",
+  "reference": "Same Mac Studio M4 Max / macOS arm64 / Node22 / Chromium153 SwiftShader as Gate1. Vite dev; 1280x720; deviceScaleFactor1;5s warmup30s sample. No GPU/display presentation measurement or performance pass. Run01 had continuous browser video; final run does not.",
+  "baselineSpine": "NOT MEASURED; no comparative productivity/speed claim",
+  "physics": "NOT TESTED"
+}
