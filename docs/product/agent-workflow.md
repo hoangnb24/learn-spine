@@ -2,6 +2,8 @@
 
 Áp dụng cho công việc xây website animation trong repo này. GitHub issue và tài liệu trong repo là ngữ cảnh bền vững; không cần đọc cuộc hội thoại đã tạo dự án.
 
+Đọc [WORKFLOW — Điều phối dự án](../../WORKFLOW.md) trước khi nhận việc. Theo chỉ dẫn cập nhật ngày 11/09/2026: mỗi issue có một sub-agent triển khai và một sub-agent nghiệm thu độc lập; Orchestrator giữ toàn cảnh, nhận kết luận nghiệm thu, merge, đóng issue và điều phối tiếp. Các bước kỹ thuật dưới đây thực hiện theo phân vai đó.
+
 ## Trước khi bắt đầu
 
 1. Đọc đầy đủ issue, các dependency trực tiếp và PR bàn giao của chúng. Chỉ bắt đầu implementation khi đầu vào đã merge vào `main` và đáp ứng tiêu chí của dependency; trạng thái Closed một mình chưa đủ nếu issue bị đóng là not planned.
