@@ -1,0 +1,17 @@
+{
+  "currentRevision": 3,
+  "request": {
+    "projectId": "robot-region-example",
+    "expectedRevision": 2,
+    "requestId": "stale-example",
+    "operations": [
+      {
+        "kind": "setSlotOrder",
+        "ids": [
+          "body-slot"
+        ]
+      }
+    ]
+  },
+  "expectedError": "REVISION_CONFLICT"
+}

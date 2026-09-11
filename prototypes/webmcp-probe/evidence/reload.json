@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-10T16:34:43.751Z",
+  "result": {
+    "content": [
+      {
+        "text": "{\"ok\":true,\"value\":0,\"revision\":0,\"canUndo\":false}",
+        "type": "text"
+      }
+    ],
+    "isError": false
+  },
+  "connection": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "documentModelContext": true,
+    "navigatorModelContext": false,
+    "registeredTools": [
+      "probe_read",
+      "probe_set",
+      "probe_undo"
+    ],
+    "registrationErrors": [],
+    "agentInvocation": "registered-callback-observed; verify caller log separately",
+    "surface": "document.modelContext"
+  },
+  "events": [
+    {
+      "at": "2026-09-10T16:34:43.751Z",
+      "name": "probe_read",
+      "input": {},
+      "source": "registered-tool:document.modelContext",
+      "signalProvided": false,
+      "durationMs": 0,
+      "result": {
+        "ok": true,
+        "value": 0,
+        "revision": 0,
+        "canUndo": false
+      }
+    }
+  ]
+}

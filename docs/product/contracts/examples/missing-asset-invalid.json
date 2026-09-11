@@ -1,0 +1,123 @@
+{
+  "formatVersion": 0,
+  "projectId": "robot-region-example",
+  "revision": 0,
+  "requiredCapabilities": [
+    "region-v0"
+  ],
+  "metadata": {
+    "name": "Body bob \u2014 minimal native contract example"
+  },
+  "assets": [
+    {
+      "id": "body-art",
+      "name": "body",
+      "path": "assets/body.png",
+      "mimeType": "image/png",
+      "sha256": "e614397bb2ff17366e37b370ee75bf6a0267e56ea7fe9f3c993f5952231c8065",
+      "pixelWidth": 203,
+      "pixelHeight": 204,
+      "originalWidth": 203,
+      "originalHeight": 204,
+      "trimX": 0,
+      "trimY": 0
+    }
+  ],
+  "bones": [
+    {
+      "id": "root",
+      "name": "root",
+      "parentId": null,
+      "setup": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    },
+    {
+      "id": "body",
+      "name": "body",
+      "parentId": "root",
+      "setup": {
+        "x": 0,
+        "y": 310,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      }
+    }
+  ],
+  "slots": [
+    {
+      "id": "body-slot",
+      "name": "body",
+      "boneId": "body",
+      "attachmentId": "body-region"
+    }
+  ],
+  "attachments": [
+    {
+      "id": "body-region",
+      "type": "region",
+      "assetId": "missing",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "width": 203,
+      "height": 204,
+      "pivotX": 102,
+      "pivotY": 20
+    }
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "name": "idle",
+      "duration": 2,
+      "loop": true,
+      "channels": [
+        {
+          "boneId": "body",
+          "property": "y",
+          "keys": [
+            {
+              "time": 0,
+              "value": 310,
+              "curve": {
+                "type": "bezier",
+                "x1": 0.3333333333,
+                "y1": 0,
+                "x2": 0.6666666667,
+                "y2": 1
+              }
+            },
+            {
+              "time": 1,
+              "value": 313,
+              "curve": {
+                "type": "bezier",
+                "x1": 0.3333333333,
+                "y1": 0,
+                "x2": 0.6666666667,
+                "y2": 1
+              }
+            },
+            {
+              "time": 2,
+              "value": 310,
+              "curve": {
+                "type": "linear"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

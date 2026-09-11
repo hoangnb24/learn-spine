@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn-spine.local/contracts/project-v0.schema.json",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "const": 0
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "requiredCapabilities": {
+      "const": [
+        "region-v0"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 10000
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "bones": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/bone"
+      },
+      "minItems": 1
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/slot"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/region"
+      }
+    },
+    "animations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/animation"
+      }
+    }
+  },
+  "required": [
+    "formatVersion",
+    "projectId",
+    "revision",
+    "requiredCapabilities",
+    "metadata",
+    "assets",
+    "bones",
+    "slots",
+    "attachments",
+    "animations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "transform": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "scaleX": {
+          "type": "number"
+        },
+        "scaleY": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "rotation",
+        "scaleX",
+        "scaleY"
+      ],
+      "additionalProperties": false
+    },
+    "asset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^assets/[A-Za-z0-9_-]+\\.png$"
+        },
+        "mimeType": {
+          "const": "image/png"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "pixelWidth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "pixelHeight": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "originalWidth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "originalHeight": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "trimX": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "trimY": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "path",
+        "mimeType",
+        "sha256",
+        "pixelWidth",
+        "pixelHeight",
+        "originalWidth",
+        "originalHeight",
+        "trimX",
+        "trimY"
+      ],
+      "additionalProperties": false
+    },
+    "bone": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "parentId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "setup": {
+          "$ref": "#/$defs/transform"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "parentId",
+        "setup"
+      ],
+      "additionalProperties": false
+    },
+    "slot": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "boneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "attachmentId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "boneId",
+        "attachmentId"
+      ],
+      "additionalProperties": false
+    },
+    "region": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "type": {
+          "const": "region"
+        },
+        "assetId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "transform": {
+          "$ref": "#/$defs/transform"
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "pivotX": {
+          "type": "number"
+        },
+        "pivotY": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "assetId",
+        "transform",
+        "width",
+        "height",
+        "pivotX",
+        "pivotY"
+      ],
+      "additionalProperties": false
+    },
+    "curve": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "linear"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "stepped"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "bezier"
+            },
+            "x1": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y1": {
+              "type": "number"
+            },
+            "x2": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y2": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type",
+            "x1",
+            "y1",
+            "x2",
+            "y2"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "key": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "value": {
+          "type": "number"
+        },
+        "curve": {
+          "$ref": "#/$defs/curve"
+        }
+      },
+      "required": [
+        "time",
+        "value",
+        "curve"
+      ],
+      "additionalProperties": false
+    },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "boneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "property": {
+          "enum": [
+            "x",
+            "y",
+            "rotation",
+            "scaleX",
+            "scaleY"
+          ]
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/key"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "boneId",
+        "property",
+        "keys"
+      ],
+      "additionalProperties": false
+    },
+    "animation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "duration": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/channel"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "duration",
+        "loop",
+        "channels"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

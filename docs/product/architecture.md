@@ -1,6 +1,6 @@
 # Kiến trúc và hợp đồng dữ liệu đề xuất
 
-Ngày: 09/09/2026. Đây là thiết kế để thử, chưa phải API đã triển khai.
+Ngày: 09/09/2026; cập nhật 10/09/2026. Đây là tổng quan thiết kế, chưa phải API đã triển khai. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
 ## Tách lõi khỏi giao diện và giao thức
 
@@ -69,7 +69,7 @@ Tools nguyên tử và batch là nền. Các recipe như “tạo walk” có th
 
 ## WebMCP và giới hạn đã biết
 
-Tài liệu Chrome được kiểm tra ngày 09/09/2026 nêu origin trial từ Chrome 149 và cơ chế bật cờ cho thử local. Bản đặc tả ngày 04/09/2026 vẫn là Draft Community Group Report, chưa phải chuẩn W3C. Vì vậy phải khóa phiên bản trình duyệt/API trong thử nghiệm, kiểm tra khả năng tại runtime và giữ adapter riêng. Không mặc định mọi agent hoặc môi trường headless đều gọi được tools.
+Tài liệu Chrome được kiểm tra lại ngày 10/09/2026 nêu origin trial từ Chrome 149 và cơ chế bật cờ cho thử local. Bản đặc tả ngày 09/09/2026 vẫn là Draft Community Group Report, chưa phải chuẩn W3C. Probe #3 có [kết quả trên tổ hợp thực tế](research/webmcp.md); phải khóa phiên bản/API trong bằng chứng và giữ adapter riêng. Không mặc định mọi agent hoặc môi trường headless đều gọi được tools.
 
 Nếu thử nghiệm không tìm được đường gọi WebMCP thật của agent đích, ghi rõ bị chặn ở kết nối. Gọi hàm bằng JavaScript/inspector chỉ chứng minh handler hoạt động. Có thể đánh giá MCP server/cầu nối dùng cùng bộ lệnh; đó là phương án khác cần mô tả đúng, không ghi là WebMCP native đã đạt.
 

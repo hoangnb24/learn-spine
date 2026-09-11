@@ -1,0 +1,209 @@
+{
+  "kind": "independent-experiment-briefs-not-native-projects",
+  "cases": [
+    {
+      "id": "robot-idle",
+      "assets": [
+        "robot-head",
+        "robot-body",
+        "robot-pelvis",
+        "robot-upper-arm-left",
+        "robot-forearm-left",
+        "robot-hand-left",
+        "robot-upper-arm-right",
+        "robot-forearm-right",
+        "robot-hand-right",
+        "robot-thigh-left",
+        "robot-shin-left",
+        "robot-foot-left",
+        "robot-thigh-right",
+        "robot-shin-right",
+        "robot-foot-right"
+      ],
+      "durationSeconds": 2,
+      "brief": "Small body bob and delayed head/arms. Keep feet planted and all parts attached.",
+      "observationRegions": [
+        "head/neck",
+        "shoulder/elbow/wrist seams",
+        "soles/ground"
+      ],
+      "references": [
+        "robot-idle-reference"
+      ],
+      "lessons": [
+        "lessons/019-handbuilt-idle-and-ik.md",
+        "lessons/082-editor-live-playback.md"
+      ],
+      "acceptance": "12 poses + 3 loops; Gate 1, project/player parity and save/reopen required."
+    },
+    {
+      "id": "robot-wave",
+      "assets": [
+        "robot-head",
+        "robot-body",
+        "robot-pelvis",
+        "robot-upper-arm-left",
+        "robot-forearm-left",
+        "robot-hand-left",
+        "robot-upper-arm-right",
+        "robot-forearm-right",
+        "robot-hand-right",
+        "robot-thigh-left",
+        "robot-shin-left",
+        "robot-foot-left",
+        "robot-thigh-right",
+        "robot-shin-right",
+        "robot-foot-right"
+      ],
+      "durationSeconds": 2,
+      "brief": "Raise right arm, wave twice, return. Hand clear of face; later slow arm only without changing body channels.",
+      "observationRegions": [
+        "hand silhouette",
+        "face clearance",
+        "elbow/wrist seams",
+        "loop boundary"
+      ],
+      "references": [
+        "robot-wave-reference"
+      ],
+      "lessons": [
+        "lessons/015-editor-wave-refinement.md",
+        "lessons/082-editor-live-playback.md"
+      ],
+      "acceptance": "12 poses + 3 loops; compare untouched channels before/after local edit."
+    },
+    {
+      "id": "scarf-neck-anchor",
+      "assets": [
+        "scarf"
+      ],
+      "brief": "Eight vertices, four columns. Keep left column on neck; bend mid ±20° and tip ±25°, then delayed 2-second loop.",
+      "anchors": {
+        "coordinateSystem": "normalized image, X right Y up; proposed sampling rectangles",
+        "leftColumn": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "weightsByColumn": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0.5,
+            0.5,
+            0
+          ],
+          [
+            0,
+            0.5,
+            0.5
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "bones": [
+          "anchor",
+          "mid",
+          "tip"
+        ]
+      },
+      "observationRegions": [
+        "left attachment edge",
+        "middle seams",
+        "forked tail",
+        "shoulder occlusion"
+      ],
+      "references": [
+        "scarf-anchor-reference"
+      ],
+      "lessons": [
+        "lessons/085-editor-robot-scarf-mesh.md",
+        "lessons/086-editor-scarf-delayed-idle.md"
+      ],
+      "acceptance": "Gate 2: anchor drift ≤0.5 logical px; 60 samples, no unexpected triangle flips."
+    },
+    {
+      "id": "jelly-eyes-base",
+      "assets": [
+        "jelly"
+      ],
+      "brief": "Compress/stretch around fixed visible base. Give eye region uniform body/crown weights; blend base transition.",
+      "regionsNormalizedTopLeft": {
+        "eyes": [
+          0.37,
+          0.36,
+          0.63,
+          0.46
+        ],
+        "base": [
+          0.3,
+          0.82,
+          0.7,
+          0.87
+        ]
+      },
+      "anchors": {
+        "note": "Regions estimated from source image; select exact native vertices during #15/#20. Historical editor pixels are not native coordinates.",
+        "eyeWeights": {
+          "body": 0.5,
+          "crown": 0.5
+        },
+        "baseWeights": {
+          "base": 1
+        },
+        "transitionWeights": {
+          "base": 0.6,
+          "body": 0.4
+        }
+      },
+      "observationRegions": [
+        "both eye heights",
+        "central visible base",
+        "side transition folds"
+      ],
+      "references": [
+        "jelly-face-reference",
+        "jelly-base-reference"
+      ],
+      "lessons": [
+        "lessons/093-editor-jelly-mesh.md",
+        "lessons/094-editor-jelly-face-weights.md",
+        "lessons/095-editor-jelly-base-weights.md"
+      ],
+      "acceptance": "Gate 2: eye height change ≤5%; fixed base drift ≤0.5 logical px. Reselect exact regions in native renderer."
+    },
+    {
+      "id": "planted-foot",
+      "assets": [
+        "robot-thigh-left",
+        "robot-shin-left",
+        "robot-foot-right"
+      ],
+      "brief": "Two-bone chain hip (0,180), knee (0,90), ankle target (0,0), lengths 90/90. Lower hip to y=145, target remains fixed.",
+      "units": "logical pixel, X right Y up",
+      "observationRegions": [
+        "ankle target",
+        "sole/ground",
+        "knee bend direction"
+      ],
+      "references": [
+        "planted-foot-reference"
+      ],
+      "lessons": [
+        "lessons/019-handbuilt-idle-and-ik.md"
+      ],
+      "acceptance": "Gate 2: end effector drift ≤0.5 logical px for reachable target; choose bend sign explicitly in IK contract."
+    }
+  ]
+}

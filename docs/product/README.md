@@ -1,6 +1,6 @@
 # Công cụ animation 2D dành cho agent
 
-Ngày: 09/09/2026. Trạng thái: đề xuất để triển khai thử nghiệm; chưa có prototype hoặc số đo xác nhận công nghệ.
+Ngày: 09/09/2026; cập nhật 10/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) trong nhánh triển khai Foundation. Chưa có prototype animation hoặc số đo của ba gate; đầu vào downstream có hiệu lực sau merge.
 
 ## Sản phẩm trong một trang
 
