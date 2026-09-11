@@ -1,0 +1,7 @@
+{
+  "source": "root handoff of reviewer21 verdict",
+  "verdict": "\u0110\u1ea1t",
+  "reviewedCommit": "a4578a718271e199db58303d42a1be21f5d8a5ef",
+  "scope": "wave-3",
+  "limitation": "Reviewer sampled images and playback records, not direct WebM playback; wave2 intermediate native crop retained. Accepted later full preview and reopened Player."
+}

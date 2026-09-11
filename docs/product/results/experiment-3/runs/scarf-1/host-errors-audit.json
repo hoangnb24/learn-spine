@@ -1,0 +1,7 @@
+{
+  "failedPublicItems": [],
+  "limitation": "App public transcript stops after early inspect_project; no pagination cursor and final text missing. Root verified session and independently received subject final. Raw native starts/results/stop/download are complete; missing transcript is not backfilled.",
+  "rawCalls": 57,
+  "discoveryCalls": 1,
+  "publicTranscriptContainsReasoning": false
+}

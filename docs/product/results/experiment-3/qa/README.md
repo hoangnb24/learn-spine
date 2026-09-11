@@ -25,3 +25,9 @@ calls and any host failures before dispatch, reconcile native product starts by
 name/input with raw collector. App output may omit collaboration message bodies;
 root's controller records remain the source for fixed feedback and delivery timing.
 No private reasoning/history is an evidence source.
+
+`scarf-audit.py` summarizes all three completed scarf raw logs, frozen data results,
+actual reopens and transaction checks without modifying any final project. All
+three `metrics.mjs` geometry results are retained, including scarf2 native viewport
+crop. `wave-audit.py` and `preservation.py` remain supplemental read-only consumers.
+No consumer awards independent visual acceptance.

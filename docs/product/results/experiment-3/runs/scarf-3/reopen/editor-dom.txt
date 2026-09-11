@@ -1,0 +1,86 @@
+◇
+learn-spine
+Editor
+Player
+Không gian sáng tạo 2D
+Project mới
+Mở gói
+Khôi phục bản lưu
+Gate2 scarf
+Hoàn tác
+Làm lại
+Lưu trình duyệt
+Tải gói project
+Setup
+Animate
+
+Chỉnh key theo thời gian · Giá trị tuyệt đối, góc radian
+
+Đã lưu bản 3 trên trình duyệt.
+Cấu trúc / Ảnh
+◇ root
+◇ mid
+◇ tip
+Thêm xương
+Ảnh gắn xương
+
+PNG mới gắn vào xương đang chọn, tâm ảnh tại gốc xương. Chỉnh bố trí trong Thuộc tính.
+
+Nạp PNG
+Mesh
+root
+mid
+tip
+Vừa khung
+Thu phóng
+50%
+100%
+200%
+Thuộc tính
+Thuộc tính
+Lưới / IK
+Lịch sử
+root
+Tên xương
+Xương cha
+Không có
+mid
+tip
+Vị trí X
+Vị trí Y
+Góc xoay (radian)
+Tỉ lệ X
+Tỉ lệ Y
+Áp dụng thuộc tính
+
+Thuộc tính sửa tư thế Setup. Animate thêm key ở thanh thời gian.
+
+Chuyển động
+Cycle
+Thêm chuyển động
+Phát
+Thời gian (giây)
+2.00 s · Lặp
+mid / Vị trí Y
+◆
+◆
+◆
+◆
+◆
+tip / Vị trí Y
+◆
+◆
+◆
+◆
+◆
+◆
+Vị trí X
+Vị trí Y
+Góc xoay (radian)
+Tỉ lệ X
+Tỉ lệ Y
+Thẳng
+Giữ bước
+Đặt key
+Bản 3 · Đã lưu trên trình duyệt
+WebMCP chưa khả dụng · Tải gói để mở trong Player

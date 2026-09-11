@@ -1,0 +1,16 @@
+{
+  "source": "root handoff",
+  "run": "scarf-3",
+  "participantBrowser": {
+    "sessionId": "01a08fc5-489f-79f1-8493-7d9f46bfca22",
+    "tabId": "1",
+    "family": "Codex In-app Browser"
+  },
+  "rawStartUTC": "2026-09-11T09:21:59.061Z",
+  "rawStopUTC": "2026-09-11T09:26:05.140Z",
+  "initialSHA256": "19a89a280d5670548d160c099534fc7c7b0086fb6d12d2ab87d5af7f6dc76301",
+  "hashVerification": "root verified before unchanged brief delivery",
+  "exactDeliveryTimestamp": null,
+  "subjectManualBudgetCalls": 59,
+  "auditedBudgetCalls": 57
+}

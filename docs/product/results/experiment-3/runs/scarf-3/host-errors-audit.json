@@ -1,0 +1,20 @@
+{
+  "failedPublicItems": [
+    {
+      "type": "mcpToolCall",
+      "id": "exec-73c6c11b-d251-4705-a6fe-19f58c61d8ff",
+      "server": "node_repl",
+      "tool": "js",
+      "arguments": {
+        "code": "const verts=[...verts1.items,...verts2.items]; const ang=bones.items[0].setup.rotation; const anchors=verts.filter(v=>v.position[0]<=9.6).map(v=>({id:'neck-'+v.vertex,point:{kind:'vertex',slotId:'mesh',vertex:v.vertex},target:[Math.cos(ang)*v.position[0]-Math.sin(ang)*v.position[1],Math.sin(ang)*v.position[0]+Math.cos(ang)*v.position[1]]})); const measurement={...base,animationId:'cycle',anchors,loopPoints:verts.map(v=>({kind:'vertex',slotId:'mesh',vertex:v.vertex})),limit:50}; const before=await call('measure_motion',measurement); const vp={width:700,height:400,centerX:72,centerY:-24,zoom:3,devicePixelRatio:1,background:'#202633'}; calls++; const beforeimage=await wt.call('render_pose',{...base,animationId:'cycle',time:0.5,viewport:vp}); for(const c of beforeimage.content??[]) {if(c.type==='image') await nodeRepl.emitImage(c); else nodeRepl.write(c);}",
+        "title": "\u0110o c\u1ed5 tr\u00f4i v\u00e0 xem h\u00ecnh tr\u01b0\u1edbc s\u1eeda"
+      },
+      "status": "failed",
+      "durationMs": 127
+    }
+  ],
+  "limitation": "Subject manual count58 product vs56 raw; public code audit matches56. Image emission failed after successful measure_motion/render_pose; subsequent re-emission adds no native invocation. One discovery makes57 budget calls. No uncounted pre-dispatch call identified.",
+  "rawCalls": 56,
+  "discoveryCalls": 1,
+  "publicTranscriptContainsReasoning": false
+}
