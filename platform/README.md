@@ -29,11 +29,11 @@ Editor: tạo project → chọn/thêm xương → nạp PNG → sửa Setup →
 - [Engine](src/engine/README.md): evaluate pose thuần, transform/timeline; [renderer](src/render/README.md): Pixi region và capture.
 - [Storage](src/storage/README.md): validate PNG/bundle, pack/unpack ZIP, autosave/recover; [observation](src/observation/README.md): ảnh, sequence/preview và jobs.
 - `src/adapters/webmcp/{index.ts,bridge.ts,schemas.ts}`: adapter #13 đã merge; việc gắn vào chính runtime editor và chứng cứ robot đã merge qua PR #48. Không coi handler tests là bằng chứng native end-to-end.
-- #15 đã bàn giao [mesh-v1](../docs/product/contracts/mesh-v1.md): model v1, Pose version 1 với world mesh arrays và điểm IK sau FK/trước skinning. #16 đã nghiệm thu IK core; #17 đã nghiệm thu renderer/observation mesh+IK; controls authoring và transport schema vẫn thuộc #19. Session/storage giữ v1 nhưng mesh/deform authoring chưa có; xem [handoff](../docs/product/reconciliation/2026-09-11-mesh-core-handoff.md).
+- #15 đã bàn giao [mesh-v1](../docs/product/contracts/mesh-v1.md): model v1, Pose version 1 với world mesh arrays và điểm IK sau FK/trước skinning. #16 đã nghiệm thu IK core; #17 đã nghiệm thu renderer/observation mesh+IK; controls authoring và transport schema đã được #19 nghiệm thu. Session/storage và mesh/deform/IK authoring cùng dùng canonical v1; xem [handoff](../docs/product/reconciliation/2026-09-11-mesh-core-handoff.md).
 
 ## Gate 1 và Polish
 
-Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15–#18 Done; #19 In Progress / Ready, #20 còn Blocked. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
+Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15–#19 Done; #20 In Progress / Ready, #21 còn Blocked. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
 
 [#51](https://github.com/hoangnb24/learn-spine/issues/51) chuẩn hóa phép đo/profile/baseline, rồi [#52](https://github.com/hoangnb24/learn-spine/issues/52) tối ưu/retest p95 <=16.7 ms: P2/Polish/Deferred, không chặn giai đoạn chức năng. [Đối chiếu có ngày](../docs/product/reconciliation/2026-09-11-gate1.md) ghi mốc main, nguồn đo và nghiệm thu.
 
@@ -50,16 +50,17 @@ Gate 1 đã đo và PR #48 đã merge như trên; chưa có tuyên bố đạt h
 Mesh core extension (#15): [versioned contract](../docs/product/contracts/mesh-v1.md),
 [fixtures](fixtures/mesh/synthetic.ts), [checks and limits](evidence/issue-15/README.md).
 Format 1 supports core mesh/deform evaluation and accepted #17 rendering/capture;
-editor mesh/IK authoring and transport writes remain #19. Existing region-v0 projects retain their format and geometry.
+editor mesh/IK authoring and transport writes are accepted through #19. Existing region-v0 projects retain their format and geometry.
 
 ## IK hai xương — #16
 
 Model v1 đã có `ik-v1` và `ikConstraints`; evaluator giải sau FK, trước mesh/region.
 [Hợp đồng IK](src/engine/IK.md) ghi miền scale hỗ trợ, mix/bend/order, fallback và
 chẩn đoán target/endpoint trên pose cuối. [Bằng chứng](evidence/issue-16/README.md)
-bao gồm public seek, roundtrip ZIP và hồi quy robot. Đây là lõi IK; chưa thêm UI
-hay lệnh authoring constraints, không phải nghiệm thu Gate 2 hoặc hiệu năng.
+bao gồm public seek, roundtrip ZIP và hồi quy robot. Đây là lõi IK; authoring constraints/UI được bổ sung ở #19; không phải nghiệm thu Gate 2 hoặc hiệu năng.
 
-[Đối chiếu consumer #19 → #20](../docs/product/reconciliation/2026-09-11-consumer-reconciliation.md) ghi các write schema/capability/UI còn thiếu và roundtrip cần kiểm.
+[Đối chiếu authoring → Gate 2](../docs/product/reconciliation/2026-09-11-authoring-gate2.md) ghi commands/paging/migration đã nhận và đầu vào Gate 2 còn cần kiểm.
 
-[Diagnostics API #18](src/diagnostics/README.md) đã nghiệm thu: validate_project/measure_motion là module thuần, chưa đăng ký tool; #19 đang bọc API và thêm authoring/UI.
+[Diagnostics API #18](src/diagnostics/README.md) đã nghiệm thu và validate_project/measure_motion đã được #19 đăng ký tool với fixed policy/bounded reports.
+
+[Commands v1](src/commands/README.md) · [Panel Lưới / IK](apps/editor/mesh-controls/README.md): new project v1, mở v0 giữ nguyên tới explicit upgrade; inspect_deforms có vertex-offset paging và setVertexDeforms sửa local key lớn.

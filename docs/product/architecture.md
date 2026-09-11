@@ -2,9 +2,9 @@
 
 Ngày: 09/09/2026; cập nhật 11/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
 
-## Hiện trạng sau PR #59/#60 — 11/09/2026
+## Hiện trạng sau PR #62 — 11/09/2026
 
-#15–#18 Done (completed). PR #59 và #60 đã merge; mốc hiện tại main `a0dc060d1129ae86fb3cf9b9662ad4e31654ecec`. #19 In Progress/Ready, sole author `/root/implement_issue19` từ main này theo quyết định Orchestrator; #20 Blocked chờ #19. #51/#52 giữ Todo/Deferred/P2 ở Polish.
+#15–#19 Done (completed); PR #62 đã merge main `016ba56fde8310848e062b75ed016fd5771a8c4a`. #20 In Progress/Ready, sole author `/root/implement_issue20` từ main này theo quyết định Orchestrator; #21 Blocked chờ Gate 2. #51/#52 và discovery #23–#29 giữ Deferred; không đổi DAG.
 
 Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`, `mesh.ts` đã hỗ trợ format 0 và 1 bằng schema riêng. V0 giữ strict region-only; v1 yêu cầu `region-v0`, có mesh/deform phải khai báo thêm `mesh-v1`. Migration 0→1 tường minh giữ identity/revision/geometry; không tự nâng cấp, 1→0 bị từ chối. `ik-v1` đã được tích hợp ở PR #55; xem hợp đồng IK bên dưới.
 
@@ -12,7 +12,7 @@ Model tại `platform/src/model/types.ts`, `index.ts`, `project-v1.schema.json`,
 
 Mesh vertices/deform dùng bind-world XY; deform là offset tuyệt đối trước skinning. Weights không tự normalize; tổng cho phép sai lệch 1e-5. Bind matrices rõ ràng và invertible; UV theo ảnh decode, (0,0) góc trên trái; geometry độc lập độ phân giải texture. Arrays Pose là bản sao mới. Fixture `platform/fixtures/mesh/synthetic.ts` có expected setup `[12,20,14,20,12,22]`, end key `[18,20,16,24,15,22]`; metadata synthetic không phải PNG bundle.
 
-Renderer/capture mesh+IK đã được nghiệm thu qua #17/PR #59: `rendererCapabilities` công bố `poseVersions:[1]`, features `region-v0`,`mesh-v1`; renderer nhận geometry sau evaluator và không tự giải IK. `poseGeometry`/`fitCamera` giữ canonical slot order và bao mọi supplied mesh vertex. `ObservationService.renderPose/submit` dùng cùng evaluator/renderer; `animationBounds` có weighted deform/bind inverses và full-turn IK local rotation envelope, có thể dư whitespace nhưng không được crop thành công. `setOverlay({wireframe,weightBoneId})` là display state trên renderer, chưa phải control UI/tool đã đăng ký. Full/half texture, PNG/ZIP observation, pixel order/alpha/UV và resource release có evidence #17. Không suy CPU update/submission 0.1ms thành 16.7ms frame-cadence pass.
+Renderer/capture mesh+IK đã được nghiệm thu qua #17/PR #59: `rendererCapabilities` công bố `poseVersions:[1]`, features `region-v0`,`mesh-v1`; renderer nhận geometry sau evaluator và không tự giải IK. `poseGeometry`/`fitCamera` giữ canonical slot order và bao mọi supplied mesh vertex. `ObservationService.renderPose/submit` dùng cùng evaluator/renderer; `animationBounds` có weighted deform/bind inverses và full-turn IK local rotation envelope, có thể dư whitespace nhưng không được crop thành công. `setOverlay({wireframe,weightBoneId})` vẫn là display state renderer; panel Lưới / IK #19 đã nối overlay với lựa chọn UI. Full/half texture, PNG/ZIP observation, pixel order/alpha/UV và resource release có evidence #17. Không suy CPU update/submission 0.1ms thành 16.7ms frame-cadence pass.
 
 IK core đã được nhận: format v1/schema strict hỗ trợ `ik-v1`; `Project.ikConstraints?: TwoBoneIK[]` yêu cầu capability khi field có mặt (mảng rỗng hợp lệ), v0 vẫn region-only. `TwoBoneIK` tại `platform/src/model/ik.ts` có id/type, rootBoneId, childBoneId, targetBoneId, endpoint child-local XY, bend ±1, mix [0,1], order unique nonnegative safe integer. Child là con trực tiếp root; target ở ngoài toàn bộ root subtree. Target lấy world origin của target bone; mix/bend/order tĩnh ở phiên bản này.
 
@@ -20,7 +20,7 @@ IK core đã được nhận: format v1/schema strict hỗ trợ `ik-v1`; `Proje
 
 Accuracy full-mix reachable áp dụng khi root có |scaleX|=|scaleY| khác 0 và ancestor matrix khả nghịch; reflection/shear ở ancestors và child scale/endpoint lệch trục theo hợp đồng được hỗ trợ. `unsupported-scale`/`singular` giữ FK; unreachable clamp không stretch, degenerate dùng fallback xác định. Nonfinite arithmetic hoặc residual tức thời full-mix reachable >0.5 trả INVALID_INPUT. Chi tiết miền scale, mix, bend/order và final diagnostic theo `platform/src/engine/IK.md`; không suy mọi status là thành công.
 
-Core IK/model/evaluator và renderer/capture/bounds #17 đã được nghiệm thu. Diagnostics module #18 đã nghiệm thu; authoring/tools/UI #19 đang triển khai. Session/storage giữ v1 không có nghĩa command schema hỗ trợ authoring mesh/deform/constraints. Không nhận Gate 2/3 hoặc performance pass từ nghiệm thu module.
+Core IK/model/evaluator và renderer/capture/bounds #17 đã được nghiệm thu. Diagnostics module #18 và authoring/tools/UI #19 đã nghiệm thu; canonical v1 writes, capability discovery, UI/Session và roundtrip có evidence #19. Không nhận Gate 2/3 hoặc performance pass từ nghiệm thu module.
 
 [Hợp đồng IK đã merge](../../platform/src/engine/IK.md).
 
@@ -106,28 +106,23 @@ Nếu thử nghiệm không tìm được đường gọi WebMCP thật của ag
 
 Repo học đang dùng `@esotericsoftware/spine-canvas`; không tự chuyển dependency hay code runtime đó sang sản phẩm. Cần kiểm tra giấy phép của mọi thư viện được chọn, nguồn art và nhu cầu tương thích file. Các tài liệu này không kết luận pháp lý về một sản phẩm chưa được triển khai.
 
-## Consumer authoring sau PR #59
+## Authoring đã nghiệm thu sau PR #62
 
-## Input và phạm vi thực thi #19
+- Canonical Operation tại `platform/src/model/types.ts`, Session `platform/src/commands/index.ts` và write validators đã đồng bộ v1. `migrateProject {targetVersion:1}` dùng model migration tường minh trong atomic candidate; undo trả version/capabilities cũ, lỗi operation sau rollback toàn batch. New editor projects là v1/region-v0; mở ZIP v0 giữ nguyên v0 đến khi người dùng/agent nâng cấp rõ ràng.
+- `putMesh`, `setVertexWeights`, `setVertexDeforms`, `putIKConstraint` và remove `ikConstraints` đi cùng revision/requestId/history/dedup. Mesh/deform/IK writes vào v0 trả UNSUPPORTED_VERSION, không nâng ngầm. Required mesh-v1/ik-v1 được thêm trên candidate khi write v1 thành công; runtime Session capabilities công bố mesh-v1/ik-v1/explicit-migration-v1 độc lập format/requirements của project đang mở.
+- `setVertexWeights` thay complete influence lists cho các zero-based vertex đã chọn, giữ phần còn lại. `setVertexDeforms {animationId,attachmentId,time,curve,vertices:[{vertex,offset:[x,y]}]}` chỉ sửa offsets đã chọn tại exact key time và thay curve tường minh; key mới có all-zero offsets trước local writes, key cũ giữ offsets không chọn/keys khác. Offset là absolute bind-world XY trước skinning, không delta sau skinning. `putAnimation` vẫn thay toàn animation gồm optional deforms; phải giữ unrelated data nếu dùng đường này.
+- Adapter schema/dispatch đã có mesh/IK writes, `inspect_mesh`, `inspect_deforms`, `validate_project`, `measure_motion`; `get_capabilities` thêm diagnostics-v1, giữ giới hạn input/response/session. `inspect_deforms` trả channel/key summaries; thêm attachmentId + keyTime để đọc trang vertex offsets (offset/limit, total/nextOffset, curve), không trả whole large key. Dùng trang này + setVertexDeforms để đọc/sửa local key lớn; regression 8,000 vertices đã được nghiệm thu. Không dump/replace toàn animation chỉ để sửa một vertex.
+- Editor `platform/apps/editor/mesh-controls/` là panel Lưới / IK dùng cùng Session với tools: canvas/list chọn vertices, sửa weights/deform và mix/bend/order của constraint hiện có, wireframe/weight overlay. Agent apply_batch tạo mesh/bind/IK; UI tối thiểu chưa phải triangulation/auto-weight hoặc IK rig builder. Runtime newProject/migration và draft revision/session đã nối chung, không có store riêng.
+- Renderer/ObservationService/storage/player hiện có được tái dùng. UI→native tool cùng revision, local-only edits/retry/rollback/undo/render/diagnostics và ZIP/editor reload/player scarf/jelly/IK có evidence thật ở #19, gồm chín actual drawn Poses bằng nhau. Đây là nghiệm thu authoring/roundtrip trên fixtures đã ghi, không chứng minh brief Gate 2 hoặc Gate 3 đã đạt.
 
-#19 bổ sung authoring thật trên core đã nhận, không làm lại model/evaluator/renderer/storage. Các điểm tích hợp đã có:
-
-- `platform/src/model/types.ts`: Operation union còn `putAsset/putBone/putSlot/putRegion/putAnimation/remove/setSlotOrder`, chưa có mesh/constraint write. Canonical Project v1 đã có mesh/deform/ikConstraints; mở Operation/types đồng bộ với schema/Session thay vì model hoặc format riêng.
-- `platform/src/commands/index.ts` sở hữu Session/perform/capabilities; `validation.ts` còn tham chiếu project-v0 schema cho write, kể cả putAnimation. Session có formatVersions [0,1] nhưng features authoring vẫn region-v0. Mở operation và validation cùng atomic batch/revision/retry/undo; không quảng bá mesh/IK write chỉ từ model capabilities.
-- `platform/src/adapters/webmcp/schemas.ts` còn copy defs v0, apply_batch mô tả No mesh/IK; `bridge.ts` dispatch/get_capabilities lấy Session features. Mở schema/dispatch/inspection và diagnostics wrapper nhất quán, giữ giới hạn response/input và session identity; render_pose/sequence/preview/save_project đã có service để tái dùng.
-- `platform/apps/editor/runtime.ts` tạo project format0/region-v0; `Editor.tsx` chỉ author bones/regions/animation channels. Chốt đường tạo hoặc migrate v0→v1 tường minh bằng model.migrate đã có, giữ v0 regression; không âm thầm nâng project người dùng. UI và tools phải dùng cùng Session và history.
-- Renderer overlay là API có sẵn để UI chọn wireframe/weights; không dựng renderer riêng. Storage.pack/unpack/autosave/recover đã đi qua strict model và giữ v1. Player hiện unpack ZIP → Stage → evaluator/renderer chung; đây là code path có sẵn, chưa phải bằng chứng toàn vòng project mesh+IK được UI/tool author rồi export/reopen/player.
-
-Ownership #19 mở rộng: `platform/src/model/types.ts` (Operation/interface cần cho authoring, phối hợp canonical types); `platform/src/commands/{index.ts,validation.ts}` và helpers mesh/constraints; `platform/src/adapters/webmcp/{schemas.ts,bridge.ts,index.ts}`; `platform/apps/editor/{Editor.tsx,runtime.ts,webmcp.ts}` và controls mới; tests tương ứng. Chỉ sửa consumer/schema glue cần thiết, không fork core model/schema hay solver. Storage/player là đầu vào tái dùng nhưng vẫn phải kiểm full authored roundtrip, UI/tool cùng revision, invalid batch, undo/retry, region regression theo acceptance #19.
-
-[Đối chiếu và phần chưa nghiệm thu](reconciliation/2026-09-11-consumer-reconciliation.md).
+[Đối chiếu Gate 2](reconciliation/2026-09-11-authoring-gate2.md).
 
 ## Diagnostics đã nghiệm thu — #18/PR #60
 
-Reviewer Đạt exact `9d9fbb1483e13b69a9abe350a0b3b9d84ea0861a`; kiểm độc lập 30 diagnostics tests + 6 probes, hai CI pass, xác nhận base #17 không đổi dependency/API. Orchestrator đã merge/đóng #18 tại main `a0dc060d1129ae86fb3cf9b9662ad4e31654ecec` và giao #19 In Progress/Ready.
+Reviewer Đạt exact `9d9fbb1483e13b69a9abe350a0b3b9d84ea0861a`; kiểm độc lập 30 diagnostics tests + 6 probes, hai CI pass, xác nhận base #17 không đổi dependency/API. Orchestrator đã merge/đóng #18 tại main `a0dc060d1129ae86fb3cf9b9662ad4e31654ecec` và tại mốc đó giao #19 In Progress/Ready; #19 nay đã Done sau PR #62.
 
 API/types cùng ở `platform/src/diagnostics/index.ts`: `validate_project(unknown,page?)` và `measure_motion(unknown,MotionRequest)`. Model-invalid là Result thành công với report `valid:false`, không evaluate dữ liệu lỗi; request/evaluation failure là Result lỗi. `valid` chỉ structural validity; `passed` xét mọi records bất kể trang trả về. Wrapper phải giữ `total/nextOffset`, project/revision và policy/sampling, không suy trang rỗng thành pass.
 
 MotionRequest chọn animationId, optional explicit anchors (bone-local point, slot/vertex hoặc IK endpoint, fixed-world target và inclusive stance interval), loopPoints, offset/limit. Empty loopPoints chủ ý bỏ loop checks. Foot residual lấy final Pose.ik.distance; anchor với target world cố định còn phát hiện target IK trượt dù residual zero. Sampling/epsilon/threshold đã khóa trong README (60 intervals cộng keys/stance endpoints/key neighbors, h=min(1/600,duration/600), 0.5px và max(0.5px/s,5% sampled peak)); #19 không biến ngưỡng thành tùy chọn để làm pass.
 
-API là module thuần đã nhận, chưa phải tool đã đăng ký. Finite sampling và local triangle orientation không chứng minh continuous extrema, self-intersection/tearing, eye-height hoặc artistic quality. [API/policy](../../platform/src/diagnostics/README.md) · [fixtures](../../platform/fixtures/diagnostics/synthetic.ts) · [evidence](../../platform/evidence/issue-18/README.md).
+API module thuần đã được #19 bọc bằng validate_project/measure_motion trong adapter; transport vẫn giữ fixed policy và bounded report. Finite sampling và local triangle orientation không chứng minh continuous extrema, self-intersection/tearing, eye-height hoặc artistic quality. [API/policy](../../platform/src/diagnostics/README.md) · [fixtures](../../platform/fixtures/diagnostics/synthetic.ts) · [evidence](../../platform/evidence/issue-18/README.md).
