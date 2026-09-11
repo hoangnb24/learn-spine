@@ -1,6 +1,6 @@
 # Đối chiếu ba gate → đề xuất MVP — 11/09/2026
 
-Gate 3 #21 đã nghiệm thu Đạt/Project Done, PR #66 squash-merged main `fe112ca002513e3767715e9d32ecbfb58dde833a`, accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, CI run 34585694942 SUCCESS. #21 còn chờ Orchestrator đóng issue sau bàn giao; updater không tự đóng. #22 Todo/Ready để chuẩn bị đề xuất quyết định, chủ dự án chưa chốt MVP. #23–#29 và #51/#52 vẫn Deferred; không mở production.
+Gate 3 #21 đã nghiệm thu Đạt/Project Done, PR #66 squash-merged main `fe112ca002513e3767715e9d32ecbfb58dde833a`, accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, CI run 34585694942 SUCCESS. #21 đã Closed (completed)/Done; trạng thái đóng được kiểm tra lại trên GitHub. #22 Todo/Ready để chuẩn bị đề xuất quyết định, chủ dự án chưa chốt MVP. #23–#29 và #51/#52 vẫn Deferred; không mở production.
 
 [Gate 3 report](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-3/README.md) · [Aggregate](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-3/aggregate.json) · [Frozen protocol](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/platform/tests/agent-evals/PROTOCOL.md) · [Gate 2 report](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-2/README.md) · [Gate 1 report](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-1/README.md).
 
@@ -18,4 +18,4 @@ Source/harness/protocol frozen tại 57eed3122782fe1c8b2d5eb536bc1e27a4ebc360 tr
 
 ## Đồng bộ tracker
 
-#21 checklist/verdict/Project Done theo nghiệm thu; việc đóng issue để Orchestrator thực hiện. #22 Ready/Todo với đầu vào đủ để chuẩn bị đề xuất, mọi acceptance quyết định còn unchecked. Roadmap #1 tiếp tục mở vì quyết định MVP và các Deferred chưa được giải quyết; không đóng tracker chỉ vì ba gate được nghiệm thu theo scope. DAG không đổi: #21→#22, #22→discovery; #51→#52 giữ riêng. Không sửa evidence/platform frozen hoặc historical reconciliation. Bản đối chiếu này không phải ADR quyết định sản phẩm.
+#21 checklist/verdict/Project Done theo nghiệm thu; issue đã Closed (completed), đối chiếu theo GitHub. #22 Ready/Todo với đầu vào đủ để chuẩn bị đề xuất, mọi acceptance quyết định còn unchecked. Roadmap #1 tiếp tục mở vì quyết định MVP và các Deferred chưa được giải quyết; không đóng tracker chỉ vì ba gate được nghiệm thu theo scope. DAG không đổi: #21→#22, #22→discovery; #51→#52 giữ riêng. Không sửa evidence/platform frozen hoặc historical reconciliation. Bản đối chiếu này không phải ADR quyết định sản phẩm.
