@@ -33,7 +33,7 @@ Editor: tạo project → chọn/thêm xương → nạp PNG → sửa Setup →
 
 ## Gate 1 và Polish
 
-Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15–#20 Done; #21 In Progress / Ready, #22 còn Blocked. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
+Theo quyết định 11/09/2026, Gate 1 đã được Orchestrator nghiệm thu chức năng và merge; #14 Closed/Done, #15–#20 Done; #21 accepted/Done, #22 Ready chuẩn bị đề xuất; MVP chưa chốt. Lần đo nguồn `a91c27cd93541b7b320b9b54c2451894b8fcd018` có p95 editor 17.8 ms / player 17.5 ms, vượt 16.7 ms trong Vite dev/React StrictMode, Chromium 153/SwiftShader; cloning instrumentation và presentation chưa tách. [Báo cáo lịch sử](https://github.com/hoangnb24/learn-spine/blob/55bd54fdde2a1922f5c6ec4863b0baaee8f210fe/docs/product/results/experiment-1/README.md) giữ FAIL hiệu năng.
 
 [#51](https://github.com/hoangnb24/learn-spine/issues/51) chuẩn hóa phép đo/profile/baseline, rồi [#52](https://github.com/hoangnb24/learn-spine/issues/52) tối ưu/retest p95 <=16.7 ms: P2/Polish/Deferred, không chặn giai đoạn chức năng. [Đối chiếu có ngày](../docs/product/reconciliation/2026-09-11-gate1.md) ghi mốc main, nguồn đo và nghiệm thu.
 
@@ -67,4 +67,6 @@ bao gồm public seek, roundtrip ZIP và hồi quy robot. Đây là lõi IK; aut
 
 ## Gate 2 → Gate 3 — 11/09/2026
 
-Gate 2 đã được nghiệm thu trên main `538f939d9c76e29a55bc7680f8e36943095e4326`: [report/ZIPs/playback](../docs/product/results/experiment-2/README.md). Default diagnostics không bao region corners; gate có phép đo public corners bổ sung, không nâng capability của tool. #21 chuẩn bị protocol/initial states/budgets trước chín native runs bằng fresh agents; chưa ghi nhận runs đã bắt đầu/đạt. [Đối chiếu](../docs/product/reconciliation/2026-09-11-gate2.md). Physics/performance/native WebMCP không được Gate 2 nhận pass.
+Gate 2 đã được nghiệm thu trên main `538f939d9c76e29a55bc7680f8e36943095e4326`: [report/ZIPs/playback](../docs/product/results/experiment-2/README.md). Default diagnostics không bao region corners; gate có phép đo public corners bổ sung, không nâng capability của tool. #21 đã hoàn thành chín native attempts, 7/9 accepted; hai failures giữ nguyên. #22 Ready chuẩn bị đề xuất, chưa chốt MVP. [Đối chiếu](../docs/product/reconciliation/2026-09-11-gate2.md). Physics/performance/native WebMCP không được Gate 2 nhận pass.
+
+[Đối chiếu ba gate](../docs/product/reconciliation/2026-09-11-three-gates.md) giữ performance FAIL/Deferred, physics NOT TESTED và cost/tokens/baseline unavailable.
