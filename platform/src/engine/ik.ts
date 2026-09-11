@@ -25,8 +25,8 @@ export function solveIK(bones: readonly Bone[], constraints: readonly TwoBoneIK[
     const target: [number, number] = [targetWorld[4], targetWorld[5]];
     let status: IKDiagnostic['status'] = 'solved';
     const det = parent[0] * parent[3] - parent[1] * parent[2];
-    if (!Number.isFinite(det)) return invalid();
     if (c.mix === 0) status = 'disabled';
+    else if (!Number.isFinite(det)) return invalid();
     else if (Math.abs(det) <= EPS || Math.abs(r.scaleX) <= EPS || Math.abs(r.scaleY) <= EPS) status = 'singular';
     else if (Math.abs(Math.abs(r.scaleX) - Math.abs(r.scaleY)) > EPS * Math.max(Math.abs(r.scaleX), Math.abs(r.scaleY))) status = 'unsupported-scale';
     else {

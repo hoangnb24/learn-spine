@@ -146,3 +146,12 @@ it('rejects an apparent solve when coordinate magnitude loses pixel precision', 
   bones[3].setup.x = 20; bones[3].setup.y = 0;
   expect(() => run(bones, [constraint])).toThrow('numerical tolerance');
 });
+
+it('mix zero bypasses inverse arithmetic even when the unused determinant overflows', () => {
+  const { bones, constraint } = createLeg();
+  bones.push({ id: 'huge-parent', name: 'Huge parent', parentId: null,
+    setup: { ...bones[0].setup, scaleX: 1e200, scaleY: 1e200 } });
+  bones[0].parentId = 'huge-parent'; constraint.mix = 0;
+  const d = run(bones, [constraint]).diagnostics[0];
+  expect(d.status).toBe('disabled'); expect(d.endpoint.every(Number.isFinite)).toBe(true);
+});
