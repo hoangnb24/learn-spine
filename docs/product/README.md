@@ -1,6 +1,6 @@
 # Công cụ animation 2D dành cho agent
 
-Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#10 đã Done: workspace, model, bộ lệnh/lịch sử, tính pose, renderer và lưu project đã được nghiệm thu (storage gồm bản sửa PR #39). #11 đang triển khai xuất ảnh quan sát; #12 đang triển khai editor/player. Chưa có workflow animation hoàn chỉnh hoặc số đo của ba gate.
+Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#11 đã Done: lõi sản phẩm, renderer, lưu project và xuất ảnh quan sát đã được nghiệm thu. #12 editor/player đang review; #13 đang triển khai kết nối tools. Chưa có workflow animation hoàn chỉnh hoặc số đo của ba gate.
 
 ## Sản phẩm trong một trang
 

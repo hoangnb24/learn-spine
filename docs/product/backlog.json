@@ -412,7 +412,7 @@
       "exclude": "Không nhét LLM API key vào frontend; không thêm cloud agent service. Native unavailable là giới hạn cần ghi cho T20, không được giấu bằng fallback.",
       "wave": 6,
       "priority": "P1",
-      "readiness": "Blocked",
+      "readiness": "Ready",
       "number": 13,
       "id": 5401666412,
       "node_id": "I_kwDOUTvul88AAAABQfbjbA",
