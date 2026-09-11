@@ -46,3 +46,10 @@ Print `native.description()` if schemas not in notifications, then actual
 `native.call(name,input)`. No bridge invocation. Each discovery counts one.
 
 No statistical reliability, native cancellation, performance or MVP claim.
+
+Prelaunch independent review found and corrected pending-call accounting and made
+scarf phase/region visual scoring explicit. A final accounting correction counts
+prestart at invocation start, not completion. `score.test.ts` is a read-only post-run
+consumer: use `GATE3_RUN=wave-1 npm test --prefix platform -- tests/agent-evals/score.test.ts`
+after export. It leaves visual and actual browser reopen pending; it cannot award
+Gate 3 by itself. No subject has started at this lock update.
