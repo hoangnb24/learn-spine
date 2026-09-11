@@ -1,0 +1,2334 @@
+{
+  "policy": {
+    "version": 1,
+    "intervals": 60,
+    "distancePx": 0.5,
+    "weightSumTolerance": 0.00001,
+    "velocityFraction": 0.05,
+    "velocityFloorPxPerSecond": 0.5,
+    "areaEpsilonPxSquared": 1e-8,
+    "maxSamples": 512,
+    "maxAnchors": 256,
+    "maxLoopPoints": 4096,
+    "maxElements": 20000,
+    "maxElementSamples": 2000000,
+    "maxPageSize": 500
+  },
+  "invalidWeights": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": false,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": null,
+      "times": [],
+      "evaluationCount": 0,
+      "h": null,
+      "loopChecked": false
+    },
+    "items": [
+      {
+        "kind": "invalid-weights",
+        "ids": [
+          "triangle"
+        ],
+        "time": null,
+        "units": "weight",
+        "observed": -1,
+        "threshold": 0,
+        "path": "/attachments/0/weights/0/0/weight",
+        "message": "Weight must be finite and in [0,1]"
+      }
+    ],
+    "total": 1,
+    "passed": false,
+    "nextOffset": null,
+    "validationProblem": {
+      "code": "INVALID_INPUT",
+      "path": "/attachments/0/transform",
+      "message": "must have required property 'transform'"
+    }
+  },
+  "goodMesh": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.5,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 184,
+      "h": 0.0016666666666666668,
+      "loopChecked": true
+    },
+    "items": [],
+    "total": 0,
+    "passed": true,
+    "nextOffset": null
+  },
+  "anchorDrift": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.5,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 184,
+      "h": 0.0016666666666666668,
+      "loopChecked": true
+    },
+    "items": [
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.5166666666666667,
+        "units": "px",
+        "observed": 0.5166666666666657,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.5333333333333333,
+        "units": "px",
+        "observed": 0.5333333333333332,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.55,
+        "units": "px",
+        "observed": 0.5500000000000007,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.5666666666666667,
+        "units": "px",
+        "observed": 0.5666666666666664,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.5833333333333334,
+        "units": "px",
+        "observed": 0.5833333333333321,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.6,
+        "units": "px",
+        "observed": 0.5999999999999996,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.6166666666666667,
+        "units": "px",
+        "observed": 0.6166666666666671,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.6333333333333333,
+        "units": "px",
+        "observed": 0.6333333333333329,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.65,
+        "units": "px",
+        "observed": 0.6500000000000004,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.6666666666666666,
+        "units": "px",
+        "observed": 0.6666666666666679,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.6833333333333333,
+        "units": "px",
+        "observed": 0.6833333333333336,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.7,
+        "units": "px",
+        "observed": 0.6999999999999993,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.7166666666666667,
+        "units": "px",
+        "observed": 0.7166666666666668,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.7333333333333333,
+        "units": "px",
+        "observed": 0.7333333333333343,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.75,
+        "units": "px",
+        "observed": 0.75,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.7666666666666667,
+        "units": "px",
+        "observed": 0.7666666666666657,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.7833333333333333,
+        "units": "px",
+        "observed": 0.783333333333335,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.8,
+        "units": "px",
+        "observed": 0.8000000000000007,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.8166666666666667,
+        "units": "px",
+        "observed": 0.8166666666666664,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.8333333333333334,
+        "units": "px",
+        "observed": 0.8333333333333339,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.85,
+        "units": "px",
+        "observed": 0.8499999999999996,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.8666666666666667,
+        "units": "px",
+        "observed": 0.8666666666666671,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.8833333333333333,
+        "units": "px",
+        "observed": 0.8833333333333329,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.9,
+        "units": "px",
+        "observed": 0.9000000000000004,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.9166666666666666,
+        "units": "px",
+        "observed": 0.9166666666666661,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.9333333333333333,
+        "units": "px",
+        "observed": 0.9333333333333336,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.95,
+        "units": "px",
+        "observed": 0.9499999999999993,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.9666666666666667,
+        "units": "px",
+        "observed": 0.9666666666666668,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 0.9833333333333333,
+        "units": "px",
+        "observed": 0.9833333333333343,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "kind": "anchor-drift",
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "neck",
+          "mesh-slot"
+        ],
+        "time": 1,
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "vertex": 0,
+        "message": "Point moved away from its declared fixed world target"
+      },
+      {
+        "point": {
+          "kind": "bone",
+          "boneId": "root"
+        },
+        "ids": [
+          "root"
+        ],
+        "time": 1,
+        "kind": "loop-position",
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "message": "Authored end differs from loop start"
+      },
+      {
+        "point": {
+          "kind": "bone",
+          "boneId": "child"
+        },
+        "ids": [
+          "child"
+        ],
+        "time": 1,
+        "kind": "loop-position",
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "message": "Authored end differs from loop start"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 0,
+        "kind": "loop-position",
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "message": "Authored end differs from loop start"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 1
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 1,
+        "kind": "loop-position",
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "message": "Authored end differs from loop start"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 2
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 2,
+        "kind": "loop-position",
+        "units": "px",
+        "observed": 1,
+        "threshold": 0.5,
+        "message": "Authored end differs from loop start"
+      }
+    ],
+    "total": 35,
+    "passed": false,
+    "nextOffset": null
+  },
+  "globalReflection": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.5,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 62,
+      "h": 0.0016666666666666668,
+      "loopChecked": false
+    },
+    "items": [],
+    "total": 0,
+    "passed": true,
+    "nextOffset": null
+  },
+  "localInversion": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.5,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 62,
+      "h": 0.0016666666666666668,
+      "loopChecked": false
+    },
+    "items": [
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.016666666666666666,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.03333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.05,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.06666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.08333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.1,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.11666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.13333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.15,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.16666666666666666,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.18333333333333332,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.2,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.21666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.23333333333333334,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.25,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.26666666666666666,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.2833333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.3,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.31666666666666665,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.3333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.35,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.36666666666666664,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.38333333333333336,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.4,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.4166666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.43333333333333335,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.45,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.4666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.48333333333333334,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.5,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.5166666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.5333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.55,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.5666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.5833333333333334,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.6,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.6166666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.6333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.65,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.6666666666666666,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.6833333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.7,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.7166666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.7333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.75,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.7666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.7833333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.8,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.8166666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.8333333333333334,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.85,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.8666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.8833333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.9,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.9166666666666666,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.9333333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.95,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.9666666666666667,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 0.9833333333333333,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      },
+      {
+        "kind": "triangle-flip",
+        "ids": [
+          "mesh-slot",
+          "triangle"
+        ],
+        "time": 1,
+        "units": "px²",
+        "observed": -4,
+        "threshold": 1e-8,
+        "triangle": 0,
+        "message": "Triangle orientation inverted after common-ancestor reflection compensation"
+      }
+    ],
+    "total": 61,
+    "passed": false,
+    "nextOffset": null
+  },
+  "velocityMismatch": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.49833333333333335,
+        0.5,
+        0.5016666666666667,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 186,
+      "h": 0.0016666666666666668,
+      "loopChecked": true
+    },
+    "items": [
+      {
+        "point": {
+          "kind": "bone",
+          "boneId": "root"
+        },
+        "ids": [
+          "root"
+        ],
+        "time": 1,
+        "kind": "loop-velocity",
+        "units": "px/s",
+        "observed": 39.99999999999986,
+        "threshold": 1.0000000000000497,
+        "sampledPeakSpeed": 20.000000000000995,
+        "message": "Boundary velocity vector mismatch; sampled peak 20.000000000000995 px/s"
+      },
+      {
+        "point": {
+          "kind": "bone",
+          "boneId": "child"
+        },
+        "ids": [
+          "child"
+        ],
+        "time": 1,
+        "kind": "loop-velocity",
+        "units": "px/s",
+        "observed": 39.99999999999986,
+        "threshold": 1.0000000000000497,
+        "sampledPeakSpeed": 20.000000000000995,
+        "message": "Boundary velocity vector mismatch; sampled peak 20.000000000000995 px/s"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 0
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 0,
+        "kind": "loop-velocity",
+        "units": "px/s",
+        "observed": 39.99999999999986,
+        "threshold": 1.0000000000000497,
+        "sampledPeakSpeed": 20.000000000000995,
+        "message": "Boundary velocity vector mismatch; sampled peak 20.000000000000995 px/s"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 1
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 1,
+        "kind": "loop-velocity",
+        "units": "px/s",
+        "observed": 39.99999999999986,
+        "threshold": 1.0000000000000497,
+        "sampledPeakSpeed": 20.000000000000995,
+        "message": "Boundary velocity vector mismatch; sampled peak 20.000000000000995 px/s"
+      },
+      {
+        "point": {
+          "kind": "vertex",
+          "slotId": "mesh-slot",
+          "vertex": 2
+        },
+        "ids": [
+          "mesh-slot"
+        ],
+        "time": 1,
+        "vertex": 2,
+        "kind": "loop-velocity",
+        "units": "px/s",
+        "observed": 39.99999999999986,
+        "threshold": 1.0000000000000497,
+        "sampledPeakSpeed": 20.000000000000995,
+        "message": "Boundary velocity vector mismatch; sampled peak 20.000000000000995 px/s"
+      }
+    ],
+    "total": 5,
+    "passed": false,
+    "nextOffset": null
+  },
+  "smoothLoop": {
+    "projectId": "synthetic",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "motion",
+      "times": [
+        0,
+        0.016666666666666666,
+        0.03333333333333333,
+        0.05,
+        0.06666666666666667,
+        0.08333333333333333,
+        0.1,
+        0.11666666666666667,
+        0.13333333333333333,
+        0.15,
+        0.16666666666666666,
+        0.18333333333333332,
+        0.2,
+        0.21666666666666667,
+        0.23333333333333334,
+        0.25,
+        0.26666666666666666,
+        0.2833333333333333,
+        0.3,
+        0.31666666666666665,
+        0.3333333333333333,
+        0.35,
+        0.36666666666666664,
+        0.38333333333333336,
+        0.4,
+        0.4166666666666667,
+        0.43333333333333335,
+        0.45,
+        0.4666666666666667,
+        0.48333333333333334,
+        0.49833333333333335,
+        0.5,
+        0.5016666666666667,
+        0.5166666666666667,
+        0.5333333333333333,
+        0.55,
+        0.5666666666666667,
+        0.5833333333333334,
+        0.6,
+        0.6166666666666667,
+        0.6333333333333333,
+        0.65,
+        0.6666666666666666,
+        0.6833333333333333,
+        0.7,
+        0.7166666666666667,
+        0.7333333333333333,
+        0.75,
+        0.7666666666666667,
+        0.7833333333333333,
+        0.8,
+        0.8166666666666667,
+        0.8333333333333334,
+        0.85,
+        0.8666666666666667,
+        0.8833333333333333,
+        0.9,
+        0.9166666666666666,
+        0.9333333333333333,
+        0.95,
+        0.9666666666666667,
+        0.9833333333333333,
+        1
+      ],
+      "evaluationCount": 186,
+      "h": 0.0016666666666666668,
+      "loopChecked": true
+    },
+    "items": [],
+    "total": 0,
+    "passed": true,
+    "nextOffset": null
+  },
+  "goodFoot": {
+    "projectId": "standing-leg",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "idle",
+      "times": [
+        0,
+        0.03333333333333333,
+        0.06666666666666667,
+        0.1,
+        0.13333333333333333,
+        0.16666666666666666,
+        0.2,
+        0.23333333333333334,
+        0.26666666666666666,
+        0.3,
+        0.3333333333333333,
+        0.36666666666666664,
+        0.4,
+        0.43333333333333335,
+        0.4666666666666667,
+        0.5,
+        0.5333333333333333,
+        0.5666666666666667,
+        0.6,
+        0.6333333333333333,
+        0.6666666666666666,
+        0.7,
+        0.7333333333333333,
+        0.7666666666666667,
+        0.8,
+        0.8333333333333334,
+        0.8666666666666667,
+        0.9,
+        0.9333333333333333,
+        0.9666666666666667,
+        0.9983333333333333,
+        1,
+        1.0016666666666667,
+        1.0333333333333334,
+        1.0666666666666667,
+        1.1,
+        1.1333333333333333,
+        1.1666666666666667,
+        1.2,
+        1.2333333333333334,
+        1.2666666666666666,
+        1.3,
+        1.3333333333333333,
+        1.3666666666666667,
+        1.4,
+        1.4333333333333333,
+        1.4666666666666666,
+        1.5,
+        1.5333333333333334,
+        1.5666666666666667,
+        1.6,
+        1.6333333333333333,
+        1.6666666666666667,
+        1.7,
+        1.7333333333333334,
+        1.7666666666666666,
+        1.8,
+        1.8333333333333333,
+        1.8666666666666667,
+        1.9,
+        1.9333333333333333,
+        1.9666666666666666,
+        2
+      ],
+      "evaluationCount": 64,
+      "h": 0.0016666666666666668,
+      "loopChecked": false
+    },
+    "items": [],
+    "total": 0,
+    "passed": true,
+    "nextOffset": null
+  },
+  "overriddenFoot": {
+    "projectId": "standing-leg",
+    "revision": 0,
+    "valid": true,
+    "policy": {
+      "version": 1,
+      "intervals": 60,
+      "distancePx": 0.5,
+      "weightSumTolerance": 0.00001,
+      "velocityFraction": 0.05,
+      "velocityFloorPxPerSecond": 0.5,
+      "areaEpsilonPxSquared": 1e-8,
+      "maxSamples": 512,
+      "maxAnchors": 256,
+      "maxLoopPoints": 4096,
+      "maxElements": 20000,
+      "maxElementSamples": 2000000,
+      "maxPageSize": 500
+    },
+    "sampling": {
+      "animationId": "idle",
+      "times": [
+        0,
+        0.03333333333333333,
+        0.06666666666666667,
+        0.1,
+        0.13333333333333333,
+        0.16666666666666666,
+        0.2,
+        0.23333333333333334,
+        0.26666666666666666,
+        0.3,
+        0.3333333333333333,
+        0.36666666666666664,
+        0.4,
+        0.43333333333333335,
+        0.4666666666666667,
+        0.5,
+        0.5333333333333333,
+        0.5666666666666667,
+        0.6,
+        0.6333333333333333,
+        0.6666666666666666,
+        0.7,
+        0.7333333333333333,
+        0.7666666666666667,
+        0.8,
+        0.8333333333333334,
+        0.8666666666666667,
+        0.9,
+        0.9333333333333333,
+        0.9666666666666667,
+        0.9983333333333333,
+        1,
+        1.0016666666666667,
+        1.0333333333333334,
+        1.0666666666666667,
+        1.1,
+        1.1333333333333333,
+        1.1666666666666667,
+        1.2,
+        1.2333333333333334,
+        1.2666666666666666,
+        1.3,
+        1.3333333333333333,
+        1.3666666666666667,
+        1.4,
+        1.4333333333333333,
+        1.4666666666666666,
+        1.5,
+        1.5333333333333334,
+        1.5666666666666667,
+        1.6,
+        1.6333333333333333,
+        1.6666666666666667,
+        1.7,
+        1.7333333333333334,
+        1.7666666666666666,
+        1.8,
+        1.8333333333333333,
+        1.8666666666666667,
+        1.9,
+        1.9333333333333333,
+        1.9666666666666666,
+        2
+      ],
+      "evaluationCount": 64,
+      "h": 0.0016666666666666668,
+      "loopChecked": false
+    },
+    "items": [
+      {
+        "kind": "foot-target",
+        "ids": [
+          "leg"
+        ],
+        "time": 0,
+        "units": "px",
+        "observed": 200.9975124224178,
+        "threshold": 0.5,
+        "status": "solved",
+        "message": "Final IK endpoint differs from final target"
+      }
+    ],
+    "total": 63,
+    "passed": false,
+    "nextOffset": 1
+  }
+}
