@@ -11,6 +11,7 @@ Orchestrator phải:
 - Nắm mục tiêu sản phẩm, phạm vi từng giai đoạn, dependency, trạng thái issue/PR và các quyết định chưa chốt.
 - Chủ động đối chiếu và định hình lại kế hoạch theo code và bằng chứng mới sau mỗi nhóm issue hoặc tính năng; chịu trách nhiệm để backlog phản ánh sản phẩm đang được xây, không chỉ cập nhật trạng thái hoàn thành.
 - Chọn việc đủ đầu vào, giao đúng người, điều phối các phần dùng chung và duy trì tiến độ.
+- Tổng hợp bằng chứng, chốt chỉ thị cập nhật cụ thể và giao sub-agent thực hiện; kiểm tra kết quả và chịu trách nhiệm về sự nhất quán toàn dự án. Quyền điều phối không có nghĩa Orchestrator tự sửa mọi issue hay tài liệu.
 - Giao triển khai và nghiệm thu kỹ thuật cho các sub-agent khác nhau; không tự gánh cả viết code lẫn review chi tiết như quy trình mặc định.
 - Nhận báo cáo nghiệm thu, kiểm tra báo cáo gắn đúng commit và đầy đủ bằng chứng, sau đó quyết định merge/đóng issue trong phạm vi đã được chủ dự án ủy quyền.
 - Tiếp tục sang issue tiếp theo khi đầu vào và kết quả cho phép; không dừng để xin duyệt các bước thường lệ.
@@ -24,7 +25,8 @@ Orchestrator có thể xem code, log hoặc ảnh để hiểu một rủi ro ha
 | --- | --- | --- |
 | Một sub-agent triển khai | Hiểu issue, triển khai trọn phạm vi, viết/chạy kiểm tra, lưu bằng chứng, commit, push và mở PR; sửa các lỗi reviewer tìm thấy | Mỗi issue chỉ có **một người triển khai tại một thời điểm**; không tự chia thêm sub-agent hoặc tự merge/đóng issue |
 | Sub-agent nghiệm thu độc lập | Đối chiếu acceptance với code và đầu ra; kiểm tra hành vi, tests, CI, hiện vật và giới hạn; trả kết luận có căn cứ | Phải khác người triển khai; không chỉ tin báo cáo pass hoặc sửa code giúp tác giả rồi tự duyệt |
-| Orchestrator | Giữ cái nhìn toàn cục, xử lý dependency/ownership, nhận kết luận, merge, đóng issue, cập nhật Project và giao việc kế tiếp | Quyết định sản phẩm và blocker cần chủ dự án vẫn phải được đưa lên hỏi |
+| Sub-agent cập nhật | Sửa issue, checklist, bình luận, Project, dependency, backlog, kế hoạch và tài liệu theo chỉ thị cụ thể; bàn giao diff/liên kết và kết quả đối chiếu | Có ownership rõ cho mỗi đợt; không tự đổi scope/gate, nghiệm thu kỹ thuật hay quyết định merge/đóng/mở downstream |
+| Orchestrator | Giữ cái nhìn toàn cục, chốt chỉ thị và giao cập nhật, kiểm tra kết quả; nhận nghiệm thu, quyết định merge, đóng issue và mở downstream | Quyết định sản phẩm và blocker cần chủ dự án vẫn phải được đưa lên hỏi |
 
 Đây là cập nhật cho quy tắc “mỗi issue một bạn xử lý”: một người **triển khai**, có thêm người **nghiệm thu độc lập**. Nếu cần thay người triển khai, phải bàn giao rõ và kết thúc ownership cũ trước.
 
@@ -66,7 +68,7 @@ Nếu cần sửa, giao lại cho đúng người triển khai. Reviewer nghiệ
 
 ### 4. Merge, đóng và đi tiếp
 
-Chỉ Orchestrator thực hiện bước này sau khi reviewer xác nhận đạt, checks bắt buộc đã pass và không còn quyết định chưa giải quyết ảnh hưởng đến việc nhận kết quả.
+Orchestrator quyết định merge, đóng issue và mở downstream sau khi reviewer xác nhận đạt, checks bắt buộc đã pass và không còn quyết định chưa giải quyết ảnh hưởng đến việc nhận kết quả. Phần cập nhật thông tin bên dưới được giao sub-agent theo chỉ thị đó; quyền cập nhật không bao gồm quyền tự quyết các bước này.
 
 - Merge đúng head đã được review; nếu head hoặc base thay đổi, kiểm tra tác động và yêu cầu review/check lại phần cần thiết.
 - Đóng issue với lý do `completed`, cập nhật checklist và bình luận kết quả nghiệm thu kèm PR/commit, checks và giới hạn.
@@ -86,15 +88,23 @@ Kế hoạch trước khi xây là giả thuyết có thể cần sửa. **Code 
 
 Trước từng lần giao việc vẫn phải kiểm tra đầu vào thực tế của issue; các mốc trên yêu cầu rà rộng hơn cả nhóm việc và downstream, không chỉ PR vừa merge.
 
-### Orchestrator phải làm gì
+### Orchestrator định hướng, sub-agent cập nhật
 
 1. **Chốt hiện trạng có bằng chứng:** ghi mốc commit của `main`, PR đang mở và kết quả nghiệm thu; phân biệt code đã merge, thử nghiệm chưa merge, hành vi đã kiểm chứng và phần chưa biết. Đối chiếu workflow chạy thật, API/schema, đường dẫn, tests và giới hạn với những gì kế hoạch đang mô tả. Giao kiểm tra kỹ thuật độc lập khi cần; Orchestrator tổng hợp tác động toàn dự án.
 2. **Rà lại các issue liên quan:** việc nào đã được làm trong issue khác, việc nào thiếu hoặc trùng, acceptance nào chưa có bằng chứng, dependency/ownership nào không còn đúng, giả định nào bị bác bỏ. Không dùng số issue Closed hay CI xanh thay cho đánh giá này.
-3. **Định hình lại phần việc còn lại:** cập nhật outcome, phạm vi, acceptance, đầu vào bàn giao, thứ tự, ownership và dependency để issue tiếp theo có thể thực thi từ code hiện tại. Tách/gộp/thay thế issue hoặc thêm việc sửa lỗi/điều tra khi có căn cứ; phân biệt thay đổi kế hoạch thực thi với thay đổi mục tiêu sản phẩm. Không đổi acceptance hồi tố để biến kết quả thất bại thành đạt.
-4. **Đồng bộ nguồn điều phối:** sửa nội dung issue bị ảnh hưởng và bình luận lý do kèm commit/PR/bằng chứng; cập nhật cạnh dependency, Project Status/Readiness, roadmap #1, `backlog.json`, execution plan và tài liệu kiến trúc/hợp đồng/hướng dẫn liên quan. Chỉ cập nhật những nơi bị ảnh hưởng, nhưng không để các nguồn đó mâu thuẫn. Không chỉ thêm comment mà giữ nguyên mô tả giao việc đã lỗi thời.
-5. **Lưu kết luận và giao lại:** lưu bản đối chiếu có ngày trong `docs/product/reconciliation/`, liên kết từ roadmap/issue liên quan. Nêu kế hoạch cũ, hiện trạng, chênh lệch, điều chỉnh đã thực hiện, phần chờ quyết định và issue tiếp theo đủ điều kiện. Báo ngắn cho chủ dự án những thay đổi có ý nghĩa trước khi tiếp tục điều phối.
+3. **Định hình lại phần việc còn lại:** chốt chỉ thị để sub-agent cập nhật outcome, phạm vi, acceptance, đầu vào bàn giao, thứ tự, ownership và dependency để issue tiếp theo có thể thực thi từ code hiện tại. Tách/gộp/thay thế issue hoặc thêm việc sửa lỗi/điều tra khi có căn cứ; phân biệt thay đổi kế hoạch thực thi với thay đổi mục tiêu sản phẩm. Không đổi acceptance hồi tố để biến kết quả thất bại thành đạt.
+4. **Giao đồng bộ nguồn điều phối:** chỉ định sub-agent sửa nội dung issue bị ảnh hưởng và bình luận lý do kèm commit/PR/bằng chứng; cập nhật cạnh dependency, Project Status/Readiness, roadmap #1, `backlog.json`, execution plan và tài liệu kiến trúc/hợp đồng/hướng dẫn liên quan. Chỉ cập nhật những nơi bị ảnh hưởng, nhưng không để các nguồn đó mâu thuẫn. Không chỉ thêm comment mà giữ nguyên mô tả giao việc đã lỗi thời.
+5. **Kiểm tra kết quả và giao lại:** giao sub-agent lưu bản đối chiếu có ngày trong `docs/product/reconciliation/`, liên kết từ roadmap/issue liên quan. Nêu kế hoạch cũ, hiện trạng, chênh lệch, điều chỉnh đã thực hiện, phần chờ quyết định và issue tiếp theo đủ điều kiện. Orchestrator kiểm tra bản bàn giao và sự nhất quán giữa các nguồn; báo ngắn cho chủ dự án những thay đổi có ý nghĩa trước khi tiếp tục điều phối.
 
-Đối chiếu không phải một vòng xin duyệt thường lệ. Orchestrator tự cập nhật thông tin thực tế và kế hoạch thực thi trong phạm vi đã được giao. Khi thay đổi mục tiêu, đầu ra cam kết, ngưỡng gate hoặc cần quyết định sản phẩm, chuẩn bị đề xuất có bằng chứng rồi hỏi chủ dự án; giữ phần phụ thuộc chờ quyết định, không tự sửa kế hoạch để vượt blocker.
+Đối chiếu không phải một vòng xin duyệt thường lệ. Orchestrator chủ động ra chỉ thị và giao sub-agent cập nhật thông tin thực tế và kế hoạch thực thi trong phạm vi đã được giao. Khi thay đổi mục tiêu, đầu ra cam kết, ngưỡng gate hoặc cần quyết định sản phẩm, chuẩn bị đề xuất có bằng chứng rồi hỏi chủ dự án; giữ phần phụ thuộc chờ quyết định, không tự sửa kế hoạch để vượt blocker.
+
+### Bàn giao một đợt cập nhật
+
+- Orchestrator nêu bằng chứng và quyết định làm căn cứ, danh sách issue/tài liệu cần sửa, phạm vi được đổi, phần phải giữ nguyên và đầu ra cần bàn giao. Chỉ thị phải đủ cụ thể để sub-agent thực hiện mà không tự quyết lại scope hoặc ngưỡng gate.
+- Mỗi đợt có owner được chỉ định; không để nhiều người cùng sửa một issue hoặc file. Nếu chia đợt theo các phần độc lập, ghi rõ ranh giới; thay owner phải bàn giao và kết thúc ownership cũ trước.
+- Sub-agent cập nhật issue body, checklist, bình luận, Project Status/Readiness, dependency, backlog, execution plan, tài liệu và bản đối chiếu trong phạm vi chỉ thị. Chỉ ghi nhận quyết định merge/đóng/mở downstream đã được Orchestrator chốt; nếu gặp mâu thuẫn hoặc thiếu bằng chứng, báo lại thay vì tự quyết.
+- Bàn giao diff/PR cho thay đổi trong repo, liên kết issue/Project đã sửa, bằng chứng làm căn cứ, kết quả kiểm tra nhất quán và phần còn chờ. Orchestrator kiểm tra kết quả so với chỉ thị và chịu trách nhiệm toàn cục; thay đổi qua PR vẫn phải có reviewer độc lập theo vòng nghiệm thu ở trên, các kiểm tra khác được giao độc lập khi cần.
+- Sub-agent cập nhật không thay thế người nghiệm thu kỹ thuật. Việc sửa mô tả hay trạng thái không chứng minh acceptance đã đạt và không tự mở khóa downstream.
 
 Mẫu kết luận tối thiểu:
 
