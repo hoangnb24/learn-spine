@@ -1,3 +1,5 @@
+> Các dòng bằng chứng phía dưới là snapshot trước #6. Types hiện được chuyển nguyên nguồn sang [`platform/src/model/types.ts`](../../../platform/src/model/types.ts); semantics vẫn ở contracts.
+
 # Audit hợp đồng v0 phục vụ UX — 11/09/2026
 
 Phạm vi: đọc contracts, architecture, backlog tại repo và bằng chứng Foundation/WebMCP. Không kiểm chứng lại trạng thái GitHub, không triển khai engine, không sửa hợp đồng. Các issue dưới đây là **owner đề xuất cho phần bổ sung**, không phải blocker mới được áp dụng lên Project.

@@ -1,7 +1,7 @@
 // Conformance oracle for the examples, NOT a production loader or command engine.
 import Ajv2020 from 'ajv/dist/2020.js';
 import { readFileSync } from 'node:fs';
-const schema = JSON.parse(readFileSync(new URL('./project-v0.schema.json', import.meta.url)));
+const schema = JSON.parse(readFileSync(new URL('../../../platform/src/model/project-v0.schema.json', import.meta.url)));
 const shape = new Ajv2020({ strict: true, allErrors: true }).compile(schema);
 export function checkExample(p) {
   if (p?.formatVersion !== 0) return ['UNSUPPORTED_VERSION'];

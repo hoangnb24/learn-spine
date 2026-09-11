@@ -8,7 +8,7 @@
     },
     "projectId": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+      "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
     },
     "revision": {
       "type": "integer",
@@ -116,7 +116,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "name": {
           "type": "string",
@@ -124,14 +124,14 @@
         },
         "path": {
           "type": "string",
-          "pattern": "^assets/[A-Za-z0-9_-]+\\.png$"
+          "pattern": "^assets/[A-Za-z0-9_-]+\\.png(?![\\s\\S])"
         },
         "mimeType": {
           "const": "image/png"
         },
         "sha256": {
           "type": "string",
-          "pattern": "^[a-f0-9]{64}$"
+          "pattern": "^[a-f0-9]{64}(?![\\s\\S])"
         },
         "pixelWidth": {
           "type": "integer",
@@ -184,7 +184,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "name": {
           "type": "string",
@@ -194,7 +194,7 @@
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -218,7 +218,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "name": {
           "type": "string",
@@ -226,13 +226,13 @@
         },
         "boneId": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "attachmentId": {
           "anyOf": [
             {
               "type": "string",
-              "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
             },
             {
               "type": "null"
@@ -253,14 +253,14 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "type": {
           "const": "region"
         },
         "assetId": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "transform": {
           "$ref": "#/$defs/transform"
@@ -378,7 +378,7 @@
       "properties": {
         "boneId": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "property": {
           "enum": [
@@ -409,7 +409,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_.-]{1,100}$"
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
         },
         "name": {
           "type": "string",

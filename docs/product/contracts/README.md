@@ -4,8 +4,8 @@ Ngày chốt đặc tả: 10/09/2026 · Issue #4 (T03). Đây là đầu vào tr
 
 ## Bộ tài liệu bàn giao
 
-- [project-v0.schema.json](project-v0.schema.json): cấu trúc JSON, kiểu và phạm vi giá trị.
-- [types.ts](types.ts): kiểu dữ liệu và interface cho từng module, không có runtime import.
+- [project-v0.schema.json](../../../platform/src/model/project-v0.schema.json): cấu trúc JSON, kiểu và phạm vi giá trị.
+- [types.ts](../../../platform/src/model/types.ts): kiểu dữ liệu và interface cho từng module, không có runtime import.
 - [semantics.md](semantics.md): quy tắc liên kết, tọa độ, thời gian, giao dịch, lịch sử và jobs.
 - [ADR-001.md](ADR-001.md): quyết định bổ sung so với architecture ban đầu, điểm mở rộng và migration.
 - [examples/region-valid.json](examples/region-valid.json): một ảnh thân robot với kênh nhún 2 giây; ví dụ dữ liệu, chưa là demo chuyển động.
@@ -28,7 +28,7 @@ Schema, semantics và types là một hợp đồng: schema kiểm tra hình d�
 | Editor/player #12 | Commands + Evaluator + Renderer + Storage | Cùng core, UI state riêng | Dùng các mock trên, ghi rõ phần chưa hiện thực |
 | Transport #13 | tool schema + unknown payload → Result<Json> | Async; chỉ đăng ký/dispatch; không tự sửa project | Transport mock trả unsupported; probe #3 để kiểm tra đường nối |
 
-Sản phẩm sau #5 có thể chuyển types/schema vào package model dùng chung; phải chuyển một nguồn duy nhất và cập nhật mọi import/link trong cùng PR, không duy trì hai bản độc lập. Root package học Spine không phải dependency của hợp đồng hoặc sản phẩm.
+#6 đã chuyển types/schema sang `platform/src/model/` làm một nguồn duy nhất và cập nhật mock/oracle. [API production và fixture](../../../platform/src/model/README.md). Regex kết thúc chuỗi dùng negative lookahead để loại cả newline cuối; đây là sửa kiểm tra khớp quy tắc ASCII/path/hash v0, không đổi format. Root package học Spine không phải dependency của hợp đồng hoặc sản phẩm.
 
 ## Kiểm tra từ clone
 

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test contract.test.mjs",
-    "typecheck": "tsc --noEmit --strict --target ES2022 --module NodeNext types.ts mock-consumers.ts"
+    "typecheck": "tsc --noEmit --strict --target ES2022 --module NodeNext ../../../platform/src/model/types.ts mock-consumers.ts"
   },
   "devDependencies": { "ajv": "8.20.0", "typescript": "5.9.3" }
 }

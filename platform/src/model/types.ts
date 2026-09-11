@@ -120,3 +120,10 @@ export interface Transport {
   register(tools: ToolDefinition[], dispatch: (name: string, input: unknown, signal?: AbortSignal) => Promise<Result<Json>>): Promise<Result<Capabilities>>;
   dispose(): void;
 }
+
+/** Ephemeral UI state, deliberately outside Project and player serialization. */
+export interface EditorState {
+  selection: { collection: 'bones' | 'slots' | 'attachments' | 'assets' | 'animations'; id: Id } | null;
+  camera: { centerX: number; centerY: number; zoom: number };
+  timeline: { animationId: Id | null; time: number; playing: boolean };
+}
