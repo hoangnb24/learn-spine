@@ -9,12 +9,19 @@ export function Stage({
   time,
   selected,
   onSelect,
+  meshSelection,
 }: {
   bundle: ProjectBundle;
   animationId: string | null;
   time: number;
   selected?: string;
   onSelect?: (id: string) => void;
+  meshSelection?: {
+    attachmentId: string;
+    vertices: number[];
+    weightBoneId: string;
+    onSelect(vertex: number): void;
+  };
 }) {
   const host = useRef<HTMLDivElement>(null),
     renderer = useRef<PixiRenderer | null>(null);
@@ -105,13 +112,21 @@ export function Stage({
       setError(result.error.message);
       return;
     }
+    renderer.current.setOverlay(
+      meshSelection
+        ? {
+            wireframe: true,
+            weightBoneId: meshSelection.weightBoneId || undefined,
+          }
+        : {},
+    );
     const drawn = renderer.current.draw(result.value, view);
     if (!drawn.ok) setError(drawn.error.message);
     else {
       setPose(result.value);
       setError("");
     }
-  }, [prepared, view, animationId, time]);
+  }, [prepared, view, animationId, time, meshSelection]);
   return (
     <div
       className="stage"
@@ -126,6 +141,40 @@ export function Stage({
           height={size.height}
           aria-label="Xương trên canvas"
         >
+          {meshSelection &&
+            pose.meshes
+              .filter((m) => m.attachmentId === meshSelection.attachmentId)
+              .flatMap((m) =>
+                Array.from({ length: m.vertices.length / 2 }, (_, vertex) => {
+                  const [x, y] = screenPoint(
+                    m.vertices[vertex * 2],
+                    m.vertices[vertex * 2 + 1],
+                    view,
+                  );
+                  return (
+                    <circle
+                      key={`${m.slotId}:${vertex}`}
+                      role="button"
+                      aria-label={`Chọn đỉnh ${vertex} trên hình`}
+                      tabIndex={0}
+                      cx={x}
+                      cy={y}
+                      r={meshSelection.vertices.includes(vertex) ? 7 : 5}
+                      fill={
+                        meshSelection.vertices.includes(vertex)
+                          ? "#ffdd44"
+                          : "#20313e"
+                      }
+                      stroke="#fff"
+                      onClick={() => meshSelection.onSelect(vertex)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ")
+                          meshSelection.onSelect(vertex);
+                      }}
+                    />
+                  );
+                }),
+              )}
           {bundle.project.bones.map((bone) => {
             const m = pose.bones[bone.id];
             if (!m) return null;

@@ -29,7 +29,7 @@ export function explain(result: Result<unknown>): string {
   if (result.ok) return "";
   const messages: Partial<Record<typeof result.error.code, string>> = {
     INVALID_INPUT:
-      "Dữ liệu chưa hợp lệ. Kiểm tra tên, giá trị và thời gian rồi thử lại.",
+      `Dữ liệu chưa hợp lệ: ${result.error.message} (${result.error.path})`,
     REVISION_CONFLICT:
       "Project đã thay đổi. Đọc lại bản hiện tại trước khi thử lại.",
     STORAGE_FAILED:
@@ -213,7 +213,7 @@ export class EditorRuntime {
   async newProject(name = "Project mới") {
     return this.openBundle({
       project: {
-        formatVersion: 0,
+        formatVersion: 1,
         projectId: id(),
         revision: 0,
         requiredCapabilities: ["region-v0"],

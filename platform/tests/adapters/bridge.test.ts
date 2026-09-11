@@ -74,7 +74,7 @@ describe('WebMCP adapter',()=>{
   const {bridge}=await setup();const registered=new Set<string>();let signal:AbortSignal|undefined;
   const context:ModelContext={registerTool:vi.fn((tool,options)=>{registered.add(tool.name);signal=options?.signal;signal?.addEventListener('abort',()=>registered.delete(tool.name));}),unregisterTool:vi.fn(name=>{registered.delete(name);})};
   expect(detectWebMCP(null,null).transport).toBe('none');expect(detectWebMCP(null,{modelContext:context}).transport).toBe('webmcp-navigator');
-  const registration=unwrap(await registerWebMCP(bridge,detectWebMCP({modelContext:context},null)));expect(registered.size).toBe(24);await registration.dispose();expect(registered.size).toBe(0);expect(signal?.aborted).toBe(true);
+  const registration=unwrap(await registerWebMCP(bridge,detectWebMCP({modelContext:context},null)));expect(registered.size).toBe(toolDefinitions.length);await registration.dispose();expect(registered.size).toBe(0);expect(signal?.aborted).toBe(true);
   const other=await setup();let calls=0;const partial:ModelContext={registerTool:vi.fn(()=>{if(++calls===3)throw Error('duplicate');}),unregisterTool:vi.fn()};expect(await registerWebMCP(other.bridge,{context:partial,transport:'webmcp-document'})).toMatchObject({ok:false});expect(partial.unregisterTool).toHaveBeenCalledTimes(2);
  });
 });
