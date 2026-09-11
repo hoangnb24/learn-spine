@@ -2,8 +2,7 @@
 
 `PixiRenderer` implements the canonical `Renderer` in `model/types.ts`. It uses
 PixiJS **8.13.2** (MIT) WebGL directly; no Spine runtime and no animation ticker.
-Editor/player and observation use this same module. The app shells are not wired
-in this issue; integration belongs to #11/#12.
+Editor/player and observation use this same module.
 
 ```ts
 import { PixiRenderer, fitCamera } from './render';
