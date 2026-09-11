@@ -1,0 +1,290 @@
+{
+  "productInvocations": 60,
+  "unfinishedInvocations": [],
+  "thrownInvocations": [],
+  "afterStopStarts": 0,
+  "discoveryCalls": "reconcile subject transcript",
+  "elapsedMs": 231868.5,
+  "startCount": 1,
+  "stopCount": 1,
+  "setupCount": 1,
+  "prestartInvocations": 0,
+  "errors": [
+    {
+      "name": "apply_batch",
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "REVISION_CONFLICT",
+          "path": "/expectedRevision",
+          "message": "Read the current project before retrying this edit"
+        },
+        "revision": 1
+      }
+    },
+    {
+      "name": "apply_batch",
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "MISSING_REFERENCE",
+          "path": "/slots/0/boneId",
+          "message": "Slot bone does not exist",
+          "ids": [
+            "mesh",
+            "nonexistent-bone"
+          ]
+        },
+        "revision": 1
+      }
+    }
+  ],
+  "media": [
+    {
+      "file": "0027-render_pose.png",
+      "revision": 0
+    },
+    {
+      "file": "0053-render_pose.png",
+      "revision": 3
+    },
+    {
+      "file": "0055-render_pose.png",
+      "revision": 3
+    },
+    {
+      "file": "0057-render_pose.png",
+      "revision": 3
+    },
+    {
+      "file": "0059-render_pose.png",
+      "revision": 3
+    },
+    {
+      "file": "0065-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0066-a3e64d2a-db96-44b5-be93-939e3105022a.png",
+      "revision": 3,
+      "sha256": "9829b81374b4ba617e36862a932f6e55e5badb7fc6a465513f3343d6e939d279"
+    },
+    {
+      "file": "0068-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0069-4fd6a7f8-a07b-4fd4-82a1-450d0a0d3bf1.png",
+      "revision": 3,
+      "sha256": "f7354199410a5968d2d3adcc95ab1dabccc0bf45f78b7795623b672f25328e31"
+    },
+    {
+      "file": "0071-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0072-baece0a5-6993-4dab-a0b8-655c4203b0ad.png",
+      "revision": 3,
+      "sha256": "9c51c1444bc3cf8afd969d0345203d9adf9cd7858381066e9c277c15b903f157"
+    },
+    {
+      "file": "0074-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0075-bf6106fb-87db-4fb2-b0e0-629c42a1d8ae.png",
+      "revision": 3,
+      "sha256": "1a307cf614b4e75de1ed5a38b582fb0ff74967af5250aa39fbadb4553d6649b3"
+    },
+    {
+      "file": "0077-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0078-ce0a9ca8-812a-4e29-b679-6d35f8b62cdb.png",
+      "revision": 3,
+      "sha256": "8c0b5128c956c01c62c7fb4933e8991dfcc128428d89fbd2c3323abf993f954d"
+    },
+    {
+      "file": "0080-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0081-90e3b3b3-2667-4aeb-bfe9-bd6f8640f536.png",
+      "revision": 3,
+      "sha256": "d230635461d2f26e9a20c05105c59f03b999519d4feb78f3322b21c4a21d9f0e"
+    },
+    {
+      "file": "0083-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0084-75f05494-55c0-4299-a4c4-a5a54d25d4b5.png",
+      "revision": 3,
+      "sha256": "db7461761edadb1618f4205af88fef12a5a603c999b2a5523adf58a1ec9891d4"
+    },
+    {
+      "file": "0086-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0087-0128e99b-0c63-493a-9611-614286230deb.png",
+      "revision": 3,
+      "sha256": "0a0d470927c2338c2f4f8e3075fffdd3725d44d401817679b4109f82b8a3ca9d"
+    },
+    {
+      "file": "0089-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0090-3da5fc3c-9a3f-4618-a250-14d5e2085fd6.png",
+      "revision": 3,
+      "sha256": "9829b81374b4ba617e36862a932f6e55e5badb7fc6a465513f3343d6e939d279"
+    },
+    {
+      "file": "0092-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0093-d33c9382-f854-41da-b80a-17e00d045d01.png",
+      "revision": 3,
+      "sha256": "f7354199410a5968d2d3adcc95ab1dabccc0bf45f78b7795623b672f25328e31"
+    },
+    {
+      "file": "0095-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0096-53dae6f4-c637-4eb2-83d4-40c12b5edad5.png",
+      "revision": 3,
+      "sha256": "9c51c1444bc3cf8afd969d0345203d9adf9cd7858381066e9c277c15b903f157"
+    },
+    {
+      "file": "0098-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0099-cea4cd7b-c057-4622-b53d-91fedcfd1c23.png",
+      "revision": 3,
+      "sha256": "1a307cf614b4e75de1ed5a38b582fb0ff74967af5250aa39fbadb4553d6649b3"
+    },
+    {
+      "file": "0101-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0102-1ae845e5-0312-4c9c-b19c-6feae45bb409.png",
+      "revision": 3,
+      "sha256": "8c0b5128c956c01c62c7fb4933e8991dfcc128428d89fbd2c3323abf993f954d"
+    },
+    {
+      "file": "0104-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0105-1e24f90a-b54e-46b5-9f95-e0c506c2f9e0.png",
+      "revision": 3,
+      "sha256": "d230635461d2f26e9a20c05105c59f03b999519d4feb78f3322b21c4a21d9f0e"
+    },
+    {
+      "file": "0107-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0108-0992fc85-8287-4af0-a482-63063708c122.png",
+      "revision": 3,
+      "sha256": "db7461761edadb1618f4205af88fef12a5a603c999b2a5523adf58a1ec9891d4"
+    },
+    {
+      "file": "0110-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0111-44f4b5f0-6667-44c0-a3ce-7c29db33524e.png",
+      "revision": 3,
+      "sha256": "0a0d470927c2338c2f4f8e3075fffdd3725d44d401817679b4109f82b8a3ca9d"
+    },
+    {
+      "file": "0113-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0114-a9edf8a6-0ed0-464d-9fbf-086fe371e7ce.png",
+      "revision": 3,
+      "sha256": "9829b81374b4ba617e36862a932f6e55e5badb7fc6a465513f3343d6e939d279"
+    },
+    {
+      "file": "0116-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0117-72e14cca-ee0e-47ae-99e1-8798677fb8b4.png",
+      "revision": 3,
+      "sha256": "f7354199410a5968d2d3adcc95ab1dabccc0bf45f78b7795623b672f25328e31"
+    },
+    {
+      "file": "0119-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0120-4e941f83-0d5e-4c7e-8208-6ecfb7910067.png",
+      "revision": 3,
+      "sha256": "9c51c1444bc3cf8afd969d0345203d9adf9cd7858381066e9c277c15b903f157"
+    },
+    {
+      "file": "0122-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0123-3f104b0a-9397-4530-9c79-63337440da65.png",
+      "revision": 3,
+      "sha256": "1a307cf614b4e75de1ed5a38b582fb0ff74967af5250aa39fbadb4553d6649b3"
+    },
+    {
+      "file": "0125-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0126-1ea87383-af22-4921-9a14-bc6ac79bce1f.png",
+      "revision": 3,
+      "sha256": "8c0b5128c956c01c62c7fb4933e8991dfcc128428d89fbd2c3323abf993f954d"
+    },
+    {
+      "file": "0128-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0129-a418497c-cd3a-4719-ae65-76607188e2f3.png",
+      "revision": 3,
+      "sha256": "d230635461d2f26e9a20c05105c59f03b999519d4feb78f3322b21c4a21d9f0e"
+    },
+    {
+      "file": "0131-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0132-2c593264-6646-4b9a-bef5-bf1b4eb20dbb.png",
+      "revision": 3,
+      "sha256": "db7461761edadb1618f4205af88fef12a5a603c999b2a5523adf58a1ec9891d4"
+    },
+    {
+      "file": "0134-read_artifact.png",
+      "revision": 3
+    },
+    {
+      "file": "0135-7da4d970-47d6-40ec-94f1-22cbba003c06.png",
+      "revision": 3,
+      "sha256": "0a0d470927c2338c2f4f8e3075fffdd3725d44d401817679b4109f82b8a3ca9d"
+    },
+    {
+      "file": "0146-gate3-scarf.zip",
+      "revision": 3,
+      "sha256": "301fb1bd0a399c168ebed57db11b1004c9321d4537ef95cfc2ef62a78e8c0c7b"
+    }
+  ],
+  "visualRubric": "pending independent review",
+  "reopen": "pending",
+  "manualRescue": "reconcile transcript",
+  "tokens": null,
+  "cost": null
+}

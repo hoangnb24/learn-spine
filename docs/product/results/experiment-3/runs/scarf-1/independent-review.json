@@ -1,0 +1,19 @@
+{
+  "source": "root handoff of independent reviewer conclusion",
+  "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+  "verdict": "KH\u00d4NG \u0110\u1ea0T \u2014 thi\u1ebfu b\u1eb1ng ch\u1ee9ng",
+  "scope": "scarf-1",
+  "independentNumericChecks": {
+    "phaseLagSeconds": 0.25,
+    "midTipAmplitude": [
+      14,
+      20
+    ],
+    "anchorCount": 10,
+    "maxAnchorDrift": 0,
+    "sampleTimes": 65,
+    "loopGeometryDiagnostics": 0,
+    "ZIPPreservationTransactionsRestore": true
+  },
+  "reason": "Missing public observation and outside-native-action evidence; this is not a project failure finding or evidence of rescue. Complete budget and rescue status unknown."
+}

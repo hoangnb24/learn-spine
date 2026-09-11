@@ -1,0 +1,20 @@
+{
+  "failedPublicItems": [
+    {
+      "type": "mcpToolCall",
+      "id": "exec-87f796dd-b25c-4d86-be19-6b55920c511d",
+      "server": "node_repl",
+      "tool": "js",
+      "arguments": {
+        "code": "const angle=initial.bones.value.items[0].setup.rotation; const anchors=verts.filter(v=>v.position[0]<=9.6).map(v=>({id:'neck-'+v.vertex,point:{kind:'vertex',slotId:'mesh',vertex:v.vertex},target:[Math.cos(angle)*v.position[0]-Math.sin(angle)*v.position[1],Math.sin(angle)*v.position[0]+Math.cos(angle)*v.position[1]]})); const measurement={...base,animationId:'cycle',anchors,loopPoints:verts.map(v=>({kind:'vertex',slotId:'mesh',vertex:v.vertex})),limit:50}; nodeRepl.write(JSON.stringify(unpack(await call('measure_motion',measurement)))); const vp={width:640,height:360,centerX:75,centerY:-25,zoom:3,devicePixelRatio:1,background:'#202530'}; const beforeImage=await call('render_pose',{...base,animationId:'cycle',time:0.5,viewport:vp}); for(const c of beforeImage.content??[]) {if(c.type==='image')await nodeRepl.emitImage(c);else if(c.type==='text')nodeRepl.write(c.text);}",
+        "title": "Ghi b\u1eb1ng ch\u1ee9ng c\u1ed5 kh\u0103n tr\u00f4i"
+      },
+      "status": "failed",
+      "durationMs": 137
+    }
+  ],
+  "limitation": "35 outside points apply only to render_pose input viewport. ObservationService.preview fits the continuous envelope; reviewer inspected0065/0068/0083 read_artifact images showing full scarf. No assertion of independently measured full-sequence preview geometry.",
+  "rawCalls": 60,
+  "discoveryCalls": 1,
+  "publicTranscriptContainsReasoning": false
+}

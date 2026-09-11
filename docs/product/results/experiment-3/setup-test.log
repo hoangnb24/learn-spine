@@ -1,0 +1,13 @@
+
+> learn-spine-platform@0.0.0 test
+> vitest run tests/agent-evals/setup.test.ts
+
+
+ RUN  v5.0.0 /Users/tubakhuym/projects/learn-spine-worktrees/issue-21/platform
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  15:18:09
+   Duration  185ms (import 52%, transform 28%, tests 18%, worker 2%)
+

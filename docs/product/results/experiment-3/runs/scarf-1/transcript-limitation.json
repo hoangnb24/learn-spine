@@ -1,0 +1,15 @@
+{
+  "source": "app read_thread plus root confirmation",
+  "sessionId": "01a08fb8-3815-7843-8d8b-ca669f8ae160",
+  "missing": "Public items after early inspect_project through final; no cursor. Native log complete. Outside-native actions cannot be fully confirmed from partial public transcript. No private history or reasoning used to backfill.",
+  "rootReceivedFinalSelfReport": {
+    "budgetCalls": 58,
+    "discovery": 1,
+    "native": 57,
+    "DOMObservations": 2,
+    "previewFrames": 24,
+    "fps": 4,
+    "loops": 3
+  },
+  "selfReportIsNotTranscript": true
+}

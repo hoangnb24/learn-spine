@@ -1,0 +1,166 @@
+{
+  "gateVerdict": "PASS_THRESHOLD_7_OF_9",
+  "attempted": 9,
+  "replacementRuns": 0,
+  "thresholdPerBrief": "at least2 of3",
+  "acceptedBriefCounts": {
+    "robot": 2,
+    "wave": 3,
+    "scarf": 2
+  },
+  "runs": [
+    {
+      "run": "robot-1",
+      "audit": "runs/robot-1/audit.json",
+      "independentReview": null,
+      "pendingIndependentAcceptance": false,
+      "failed": true
+    },
+    {
+      "run": "robot-2",
+      "audit": "runs/robot-2/audit.json",
+      "independentReview": {
+        "source": "root handoff of independent reviewer21 conclusion",
+        "verdict": "\u0110\u1ea0T",
+        "reviewedCommit": "aa4f810413380af91c8159b9a6d1c934e81208f5",
+        "scope": "robot-2 only, not entire Gate3",
+        "limitations": "Reviewer used sampled screenshots and playback records; did not directly watch WebM."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "robot-3",
+      "audit": "runs/robot-3/audit.json",
+      "independentReview": {
+        "source": "root handoff of reviewer21 message/final",
+        "verdict": "\u0110\u1ea1t",
+        "reviewedCommit": "c254c4c8fccb2403253a85ebee95091ef99fbe04",
+        "scope": "robot-3; robot brief now2/3,robot1FAIL_ENV retained",
+        "evidence": "66calls249.39s;transactions/rootonlyrestore;ZIPproject15hash;visualsamples/playbackrecords",
+        "limitations": "sampled screenshots and playback records, not direct WebM review"
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "wave-1",
+      "audit": "runs/wave-1/audit.json",
+      "independentReview": {
+        "source": "root handoff of reviewer21 conclusion",
+        "verdict": "\u0110\u1ea1t",
+        "reviewedCommit": "21a0b57fa42d859dfccc4d1f10be629a2b5623b3",
+        "scope": "wave-1 only",
+        "structuralReview": "Reviewer independently compared initial/final ZIP ignoring revision and3allowedwave rotations; arrays/channels/keys/curvesstrict. Object property order has no semantic meaning. Supplemental comparison accepted; originalfalse frozencheck retained asmeasurementbug."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "wave-2",
+      "audit": "runs/wave-2/audit.json",
+      "independentReview": {
+        "source": "root handoff of reviewer21 verdict",
+        "verdict": "\u0110\u1ea1t",
+        "reviewedCommit": "a4578a718271e199db58303d42a1be21f5d8a5ef",
+        "scope": "wave-2",
+        "limitation": "Reviewer sampled images and playback records, not direct WebM playback; wave2 intermediate native crop retained. Accepted later full preview and reopened Player."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "wave-3",
+      "audit": "runs/wave-3/audit.json",
+      "independentReview": {
+        "source": "root handoff of reviewer21 verdict",
+        "verdict": "\u0110\u1ea1t",
+        "reviewedCommit": "a4578a718271e199db58303d42a1be21f5d8a5ef",
+        "scope": "wave-3",
+        "limitation": "Reviewer sampled images and playback records, not direct WebM playback; wave2 intermediate native crop retained. Accepted later full preview and reopened Player."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "scarf-1",
+      "audit": "runs/scarf-1/audit.json",
+      "independentReview": {
+        "source": "root handoff of independent reviewer conclusion",
+        "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+        "verdict": "KH\u00d4NG \u0110\u1ea0T \u2014 thi\u1ebfu b\u1eb1ng ch\u1ee9ng",
+        "scope": "scarf-1",
+        "independentNumericChecks": {
+          "phaseLagSeconds": 0.25,
+          "midTipAmplitude": [
+            14,
+            20
+          ],
+          "anchorCount": 10,
+          "maxAnchorDrift": 0,
+          "sampleTimes": 65,
+          "loopGeometryDiagnostics": 0,
+          "ZIPPreservationTransactionsRestore": true
+        },
+        "reason": "Missing public observation and outside-native-action evidence; this is not a project failure finding or evidence of rescue. Complete budget and rescue status unknown."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": true
+    },
+    {
+      "run": "scarf-2",
+      "audit": "runs/scarf-2/audit.json",
+      "independentReview": {
+        "source": "root handoff of independent reviewer conclusion",
+        "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+        "verdict": "\u0110\u1ea1t",
+        "scope": "scarf-2",
+        "independentNumericChecks": {
+          "phaseLagSeconds": 0.25,
+          "midTipAmplitude": [
+            20,
+            24
+          ],
+          "anchorCount": 10,
+          "maxAnchorDrift": 0,
+          "sampleTimes": 65,
+          "loopGeometryDiagnostics": 0,
+          "ZIPPreservationTransactionsRestore": true
+        },
+        "reason": "35 outside points apply only to render_pose input viewport. ObservationService.preview fits the continuous envelope; reviewer inspected0065/0068/0083 read_artifact images showing full scarf. No assertion of independently measured full-sequence preview geometry."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    },
+    {
+      "run": "scarf-3",
+      "audit": "runs/scarf-3/audit.json",
+      "independentReview": {
+        "source": "root handoff of independent reviewer conclusion",
+        "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+        "verdict": "\u0110\u1ea1t",
+        "scope": "scarf-3",
+        "independentNumericChecks": {
+          "phaseLagSeconds": 0.25,
+          "midTipAmplitude": [
+            14,
+            18
+          ],
+          "anchorCount": 10,
+          "maxAnchorDrift": 0,
+          "sampleTimes": 65,
+          "loopGeometryDiagnostics": 0,
+          "ZIPPreservationTransactionsRestore": true
+        },
+        "reason": "Accepted audited56 native plus1 discovery; manual59 retained as discrepancy."
+      },
+      "pendingIndependentAcceptance": false,
+      "failed": false
+    }
+  ],
+  "manualRescue": null,
+  "tokens": null,
+  "cost": null,
+  "acceptedRuns": 7,
+  "rescueStatus": "No verified rescue in accepted runs; scarf1 completeness UNKNOWN"
+}

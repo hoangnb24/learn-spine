@@ -1,0 +1,384 @@
+◇
+learn-spine
+Editor
+Player
+Không gian sáng tạo 2D
+Project mới
+Mở gói
+Khôi phục bản lưu
+Gate 1 T01 Robot
+Hoàn tác
+Làm lại
+Lưu trình duyệt
+Tải gói project
+Setup
+Animate
+
+Chỉnh key theo thời gian · Giá trị tuyệt đối, góc radian
+
+Đã lưu bản 5 trên trình duyệt.
+Cấu trúc / Ảnh
+◇ root
+◇ body
+◇ pelvis
+◇ thigh-left
+◇ shin-left
+◇ foot-left
+◇ thigh-right
+◇ shin-right
+◇ foot-right
+◇ head
+◇ upper-arm-left
+◇ forearm-left
+◇ hand-left
+◇ upper-arm-right
+◇ forearm-right
+◇ hand-right
+Thêm xương
+Ảnh gắn xương
+
+PNG mới gắn vào xương đang chọn, tâm ảnh tại gốc xương. Chỉnh bố trí trong Thuộc tính.
+
+Nạp PNG
+thigh-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+shin-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+foot-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+thigh-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+shin-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+foot-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+pelvis
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+upper-arm-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+forearm-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+hand-left
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+body
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+upper-arm-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+forearm-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+hand-right
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+head
+root
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+Vừa khung
+Thu phóng
+50%
+100%
+200%
+Thuộc tính
+Thuộc tính
+Lưới / IK
+Lịch sử
+root
+Tên xương
+Xương cha
+Không có
+body
+pelvis
+head
+upper-arm-left
+forearm-left
+hand-left
+thigh-left
+shin-left
+foot-left
+upper-arm-right
+forearm-right
+hand-right
+thigh-right
+shin-right
+foot-right
+Vị trí X
+Vị trí Y
+Góc xoay (radian)
+Tỉ lệ X
+Tỉ lệ Y
+Áp dụng thuộc tính
+
+Thuộc tính sửa tư thế Setup. Animate thêm key ở thanh thời gian.
+
+Chuyển động
+idle
+wave
+Thêm chuyển động
+Phát
+Thời gian (giây)
+4.00 s · Lặp
+upper-arm-right / Góc xoay (radian)
+◆
+◆
+◆
+◆
+◆
+forearm-right / Góc xoay (radian)
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+hand-right / Góc xoay (radian)
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+◆
+head / Góc xoay (radian)
+◆
+◆
+◆
+◆
+◆
+Vị trí X
+Vị trí Y
+Góc xoay (radian)
+Tỉ lệ X
+Tỉ lệ Y
+Thẳng
+Giữ bước
+Đặt key
+Bản 5 · Đã lưu trên trình duyệt
+WebMCP chưa khả dụng · Tải gói để mở trong Player

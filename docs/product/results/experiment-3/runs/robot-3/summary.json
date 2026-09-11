@@ -1,0 +1,390 @@
+{
+  "productInvocations": 65,
+  "unfinishedInvocations": [],
+  "thrownInvocations": [],
+  "afterStopStarts": 0,
+  "discoveryCalls": "reconcile subject transcript",
+  "elapsedMs": 249387.59999999404,
+  "startCount": 1,
+  "stopCount": 1,
+  "setupCount": 1,
+  "prestartInvocations": 0,
+  "errors": [
+    {
+      "name": "apply_batch",
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "REVISION_CONFLICT",
+          "path": "/expectedRevision",
+          "message": "Read the current project before retrying this edit"
+        },
+        "revision": 1
+      }
+    },
+    {
+      "name": "apply_batch",
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "MISSING_REFERENCE",
+          "path": "/bones/2/parentId",
+          "message": "Parent bone does not exist",
+          "ids": [
+            "probe",
+            "missing-bone"
+          ]
+        },
+        "revision": 1
+      }
+    }
+  ],
+  "media": [
+    {
+      "file": "0031-render_pose.png",
+      "revision": 3
+    },
+    {
+      "file": "0035-render_pose.png",
+      "revision": 4
+    },
+    {
+      "file": "0045-render_pose.png",
+      "revision": 5
+    },
+    {
+      "file": "0055-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0056-796f7d6e-e8e9-4e24-b9c5-f42a58a310c1.png",
+      "revision": 5,
+      "sha256": "2cf4227dcc377dd0008a29a9f23a77cd0de7524db5ee35ad80c0d9f50e096b79"
+    },
+    {
+      "file": "0058-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0059-841a0785-ab21-4468-8ffe-d3384a18acfe.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0061-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0062-a6ca69bb-e93d-4693-a66c-4dc1b38d880f.png",
+      "revision": 5,
+      "sha256": "5b3d437757195317d674f326cb4876a3944858006a6e7346a9874b80645a7431"
+    },
+    {
+      "file": "0064-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0065-d15c4112-ab11-4a89-81ff-737c89d4014f.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0067-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0068-2a6d0dc5-8692-4f39-86f1-087807a05689.png",
+      "revision": 5,
+      "sha256": "2cf4227dcc377dd0008a29a9f23a77cd0de7524db5ee35ad80c0d9f50e096b79"
+    },
+    {
+      "file": "0070-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0071-0a8bb385-9854-4e23-a80e-ebd41b053512.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0073-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0074-0fad5dcd-3d13-42e5-9da3-327898ee07ed.png",
+      "revision": 5,
+      "sha256": "5b3d437757195317d674f326cb4876a3944858006a6e7346a9874b80645a7431"
+    },
+    {
+      "file": "0076-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0077-bcd57aff-8c57-4e06-87b8-a308636edd61.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0079-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0080-a9f4957f-3d12-4c9a-afea-055550536da0.png",
+      "revision": 5,
+      "sha256": "2cf4227dcc377dd0008a29a9f23a77cd0de7524db5ee35ad80c0d9f50e096b79"
+    },
+    {
+      "file": "0082-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0083-1f91e410-5448-44ef-859b-e5fd3e2946de.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0085-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0086-25256cc6-9e4c-4afe-bd0e-5e63fb419345.png",
+      "revision": 5,
+      "sha256": "5b3d437757195317d674f326cb4876a3944858006a6e7346a9874b80645a7431"
+    },
+    {
+      "file": "0088-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0089-85eac2df-87d7-493b-bd88-cfced516cbf0.png",
+      "revision": 5,
+      "sha256": "f74c0ad104195f2900ee60af8760dff316b92c9c1b297171c8a89a90feea5735"
+    },
+    {
+      "file": "0091-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0092-10e0b605-e67f-489c-8642-534eb4f08c90.png",
+      "revision": 5,
+      "sha256": "907bf776f52db2f29d5378f07792fbb8371bc7c00370d69cbdcd490e880c8567"
+    },
+    {
+      "file": "0094-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0095-d0d1db27-e0fd-4847-b74d-4843ac1e4963.png",
+      "revision": 5,
+      "sha256": "68b3f0c1672b4de9b2143599dceab87be31ed6468e91acaec23c7b3d5cf5a3db"
+    },
+    {
+      "file": "0097-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0098-9587d6b8-4a63-4f27-a5ef-0424140c3c96.png",
+      "revision": 5,
+      "sha256": "8ebf8bb032063021ccbd37ddbd2751e3b5afc7b4076fa6250674558d87cecb9a"
+    },
+    {
+      "file": "0100-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0101-f566aa55-5092-4eb2-9145-27ffc76811c9.png",
+      "revision": 5,
+      "sha256": "ecb72f107024a8fbe265b0538dd93bfc55de6b80d5b190227920929829435ffc"
+    },
+    {
+      "file": "0103-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0104-cac231c6-ddd2-4b8b-b095-0c1344d6136a.png",
+      "revision": 5,
+      "sha256": "60559ef806016a5c3931e0963c27412f811eb8ca0a3489b253ebd7a9821edfa0"
+    },
+    {
+      "file": "0106-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0107-14dcabd7-4c93-4646-98da-c6e6fc84442b.png",
+      "revision": 5,
+      "sha256": "a5970ac5168529aedfcee60e487c0fde516b4e13bbd177aec0c1d1d02411c4cf"
+    },
+    {
+      "file": "0109-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0110-ba298a74-bd0e-4d47-abb2-b1bde39f26a7.png",
+      "revision": 5,
+      "sha256": "893f558adad24685cde928bb11c12a4204d4b082b5f6e8b1fef35398bc6b6ed4"
+    },
+    {
+      "file": "0112-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0113-9942b9bd-b5ef-4c3e-982f-5d77875bbd0b.png",
+      "revision": 5,
+      "sha256": "8899e61f38c85702d7d665000a96b956aa51c7b1ed97becf1218e6fcc54766ee"
+    },
+    {
+      "file": "0115-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0116-4481bb8a-561e-49f6-9f3b-61cc4f24e694.png",
+      "revision": 5,
+      "sha256": "907bf776f52db2f29d5378f07792fbb8371bc7c00370d69cbdcd490e880c8567"
+    },
+    {
+      "file": "0118-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0119-50e799b2-918b-4447-bb29-28708cc3888c.png",
+      "revision": 5,
+      "sha256": "68b3f0c1672b4de9b2143599dceab87be31ed6468e91acaec23c7b3d5cf5a3db"
+    },
+    {
+      "file": "0121-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0122-b3e033f9-2879-4bd4-9bd3-8745df4af25c.png",
+      "revision": 5,
+      "sha256": "8ebf8bb032063021ccbd37ddbd2751e3b5afc7b4076fa6250674558d87cecb9a"
+    },
+    {
+      "file": "0124-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0125-466f3bf7-c8d3-4c19-8e18-203c2fd32ff0.png",
+      "revision": 5,
+      "sha256": "ecb72f107024a8fbe265b0538dd93bfc55de6b80d5b190227920929829435ffc"
+    },
+    {
+      "file": "0127-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0128-79ba0a49-fd58-4ab5-af04-986acdb350cd.png",
+      "revision": 5,
+      "sha256": "60559ef806016a5c3931e0963c27412f811eb8ca0a3489b253ebd7a9821edfa0"
+    },
+    {
+      "file": "0130-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0131-07c51ac1-66a8-4ab3-9071-20fac1cd93ca.png",
+      "revision": 5,
+      "sha256": "a5970ac5168529aedfcee60e487c0fde516b4e13bbd177aec0c1d1d02411c4cf"
+    },
+    {
+      "file": "0133-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0134-37a04fb3-9764-40e8-ad88-36568b060157.png",
+      "revision": 5,
+      "sha256": "893f558adad24685cde928bb11c12a4204d4b082b5f6e8b1fef35398bc6b6ed4"
+    },
+    {
+      "file": "0136-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0137-60e52f4b-0ce5-405b-89a0-180887e95d92.png",
+      "revision": 5,
+      "sha256": "8899e61f38c85702d7d665000a96b956aa51c7b1ed97becf1218e6fcc54766ee"
+    },
+    {
+      "file": "0139-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0140-0ef7b8d7-4952-4228-9ace-b2d9c4541cc1.png",
+      "revision": 5,
+      "sha256": "907bf776f52db2f29d5378f07792fbb8371bc7c00370d69cbdcd490e880c8567"
+    },
+    {
+      "file": "0142-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0143-06117c05-f11f-4c38-bf4f-040ba43452e0.png",
+      "revision": 5,
+      "sha256": "68b3f0c1672b4de9b2143599dceab87be31ed6468e91acaec23c7b3d5cf5a3db"
+    },
+    {
+      "file": "0145-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0146-f60eb878-5018-4a06-97d8-a85489f230b8.png",
+      "revision": 5,
+      "sha256": "8ebf8bb032063021ccbd37ddbd2751e3b5afc7b4076fa6250674558d87cecb9a"
+    },
+    {
+      "file": "0148-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0149-30610350-6804-4abe-aae4-99a692880cc7.png",
+      "revision": 5,
+      "sha256": "ecb72f107024a8fbe265b0538dd93bfc55de6b80d5b190227920929829435ffc"
+    },
+    {
+      "file": "0151-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0152-03e0b2d9-2d9f-4a4a-8bc9-dc9d6eefbaec.png",
+      "revision": 5,
+      "sha256": "60559ef806016a5c3931e0963c27412f811eb8ca0a3489b253ebd7a9821edfa0"
+    },
+    {
+      "file": "0154-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0155-10ef9701-64ab-40da-baac-2f39d193ee5d.png",
+      "revision": 5,
+      "sha256": "a5970ac5168529aedfcee60e487c0fde516b4e13bbd177aec0c1d1d02411c4cf"
+    },
+    {
+      "file": "0157-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0158-f574671f-d2c3-4bf8-ad1c-c78b318a9ae9.png",
+      "revision": 5,
+      "sha256": "893f558adad24685cde928bb11c12a4204d4b082b5f6e8b1fef35398bc6b6ed4"
+    },
+    {
+      "file": "0160-read_artifact.png",
+      "revision": 5
+    },
+    {
+      "file": "0161-c82d0438-3c8d-4890-817e-291287d6df5c.png",
+      "revision": 5,
+      "sha256": "8899e61f38c85702d7d665000a96b956aa51c7b1ed97becf1218e6fcc54766ee"
+    },
+    {
+      "file": "0168-gate3-robot.zip",
+      "revision": 5,
+      "sha256": "330eef5d4d6b6faf749127e9fbd72656043d4779a6409c441844cd5b00f27417"
+    }
+  ],
+  "visualRubric": "pending independent review",
+  "reopen": "pending",
+  "manualRescue": "reconcile transcript",
+  "tokens": null,
+  "cost": null
+}

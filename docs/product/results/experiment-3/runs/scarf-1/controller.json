@@ -1,0 +1,24 @@
+{
+  "run": "scarf-1",
+  "source": "root handoff",
+  "subject": "/root/eval_scarf_1",
+  "participantBrowser": {
+    "family": "Codex In-app Browser",
+    "sessionId": "01a08fb8-3815-7843-8d8b-ca669f8ae160",
+    "tabId": "1"
+  },
+  "rawSetupUTC": "2026-09-11T09:07:43.064Z",
+  "rawStartUTC": "2026-09-11T09:07:43.182Z",
+  "zipSha256": "19a89a280d5670548d160c099534fc7c7b0086fb6d12d2ab87d5af7f6dc76301",
+  "hashVerification": "rootmatched beforeunchangedcommon+scarf delivery",
+  "exactDeliveryTimestamp": null,
+  "status": "DONE; postrunQA pending",
+  "rootReportedStopUTC": "2026-09-11T09:10:56.562Z",
+  "rootReportedProductCalls": 57,
+  "rootReportedDiscoveryCalls": 1,
+  "rootReportedZIP": {
+    "filename": "gate3-scarf.zip",
+    "revision": 3,
+    "bytes": 37298
+  }
+}

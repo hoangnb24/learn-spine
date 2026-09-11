@@ -1,0 +1,5 @@
+{
+  "qaStartObservedUTC": "2026-09-11T09:00:28.344850+00:00",
+  "overlap": "wave-2 running; root authorized independent postrunQA",
+  "impact": "possible shared machine load, unmeasured; no extended budget or performance claim"
+}

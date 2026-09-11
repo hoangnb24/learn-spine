@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-11T08:30:19.664615+00:00",
+  "check": "lsof -nP -iTCP:4211 -sTCP:LISTEN and same for 4210",
+  "result": "No listening process on either port; exit1, no output",
+  "earlierState": "Both services launched by implementer before preflight and collector received robot1 setup/start",
+  "inference": "Service lifetime did not survive implementer turn transitions; exact termination time unavailable",
+  "effect": "Plausible explanation of missing raw stop. Does not fabricate a stop event or change robot1 outcome.",
+  "action": "Root notified to own durable service lifetime and readiness checks before remaining runs; investigator did not restart ports"
+}

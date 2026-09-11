@@ -1,0 +1,19 @@
+{
+  "source": "root handoff of independent reviewer conclusion",
+  "reviewedCommit": "c5ce8dd8b254865ed0e285a0b40ee775bc6f6392",
+  "verdict": "\u0110\u1ea1t",
+  "scope": "scarf-3",
+  "independentNumericChecks": {
+    "phaseLagSeconds": 0.25,
+    "midTipAmplitude": [
+      14,
+      18
+    ],
+    "anchorCount": 10,
+    "maxAnchorDrift": 0,
+    "sampleTimes": 65,
+    "loopGeometryDiagnostics": 0,
+    "ZIPPreservationTransactionsRestore": true
+  },
+  "reason": "Accepted audited56 native plus1 discovery; manual59 retained as discrepancy."
+}

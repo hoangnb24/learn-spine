@@ -1,0 +1,13 @@
+
+> learn-spine-platform@0.0.0 test
+> vitest run
+
+
+ RUN  v5.0.0 /Users/tubakhuym/projects/learn-spine-worktrees/issue-21/platform
+
+
+ Test Files  16 passed | 1 skipped (17)
+      Tests  163 passed | 1 skipped (164)
+   Start at  16:33:40
+   Duration  984ms (import 49%, tests 28%, transform 22%, worker 1%)
+

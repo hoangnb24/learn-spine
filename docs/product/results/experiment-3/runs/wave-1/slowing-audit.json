@@ -1,0 +1,32 @@
+{
+  "method": "Compare authored forearm rotation peaks/troughs within unchanged raised-arm plateau [0.8,3.2]s. Strict key-time/order inspection; no fitted posthoc phase.",
+  "initial": {
+    "peakTimes": [
+      0.8,
+      2,
+      3.2
+    ],
+    "troughTimes": [
+      1.4,
+      2.6
+    ],
+    "oscillations": 2,
+    "peakIntervalSeconds": 1.2
+  },
+  "final": {
+    "peakTimes": [
+      0.8,
+      3.2
+    ],
+    "troughTimes": [
+      2
+    ],
+    "oscillations": 1,
+    "peakIntervalSeconds": 2.4
+  },
+  "intervalRatio": 2,
+  "durationUnchanged": 4,
+  "upperArmChannelUnchanged": true,
+  "restEndpointsUnchanged": true,
+  "independentVerdict": "pending reviewer"
+}

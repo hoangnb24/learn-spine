@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-11T08:27:09.993286+00:00",
+  "actor": "implement_issue21",
+  "scope": "read-only independent reproduction after own final-to-followup",
+  "observed": {
+    "priorTurn": "IAB browser 2, setup tab1, actual native get_capabilities worked",
+    "newTurnBindings": {
+      "agent": "undefined",
+      "browser": "undefined"
+    },
+    "freshBootstrapBrowserList": [
+      {
+        "family": "chrome",
+        "id": "1",
+        "type": "extension"
+      }
+    ],
+    "iabAvailable": false
+  },
+  "supportedTroubleshooting": "Bootstrap docs say list once, report missing backend if unavailable; no alternate source workaround.",
+  "inference": "Keeping preflight active may retain the existing binding; not independently proven by this check.",
+  "runEffect": "robot-1 timer and failure retained; no product calls, mutations, proxy or browser switch performed by investigator"
+}

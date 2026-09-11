@@ -1,0 +1,25 @@
+
+> learn-spine-platform@0.0.0 build
+> vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 792 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                         0.53 kB │ gzip:   0.31 kB
+dist/player.html                        0.53 kB │ gzip:   0.32 kB
+dist/assets/storage-BUjCEbAh.css        9.26 kB │ gzip:   2.76 kB
+dist/assets/webworkerAll-DKmSmoNC.js    0.05 kB │ gzip:   0.06 kB
+dist/assets/player-CoMeZ1JR.js          2.82 kB │ gzip:   1.34 kB
+dist/assets/browserAll-DXYAHmwM.js     42.12 kB │ gzip:  10.97 kB
+dist/assets/editor-DS3Vnlst.js         80.72 kB │ gzip:  26.66 kB
+dist/assets/init-5Rd1qTmx.js           83.46 kB │ gzip:  24.47 kB
+dist/assets/storage-DQ3wPgbt.js       732.68 kB │ gzip: 219.69 kB
+
+✓ built in 949ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

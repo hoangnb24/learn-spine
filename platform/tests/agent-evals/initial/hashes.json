@@ -1,0 +1,51 @@
+{
+  "robot": {
+    "zipSha256": "ae4ca3d37a6b3480f41d363b8a8aa766d8bbce02af3aca49f4c0c281384ab808",
+    "projectSha256": "20555b4d9ca146908183829dacf24f07c57463853f4f0e07150a75a010de3a28",
+    "assets": {
+      "robot-head": "a90df700e41afcdf8436eef8bc414d433c78b1a0444042f218b7ed1a043fcd0c",
+      "robot-body": "e614397bb2ff17366e37b370ee75bf6a0267e56ea7fe9f3c993f5952231c8065",
+      "robot-pelvis": "583c839f006ebd00ec73216e64e51f8ec8f70e11662658ee66780d3bc4059fd6",
+      "robot-upper-arm-left": "30569903c7eadb2205402724799b5bc53f955bfb6065f82f5c2a948ef3684ac0",
+      "robot-forearm-left": "0ebf399545bac17961a88061b1f5ad897ec5a434fdc7f486b716f6c576de729c",
+      "robot-hand-left": "bee1adf7b52db6d95af3b66a82a91e758c01895e708a8b0687b9118a90d520bb",
+      "robot-upper-arm-right": "7270207396e6f6b894910f3d60a87946ce29dc497eafa18c7da47d22a6e0708a",
+      "robot-forearm-right": "65b15f8db39633b980705effed3d919ee61e36eda3428a22a30a3d22f504c54b",
+      "robot-hand-right": "bc9e3adaff8a0fe4e3dda3b33949a3a2c8a4449d7780444fda62d836074e687e",
+      "robot-thigh-left": "1cd82a707b584d927ffda7ca278ac635554ccd836d8e22a5c08548f5ce0d9d6f",
+      "robot-shin-left": "f637e7fd943626721de0e244d3fe55ea3db10614ec7637416110193227946eef",
+      "robot-foot-left": "88b79ec654769ea872976bf418e5d012f5d5c978fae6033078965d3fb733c541",
+      "robot-thigh-right": "236e64788b8c0711615a4ce8b106cb8af613e4c426061740bf7e61c4c001d95f",
+      "robot-shin-right": "f026beb1ec94f1f97d765743c6f87291ca643ca700f1e395c7c07bdd37624f1a",
+      "robot-foot-right": "4b49b3f8195442a413f30acc6dc067716bde5a9a9d7487f0fbfc3d134c587143"
+    }
+  },
+  "wave": {
+    "zipSha256": "806aa61c672cc5cc03a5cecc903be52dd4d91007c661e1e17152a1992e8208f5",
+    "projectSha256": "75a038c44cd580fd99366d67223aba1e353e5cb27b342e082131d9f5b20d6a63",
+    "assets": {
+      "robot-head": "a90df700e41afcdf8436eef8bc414d433c78b1a0444042f218b7ed1a043fcd0c",
+      "robot-body": "e614397bb2ff17366e37b370ee75bf6a0267e56ea7fe9f3c993f5952231c8065",
+      "robot-pelvis": "583c839f006ebd00ec73216e64e51f8ec8f70e11662658ee66780d3bc4059fd6",
+      "robot-upper-arm-left": "30569903c7eadb2205402724799b5bc53f955bfb6065f82f5c2a948ef3684ac0",
+      "robot-forearm-left": "0ebf399545bac17961a88061b1f5ad897ec5a434fdc7f486b716f6c576de729c",
+      "robot-hand-left": "bee1adf7b52db6d95af3b66a82a91e758c01895e708a8b0687b9118a90d520bb",
+      "robot-upper-arm-right": "7270207396e6f6b894910f3d60a87946ce29dc497eafa18c7da47d22a6e0708a",
+      "robot-forearm-right": "65b15f8db39633b980705effed3d919ee61e36eda3428a22a30a3d22f504c54b",
+      "robot-hand-right": "bc9e3adaff8a0fe4e3dda3b33949a3a2c8a4449d7780444fda62d836074e687e",
+      "robot-thigh-left": "1cd82a707b584d927ffda7ca278ac635554ccd836d8e22a5c08548f5ce0d9d6f",
+      "robot-shin-left": "f637e7fd943626721de0e244d3fe55ea3db10614ec7637416110193227946eef",
+      "robot-foot-left": "88b79ec654769ea872976bf418e5d012f5d5c978fae6033078965d3fb733c541",
+      "robot-thigh-right": "236e64788b8c0711615a4ce8b106cb8af613e4c426061740bf7e61c4c001d95f",
+      "robot-shin-right": "f026beb1ec94f1f97d765743c6f87291ca643ca700f1e395c7c07bdd37624f1a",
+      "robot-foot-right": "4b49b3f8195442a413f30acc6dc067716bde5a9a9d7487f0fbfc3d134c587143"
+    }
+  },
+  "scarf": {
+    "zipSha256": "19a89a280d5670548d160c099534fc7c7b0086fb6d12d2ab87d5af7f6dc76301",
+    "projectSha256": "0cb60244d2a6b446901e7d18d866ba886bce32a0d1f8df31439b7cbe325eba31",
+    "assets": {
+      "scarf": "d16a903fb3e97e214c13e1b79a9c6e3cee417e2ddf6c524086eb7ee27c8dcbc2"
+    }
+  }
+}

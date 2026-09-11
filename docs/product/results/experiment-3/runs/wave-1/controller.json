@@ -1,0 +1,29 @@
+{
+  "run": "wave-1",
+  "source": "root orchestration handoff",
+  "subject": "/root/eval_wave_1",
+  "participantBrowser": {
+    "family": "Codex In-app Browser",
+    "alias": "2",
+    "tabId": "1",
+    "sessionId": "01a08fa9-5f37-7fe2-864e-5d97173efb1b"
+  },
+  "rawSetupUTC": "2026-09-11T08:51:29.049Z",
+  "rawStartUTC": "2026-09-11T08:51:29.144Z",
+  "zipSha256": "806aa61c672cc5cc03a5cecc903be52dd4d91007c661e1e17152a1992e8208f5",
+  "hashVerification": "matched by root before unchangedcommon+wave brief delivery",
+  "exactDeliveryTimestamp": null,
+  "frozenSource": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
+  "status": "DONE; postrunQA pending",
+  "rootReportedStopUTC": "2026-09-11T08:55:01.097Z",
+  "rootReportedProductStarts": 68,
+  "rootReportedProductCompletions": 68,
+  "subjectDiscoveryCalls": 1,
+  "rootReportedZIP": {
+    "filename": "gate3-wave.zip",
+    "revision": 3,
+    "bytes": 666887
+  },
+  "subjectCountingNote": "helper45 omitted24read_artifact directcalls; raw68+discovery1=69; transcript audit pending",
+  "subjectObservation": "24native previewPNG2fps over3loops and UIbefore/after"
+}

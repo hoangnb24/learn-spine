@@ -1,0 +1,29 @@
+{
+  "run": "robot-1",
+  "outcome": "FAIL_ENVIRONMENT",
+  "countsTowardThreeRuns": true,
+  "failureReason": "Fresh subject lost IAB access after preflight final-to-followup; no native work could begin.",
+  "inputHashMatches": true,
+  "recordedTransport": "webmcp-document on controller-loaded page; not subject native invocation evidence",
+  "rawStartUTC": "2026-09-11T08:23:42.256Z",
+  "rawStopPresent": false,
+  "controllerElapsedSecondsApprox": 259,
+  "instrumentedElapsedMs": null,
+  "productInvocations": 0,
+  "discoveryCalls": 0,
+  "discoveryEvidence": "root relayed subject final; full subject transcript held by controller",
+  "finalZIP": null,
+  "media": [],
+  "reopen": "NOT_PERFORMED_NO_ZIP",
+  "creativeRubric": "NOT_REACHED",
+  "nativeAcceptance": "NOT_MET",
+  "transactionScenarios": "NOT_REACHED",
+  "manualRescue": 0,
+  "tokens": null,
+  "cost": null,
+  "rawLogSHA256": "b2c030a6a2a0c2f8616ce2d6ed3ebb182062b0aad474a8dfbe9c2b2fecfe4422",
+  "limitations": [
+    "Raw collector has setup/start only; reported stop not present. Do not treat controller stop as instrumented stop.",
+    "No scene/media/export to score; no reconstructed ZIP or fabricated outcomes."
+  ]
+}

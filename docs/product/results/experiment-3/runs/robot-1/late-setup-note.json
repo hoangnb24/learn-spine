@@ -1,0 +1,14 @@
+{
+  "note": "Raw append contains a third event: setup only, after original setup/start. No stop or native result was added. Kept unchanged; does not repair missing stop or change failed outcome.",
+  "eventMetadata": {
+    "kind": "setup",
+    "brief": "robot",
+    "run": "robot-1",
+    "zipSha256": "ae4ca3d37a6b3480f41d363b8a8aa766d8bbce02af3aca49f4c0c281384ab808",
+    "transport": "webmcp-document",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "model": "gpt-6-astra / medium; provider snapshot unavailable",
+    "tokens": null,
+    "cost": null
+  }
+}
