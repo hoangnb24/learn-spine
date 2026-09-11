@@ -1,6 +1,6 @@
 # Công cụ animation 2D dành cho agent
 
-Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#13 đã Done: lõi sản phẩm, editor/player, ảnh quan sát và kết nối WebMCP đã được nghiệm thu theo từng module. #14 đang kiểm chứng workflow robot tại Gate 1; chưa có gate nào đạt.
+Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#13 đã Done: lõi sản phẩm, editor/player, ảnh quan sát và kết nối WebMCP đã được nghiệm thu theo từng module. #14 đã được nghiệm thu chức năng và PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 Ready, chưa In Progress. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
 
 ## Sản phẩm trong một trang
 

@@ -1,6 +1,16 @@
 # Kiến trúc và hợp đồng dữ liệu đề xuất
 
-Ngày: 09/09/2026; cập nhật 10/09/2026. Đây là tổng quan thiết kế, chưa phải API đã triển khai. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
+Ngày: 09/09/2026; cập nhật 10/09/2026. Đây là tổng quan thiết kế; hiện trạng triển khai được tách rõ bên dưới. Chi tiết v0 được chốt trong [contracts/README.md](contracts/README.md), [semantics](contracts/semantics.md) và [ADR-001](contracts/ADR-001.md); các ví dụ tên tool bên dưới vẫn là định hướng, không phải danh sách đã đăng ký của sản phẩm.
+
+## Hiện trạng tại main b6577a3 — 11/09/2026
+
+Mốc main `b6577a3b44b8016a9c7ba3ec9f60fbb869419538`; PR #48 đã merge sau nghiệm thu chức năng tại head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386` (nguồn đo `a91c27cd93541b7b320b9b54c2451894b8fcd018`). Orchestrator đã đóng #14 completed và cho #15/#16 Ready; chỉ chuyển In Progress khi được giao owner triển khai.
+
+- Model đã nằm tại `platform/src/model/types.ts`, `index.ts`, `project-v0.schema.json`; `Project.formatVersion` là 0, `requiredCapabilities` chỉ có `region-v0`, attachments chỉ là Region. Validator/serialize/storage/commands dùng boundary strict này; không thêm mesh/IK bằng trường lạ hay tạo model riêng.
+- Evaluator thật ở `platform/src/engine/index.ts`: `evaluate(Project, PoseRequest): Result<Pose>`, validate và clone mỗi sample; helpers ở `transforms.ts`, `timeline.ts`. Pose hiện có `bones` và `regions`, chưa có mesh hoặc hook IK được chốt.
+- #15 sở hữu đề xuất extension chung (model types/schema/validation, format/capabilities và Pose) cùng mesh; #16 sở hữu solver IK và types/helper riêng. Hai owner thống nhất một hợp đồng trước tích hợp; common model/evaluator entry được sửa tuần tự theo bàn giao, không hai nhánh tự chọn version không tương thích.
+- Chưa chốt số format version/capability mới, migration/compatibility, shape mesh/IK/Pose và thứ tự solve/deform. Người triển khai phải đề xuất và phối hợp nghiệm thu hợp đồng dựa trên v0, không coi API dự kiến đã tồn tại. Giữ regression region-v0, consumer renderer/storage/commands và fixtures hiện có.
+- Module README, code hiện có và `platform/README.md` được đối chiếu trong đợt này là đầu vào thực thi; mô tả shell #5 cũ đã được thay bằng hiện trạng module/workflow. [Đối chiếu có ngày](reconciliation/2026-09-11-gate1.md).
 
 ## Tách lõi khỏi giao diện và giao thức
 
@@ -16,7 +26,7 @@ flowchart TD
     G --> H[Player dùng cùng lõi tính pose]
 ```
 
-React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript tính transform, nội suy, weights và constraints, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
+React quản lý giao diện; không dùng render của React để tính từng frame. PixiJS nhận pose và dữ liệu hình để vẽ. Lõi TypeScript hiện tính transform/nội suy region-v0; weights và constraints là phần #15/#16 chưa triển khai, không phụ thuộc DOM hoặc WebMCP. Player và editor dùng cùng lõi để tránh khác biệt khi xuất.
 
 WebGL là ứng viên mặc định cho thử nghiệm; đo WebGPU khi có nhu cầu. PixiJS có mesh tùy chỉnh nhưng không thay thế phần tính animation. Web Worker và WASM là phương án tối ưu sau khi đo được điểm nghẽn, không phải yêu cầu ban đầu.
 
