@@ -1,12 +1,12 @@
 # Công cụ animation 2D dành cho agent
 
-Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#13 đã Done: lõi sản phẩm, editor/player, ảnh quan sát và kết nối WebMCP đã được nghiệm thu theo từng module. #14 đã được nghiệm thu chức năng và PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15/#16 Done; #17/#18 In Progress / Ready theo mốc PR #55 bên dưới. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
+Ngày: 09/09/2026; cập nhật 11/09/2026. Trạng thái: đã có [bộ mẫu nguồn](research/assets.md), [hợp đồng v0](contracts/README.md) và [probe WebMCP với bằng chứng thực tế](research/webmcp.md) đã merge vào `main` qua [PR #30](https://github.com/hoangnb24/learn-spine/pull/30). #2–#13 đã Done: lõi sản phẩm, editor/player, ảnh quan sát và kết nối WebMCP đã được nghiệm thu theo từng module. #14 đã được nghiệm thu chức năng và PR #48 đã merge. Quyết định chủ dự án ngày 11/09/2026: chấp nhận Gate 1 theo chức năng, Orchestrator đã nghiệm thu chức năng và merge PR #48 tại `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` (head reviewer `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`). Hiệu năng chuyển sang Polish #51 (phép đo/profile/baseline) → #52 (tối ưu/retest p95 <=16.7 ms); đây không phải performance pass. #14 đã Closed (completed)/Done; #15–#18 Done; #19 In Progress / Ready, #20 Blocked theo mốc PR #59/#60 bên dưới. Polish không chặn các giai đoạn chức năng và không phụ thuộc #22.
 
-## Trạng thái sau IK core PR #55 — 11/09/2026
+## Trạng thái sau renderer/diagnostics PR #59/#60 — 11/09/2026
 
-#15/#16 Done (completed); PR #55 đã merge main `700b18c73c88ef2a6c48cee21d037ffd97bfb462` sau reviewer Đạt exact `cdee4e120f02883ef99ee6d07e92409965cd0216`. #17 tiếp tục In Progress/Ready; #18 In Progress/Ready, sole author `/root/implement_issue18` từ main này; #19 vẫn Blocked chờ #17 và #18. #51/#52 giữ Todo/Deferred/P2 ở Polish.
+#15–#18 Done (completed). PR #59 và #60 đã merge; mốc hiện tại main `a0dc060d1129ae86fb3cf9b9662ad4e31654ecec`. #19 In Progress/Ready, sole author `/root/implement_issue19` từ main này theo quyết định Orchestrator; #20 Blocked chờ #19. #51/#52 giữ Todo/Deferred/P2 ở Polish.
 
-[Handoff mesh cho #17–#19](reconciliation/2026-09-11-mesh-core-handoff.md).
+[Đối chiếu consumer cho #19 → #20](reconciliation/2026-09-11-consumer-reconciliation.md).
 
 ## Lịch sử bàn giao sau PR #53 — 11/09/2026
 
@@ -16,7 +16,7 @@ PR #53 đã được review Đạt, CI pass và Orchestrator merge thành main `
 - #16: `/root/implement_issue16` sở hữu solver IK cùng types/helpers riêng.
 - Hai owner thống nhất hợp đồng chung trước khi tích hợp. Shared model/evaluator entry được sửa tuần tự theo bàn giao; không tự tạo hai version hoặc model không tương thích, không ghi đè thay đổi của nhau. Việc giao triển khai không chứng minh extension/API mới đã được nghiệm thu.
 
-#14 giữ Done; #51/#52 giữ Todo / Deferred / P2 ở Polish. Các snapshot nghiệm thu Gate 1 trước mốc này ghi #15/#16 Todo/Ready là lịch sử; đây là trạng thái tại mốc lịch sử PR #53; trạng thái hiện tại theo mốc PR #55 ở đầu tài liệu và GitHub Project.
+#14 giữ Done; #51/#52 giữ Todo / Deferred / P2 ở Polish. Các snapshot nghiệm thu Gate 1 trước mốc này ghi #15/#16 Todo/Ready là lịch sử; đây là trạng thái tại mốc lịch sử PR #53; trạng thái hiện tại theo mốc PR #59/#60 ở đầu tài liệu và GitHub Project.
 
 ## Sản phẩm trong một trang
 
