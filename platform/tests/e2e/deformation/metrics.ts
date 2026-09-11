@@ -1,8 +1,13 @@
 import type { Project, Pose } from "../../../src/model";
 import type { DiagnosticReport, Point } from "../../../src/diagnostics";
 import { evaluate } from "../../../src/engine";
+import { corners } from "../../../src/render";
+type MeasuredPoint =
+  | Point
+  | { kind: "region-corner"; slotId: string; corner: number };
 import { unwrap } from "../../../fixtures/deformation/author";
-/** Supplement #18's failure-only report with actual values for every default point.
+/** Supplement #18's failure-only report with actual values for every default point
+ * and all four corners of every drawn region (including rotational seams).
  * Same fixed sampling/one-sided derivative policy; evaluator remains canonical.
  */
 export function loopValues(project: Project, report: DiagnosticReport) {
@@ -17,7 +22,7 @@ export function loopValues(project: Project, report: DiagnosticReport) {
       cache.set(t, unwrap(evaluate(p, { animationId: "cycle", time: t })));
     return cache.get(t)!;
   };
-  const refs: Point[] = [
+  const refs: MeasuredPoint[] = [
     ...p.bones.map((b) => ({ kind: "bone" as const, boneId: b.id })),
     ...p.slots.flatMap((s) => {
       const a = p.attachments.find((a) => a.id === s.attachmentId);
@@ -29,16 +34,35 @@ export function loopValues(project: Project, report: DiagnosticReport) {
           }))
         : [];
     }),
+    ...p.slots.flatMap((s) =>
+      p.attachments.find((a) => a.id === s.attachmentId)?.type === "region"
+        ? Array.from({ length: 4 }, (_, corner) => ({
+            kind: "region-corner" as const,
+            slotId: s.id,
+            corner,
+          }))
+        : [],
+    ),
     ...(p.ikConstraints ?? []).map((i) => ({
       kind: "ik" as const,
       constraintId: i.id,
     })),
   ];
-  const at = (t: number, ref: Point) => {
+  const at = (t: number, ref: MeasuredPoint) => {
     const v = pose(t);
     if (ref.kind === "bone") return v.bones[ref.boneId].slice(4, 6);
     if (ref.kind === "ik")
       return v.ik!.find((i) => i.constraintId === ref.constraintId)!.endpoint;
+    if (ref.kind === "region-corner") {
+      const drawn = v.regions.find((r) => r.slotId === ref.slotId)!;
+      const region = p.attachments.find((a) => a.id === drawn.attachmentId)!;
+      if (region.type !== "region") throw Error("Expected a region");
+      const asset = p.assets.find((a) => a.id === region.assetId)!;
+      return corners(region, asset, drawn.world).slice(
+        ref.corner * 2,
+        ref.corner * 2 + 2,
+      );
+    }
     const m = v.meshes.find((m) => m.slotId === ref.slotId)!;
     return m.vertices.slice(ref.vertex * 2, ref.vertex * 2 + 2);
   };

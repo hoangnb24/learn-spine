@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+// Fresh default runs cannot overwrite committed historical evidence.
+process.env.GATE2_RUN ??= `local-${new Date().toISOString().replace(/[^0-9]/g, "")}`;
 export default defineConfig({
   testDir: "./tests/e2e/deformation",
   timeout: 240000,
