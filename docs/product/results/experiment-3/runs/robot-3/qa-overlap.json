@@ -1,0 +1,7 @@
+{
+  "kind": "post-run isolated headless QA",
+  "startedAt": "2026-09-11T08:55:02.022820+00:00",
+  "overlap": "wave-1 running; root authorized read-only QA concurrently",
+  "performance": "possible shared load not measured; no performance claim or extra time",
+  "subjectAccess": "no participant browser or native tool intervention"
+}
