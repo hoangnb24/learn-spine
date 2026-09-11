@@ -9,8 +9,9 @@ GPU performance evidence. Exact renderer/user-agent/timings are in
 From `platform/`, actual results:
 
 - `npm run typecheck`: passed.
-- `npm test`: 4 files / 37 tests passed.
+- `npm test`: 6 files / 61 tests passed (combined with merged #7/#10).
 - `npm run build`: passed; shell build remains separate from renderer test harness.
+- `npm run test:browser`: 7 shell/storage browser tests passed.
 - `npx playwright test -c renderer.playwright.config.ts`: 1 real-browser test passed.
 - `npm audit --omit=dev`: zero vulnerabilities.
 
@@ -36,3 +37,7 @@ baseline for #13/T13; no 30-second frame-rate or hardware GPU claim is made.
 The exact tested implementation head is recorded in the PR and downstream handoff;
 this document and generated results are committed with it. Re-running regenerates
 machine-specific timing evidence. No external art publication was performed.
+
+Combined validation ran on merge head `29ab324e74533cb326b5ba4abd84603d7d5c51be`
+after merging main `9d9c9a8`. The following evidence-only commit records these
+results without changing implementation.
