@@ -140,3 +140,9 @@ it('retains near-fold geometry when target reach is tiny relative to limb length
     expect(d.distance).toBeLessThanOrEqual(0.5);
   }
 });
+it('rejects an apparent solve when coordinate magnitude loses pixel precision', () => {
+  const { bones, constraint } = createLeg();
+  bones[1].setup.x = 1e20; constraint.endpoint = [1e20, 0];
+  bones[3].setup.x = 20; bones[3].setup.y = 0;
+  expect(() => run(bones, [constraint])).toThrow('numerical tolerance');
+});
