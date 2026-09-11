@@ -128,3 +128,15 @@ describe('IK numerical stability', () => {
     expect(run(bones, [constraint]).diagnostics[0].status).toBe('singular');
   });
 });
+
+it('retains near-fold geometry when target reach is tiny relative to limb length', () => {
+  const { bones, constraint } = createLeg();
+  bones[1].setup.x = 1e14;
+  constraint.endpoint = [1e14 - 10, 0];
+  bones[3].setup.x = 20; bones[3].setup.y = 0;
+  for (const bend of [1, -1] as const) {
+    const d = run(bones, [{ ...constraint, bend }]).diagnostics[0];
+    expect(d.status).toBe('solved');
+    expect(d.distance).toBeLessThanOrEqual(0.5);
+  }
+});

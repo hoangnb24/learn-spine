@@ -53,7 +53,11 @@ export function solveIK(bones: readonly Bone[], constraints: readonly TwoBoneIK[
           // Normalize lengths first to avoid squaring very large finite values.
           const scale = Math.max(l1, l2, reach);
           const a = l1 / scale, b = l2 / scale, d = reach / scale;
-          const cos = d <= EPS ? 0 : Math.min(1, Math.max(-1, (a*a + d*d - b*b) / (2*a*d)));
+          // Factor the difference before normalizing: near-folded long limbs otherwise lose
+          // their length difference to cancellation, and small normalized reach is not zero.
+          const difference = (l1 - l2) / scale;
+          const cos = reach === 0 ? 0 : Math.min(1, Math.max(-1,
+            (difference * (a + b) + d*d) / (2*a*d)));
           const jointAngle = direction - c.bend * Math.acos(cos);
           jx = l1 * Math.cos(jointAngle); jy = l1 * Math.sin(jointAngle);
         }
