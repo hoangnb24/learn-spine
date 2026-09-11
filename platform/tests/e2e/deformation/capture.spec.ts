@@ -2,7 +2,17 @@ import { test, expect } from "@playwright/test";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
+test.skip(
+  !process.env.GATE2_INPUT_RUN,
+  "Requires command-authored packages from a previous run",
+);
 const run = process.env.GATE2_RUN ?? "run-04";
+const input = fileURLToPath(
+  new URL(
+    `../../../../docs/product/results/experiment-2/${process.env.GATE2_INPUT_RUN ?? run}/`,
+    import.meta.url,
+  ),
+);
 const output = fileURLToPath(
   new URL(
     `../../../../docs/product/results/experiment-2/${run}/`,
@@ -16,9 +26,9 @@ for (const kind of ["scarf", "jelly", "ik"] as const)
     await page.goto("/tests/e2e/deformation/index.html");
     await page
       .getByLabel("Mở gói project", { exact: true })
-      .setInputFiles(`${output}/${kind}.zip`);
+      .setInputFiles(`${input}/${kind}.zip`);
     const original = JSON.parse(
-      readFileSync(`${output}/${kind}-measurements.json`, "utf8"),
+      readFileSync(`${input}/${kind}-measurements.json`, "utf8"),
     );
     await expect
       .poll(() =>
@@ -55,7 +65,7 @@ for (const kind of ["scarf", "jelly", "ik"] as const)
       {
         anchors: original.anchors,
         viewport: JSON.parse(
-          readFileSync(`${output}/${kind}-sequence.json`, "utf8"),
+          readFileSync(`${input}/${kind}-sequence.json`, "utf8"),
         ).view,
       },
     );
