@@ -1,4 +1,4 @@
-/** Normative v0 boundary types. No runtime/DOM/Spine imports. */
+/** Normative versioned boundary types. No runtime/DOM/Spine imports. */
 export type Id = string;
 export type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 export interface Transform { x: number; y: number; rotation: number; scaleX: number; scaleY: number }
@@ -15,16 +15,25 @@ export interface Region {
   /** Size of UNTRIMMED art in logical units; pivot from bottom-left. */
   width: number; height: number; pivotX: number; pivotY: number;
 }
+/** Mesh coordinates and deforms are in bind-world logical XY, independent of slot bone. */
+export interface Mesh {
+  id: Id; type: 'mesh'; assetId: Id;
+  vertices: number[]; uvs: number[]; triangles: number[];
+  bindPose: { boneId: Id; world: Matrix }[];
+  weights: { boneId: Id; weight: number }[][];
+}
+export type Attachment = Region | Mesh;
+export interface DeformChannel { attachmentId: Id; keys: { time: number; offsets: number[]; curve: Curve }[] }
 export interface Slot { id: Id; name: string; boneId: Id; attachmentId: Id | null }
 export type Curve = { type: 'linear' } | { type: 'stepped' } |
   { type: 'bezier'; x1: number; y1: number; x2: number; y2: number };
 export interface Keyframe { time: number; value: number; curve: Curve }
 export interface Channel { boneId: Id; property: keyof Transform; keys: Keyframe[] }
-export interface Animation { id: Id; name: string; duration: number; loop: boolean; channels: Channel[] }
+export interface Animation { id: Id; name: string; duration: number; loop: boolean; channels: Channel[]; deforms?: DeformChannel[] }
 export interface Project {
-  formatVersion: 0; projectId: Id; revision: number; requiredCapabilities: ['region-v0'];
+  formatVersion: 0 | 1; projectId: Id; revision: number; requiredCapabilities: ('region-v0' | 'mesh-v1')[];
   metadata: { name: string; notes?: string };
-  assets: Asset[]; bones: Bone[]; slots: Slot[]; attachments: Region[]; animations: Animation[];
+  assets: Asset[]; bones: Bone[]; slots: Slot[]; attachments: Attachment[]; animations: Animation[];
 }
 export type ErrorCode = 'INVALID_INPUT' | 'MISSING_REFERENCE' | 'PARENT_CYCLE' |
   'UNSUPPORTED_VERSION' | 'UNSUPPORTED_CAPABILITY' | 'REVISION_CONFLICT' |
@@ -55,7 +64,7 @@ export interface Capabilities {
 /** #6: validates without mutation; returns a defensive copy. */
 export interface Model {
   validate(input: unknown): Result<Project>;
-  migrate(input: unknown, targetVersion: 0): Result<Project>;
+  migrate(input: unknown, targetVersion: 0 | 1): Result<Project>;
 }
 /** #7: single synchronous owner of active project and history. */
 export interface Commands {
@@ -70,7 +79,13 @@ export interface Commands {
 export type Matrix = readonly [a: number, b: number, c: number, d: number, tx: number, ty: number];
 export interface PoseRequest { animationId: Id | null; time: number }
 export interface DrawRegion { slotId: Id; attachmentId: Id; assetId: Id; world: Matrix }
+export interface DrawMesh {
+  slotId: Id; attachmentId: Id; assetId: Id;
+  /** Final world XY; UVs use decoded texture top-left normalized coordinates. */
+  vertices: number[]; uvs: number[]; triangles: number[];
+}
 export interface Pose {
+  poseVersion: 1; meshes: DrawMesh[];
   projectId: Id; revision: number; animationId: Id | null; sampledTime: number;
   bones: Record<Id, Matrix>; regions: DrawRegion[];
 }

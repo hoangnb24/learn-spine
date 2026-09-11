@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import fixture from '../../../docs/product/contracts/examples/region-valid.json';
 import { evaluate } from '../../src/engine';
-import type { Project, Pose, Curve } from '../../src/model/types';
-const make = () => structuredClone(fixture) as Project;
+import type { Project, Pose, Curve, Region } from '../../src/model/types';
+const make = () => structuredClone(fixture) as Project & {attachments: Region[]};
 function pose(p = make(), time = 0, animationId: string | null = null): Pose {
   const r = evaluate(p, { time, animationId });
   if (!r.ok) throw new Error(JSON.stringify(r.error));

@@ -80,7 +80,7 @@ class CommandSession implements Session {
   snapshot(): ProjectBundle { return copyBundle(this.current); }
   history(): History { return clone({ undo: this.undoEntries.map(e => e.info), redo: this.redoEntries.map(e => e.info), checkpoints: [...this.checkpoints.values()].map(c => c.info) }); }
   capabilities(): Capabilities {
-    return { formatVersions: [0], features: ['region-v0', 'atomic-batch', 'undo-redo', 'checkpoints', 'session-dedup', 'session-events'], transport: 'none',
+    return { formatVersions: [0, 1], features: ['region-v0', 'atomic-batch', 'undo-redo', 'checkpoints', 'session-dedup', 'session-events'], transport: 'none',
       limits: { dedupRequests: 1000, undoBatches: 100, checkpoints: 20, jobs: 0, packageBytes: 200 * 1024 ** 2, assetBytes: 20 * 1024 ** 2, maxImageDimension: 16384 } };
   }
   subscribe(listener: (event: SessionEvent) => void): () => void {

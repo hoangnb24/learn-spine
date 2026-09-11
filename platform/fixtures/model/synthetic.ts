@@ -1,7 +1,7 @@
-import type { Project, Transform } from '../../src/model';
+import type { Project, Region, Transform } from '../../src/model';
 export const identity: Transform = { x: 0, y: 0, rotation: 0, scaleX: 1, scaleY: 1 };
 /** Synthetic metadata only: storage tests must supply matching PNG bytes/hash. */
-export function createSyntheticProject(): Project {
+export function createSyntheticProject(): Project & { attachments: Region[] } {
   return {
     formatVersion: 0, projectId: 'synthetic', revision: 0, requiredCapabilities: ['region-v0'], metadata: { name: 'Synthetic robot' },
     assets: [{ id: 'art', name: 'Trimmed art', path: 'assets/art.png', mimeType: 'image/png', sha256: '0'.repeat(64), pixelWidth: 60, pixelHeight: 40, originalWidth: 100, originalHeight: 80, trimX: 10, trimY: 20 }],

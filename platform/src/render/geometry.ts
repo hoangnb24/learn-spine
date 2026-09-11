@@ -20,6 +20,8 @@ export function validateViewport(v: Viewport): Result<void> {
   return success(undefined);
 }
 export function poseGeometry(project: Project, pose: Pose): Result<number[][]> {
+  if (project.requiredCapabilities.includes('mesh-v1') || pose.meshes?.length) return {ok:false,error:{code:'UNSUPPORTED_CAPABILITY',path:'/pose/meshes',message:'Renderer does not yet support mesh-v1'}};
+  if (pose.poseVersion !== 1) return failure('Unsupported pose version', '/pose/poseVersion');
   if (pose.projectId !== project.projectId || pose.revision !== project.revision) return failure('Pose does not match prepared project/revision', '/pose');
   const slots = project.slots.filter(s => s.attachmentId !== null);
   if (pose.regions.length !== slots.length) return failure('Pose slot count differs', '/pose/regions');
@@ -27,7 +29,7 @@ export function poseGeometry(project: Project, pose: Pose): Result<number[][]> {
   const output: number[][] = [];
   for (const [i, d] of pose.regions.entries()) {
     const region = regions.get(d.attachmentId), asset = assets.get(d.assetId);
-    if (d.slotId !== slots[i].id || d.attachmentId !== slots[i].attachmentId || !region || !asset || region.assetId !== d.assetId || d.world.length !== 6 || !d.world.every(Number.isFinite)) return failure('Invalid pose region reference or matrix', `/pose/regions/${i}`);
+    if (d.slotId !== slots[i].id || d.attachmentId !== slots[i].attachmentId || !region || region.type !== 'region' || !asset || region.assetId !== d.assetId || d.world.length !== 6 || !d.world.every(Number.isFinite)) return failure('Invalid pose region reference or matrix', `/pose/regions/${i}`);
     const points = corners(region,asset,d.world);
     if (!points.every(Number.isFinite)) return failure('Nonfinite geometry', `/pose/regions/${i}`);
     output.push(points);

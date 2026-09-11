@@ -1,0 +1,248 @@
+{
+  "browserVersion": "153.0.8010.12",
+  "frameMetadata": {
+    "projectId": "renderer-robot",
+    "revision": 0,
+    "animationId": null,
+    "sampledTime": 0,
+    "viewport": {
+      "width": 420,
+      "height": 640,
+      "centerX": 86.72425272905005,
+      "centerY": 338.1,
+      "zoom": 0.7628711520150505,
+      "devicePixelRatio": 2,
+      "background": "#263442"
+    },
+    "pixelWidth": 840,
+    "pixelHeight": 1280
+  },
+  "hashFailure": {
+    "ok": false,
+    "error": {
+      "code": "ASSET_HASH_MISMATCH",
+      "message": "PNG hash differs for art",
+      "path": "/assets/0/sha256"
+    }
+  },
+  "fractional": {
+    "color": [
+      32,
+      64,
+      96,
+      128
+    ],
+    "width": 152,
+    "height": 150
+  },
+  "mirror": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "zero": {
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "front": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "reversed": {
+    "color": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "red": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "green": {
+    "color": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "blue": {
+    "color": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "alpha": {
+    "color": [
+      255,
+      255,
+      255,
+      128
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "empty": {
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "halfRed": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "dpr": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 1280,
+    "height": 1280
+  },
+  "rotation": {
+    "color": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "width": 640,
+    "height": 640
+  },
+  "missing": {
+    "ok": false,
+    "error": {
+      "code": "MISSING_REFERENCE",
+      "message": "Missing PNG bytes for asset art",
+      "path": "/assets/0"
+    }
+  },
+  "retained": 1,
+  "stillDraw": {
+    "ok": true,
+    "warnings": []
+  },
+  "stale": {
+    "ok": false,
+    "error": {
+      "code": "INVALID_INPUT",
+      "path": "/pose",
+      "message": "Pose does not match prepared project/revision"
+    }
+  },
+  "cancelled": {
+    "ok": false,
+    "error": {
+      "code": "CANCELLED",
+      "message": "Preparation cancelled",
+      "path": ""
+    }
+  },
+  "textureCount": 15,
+  "unchanged": true,
+  "disposed": {
+    "backend": "webgl",
+    "textureCount": 0,
+    "disposed": true
+  },
+  "afterDispose": {
+    "ok": false,
+    "error": {
+      "code": "RENDER_FAILED",
+      "message": "Prepare a project before drawing",
+      "path": ""
+    }
+  },
+  "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "fit": {
+    "viewport": {
+      "width": 1280,
+      "height": 720,
+      "centerX": 86.72425272905005,
+      "centerY": 338.1,
+      "zoom": 0.9730050430139424,
+      "devicePixelRatio": 1,
+      "background": "#263442"
+    },
+    "bounds": {
+      "minX": -157.09149454189992,
+      "minY": 1,
+      "maxX": 330.54,
+      "maxY": 675.2
+    },
+    "poseCount": 25
+  },
+  "resizeFit": {
+    "viewport": {
+      "width": 420,
+      "height": 640,
+      "centerX": 86.72425272905005,
+      "centerY": 338.1,
+      "zoom": 0.7628711520150505,
+      "devicePixelRatio": 2,
+      "background": "#263442"
+    },
+    "bounds": {
+      "minX": -157.09149454189992,
+      "minY": 1,
+      "maxX": 330.54,
+      "maxY": 675.2
+    },
+    "poseCount": 25
+  },
+  "performance": {
+    "kind": "CPU update plus WebGL submission, not GPU completion",
+    "warmup": 60,
+    "samples": 300,
+    "p50": 0,
+    "p95": 0.10000000149011612,
+    "max": 0.30000000447034836
+  }
+}
