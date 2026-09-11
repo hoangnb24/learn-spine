@@ -11,7 +11,7 @@ describe('independent empty applications', () => {
       const html = renderToStaticMarkup(createElement(App));
       expect(html).toContain('Chưa mở project');
       expect(html).toContain('data-workspace-state="empty"');
-      expect(html).not.toContain('<button');
+      expect(html).toContain('Mở gói');
       expect(html).not.toContain('<canvas');
     }
     expect(Object.isFrozen(workspaceState)).toBe(true);
