@@ -5,7 +5,7 @@
   "participantBrowser": {
     "family": "Codex In-app Browser",
     "alias": "2",
-    "sessionId": null,
+    "sessionId": "01a08fa4-2028-7230-bcc4-655d43cf7d85",
     "tabId": "1"
   },
   "activeSetupUTC": "2026-09-11T08:45:45.294Z",
@@ -18,6 +18,16 @@
     "delayIncludedInTimer": true
   },
   "frozenSource": "57eed3122782fe1c8b2d5eb536bc1e27a4ebc360",
-  "status": "IN_PROGRESS",
-  "loadProvenance": "Robot2 post-run headless QA began during preflight and may overlap this run. No performance benchmark claim or added time allowance."
+  "status": "FINISHED; postrun audit pending",
+  "loadProvenance": "Robot2 post-run headless QA began during preflight and may overlap this run. No performance benchmark claim or added time allowance.",
+  "rootReportedStopUTC": "2026-09-11T08:49:54.774Z",
+  "rootReportedProductStarts": 65,
+  "rootReportedCompletions": 65,
+  "subjectReportedDiscovery": 1,
+  "subjectReportedCountingLimit": "REPL closure counter stale; subject manually counted65, transcript reconciliation pending",
+  "rootReportedZIP": {
+    "name": "gate3-robot.zip",
+    "revision": 5,
+    "bytes": 667965
+  }
 }
