@@ -1,10 +1,15 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import {fileURLToPath} from "node:url";
+import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 const run = process.env.GATE2_RUN ?? "run-01";
-const output = fileURLToPath(new URL(`../../../../docs/product/results/experiment-2/${run}/`,import.meta.url));
+const output = fileURLToPath(
+  new URL(
+    `../../../../docs/product/results/experiment-2/${run}/`,
+    import.meta.url,
+  ),
+);
 mkdirSync(output, { recursive: true });
 const save = (name: string, value: unknown) =>
   writeFileSync(resolve(output, name), JSON.stringify(value, null, 2));
@@ -69,10 +74,23 @@ async function seek(page: Page, app: "editor" | "player", time: number) {
         node.dispatchEvent(new Event("input", { bubbles: true }));
         node.dispatchEvent(new Event("change", { bubbles: true }));
       }, time);
+  const effectiveInput = Number(
+    await page
+      .getByLabel(app === "editor" ? "Thời gian (giây)" : "Thanh thời gian", {
+        exact: true,
+      })
+      .inputValue(),
+  );
+  const normalizedTime = ((effectiveInput % 2) + 2) % 2;
   await expect
     .poll(async () => (await drawn(page))?.pose.sampledTime)
-    .toBeCloseTo(((time % 2) + 2) % 2, 8);
-  return drawn(page);
+    .toBeCloseTo(normalizedTime, 8);
+  return {
+    ...(await drawn(page)),
+    requestedTime: time,
+    effectiveInput,
+    normalizedTime,
+  };
 }
 const numbers = (p: any) =>
   [
@@ -87,11 +105,17 @@ function delta(a: any, b: any) {
   return Math.max(0, ...av.map((n, i) => Math.abs(n - bv[i])));
 }
 async function playback(page: Page, app: "editor" | "player", kind: string) {
-  await seek(page, app, 0);
+  const initial = await seek(page, app, 0);
   await page.evaluate(() => {
     const s = (window as any).__gate2;
     s.playback = true;
-    s.poses = [];
+    s.poses = [
+      {
+        at: performance.now(),
+        pose: structuredClone(s.latest.pose),
+        ok: s.latest.ok,
+      },
+    ];
     const stream = document.querySelector("canvas")!.captureStream(30);
     s.videoChunks = [];
     s.recorder = new MediaRecorder(stream, {
@@ -142,16 +166,42 @@ async function playback(page: Page, app: "editor" | "player", kind: string) {
   for (const index of indices) {
     const ref = first[Math.floor((index * (first.length - 1)) / 19)],
       actual = await seek(page, app, ref.pose.sampledTime);
+    const reference = actual.normalizedTime === 0 ? initial : ref;
     comparisons.push({
-      time: ref.pose.sampledTime,
-      delta: delta(ref.pose, actual.pose),
+      requestedTime: ref.pose.sampledTime,
+      effectiveInput: actual.effectiveInput,
+      normalizedTime: actual.normalizedTime,
+      referenceTime: reference.pose.sampledTime,
+      referenceSource:
+        actual.normalizedTime === 0
+          ? "recorded initial successful draw"
+          : "recorded forward first-cycle draw",
+      requestedReferenceDelta: delta(ref.pose, actual.pose),
+      delta: delta(reference.pose, actual.pose),
     });
   }
   save(`${kind}-${app}-seeks.json`, comparisons);
   expect(Math.max(...comparisons.map((c) => c.delta))).toBeLessThanOrEqual(
     1e-5,
   );
-  return { frames: frames.length, wraps: wraps.length, comparisons };
+  // Regression for native range sanitization at the loop endpoint; expected pose
+  // comes from the recorded initial draw, never from a second evaluator seek.
+  const boundary = await seek(page, app, 2 - 4 * Number.EPSILON);
+  const boundaryComparison = {
+    requestedTime: boundary.requestedTime,
+    effectiveInput: boundary.effectiveInput,
+    normalizedTime: boundary.normalizedTime,
+    referenceTime: initial.pose.sampledTime,
+    delta: delta(initial.pose, boundary.pose),
+  };
+  save(`${kind}-${app}-boundary-seek.json`, boundaryComparison);
+  expect(boundaryComparison.delta).toBeLessThanOrEqual(1e-5);
+  return {
+    frames: frames.length,
+    wraps: wraps.length,
+    comparisons,
+    boundaryComparison,
+  };
 }
 async function perf(page: Page, app: string, kind: string) {
   await page.getByRole("button", { name: "Phát", exact: true }).click();
