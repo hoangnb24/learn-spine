@@ -1,5 +1,5 @@
 /** Compile-only recipes for downstream modules before dependencies are merged. */
-import type { Model, Commands, Evaluator, Renderer, Storage, Observation, Transport, Result, Project, Pose, ProjectBundle } from './types.js';
+import type { Model, Commands, Evaluator, Renderer, Storage, Observation, Transport, Result, Project, Pose, ProjectBundle } from '../../../platform/src/model/types.js';
 const pass = <T>(value: T): Result<T> => ({ ok: true, value, warnings: [] });
 export function mocks(project: Project, pose: Pose, bundle: ProjectBundle) {
   const unsupported = <T>(): Result<T> => ({ ok: false, error: { code: 'UNSUPPORTED_CAPABILITY', path: '/', message: 'Contract mock; implementation pending' } });

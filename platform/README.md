@@ -24,7 +24,8 @@ Dev: [Editor](http://127.0.0.1:5173/index.html), [Player](http://127.0.0.1:5173/
 - `apps/editor/`, `apps/player/`: hai React entry; HTML tương ứng ở `index.html`, `player.html`.
 - `apps/shared/`: màu sắc, bố cục, empty state, điều hướng thật giữa hai trang; Setup/Animate chỉ là nhãn giữ chỗ, không phải tab hoạt động.
 - `src/index.ts`: trạng thái shell `empty` bất biến, **không phải model project**. Không dùng bones rỗng để giả một project v0 hợp lệ.
-- `src/model`, `commands`, `engine`, `render`, `storage`, `observation`, `adapters`: ranh giới rỗng cho từng owner theo [hợp đồng](../docs/product/contracts/README.md). Các module chỉ `export {}`, không mock tính năng thành công.
+- `src/model`: model v0 đã triển khai; API và fixture tại [model README](src/model/README.md).
+- `src/commands`, `engine`, `render`, `storage`, `observation`, `adapters`: ranh giới rỗng cho từng owner theo [hợp đồng](../docs/product/contracts/README.md). Các module chỉ `export {}`, không mock tính năng thành công.
 - #6 sở hữu model; chuyển types/schema về một nguồn duy nhất và sửa consumers/links trong cùng PR nếu cần. #7/#8/#10 tiếp tục ở module riêng sau #6. #12 tích hợp UI khi các khả năng đã có.
 - Lockfile và cấu hình do #5 khởi tạo. Issue sau chỉ thay khi có nhu cầu và ghi ảnh hưởng trong PR; không dùng root package để bổ sung dependency sản phẩm.
 

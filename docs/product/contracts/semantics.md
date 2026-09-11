@@ -1,6 +1,6 @@
 # Quy tắc bắt buộc của v0
 
-Các kiểu trong `types.ts` mô tả chữ ký; file này định nghĩa hành vi. Mọi error dùng `Result` với code, JSON Pointer `path`, message và ID liên quan nếu có. Thành công luôn có `warnings`, kể cả mảng rỗng. Lỗi thao tác project trả revision hiện tại. Không dùng exception để biểu diễn lỗi input dự kiến.
+Các kiểu trong [`platform/src/model/types.ts`](../../../platform/src/model/types.ts) mô tả chữ ký; file này định nghĩa hành vi. Mọi error dùng `Result` với code, JSON Pointer `path`, message và ID liên quan nếu có. Thành công luôn có `warnings`, kể cả mảng rỗng. Lỗi thao tác project trả revision hiện tại. Không dùng exception để biểu diễn lỗi input dự kiến.
 
 ## Dữ liệu và validation
 
