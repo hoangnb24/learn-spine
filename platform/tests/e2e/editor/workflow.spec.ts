@@ -372,3 +372,114 @@ test("opening an identical saved package recognizes the committed record, but eq
   expect(result.differentSaved).toBeNull();
   expect(result.error).toContain("Project đã thay đổi");
 });
+
+test("selected stepped and imported Bezier keys preserve their interpolation when only the value is edited", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Project mới", exact: true }).click();
+  await expect(page.getByRole("treeitem")).toBeVisible();
+  await page
+    .getByRole("button", { name: "Thêm chuyển động", exact: true })
+    .click();
+  await page.getByLabel("Nội suy key").selectOption("stepped");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  await page.getByLabel("Thời gian (giây)", { exact: true }).fill("1");
+  await page.getByLabel("Nội suy key").selectOption("linear");
+  await page.getByLabel("Giá trị key").fill("1");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Key 0 Góc xoay (radian)", exact: true })
+    .click();
+  await expect(page.getByLabel("Nội suy key")).toHaveValue("stepped");
+  await page.getByLabel("Giá trị key").fill("0.4");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  expect((await inspect(page)).animations[0].channels[0].keys).toEqual([
+    { time: 0, value: 0.4, curve: { type: "stepped" } },
+    { time: 1, value: 1, curve: { type: "linear" } },
+  ]);
+  const bezier = { type: "bezier", x1: 0.2, y1: -0.3, x2: 0.7, y2: 1.4 };
+  await page.evaluate(
+    async ({ path, bezier }) => {
+      const { editorRuntime: r } = await import(/* @vite-ignore */ path);
+      const a = r.session.inspect().animations[0];
+      a.channels[0].keys[0].curve = bezier;
+      a.channels[0].keys[0].value = 2;
+      r.session.apply({
+        ...r.request(),
+        operations: [{ kind: "putAnimation", value: a }],
+      });
+    },
+    { path: root, bezier },
+  );
+  await expect(page.getByLabel("Nội suy key")).toHaveValue("bezier");
+  await expect(page.getByLabel("Giá trị key")).toHaveValue("2");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  expect((await inspect(page)).animations[0].channels[0].keys[0]).toEqual({
+    time: 0,
+    value: 2,
+    curve: bezier,
+  });
+  await page
+    .getByRole("button", { name: "Key 1 Góc xoay (radian)", exact: true })
+    .click();
+  await expect(page.getByLabel("Nội suy key")).toHaveValue("linear");
+  await page
+    .getByRole("button", { name: "Key 0 Góc xoay (radian)", exact: true })
+    .click();
+  await expect(page.getByLabel("Nội suy key")).toHaveValue("bezier");
+  await page.getByLabel("Giá trị key").fill("0.6");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  expect((await inspect(page)).animations[0].channels[0].keys[0]).toEqual({
+    time: 0,
+    value: 0.6,
+    curve: bezier,
+  });
+  await page.getByLabel("Nội suy key").selectOption("linear");
+  await page.getByRole("button", { name: "Đặt key", exact: true }).click();
+  expect((await inspect(page)).animations[0].channels[0].keys[0].curve).toEqual(
+    { type: "linear" },
+  );
+});
+
+test("reparenting presents children beneath their parent without sorting the model collection", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Project mới", exact: true }).click();
+  await expect(page.getByRole("treeitem")).toBeVisible();
+  await page.getByLabel("Tên xương mới").fill("Tay");
+  await page.getByRole("button", { name: "Thêm xương", exact: true }).click();
+  await page.getByRole("treeitem", { name: "◇ Gốc", exact: true }).click();
+  await page.getByLabel("Tên xương mới").fill("Vai");
+  await page.getByRole("button", { name: "Thêm xương", exact: true }).click();
+  await page.getByRole("treeitem", { name: "◇ Tay", exact: true }).click();
+  await page
+    .getByLabel("Xương cha", { exact: true })
+    .selectOption({ label: "Vai" });
+  await page
+    .getByRole("button", { name: "Áp dụng thuộc tính", exact: true })
+    .click();
+  expect(await page.getByRole("treeitem").allTextContents()).toEqual([
+    "◇ Gốc",
+    "◇ Vai",
+    "◇ Tay",
+  ]);
+  await expect(
+    page.getByRole("treeitem", { name: "◇ Tay", exact: true }),
+  ).toHaveAttribute("aria-level", "3");
+  expect((await inspect(page)).bones.map((bone: any) => bone.name)).toEqual([
+    "Gốc",
+    "Tay",
+    "Vai",
+  ]);
+  await page.getByRole("button", { name: "Hoàn tác", exact: true }).click();
+  expect(await page.getByRole("treeitem").allTextContents()).toEqual([
+    "◇ Gốc",
+    "◇ Tay",
+    "◇ Vai",
+  ]);
+  await expect(
+    page.getByRole("treeitem", { name: "◇ Tay", exact: true }),
+  ).toHaveAttribute("aria-level", "2");
+});

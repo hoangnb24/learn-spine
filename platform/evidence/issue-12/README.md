@@ -22,7 +22,7 @@ npm run test:browser
 npx playwright test -c editor.playwright.config.ts
 ```
 
-Actual outcomes: typecheck passed; 61 unit tests passed; production build passed;
+Actual outcomes: typecheck passed; 68 unit tests passed after integrating accepted #11; production build passed;
 default browser suite passed (built shell/navigation/responsive, real storage and
 editor integration); scoped editor suite passed. The build reports a >500 kB shared
 renderer/storage chunk warning, with no build failure. Exact counts and head are
@@ -88,3 +88,13 @@ editing, attachment pivot controls and richer animation settings remain outside 
 minimal UI; the canonical core still preserves and plays imported supported data.
 Camera fit samples the animation rather than proving all continuous extrema. Only
 Chromium/macOS was exercised here; no Safari/Firefox or animation performance gate claim.
+
+## Independent-review corrections
+
+The review of PR #43 identified three UI issues, now covered by browser regressions:
+selected stepped keys did not reload interpolation, external key writes left stale
+form values, and reparented children could appear before their parent. The key form
+now refreshes value and the complete Curve from the selected/current key, carries
+its inspected revision/session, and preserves imported Bezier control points unless
+interpolation is explicitly changed. The hierarchy is displayed parent-first while
+leaving the model array untouched; undo restores its prior relationship.

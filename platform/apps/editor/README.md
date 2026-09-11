@@ -59,8 +59,9 @@ ZIP download and never claims the current revision was saved in the browser.
 - Setup edits local x/y, rotation in **radians**, scaleX/scaleY and parent/name.
 - Animate creates a two-second looping animation; choose a property, time and absolute
   value, then Đặt key. It inserts/replaces that property's key at the current time.
-  The UI offers linear/stepped; imported Bezier channels remain intact unless that key
-  is explicitly replaced. Core/commands support full Bezier and arbitrary duration/loop.
+  The UI offers linear/stepped; imported Bezier channels remain intact when only the value is edited; choosing linear/stepped explicitly replaces its curve. Core/commands support full Bezier and arbitrary duration/loop.
+- The tree presents parents before children without changing the canonical collection order.
+- Key fields refresh from the current selected key after external commands, carry the inspected revision/session, and retain full imported Bezier control points.
 - Tree and canvas bone handles share selection. Inspector editing is Setup-only and
   says so explicitly; key editing is in the timeline. Advanced drag gizmos, curve editor,
   attachment pivot editor and configurable animation duration are outside this minimal UI.

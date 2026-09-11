@@ -5,7 +5,7 @@ import {
   useSyncExternalStore,
   type FormEvent,
 } from "react";
-import type { Bone, Operation, Transform } from "../../src/model/types";
+import type { Bone, Curve, Operation, Transform } from "../../src/model/types";
 import { EmptyState, Header, Panel } from "../shared/Shell";
 import { Stage, usePlayback } from "../shared/Stage";
 import { editorRuntime, identity, id, type EditorRuntime } from "./runtime";
@@ -17,6 +17,27 @@ const labels: Record<keyof Transform, string> = {
   scaleX: "Tỉ lệ X",
   scaleY: "Tỉ lệ Y",
 };
+/** Parent-first presentation only; the canonical collection order is left intact. */
+function boneRows(bones: Bone[]) {
+  const children = new Map<string | null, Bone[]>();
+  for (const bone of bones) {
+    const siblings = children.get(bone.parentId) ?? [];
+    siblings.push(bone);
+    children.set(bone.parentId, siblings);
+  }
+  const pending = (children.get(null) ?? [])
+    .slice()
+    .reverse()
+    .map((bone) => ({ bone, depth: 0 }));
+  const rows: { bone: Bone; depth: number }[] = [];
+  while (pending.length) {
+    const row = pending.pop()!;
+    rows.push(row);
+    for (const child of (children.get(row.bone.id) ?? []).slice().reverse())
+      pending.push({ bone: child, depth: row.depth + 1 });
+  }
+  return rows;
+}
 function BoneForm({
   bone,
   runtime,
@@ -49,6 +70,7 @@ function BoneForm({
       <label>
         Xương cha
         <select
+          aria-label="Xương cha"
           value={draft.parentId ?? ""}
           onChange={(e) =>
             setDraft({ ...draft, parentId: e.target.value || null })
@@ -129,13 +151,37 @@ export function Editor({
     playback.setTime(0);
     playback.setPlaying(false);
     setMode("setup");
+    setProperty("rotation");
+    setKeyValue("0");
+    setCurve({ type: "linear" });
   }, [sessionId]);
   const [panel, setPanel] = useState("properties"),
     [newBone, setNewBone] = useState("Xương mới"),
     [newAnimation, setNewAnimation] = useState("wave");
   const [property, setProperty] = useState<keyof Transform>("rotation"),
     [keyValue, setKeyValue] = useState("0"),
-    [curve, setCurve] = useState<"linear" | "stepped">("linear");
+    [curve, setCurve] = useState<Curve>({ type: "linear" });
+  const [keySource, setKeySource] = useState({ revision, sessionId });
+  const activeKey = animation?.channels
+    .find(
+      (channel) => channel.boneId === selected && channel.property === property,
+    )
+    ?.keys.find((key) => key.time === playback.time);
+  useEffect(() => {
+    setKeySource({ revision, sessionId });
+    if (activeKey) {
+      setKeyValue(String(activeKey.value));
+      setCurve(structuredClone(activeKey.curve));
+    }
+  }, [
+    sessionId,
+    revision,
+    animation?.id,
+    selected,
+    property,
+    playback.time,
+    activeKey,
+  ]);
   const bone = p?.bones.find((b) => b.id === selected);
   const history = session?.history();
   const mutation = (kind: "undo" | "redo") => {
@@ -156,10 +202,14 @@ export function Editor({
     channel.keys.push({
       time: playback.time,
       value: keyValue.trim() === "" ? NaN : Number(keyValue),
-      curve: { type: curve },
+      curve: structuredClone(curve),
     });
     channel.keys.sort((a, b) => a.time - b.time);
-    apply([{ kind: "putAnimation", value: updated }]);
+    runtime.apply(
+      [{ kind: "putAnimation", value: updated }],
+      keySource.revision,
+      keySource.sessionId,
+    );
   }
   return (
     <div className="application" data-workspace-state={p ? "open" : "empty"}>
@@ -264,18 +314,12 @@ export function Editor({
           {p ? (
             <div className="panel-content">
               <div role="tree" aria-label="Cây xương">
-                {p.bones.map((b) => {
-                  let depth = 0,
-                    parent = b.parentId;
-                  while (parent && depth < p.bones.length) {
-                    depth++;
-                    parent =
-                      p.bones.find((x) => x.id === parent)?.parentId ?? null;
-                  }
+                {boneRows(p.bones).map(({ bone: b, depth }) => {
                   return (
                     <button
                       role="treeitem"
                       aria-selected={selected === b.id}
+                      aria-level={depth + 1}
                       className="tree-row"
                       key={b.id}
                       style={{ paddingLeft: 12 + depth * 12 }}
@@ -587,6 +631,7 @@ export function Editor({
                                   setMode("animate");
                                   setProperty(c.property);
                                   setKeyValue(String(k.value));
+                                  setCurve(structuredClone(k.curve));
                                 }}
                               >
                                 ◆
@@ -619,13 +664,20 @@ export function Editor({
                       />
                       <select
                         aria-label="Nội suy key"
-                        value={curve}
-                        onChange={(e) =>
-                          setCurve(e.target.value as "linear" | "stepped")
-                        }
+                        value={curve.type}
+                        onChange={(e) => {
+                          const type = e.target.value;
+                          if (type === "linear" || type === "stepped")
+                            setCurve({ type });
+                        }}
                       >
                         <option value="linear">Thẳng</option>
                         <option value="stepped">Giữ bước</option>
+                        {curve.type === "bezier" && (
+                          <option value="bezier">
+                            Bezier (giữ đường cong)
+                          </option>
+                        )}
                       </select>
                       <button disabled={!bone}>Đặt key</button>
                     </form>
