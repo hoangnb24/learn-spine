@@ -1,7 +1,7 @@
 # Observation #11
 
 `ObservationService` implements the canonical `Observation` from model/types, using
-`evaluate` and `PixiRenderer` directly. Import from `src/observation/index.ts`;
+`evaluate` / canonical `evaluateTarget` and `PixiRenderer` directly. Import from `src/observation/index.ts`;
 browser/transport presentation is separately exported by `media.ts`. This module
 does not register WebMCP tools or modify the editor. #13 maps public tool names:
 
@@ -64,7 +64,7 @@ settles, preventing repeated cancels from bypassing resource admission.
 
 Limits: two queued/running observations (including direct poses); 20 terminal jobs;
 1–300 sequence frames; preview fps integer 1–60, loops integer 1–3, total <=300;
-multiple loops require a looping animation; backing dimensions <=4096; RGBA <=256
+multiple loops require a looping target; backing dimensions <=4096; RGBA <=256
 MiB per job; copied input assets <=200 MiB per request. PNGs plus ZIP are limited to
 256 MiB per job and 256 MiB retained across the session. Oldest terminal records and
 artifacts are evicted to satisfy retention limits; IDs then return JOB_NOT_FOUND.
@@ -107,3 +107,22 @@ The unit renderer is explicitly mocked for lifecycle failures and byte isolation
 The browser harness uses real T01 robot PNGs, evaluator, Pixi WebGL and PNG encoding.
 See `evidence/issue-11/README.md` for actual results and limits. No editor/player or
 full Gate 1/3 acceptance is implied.
+
+## Composition integration (#74)
+
+Each request may replace its legacy `animationId` selector with canonical `target`.
+Hybrid/unknown selectors are rejected before sampling. Jobs use target duration and
+loop rules, retain target/projectId/revision from submission, and supply canonical
+`frame` provenance on every PNG Artifact. `renderPose` returns `boundsKind:
+"sampled-frame"`; sequence frame metadata uses `"continuous-target-envelope"` and
+its manifest fit is `continuous-composition-envelope` for compositions (legacy
+animation manifest labels remain unchanged). A target animation may still expose
+legacy animationId when requested through the legacy shape.
+
+`targetBounds` computes ordered overwrite/additive scalar enclosures and reuses
+the animation FK/IK/region/mesh interval walker. The camera is conservative across
+the entire composition, including source loops, holds and frozen transitions;
+it does not fit a single source animation or call a frame sample a continuous
+bound. [Proof and supported/error matrix](../../evidence/issue-74/BOUNDS.md),
+[public examples](../adapters/webmcp/COMPOSITION.md), and
+[transport-separated evidence](../../evidence/issue-74/README.md).

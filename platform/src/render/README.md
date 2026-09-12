@@ -129,3 +129,12 @@ compares semantic and evaluated-pose hashes, renders both with identical viewpor
 and records bounded first-three-vertex inspection rather than dumping large poses.
 See [durable #17 evidence](../../evidence/issue-17/README.md) and
 [mesh contract](../../../docs/product/contracts/mesh-v1.md).
+
+## Canonical target input (#74)
+
+`draw`, `capture`, `poseGeometry`, and `fitCamera` accept `RenderablePose` (legacy
+Pose or canonical TargetPose). `frameMetadata` carries canonical target,
+projectId/revision and sampledTime; only legacy input retains animationId. Geometry
+and stale prepared-project checks are shared; the renderer does not mix tracks or
+solve IK. Observation's continuous composition envelope is separate from the
+sampled-pose fitCamera helper.

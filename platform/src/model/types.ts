@@ -136,8 +136,8 @@ export interface Viewport { width: number; height: number; centerX: number; cent
 /** #9: renderer owns decoding/GPU resources; outputs copied PNG bytes. */
 export interface Renderer {
   prepare(bundle: ProjectBundle, signal?: AbortSignal): Promise<Result<void>>;
-  draw(pose: Pose, viewport: Viewport): Result<void>;
-  capture(pose: Pose, viewport: Viewport, signal?: AbortSignal): Promise<Result<Uint8Array>>;
+  draw(pose: RenderablePose, viewport: Viewport): Result<void>;
+  capture(pose: RenderablePose, viewport: Viewport, signal?: AbortSignal): Promise<Result<Uint8Array>>;
   dispose(): void;
 }
 /** #10: fully validate before handing an imported bundle to the editor. */
@@ -147,12 +147,13 @@ export interface Storage {
   autosave(bundle: ProjectBundle, signal?: AbortSignal): Promise<Result<{ revision: number }>>;
   recover(projectId: Id, signal?: AbortSignal): Promise<Result<ProjectBundle | null>>;
 }
-export interface ObservationRequest extends PoseRequest { viewport: Viewport }
-export type JobRequest =
-  | { kind: 'sequence'; animationId: Id; times: number[]; viewport: Viewport }
-  | { kind: 'preview'; animationId: Id; fps: number; loops: number; viewport: Viewport };
-export interface Artifact { id: Id; mimeType: 'image/png' | 'application/zip'; byteLength: number; sha256: string }
-export interface JobBase { id: Id; projectId: Id; revision: number; progress: number }
+export type ObservationRequest = (PoseRequest | TargetPoseRequest) & { viewport: Viewport };
+export type JobRequest = ({ animationId: Id } | { target: EvaluationTarget }) & (
+  | { kind: 'sequence'; times: number[]; viewport: Viewport }
+  | { kind: 'preview'; fps: number; loops: number; viewport: Viewport });
+export type FrameProvenance = Pick<TargetPose, 'projectId' | 'revision' | 'target' | 'sampledTime'> & { time: number };
+export interface Artifact { id: Id; mimeType: 'image/png' | 'application/zip'; byteLength: number; sha256: string; frame?: FrameProvenance }
+export interface JobBase { id: Id; projectId: Id; revision: number; progress: number; target?: EvaluationTarget }
 export type Job = JobBase & (
   | { status: 'queued' | 'running' }
   | { status: 'succeeded'; artifacts: Artifact[] }

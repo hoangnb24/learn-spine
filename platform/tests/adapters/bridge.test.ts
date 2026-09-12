@@ -17,13 +17,13 @@ async function setup(){
  return {session,bridge,scope,request,token,observation,storage};
 }
 describe('WebMCP adapter',()=>{
- it('does not advertise core-only composition or silently accept composition requests before integration',async()=>{
+ it('advertises integrated composition while refusing invalid selectors and implicit migration',async()=>{
   const {bridge,session,scope}=await setup();
   expect(session.capabilities().features).toContain('composition-v1');
   const caps=unwrap(await bridge.dispatch('get_capabilities',{})) as {features:string[]};
-  expect(caps.features).not.toContain('composition-v1');
+  expect(caps.features).toContain('composition-v1');
   expect(await bridge.dispatch('render_pose',{...scope,target:{kind:'composition',compositionId:'motion'},time:0})).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
-  expect(await bridge.dispatch('apply_batch',{...scope,expectedRevision:0,requestId:'composition',operations:[{kind:'putComposition',value:{id:'motion',name:'Motion',duration:1,loop:false,tracks:[]}}]})).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
+  expect(await bridge.dispatch('apply_batch',{...scope,expectedRevision:0,requestId:'composition',operations:[{kind:'putComposition',value:{id:'motion',name:'Motion',duration:1,loop:false,tracks:[]}}]})).toMatchObject({ok:false,error:{code:'UNSUPPORTED_VERSION'}});
   expect(session.inspect().revision).toBe(0);
  });
  it('commits through Session, shares UI events and preserves retry identity after later edits',async()=>{
@@ -76,7 +76,7 @@ describe('WebMCP adapter',()=>{
   expect(await bridge.dispatch('cancel_job',{...scope,jobId:'job-1'})).toMatchObject({ok:true,value:{status:'cancelled'}});expect(cancel).toHaveBeenCalled();session.open(token);expect(release).toHaveBeenCalledWith('job-1');
  });
  it('advertises bounded schemas and real image blocks',()=>{
-  expect(JSON.stringify(toolDefinitions).length).toBeLessThan(45000);
+  expect(JSON.stringify(toolDefinitions).length).toBeLessThan(65536);
   const result=nativeContent({ok:true,value:{revision:4,image:{type:'image',mimeType:'image/png',data:'abc'}},warnings:[]});expect(result.content[1]).toEqual({type:'image',mimeType:'image/png',data:'abc'});expect(result.content[0]).toMatchObject({type:'text'});expect(JSON.stringify(result.content[0])).not.toContain('abc');
  });
  it('detects both APIs; rollback and disposal unregister only own tools',async()=>{

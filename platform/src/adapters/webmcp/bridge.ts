@@ -1,3 +1,4 @@
+import { evaluate, evaluateTarget } from "../../engine";
 import {
   validate_project,
   measure_motion,
@@ -13,8 +14,10 @@ import type {
   ObservationRequest,
   Animation,
   Capabilities,
+  TargetPoseRequest,
+  PoseRequest,
 } from "../../model";
-import type { ObservationService } from "../../observation";
+import type { PoseOutput, ObservationService } from "../../observation";
 import { toolDefinitions, validateInput } from "./schemas";
 
 export interface BridgeServices {
@@ -186,8 +189,7 @@ export class WebMCPBridge {
         revision: project?.revision ?? null,
         tools: this.definitions.map((t) => t.name),
         features: [
-          // #73 core support is not transport support; #74 removes this guard after integration.
-          ...(session?.capabilities().features ?? []).filter(feature => feature !== "composition-v1"),
+          ...(session?.capabilities().features ?? []),
           "snapshot-observation",
           "png-image-content",
           "project-zip",
@@ -246,6 +248,7 @@ export class WebMCPBridge {
         "create_bones",
         "attach_images",
         "create_animation",
+        "put_composition",
         "set_keyframes",
         "set_curves",
       ].includes(name)
@@ -266,7 +269,9 @@ export class WebMCPBridge {
                     value,
                   })),
                 ]
-              : [{ kind: "putAnimation", value: p.animation }];
+              : name === "put_composition"
+                ? [{ kind: "putComposition", value: p.composition }]
+                : [{ kind: "putAnimation", value: p.animation }];
       return session.apply({ ...request, operations }) as Result<Json>;
     }
     if (name === "undo" || name === "redo")
@@ -432,6 +437,7 @@ export class WebMCPBridge {
               "animations",
               "assets",
               "ikConstraints",
+              "compositions",
             ].map((k) => [k, (project[k as "bones"] ?? []).length]),
           ),
         });
@@ -462,6 +468,19 @@ export class WebMCPBridge {
               },
         );
       return bounded({ collection, ...page(values, p) });
+    }
+    if (name === "evaluate_pose") {
+      const { sessionId: _, projectId: __, ...parameters } = p;
+      const result = "target" in parameters
+        ? evaluateTarget(project, parameters as unknown as TargetPoseRequest)
+        : evaluate(project, parameters as unknown as PoseRequest);
+      return result.ok ? bounded(result.value) : result;
+    }
+    if (name === "inspect_composition") {
+      const composition = project.compositions?.find(c => c.id === p.compositionId);
+      if (!composition) return fail("MISSING_REFERENCE", "Composition not found", project.revision);
+      const { tracks, ...header } = composition;
+      return bounded({ composition: header, ...page([...tracks].sort((a,b) => a.order-b.order), p) });
     }
     if (name === "inspect_animation") {
       const animation = project.animations.find((a) => a.id === p.animationId);
@@ -573,6 +592,7 @@ export class WebMCPBridge {
         return fail("CANCELLED", "Session changed while reading artifact");
       const value = {
         ...envelope,
+        target: job.value.target,
         jobId,
         artifact,
         ...this.download(
@@ -638,7 +658,7 @@ export class WebMCPBridge {
               project.revision,
             ),
           });
-        const pose = result.value as { revision: number; png: Uint8Array };
+        const pose = result.value as PoseOutput;
         if (pose.png.length > 8388608)
           return fail(
             "LIMIT_EXCEEDED",
@@ -647,8 +667,7 @@ export class WebMCPBridge {
           );
         return ok({
           ...envelope,
-          animationId: p.animationId,
-          time: p.time,
+          ...pose.metadata,
           image: {
             type: "image",
             mimeType: "image/png",

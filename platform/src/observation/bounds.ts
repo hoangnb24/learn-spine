@@ -1,12 +1,33 @@
-import type { Project } from "../model/types";
+import { validate } from "../model";
+import type { Project, Channel, EvaluationTarget, Result } from "../model/types";
+import { compositionPrimitives, evaluateTarget, trackWeight } from "../engine";
+import { sample, sampledTime } from "../engine/timeline";
 import type { Bounds } from "../render/geometry";
 type I = [number, number];
-const add = (a: I, b: I): I => [a[0] + b[0], a[1] + b[1]];
+const finite = (n: number): number => {
+  if (!Number.isFinite(n)) throw { code: "INVALID_INPUT", path: "/bounds", message: "Conservative interval arithmetic overflow; no sampled fallback" };
+  return n;
+};
+// Directed rounding keeps accumulation conservative in floating point as well.
+const bits = new DataView(new ArrayBuffer(8));
+function next(n: number, up: boolean): number {
+  finite(n);
+  if (n === 0) return up ? Number.MIN_VALUE : -Number.MIN_VALUE;
+  bits.setFloat64(0, n);
+  bits.setBigUint64(0, bits.getBigUint64(0) + ((n > 0) === up ? 1n : -1n));
+  return finite(bits.getFloat64(0));
+}
+const interval = (lo: number, hi: number): I => [next(lo, false), next(hi, true)];
+const singleton = (n: number): I => [finite(n), finite(n)];
+const hull = (a: I, b: I): I => [Math.min(a[0],b[0]),Math.max(a[1],b[1])];
+const add = (a: I, b: I): I => interval(a[0] + b[0], a[1] + b[1]);
 const mul = (a: I, b: I): I => {
   const p = [a[0] * b[0], a[0] * b[1], a[1] * b[0], a[1] * b[1]];
-  return [Math.min(...p), Math.max(...p)];
+  p.forEach(finite);
+  return interval(Math.min(...p), Math.max(...p));
 };
 const trig = (r: I, cos = false): I => {
+  r.forEach(finite);
   const f = cos ? Math.cos : Math.sin;
   if (
     Math.max(Math.abs(r[0]), Math.abs(r[1])) > 1e12 ||
@@ -21,38 +42,42 @@ const trig = (r: I, cos = false): I => {
     k++
   )
     v.push(k % 2 === 0 ? 1 : -1);
-  return [Math.min(...v), Math.max(...v)];
+  return interval(Math.min(...v), Math.max(...v));
 };
-/** Conservative interval envelope: includes Bezier overshoot and continuous rotations,
- * even between output frames. Correlated channels may make this looser than a sampled fit. */
-export function animationBounds(
-  p: Project,
-  animationId: string,
-): Bounds | null {
-  const animation = p.animations.find((a) => a.id === animationId)!;
+type LocalRange = (id: string, property: Channel['property'], setup: number) => I;
+type DeformRange = (attachmentId: string, index: number) => I;
+function channelRange(channel: Channel): I {
+  const values = channel.keys.map(k => k.value);
+  for (let i=0; i<channel.keys.length-1; i++) {
+    const k=channel.keys[i], end=channel.keys[i+1];
+    if (k.curve.type === 'bezier') {
+      // Cubic convex hull includes unrestricted y-control overshoot.
+      for (const y of [k.curve.y1,k.curve.y2]) {
+        const control = add(mul(singleton(1-y),singleton(k.value)),mul(singleton(y),singleton(end.value)));
+        values.push(...control);
+      }
+    }
+  }
+  values.forEach(finite);
+  return interval(Math.min(...values),Math.max(...values));
+}
+function animationRanges(p: Project, animationId: string): { local: LocalRange; deform: DeformRange } {
+  const animation=p.animations.find(a=>a.id===animationId)!;
+  return {
+    local: (id,property,setup) => {
+      const c=animation.channels.find(c=>c.boneId===id && c.property===property);
+      return c ? channelRange(c) : singleton(setup);
+    },
+    deform: (id,index) => {
+      const c=animation.deforms?.find(c=>c.attachmentId===id);
+      return c ? channelRange({boneId:'',property:'x',keys:c.keys.map(k=>({time:k.time,value:k.offsets[index],curve:k.curve}))}) : [0,0];
+    },
+  };
+}
+/** The same FK/IK/region/skinning walker serves legacy animations and compositions. */
+function geometryBounds(p: Project, range: LocalRange, deform: DeformRange): Bounds | null {
   type M = [I, I, I, I, I, I];
   const worlds = new Map<string, M>();
-  const range = (
-    id: string,
-    prop: "x" | "y" | "rotation" | "scaleX" | "scaleY",
-    value: number,
-  ): I => {
-    const c = animation.channels.find(
-      (c) => c.boneId === id && c.property === prop,
-    );
-    if (!c) return [value, value];
-    const values = c.keys.map((k) => k.value);
-    for (let i = 0; i < c.keys.length - 1; i++) {
-      const k = c.keys[i],
-        next = c.keys[i + 1];
-      if (k.curve.type === "bezier")
-        values.push(
-          k.value + (next.value - k.value) * k.curve.y1,
-          k.value + (next.value - k.value) * k.curve.y2,
-        );
-    }
-    return [Math.min(...values), Math.max(...values)];
-  };
   // IK only rotates these locals. A full turn safely bounds solver reach/clamping,
   // reflected scales and interactions between ordered constraints without solving twice.
   const ikBones=new Set(p.ikConstraints?.flatMap(c=>[c.rootBoneId,c.childBoneId])??[]);
@@ -61,6 +86,7 @@ export function animationBounds(
     const i = remaining.findIndex(
       (b) => b.parentId === null || worlds.has(b.parentId),
     );
+    if (i < 0) throw { code: "INVALID_INPUT", path: "/bones", message: "Invalid parent graph" };
     const bone = remaining.splice(i, 1)[0],
       t = bone.setup;
     const r: I = ikBones.has(bone.id)?[-Math.PI,Math.PI]:range(bone.id, "rotation", t.rotation),
@@ -89,6 +115,7 @@ export function animationBounds(
         add(add(mul(b, u), mul(d, v)), y),
       ];
     }
+    m.flat().forEach(finite);
     worlds.set(bone.id, m);
   }
   let bounds: Bounds | null = null;
@@ -96,25 +123,19 @@ export function animationBounds(
     const region = p.attachments.find((r) => r.id === slot.attachmentId);
     if (!region) continue;
     if (region.type === "mesh") {
-      const channel=animation.deforms?.find(c=>c.attachmentId===region.id);
       for(let v=0;v<region.vertices.length;v+=2) {
-        const coordinate=(index:number):I=>{
-          if(!channel)return [region.vertices[index],region.vertices[index]];
-          const values=channel.keys.map(k=>k.offsets[index]);
-          for(let k=0;k<channel.keys.length-1;k++) {
-            const key=channel.keys[k],next=channel.keys[k+1];
-            if(key.curve.type==='bezier') values.push(key.offsets[index]+(next.offsets[index]-key.offsets[index])*key.curve.y1,key.offsets[index]+(next.offsets[index]-key.offsets[index])*key.curve.y2);
-          }
-          return [region.vertices[index]+Math.min(...values),region.vertices[index]+Math.max(...values)];
-        };
-        const px=coordinate(v),py=coordinate(v+1);
+        const px=add(singleton(region.vertices[v]),deform(region.id,v)),
+          py=add(singleton(region.vertices[v+1]),deform(region.id,v+1));
         let wx:I=[0,0],wy:I=[0,0];
         for(const influence of region.weights[v/2]) {
           if(influence.weight===0)continue;
           const [ba,bb,bc,bd,bx,by]=region.bindPose.find(b=>b.boneId===influence.boneId)!.world;
-          const det=ba*bd-bb*bc;
-          const lx=add(add(mul([bd/det,bd/det],px),mul([-bc/det,-bc/det],py)),[(bc*by-bd*bx)/det,(bc*by-bd*bx)/det]);
-          const ly=add(add(mul([-bb/det,-bb/det],px),mul([ba/det,ba/det],py)),[(bb*bx-ba*by)/det,(bb*bx-ba*by)/det]);
+          const det=finite(finite(ba*bd)-finite(bb*bc));
+          // Match evaluator bind inverse arithmetic, including its translation terms.
+          const ia=finite(bd/det),ib=finite(-bb/det),ic=finite(-bc/det),id=finite(ba/det);
+          const ix=finite(finite(-ia*bx)-finite(ic*by)),iy=finite(finite(-ib*bx)-finite(id*by));
+          const lx=add(add(mul(singleton(ia),px),mul(singleton(ic),py)),singleton(ix));
+          const ly=add(add(mul(singleton(ib),px),mul(singleton(id),py)),singleton(iy));
           const [a,b,c,d,x,y]=worlds.get(influence.boneId)!;
           const w:I=[influence.weight,influence.weight];
           wx=add(wx,mul(w,add(add(mul(a,lx),mul(c,ly)),x)));
@@ -161,4 +182,54 @@ export function animationBounds(
     }
   }
   return bounds;
+}
+
+/** Legacy validated-animation helper; overflow throws a structured Problem. */
+export function animationBounds(p: Project, animationId: string): Bounds | null {
+  const ranges=animationRanges(p,animationId);
+  return geometryBounds(p,ranges.local,ranges.deform);
+}
+/** Conservative enclosure for the entire selected clock (including every source loop).
+ * Source-clock correlation is deliberately discarded; this can add whitespace, never crop.
+ * Public caller gets validation/reference/overflow errors, never a sampled approximation. */
+export function targetBounds(input: Project, target: EvaluationTarget): Result<Bounds | null> {
+  const valid=validate(input); if(!valid.ok)return valid;
+  const p=valid.value;
+  const checked=evaluateTarget(p,{target,time:0}); if(!checked.ok)return checked;
+  try {
+    let bounds: Bounds | null;
+    if(target.kind==='animation') bounds=target.animationId===null
+      ? geometryBounds(p,(_id,_property,setup)=>singleton(setup),()=>[0,0])
+      : animationBounds(p,target.animationId);
+    else {
+      const composition=p.compositions!.find(c=>c.id===target.compositionId)!;
+      const locals=new Map(p.bones.map(b=>[b.id,Object.fromEntries(Object.entries(b.setup).map(([k,v])=>[k,singleton(v)])) as Record<Channel['property'],I>]));
+      const setup=new Map(p.bones.map(b=>[b.id,b.setup]));
+      // Expansion already sorts groups. Never re-sort the adjacent crossfade pair.
+      for(const track of compositionPrimitives(composition)) {
+        if(track.alpha===0)continue;
+        const upper=Math.min(composition.duration,track.end===undefined?composition.duration:track.end+track.fadeOut);
+        // No positive-weight clock exists here (notably zero-duration outgoing entries).
+        if(upper<track.start || (upper===track.start && (composition.loop || trackWeight(track,upper)===0)))continue;
+        const animation=p.animations.find(a=>a.id===track.source.animationId)!;
+        if(track.source.kind==='live') finite(track.source.offset+finite((upper-track.start)*track.source.speed));
+        const mask=new Set(track.mask.map(m=>`${m.boneId}/${m.property}`));
+        for(const channel of animation.channels) {
+          if(!mask.has(`${channel.boneId}/${channel.property}`))continue;
+          const fixedTime=track.source.kind==='frozen' ? track.source.entryTime : track.source.speed===0 ? track.source.offset : undefined;
+          const source=fixedTime!==undefined
+            ? singleton(sample(channel,sampledTime(fixedTime,animation.duration,animation.loop)))
+            : channelRange(channel);
+          const local=locals.get(channel.boneId)!, prior=local[channel.property];
+          local[channel.property]=track.mode==='overwrite'
+            ? hull(prior,add(mul(singleton(1-track.alpha),prior),mul(singleton(track.alpha),source)))
+            : add(prior,mul([0,track.alpha],add(source,singleton(-setup.get(channel.boneId)![channel.property]))));
+        }
+      }
+      bounds=geometryBounds(p,(id,property)=>locals.get(id)![property],()=>[0,0]);
+    }
+    return {ok:true,value:bounds,warnings:[]};
+  } catch(error) {
+    return {ok:false,error: error as {code:'INVALID_INPUT';path:string;message:string}};
+  }
 }
