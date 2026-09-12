@@ -21,6 +21,7 @@ const collections = [
   "attachments",
   "animations",
   "ikConstraints",
+  "compositions",
 ] as const;
 type Collection = (typeof collections)[number];
 export interface EntityChange {
@@ -191,6 +192,7 @@ class CommandSession implements Session {
         "region-v0",
         "mesh-v1",
         "ik-v1",
+        "composition-v1",
         "explicit-migration-v1",
         "atomic-batch",
         "undo-redo",
@@ -530,6 +532,7 @@ function perform(
     return;
   }
   if (
+    operation.kind === "putComposition" ||
     operation.kind === "putMesh" ||
     operation.kind === "putIKConstraint" ||
     operation.kind === "setVertexWeights" ||
@@ -541,9 +544,9 @@ function perform(
         code: "UNSUPPORTED_VERSION",
         path: "",
         message:
-          "Explicitly migrateProject to version 1 before mesh, deform or IK authoring",
+          "Explicitly migrateProject to version 1 before mesh, deform, IK or composition authoring",
       };
-    const feature = operation.kind === "putIKConstraint" ? "ik-v1" : "mesh-v1";
+    const feature = operation.kind === "putComposition" ? "composition-v1" : operation.kind === "putIKConstraint" ? "ik-v1" : "mesh-v1";
     if (!project.requiredCapabilities.includes(feature))
       project.requiredCapabilities.push(feature);
   }
@@ -665,12 +668,14 @@ function perform(
     putSlot: "slots",
     putRegion: "attachments",
     putAnimation: "animations",
+    putComposition: "compositions",
     putMesh: "attachments",
     putIKConstraint: "ikConstraints",
   } as const;
   const collection = names[operation.kind];
   // The runtime operation schema has already coupled each kind to its entity schema.
   if (collection === "ikConstraints") project.ikConstraints ??= [];
+  if (collection === "compositions") project.compositions ??= [];
   const entries = project[collection] as Array<{ id: string }>;
   const index = entries.findIndex((e) => e.id === operation.value.id);
   if (index < 0) entries.push(operation.value);

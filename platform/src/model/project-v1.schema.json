@@ -21,7 +21,8 @@
         "enum": [
           "region-v0",
           "mesh-v1",
-          "ik-v1"
+          "ik-v1",
+          "composition-v1"
         ]
       },
       "uniqueItems": true,
@@ -88,6 +89,12 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/twoBoneIK"
+      }
+    },
+    "compositions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/composition"
       }
     }
   },
@@ -670,6 +677,279 @@
         "bend",
         "mix",
         "order"
+      ],
+      "additionalProperties": false
+    },
+    "compositionMaskEntry": {
+      "type": "object",
+      "properties": {
+        "boneId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "property": {
+          "enum": [
+            "x",
+            "y",
+            "rotation",
+            "scaleX",
+            "scaleY"
+          ]
+        }
+      },
+      "required": [
+        "boneId",
+        "property"
+      ],
+      "additionalProperties": false
+    },
+    "compositionSource": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "live"
+            },
+            "animationId": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+            },
+            "offset": {
+              "type": "number",
+              "minimum": 0
+            },
+            "speed": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind",
+            "animationId",
+            "offset",
+            "speed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "frozen"
+            },
+            "animationId": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+            },
+            "entryTime": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind",
+            "animationId",
+            "entryTime"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "transformTrack": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "track"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "source": {
+          "$ref": "#/$defs/compositionSource"
+        },
+        "mask": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compositionMaskEntry"
+          }
+        },
+        "mode": {
+          "enum": [
+            "overwrite",
+            "additive"
+          ]
+        },
+        "alpha": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "start": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fadeIn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fadeOut": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "order",
+        "source",
+        "mask",
+        "mode",
+        "alpha",
+        "start",
+        "fadeIn",
+        "fadeOut"
+      ],
+      "additionalProperties": false
+    },
+    "frozenCrossfade": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "crossfade"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "start": {
+          "type": "number",
+          "minimum": 0
+        },
+        "duration": {
+          "type": "number",
+          "minimum": 0
+        },
+        "outgoing": {
+          "type": "object",
+          "properties": {
+            "animationId": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+            },
+            "entryTime": {
+              "type": "number",
+              "minimum": 0
+            },
+            "mask": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/compositionMaskEntry"
+              }
+            }
+          },
+          "required": [
+            "animationId",
+            "entryTime",
+            "mask"
+          ],
+          "additionalProperties": false
+        },
+        "incoming": {
+          "type": "object",
+          "properties": {
+            "animationId": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+            },
+            "offset": {
+              "type": "number",
+              "minimum": 0
+            },
+            "speed": {
+              "type": "number",
+              "minimum": 0
+            },
+            "mask": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/compositionMaskEntry"
+              }
+            }
+          },
+          "required": [
+            "animationId",
+            "offset",
+            "speed",
+            "mask"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "order",
+        "start",
+        "duration",
+        "outgoing",
+        "incoming"
+      ],
+      "additionalProperties": false
+    },
+    "composition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]{1,100}(?![\\s\\S])"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "duration": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/transformTrack"
+              },
+              {
+                "$ref": "#/$defs/frozenCrossfade"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "duration",
+        "loop",
+        "tracks"
       ],
       "additionalProperties": false
     }

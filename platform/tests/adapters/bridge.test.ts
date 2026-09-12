@@ -17,6 +17,15 @@ async function setup(){
  return {session,bridge,scope,request,token,observation,storage};
 }
 describe('WebMCP adapter',()=>{
+ it('does not advertise core-only composition or silently accept composition requests before integration',async()=>{
+  const {bridge,session,scope}=await setup();
+  expect(session.capabilities().features).toContain('composition-v1');
+  const caps=unwrap(await bridge.dispatch('get_capabilities',{})) as {features:string[]};
+  expect(caps.features).not.toContain('composition-v1');
+  expect(await bridge.dispatch('render_pose',{...scope,target:{kind:'composition',compositionId:'motion'},time:0})).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
+  expect(await bridge.dispatch('apply_batch',{...scope,expectedRevision:0,requestId:'composition',operations:[{kind:'putComposition',value:{id:'motion',name:'Motion',duration:1,loop:false,tracks:[]}}]})).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
+  expect(session.inspect().revision).toBe(0);
+ });
  it('commits through Session, shares UI events and preserves retry identity after later edits',async()=>{
   const {bridge,session,request}=await setup();const listener=vi.fn();session.subscribe(listener);
   const first=await bridge.dispatch('create_bones',request);expect(first).toMatchObject({ok:true,value:{revision:1,changedIds:['root']}});

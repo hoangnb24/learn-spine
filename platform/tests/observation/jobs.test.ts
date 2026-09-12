@@ -9,6 +9,8 @@ import type {
   ProjectBundle,
   Renderer,
   Result,
+  ObservationRequest,
+  JobRequest,
 } from "../../src/model/types";
 const u = <T>(r: Result<T>): T => {
   if (!r.ok) throw Error(JSON.stringify(r.error));
@@ -72,6 +74,17 @@ function mock(options: { fail?: boolean; wait?: Promise<void> } = {}) {
   };
 }
 describe("Observation jobs (renderer mocks; browser verifies PNG)", () => {
+  it("rejects canonical/hybrid composition requests before sampling a fallback animation", async () => {
+    const m = mock(), s = new ObservationService(m.factory);
+    for (const unsupported of [{target:{kind:'composition',compositionId:'motion'}}, {compositionId:'motion'}]) {
+      const pose = {...unsupported, animationId:'bounce',time:.5,viewport};
+      expect(await s.renderPose(bundle(), pose as ObservationRequest)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+      expect(s.submit(bundle(), {...request,...unsupported} as JobRequest)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+    }
+    const access = Object.defineProperty({animationId:'bounce',time:0,viewport}, 'target', {enumerable:true,get(){throw Error('must not read');}});
+    expect(await s.renderPose(bundle(), access)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+    expect(m.seen).toEqual([]);
+  });
   it("owns synchronous project, request and Buffer bytes snapshots; deterministic reads", async () => {
     const m = mock(),
       s = new ObservationService(m.factory),

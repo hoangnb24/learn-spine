@@ -1,0 +1,13 @@
+
+> learn-spine-platform@0.0.0 test
+> vitest run
+
+
+ RUN  v5.0.0 /Users/tubakhuym/projects/learn-spine-73/platform
+
+
+ Test Files  20 passed | 1 skipped (21)
+      Tests  184 passed | 1 skipped (185)
+   Start at  16:36:25
+   Duration  1.09s (import 50%, tests 31%, transform 18%, worker 1%)
+

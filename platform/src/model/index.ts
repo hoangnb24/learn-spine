@@ -2,10 +2,11 @@ import { Ajv2020 } from 'ajv/dist/2020.js';
 import schema from './project-v0.schema.json';
 import schemaV1 from './project-v1.schema.json';
 import { meshProblem } from './mesh';
+import { compositionProblem } from './composition';
 import { ikProblem } from './ik';
 import type { Model, Project, Result, Problem } from './types';
 import { readJson } from './json';
-export const modelCapabilities = { formatVersions: [0, 1], features: ['region-v0', 'mesh-v1', 'ik-v1'] } as const;
+export const modelCapabilities = { formatVersions: [0, 1], features: ['region-v0', 'mesh-v1', 'ik-v1', 'composition-v1'] } as const;
 export type * from './types';
 
 const shape = new Ajv2020({ strict: true, allErrors: false, ownProperties: true }).compile<Project>(schema);
@@ -49,7 +50,7 @@ export function validate(input: unknown): Result<Project> {
   if (caps && 'value' in caps && Array.isArray(caps.value)) {
     for (let i = 0; i < caps.value.length; i++) {
       const cap = Object.getOwnPropertyDescriptor(caps.value, String(i));
-      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0' && !(version && 'value' in version && version.value === 1 && (cap.value === 'mesh-v1' || cap.value === 'ik-v1')))
+      if (cap && 'value' in cap && typeof cap.value === 'string' && cap.value !== 'region-v0' && !(version && 'value' in version && version.value === 1 && (cap.value === 'mesh-v1' || cap.value === 'ik-v1' || cap.value === 'composition-v1')))
         return fail('UNSUPPORTED_CAPABILITY', `/requiredCapabilities/${i}`, 'Capability is not supported for this format');
     }
   }
@@ -138,6 +139,8 @@ export function validate(input: unknown): Result<Project> {
       }
     }
   }
+  const compositionError = compositionProblem(p);
+  if (compositionError) return { ok: false, error: compositionError };
   return { ok: true, value: structuredClone(p), warnings: [] };
 }
 

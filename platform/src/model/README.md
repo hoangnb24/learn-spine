@@ -22,3 +22,10 @@ Model now accepts format 0 and 1 with separate strict schemas; migrate supports
 for bind/weight/deform rules, migration and capability boundaries. The v0 notes
 above describe the original #6 scope; `ik-v1` now enables strict optional `ikConstraints` in v1. See the
 [IK contract](../engine/IK.md) for two-bone chain validation, scale policy and diagnostics.
+
+## Composition v1 (#73)
+
+Optional format-1 `compositions` now has a strict canonical schema and required
+`composition-v1`, implemented jointly with Session and the shared evaluator.
+See [the complete data/target/transition contract](COMPOSITION.md), including
+source mutation, keyed mask coverage, clocks and compatibility boundaries.

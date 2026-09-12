@@ -32,6 +32,13 @@ const fail = (
   message: string,
   path = "",
 ): Result<never> => ({ ok: false, error: { code, message, path } });
+/** #73 compatibility guard; #74 replaces this only when canonical targets are supported. */
+function unsupportedTarget(input: unknown): Result<never> | undefined {
+  if (input && typeof input === "object") {
+    for (const field of ["target", "compositionId"])
+      if (field in input) return fail("UNSUPPORTED_CAPABILITY", "Observation currently accepts legacy animation requests only", `/${field}`);
+  }
+}
 function take<T>(r: Result<T>): T {
   if (!r.ok) throw r.error;
   return r.value;
@@ -169,6 +176,8 @@ export class ObservationService implements Observation {
     signal?.addEventListener("abort", abort, { once: true });
     if (signal?.aborted) abort();
     try {
+      const unsupported = unsupportedTarget(input);
+      if (unsupported) return unsupported;
       if (this.disposed) return fail("CANCELLED", "Observation disposed");
       if (this.active() >= 2)
         return fail("LIMIT_EXCEEDED", "At most two active observations");
@@ -201,6 +210,8 @@ export class ObservationService implements Observation {
   }
   submit(bundle: ProjectBundle, input: JobRequest): Result<Job> {
     try {
+      const unsupported = unsupportedTarget(input);
+      if (unsupported) return unsupported;
       if (this.disposed) return fail("CANCELLED", "Observation disposed");
       if (this.active() >= 2)
         return fail("LIMIT_EXCEEDED", "At most two active observations");

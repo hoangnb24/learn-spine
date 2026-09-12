@@ -186,7 +186,8 @@ export class WebMCPBridge {
         revision: project?.revision ?? null,
         tools: this.definitions.map((t) => t.name),
         features: [
-          ...(session?.capabilities().features ?? []),
+          // #73 core support is not transport support; #74 removes this guard after integration.
+          ...(session?.capabilities().features ?? []).filter(feature => feature !== "composition-v1"),
           "snapshot-observation",
           "png-image-content",
           "project-zip",
