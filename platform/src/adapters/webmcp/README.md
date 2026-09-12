@@ -40,3 +40,8 @@ claim is made by tool availability.
 PNG render/save/job behavior and native registration remain as in
 [evidence #13](../../../evidence/issue-13/README.md). New end-to-end evidence:
 [evidence #19](../../../evidence/issue-19/README.md).
+
+## Composition v1
+
+See [public composition tools and examples](COMPOSITION.md) for canonical target
+selectors, Session writes, frame/job provenance, diagnostics and bounds limits.

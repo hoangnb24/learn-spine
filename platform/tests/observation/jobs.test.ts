@@ -74,15 +74,15 @@ function mock(options: { fail?: boolean; wait?: Promise<void> } = {}) {
   };
 }
 describe("Observation jobs (renderer mocks; browser verifies PNG)", () => {
-  it("rejects canonical/hybrid composition requests before sampling a fallback animation", async () => {
+  it("rejects hybrid/unknown composition selectors before sampling a fallback animation", async () => {
     const m = mock(), s = new ObservationService(m.factory);
     for (const unsupported of [{target:{kind:'composition',compositionId:'motion'}}, {compositionId:'motion'}]) {
       const pose = {...unsupported, animationId:'bounce',time:.5,viewport};
-      expect(await s.renderPose(bundle(), pose as ObservationRequest)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
-      expect(s.submit(bundle(), {...request,...unsupported} as JobRequest)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+      expect(await s.renderPose(bundle(), pose as ObservationRequest)).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
+      expect(s.submit(bundle(), {...request,...unsupported} as JobRequest)).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
     }
     const access = Object.defineProperty({animationId:'bounce',time:0,viewport}, 'target', {enumerable:true,get(){throw Error('must not read');}});
-    expect(await s.renderPose(bundle(), access)).toMatchObject({ok:false,error:{code:'UNSUPPORTED_CAPABILITY'}});
+    expect(await s.renderPose(bundle(), access)).toMatchObject({ok:false,error:{code:'INVALID_INPUT'}});
     expect(m.seen).toEqual([]);
   });
   it("owns synchronous project, request and Buffer bytes snapshots; deterministic reads", async () => {
@@ -257,12 +257,10 @@ it("bounds has a hand-computed translation oracle, and huge finite angles termin
     },
   ];
   // Trimmed corners [-80,40]..[40,120], translated by x=[10,30],y=20.
-  expect(animationBounds(p, "bounce")).toEqual({
-    minX: -70,
-    maxX: 70,
-    minY: 60,
-    maxY: 140,
-  });
+  const translated=animationBounds(p,"bounce")!;
+  for(const [k,v] of Object.entries({minX:-70,maxX:70,minY:60,maxY:140}))
+    expect(translated[k as keyof typeof translated]).toBeCloseTo(v,10); // outward rounding may add ulps
+
   p.bones[0].setup.rotation = 1e308;
   expect(animationBounds(p, "bounce")).not.toBeNull();
 });

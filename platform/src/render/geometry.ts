@@ -1,5 +1,5 @@
 import { meshVertices } from './mesh';
-import type { Asset, Matrix, Pose, Project, Region, Result, Viewport } from '../model/types';
+import type { Asset, Matrix, RenderablePose, Project, Region, Result, Viewport } from '../model/types';
 export type Bounds = { minX: number; minY: number; maxX: number; maxY: number };
 export const success = <T>(value: T): Result<T> => ({ ok: true, value, warnings: [] });
 export const failure = (message: string, path = ''): Result<never> => ({ ok: false, error: { code: 'INVALID_INPUT', path, message } });
@@ -20,7 +20,7 @@ export function validateViewport(v: Viewport): Result<void> {
   if (w < 1 || h < 1 || w > 16384 || h > 16384 || w*h > 64e6) return failure('Backing canvas exceeds limits', '/viewport');
   return success(undefined);
 }
-export function poseGeometry(project: Project, pose: Pose): Result<number[][]> {
+export function poseGeometry(project: Project, pose: RenderablePose): Result<number[][]> {
   if (pose.poseVersion !== 1) return failure('Unsupported pose version', '/pose/poseVersion');
   if (pose.projectId !== project.projectId || pose.revision !== project.revision) return failure('Pose does not match prepared project/revision', '/pose');
   const slots = project.slots.filter(s => s.attachmentId !== null);
@@ -47,7 +47,7 @@ export function poseGeometry(project: Project, pose: Pose): Result<number[][]> {
   return success(output);
 }
 /** Fits the union of all supplied poses, including every supplied extremum. */
-export function fitCamera(project: Project, poses: readonly Pose[], viewport: Viewport, padding = 24): Result<{ viewport: Viewport; bounds: Bounds | null; poseCount: number }> {
+export function fitCamera(project: Project, poses: readonly RenderablePose[], viewport: Viewport, padding = 24): Result<{ viewport: Viewport; bounds: Bounds | null; poseCount: number }> {
   const valid = validateViewport(viewport); if (!valid.ok) return valid;
   if (!poses.length || !Number.isFinite(padding) || padding < 0 || 2*padding >= Math.min(viewport.width,viewport.height)) return failure('Supply poses and valid fit padding');
   const bounds: Bounds = { minX: Infinity,minY: Infinity,maxX: -Infinity,maxY: -Infinity };

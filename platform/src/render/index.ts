@@ -1,6 +1,6 @@
 import { Container, Graphics, Mesh, MeshGeometry, Texture, WebGLRenderer } from 'pixi.js';
 import { validate } from '../model';
-import type { Pose, Project, ProjectBundle, Renderer, Result, Viewport, Problem } from '../model/types';
+import type { RenderablePose, EvaluationTarget, Project, ProjectBundle, Renderer, Result, Viewport, Problem } from '../model/types';
 import { failure, poseGeometry, screenPoint, success, validateViewport } from './geometry';
 export const rendererCapabilities = { poseVersions: [1], features: ['region-v0', 'mesh-v1'] } as const;
 export { corners, fitCamera, screenPoint } from './geometry';
@@ -20,7 +20,7 @@ export class PixiRenderer implements Renderer {
   setOverlay(options: MeshOverlay): void { this.overlayOptions={...options}; }
   private generation = 0;
   private disposed = false;
-  private frame?: { projectId:string; revision:number; animationId:string|null; sampledTime:number; viewport:Viewport; pixelWidth:number; pixelHeight:number };
+  private frame?: { projectId:string; revision:number; animationId?:string|null; target:EvaluationTarget; sampledTime:number; viewport:Viewport; pixelWidth:number; pixelHeight:number };
   get frameMetadata() { return this.frame ? structuredClone(this.frame) : null; }
   private constructor(gpu: WebGLRenderer<HTMLCanvasElement>) { this.gpu=gpu; }
   static async create(canvas?: HTMLCanvasElement): Promise<Result<PixiRenderer>> {
@@ -76,7 +76,7 @@ export class PixiRenderer implements Renderer {
       return success(undefined);
     } catch(e) {cleanup();return error('ASSET_DECODE_FAILED',`PNG preparation failed: ${String(e)}`);}
   }
-  draw(pose: Pose, viewport: Viewport): Result<void> {
+  draw(pose: RenderablePose, viewport: Viewport): Result<void> {
     if(this.disposed || !this.project) return error('RENDER_FAILED','Prepare a project before drawing');
     const valid=validateViewport(viewport);if(!valid.ok)return valid;
     const geometry=poseGeometry(this.project,pose);if(!geometry.ok)return geometry;
@@ -109,11 +109,11 @@ export class PixiRenderer implements Renderer {
         });
       });
       this.gpu.render({container:this.stage,clear:true});
-      this.frame={projectId:pose.projectId,revision:pose.revision,animationId:pose.animationId,sampledTime:pose.sampledTime,viewport:{...viewport},pixelWidth:this.canvas.width,pixelHeight:this.canvas.height};
+      this.frame={projectId:pose.projectId,revision:pose.revision,...("animationId" in pose ? {animationId:pose.animationId} : {}),target:"target" in pose ? structuredClone(pose.target) : {kind:"animation",animationId:pose.animationId},sampledTime:pose.sampledTime,viewport:{...viewport},pixelWidth:this.canvas.width,pixelHeight:this.canvas.height};
       return success(undefined);
     } catch(e){return error('RENDER_FAILED',String(e));}
   }
-  async capture(pose: Pose, viewport: Viewport, signal?: AbortSignal): Promise<Result<Uint8Array>> {
+  async capture(pose: RenderablePose, viewport: Viewport, signal?: AbortSignal): Promise<Result<Uint8Array>> {
     if(signal?.aborted)return error('CANCELLED','Capture cancelled');
     const drawn=this.draw(pose,viewport);if(!drawn.ok)return drawn;
     try {

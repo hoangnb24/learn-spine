@@ -1,6 +1,6 @@
 import { validate } from '../model';
-import type { Matrix, Mesh, Pose, Problem, Project, Result } from '../model/types';
-import { evaluate } from '../engine';
+import type { Matrix, Mesh, RenderablePose, EvaluationTarget, Problem, Project, Result } from '../model/types';
+import { evaluate, evaluateTarget, compositionPrimitives } from '../engine';
 
 export const policy = Object.freeze({ version: 1, intervals: 60, distancePx: 0.5,
   weightSumTolerance: 1e-5, velocityFraction: 0.05, velocityFloorPxPerSecond: 0.5,
@@ -10,18 +10,18 @@ export interface PageRequest { offset?: number; limit?: number }
 export type Point = { kind: 'bone'; boneId: string; local?: [number, number] } |
   { kind: 'vertex'; slotId: string; vertex: number } | { kind: 'ik'; constraintId: string };
 export interface Anchor { id: string; point: Point; target: [number, number]; start?: number; end?: number }
-export interface MotionRequest extends PageRequest { animationId: string; anchors?: Anchor[]; loopPoints?: Point[] }
+export type MotionRequest = PageRequest & { anchors?: Anchor[]; loopPoints?: Point[] } & ({ animationId: string } | { target: EvaluationTarget });
 export interface Diagnostic {
   kind: 'invalid-weights' | 'invalid-project' | 'anchor-drift' | 'foot-target' |
     'triangle-flip' | 'triangle-degenerate' | 'loop-position' | 'loop-velocity';
   ids: string[]; time: number | null; units: 'px' | 'px/s' | 'px²' | 'weight' | 'structural';
   observed: number | null; threshold: number | null; message: string;
   vertex?: number; triangle?: number; path?: string; status?: string;
-  point?: Point; sampledPeakSpeed?: number;
+  point?: Point; sampledPeakSpeed?: number; sampledTime?: number;
 }
 export interface DiagnosticReport {
   projectId: string | null; revision: number | null; valid: boolean; passed: boolean;
-  policy: typeof policy; sampling: { animationId: string | null; times: number[];
+  policy: typeof policy; sampling: { animationId?: string | null; target?: EvaluationTarget; times: number[]; sampledTimes?: number[]; boundaryPolicy?: string;
     evaluationCount: number; h: number | null; loopChecked: boolean };
   items: Diagnostic[]; total: number; nextOffset: number | null;
   validationProblem?: Problem;
@@ -129,7 +129,7 @@ export function validate_project(input: unknown, request: PageRequest = {}): Res
 const xy = (m: Matrix, p: readonly number[]): [number, number] => [m[0]*p[0]+m[2]*p[1]+m[4], m[1]*p[0]+m[3]*p[1]+m[5]];
 const distance = (a: readonly number[], b: readonly number[]) => Math.hypot(a[0]-b[0], a[1]-b[1]);
 const determinant = (m: Matrix) => m[0]*m[3]-m[1]*m[2];
-function point(pose: Pose, ref: Point): [number, number] {
+function point(pose: RenderablePose, ref: Point): [number, number] {
   if (ref.kind === 'bone') return xy(pose.bones[ref.boneId], ref.local ?? [0, 0]);
   if (ref.kind === 'ik') return [...pose.ik!.find(i => i.constraintId === ref.constraintId)!.endpoint];
   const mesh = pose.meshes.find(m => m.slotId === ref.slotId)!;
@@ -160,14 +160,18 @@ function area(v: number[], t: number[], i: number) {
 }
 
 export function measure_motion(input: unknown, request: MotionRequest): Result<DiagnosticReport> {
-  if (!request || typeof request !== 'object' || Array.isArray(request) || !requestData(request) || Object.keys(request).some(k=>!['animationId','anchors','loopPoints','offset','limit'].includes(k))) return failure('', 'Expected JSON motion request');
+  if (!request || typeof request !== 'object' || Array.isArray(request) || !requestData(request) || Object.keys(request).some(k=>!['animationId','target','anchors','loopPoints','offset','limit'].includes(k))) return failure('', 'Expected JSON motion request');
   const pagination = page(request); if (!pagination.ok) return pagination;
   const checked = validate(input);
   if (!checked.ok) return success(invalidReport(input, checked.error, pagination.value));
-  const p = checked.value, animation = p.animations.find(a => a.id === request.animationId);
-  if (!animation) return failure('/animationId', 'Animation does not exist', 'MISSING_REFERENCE');
+  if (('target' in request) === ('animationId' in request)) return failure('/target', 'Supply exactly one target or animationId');
+  const p = checked.value, target: EvaluationTarget = 'target' in request ? request.target : {kind:'animation',animationId:request.animationId};
+  const probe=evaluateTarget(p,{target,time:0}); if(!probe.ok)return probe;
+  const animation = target.kind === 'composition' ? p.compositions?.find(c=>c.id===target.compositionId)
+    : p.animations.find(a=>a.id===target.animationId);
+  if (!animation) return failure('/target', 'Motion diagnostics require an animation or composition', 'MISSING_REFERENCE');
   const duration = animation.duration, loop = animation.loop, h = Math.min(1/600, duration/600);
-  if (!(h > 0 && duration-h < duration && duration-2*h < duration-h)) return failure('/animationId', 'Duration cannot support distinct finite-difference times');
+  if (!(h > 0 && duration-h < duration && duration-2*h < duration-h)) return failure('/target', 'Duration cannot support distinct finite-difference times');
   const anchors = request.anchors ?? [];
   if (!Array.isArray(anchors) || anchors.length > policy.maxAnchors) return failure('/anchors', 'At most 256 anchors are supported', 'LIMIT_EXCEEDED');
   const anchorIds = new Set<string>();
@@ -186,7 +190,10 @@ export function measure_motion(input: unknown, request: MotionRequest): Result<D
   if (!Array.isArray(points) || points.length > policy.maxLoopPoints) return failure('/loopPoints', 'At most 4096 loop points are supported', 'LIMIT_EXCEEDED');
   if (!points.every(ref => checkPoint(p, ref))) return failure('/loopPoints', 'Invalid point reference');
   const base = new Set<number>(Array.from({ length: policy.intervals+1 }, (_, i) => duration*(i/policy.intervals)));
-  const keys = [...animation.channels.flatMap(c => c.keys.map(k => k.time)), ...(animation.deforms ?? []).flatMap(c => c.keys.map(k => k.time))];
+  // Composition clocks include fade/transition boundaries. Live source keys are covered by
+  // the fixed grid; diagnostics are sampled evidence, not a continuous-coverage claim.
+  const keys = 'tracks' in animation ? compositionPrimitives(animation).flatMap(t=>[t.start,t.start+t.fadeIn,...(t.end===undefined?[]:[t.end,t.end+t.fadeOut])]).filter(t=>t>=0 && t<=duration)
+    : [...animation.channels.flatMap(c => c.keys.map(k => k.time)), ...(animation.deforms ?? []).flatMap(c => c.keys.map(k => k.time))];
   for (const t of keys) { base.add(t); if (t > 0 && t < duration) { base.add(Math.max(0,t-h)); base.add(Math.min(duration,t+h)); } }
   for (const a of anchors) { base.add(a.start ?? 0); base.add(a.end ?? duration); }
   const times = [...base].sort((a,b) => a-b), evalTimes = new Set(times);
@@ -197,16 +204,29 @@ export function measure_motion(input: unknown, request: MotionRequest): Result<D
   const elements = p.bones.length + (p.ikConstraints?.length ?? 0) + p.slots.reduce((sum, s) => {
     const m = p.attachments.find(a => a.id === s.attachmentId); return sum + (m?.type === 'mesh' ? m.vertices.length/2 + m.triangles.length/3 : 1);
   }, 0);
-  if (evalTimes.size+1 > policy.maxSamples || elements > policy.maxElements || (elements+anchors.length+points.length)*(evalTimes.size+1) > policy.maxElementSamples)
+  const extraBoundary='target' in request && loop ? 1 : 0;
+  if (evalTimes.size+1+extraBoundary > policy.maxSamples || elements > policy.maxElements || (elements+anchors.length+points.length)*(evalTimes.size+1+extraBoundary) > policy.maxElementSamples)
     return failure('/sampling', 'Diagnostic sampling workload exceeds fixed limits', 'LIMIT_EXCEEDED');
   const setup = evaluate(p, { animationId: null, time: 0 }); if (!setup.ok) return setup;
-  animation.loop = false; // checked.value is a defensive clone, never the caller's project.
-  const poses = new Map<number, Pose>();
+  // Legacy diagnostics retain authored-end sampling. Canonical samples keep normalized clocks.
+  if (!('target' in request)) animation.loop = false;
+  const poses = new Map<number, RenderablePose>();
   for (const time of [...evalTimes].sort((a,b) => a-b)) {
-    const sampled = evaluate(p, { animationId: animation.id, time }); if (!sampled.ok) return sampled;
+    const sampled = "target" in request ? evaluateTarget(p, {target,time}) : evaluate(p, { animationId: animation.id, time }); if (!sampled.ok) return sampled;
     poses.set(time, sampled.value);
   }
-  const c = collector(pagination.value);
+  // Only loop comparison inspects the authored end before wrapping; source clocks are unchanged.
+  let authoredEnd: RenderablePose | undefined;
+  if ('target' in request && loop) {
+    animation.loop=false;
+    const end=evaluateTarget(p,{target,time:duration}); if(!end.ok)return end;
+    authoredEnd=end.value;
+    animation.loop=loop;
+  }
+  const raw = collector(pagination.value);
+  const c = { finish:raw.finish, add(item: Diagnostic) {
+    raw.add('target' in request && item.time !== null ? {...item,sampledTime:poses.get(item.time)?.sampledTime ?? item.time} : item);
+  } };
   const ancestors = new Map(p.attachments.filter((a): a is Mesh => a.type === 'mesh').map(m => [m.id, commonAncestor(p, m)]));
   for (const time of times) {
     const pose = poses.get(time)!;
@@ -236,7 +256,7 @@ export function measure_motion(input: unknown, request: MotionRequest): Result<D
     }
   }
   if (loop && points.length) for (const ref of points) {
-    const at = (t: number) => point(poses.get(t)!,ref);
+    const at = (t: number) => point(t===duration && authoredEnd ? authoredEnd : poses.get(t)!,ref);
     const derivative = (t: number): [number,number] => {
       if (t < h) { const a=at(0),b=at(h),d=at(2*h); return [(3*(b[0]-a[0])-(d[0]-b[0]))/(2*h),(3*(b[1]-a[1])-(d[1]-b[1]))/(2*h)]; }
       if (t > duration-h) { const a=at(duration),b=at(duration-h),d=at(duration-2*h); return [(3*(a[0]-b[0])-(b[0]-d[0]))/(2*h),(3*(a[1]-b[1])-(b[1]-d[1]))/(2*h)]; }
@@ -250,5 +270,5 @@ export function measure_motion(input: unknown, request: MotionRequest): Result<D
     if (position>policy.distancePx) c.add({...identity,kind:'loop-position',units:'px',observed:position,threshold:policy.distancePx,message:'Authored end differs from loop start'});
     if (velocity>threshold) c.add({...identity,kind:'loop-velocity',units:'px/s',observed:velocity,threshold,sampledPeakSpeed:peak,message:`Boundary velocity vector mismatch; sampled peak ${peak} px/s`});
   }
-  return success({...header(p),valid:true,policy,sampling:{animationId:animation.id,times,evaluationCount:poses.size+1,h,loopChecked:loop&&points.length>0},...c.finish()});
+  return success({...header(p),valid:true,policy,sampling:{...('target' in request ? {target:structuredClone(target),sampledTimes:times.map(t=>poses.get(t)!.sampledTime),boundaryPolicy:'Loop seam compares authored end before target wrap; source clocks unchanged'} : {animationId:animation.id}),times,evaluationCount:poses.size+1+(authoredEnd?1:0),h,loopChecked:loop&&points.length>0},...c.finish()});
 }

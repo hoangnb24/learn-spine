@@ -33,6 +33,7 @@ const collections = [
   "animations",
   "assets",
   "ikConstraints",
+  "compositions",
 ];
 const viewport = object({
   width: { type: "integer", minimum: 1, maximum: 4096 },
@@ -50,6 +51,7 @@ const operation = {
       putSlot: "slot",
       putRegion: "region",
       putAnimation: "animation",
+      putComposition: "composition",
       putMesh: "mesh",
       putIKConstraint: "twoBoneIK",
     }).map(([kind, name]) =>
@@ -112,9 +114,19 @@ const point = {
     object({ kind: { const: "ik" }, constraintId: id }),
   ],
 };
+const target = { oneOf: [
+  object({ kind: { const: "animation" }, animationId: { anyOf: [id, { type: "null" }] } }),
+  object({ kind: { const: "composition" }, compositionId: id }),
+] };
+/** Preserve legacy shape; canonical and legacy selectors are mutually exclusive. */
+const targeted = (properties: Record<string, unknown>, required = Object.keys(properties), setup = false) => ({
+  oneOf: [
+    object({ ...properties, animationId: setup ? { anyOf: [id, { type: "null" }] } : id }, [...required, "animationId"]),
+    object({ ...properties, target }, [...required, "target"]),
+  ],
+});
 const sequence = {
   ...scope,
-  animationId: id,
   times: array({ type: "number" }, 300),
   viewport,
 };
@@ -148,6 +160,18 @@ const definitions: Array<[string, string, boolean, object]> = [
       },
       [...Object.keys(scope), "animationId"],
     ),
+  ],
+  [
+    "inspect_composition", "Read a composition header and bounded authored track page in canonical stack order.", true,
+    object({ ...scope, compositionId: id, ...pagination }, [...Object.keys(scope), "compositionId"]),
+  ],
+  [
+    "put_composition", "Put a complete composition atomically through Session. Version 1 required; use apply_batch migrateProject first. Source edits update frozen entries at the new revision.", false,
+    object({ ...write, composition: ref("composition") }),
+  ],
+  [
+    "evaluate_pose", "Evaluate final FK, IK and geometry at absolute time. Canonical target identity and normalized sampledTime are returned; no event/audio dispatch.", true,
+    targeted({ ...scope, time: { type: "number" } }, undefined, true),
   ],
   [
     "list_assets",
@@ -200,10 +224,9 @@ const definitions: Array<[string, string, boolean, object]> = [
     "measure_motion",
     "Measure the active snapshot with fixed diagnostic policy. Anchors require explicit world targets; passed:false is not success of motion quality.",
     true,
-    object(
+    targeted(
       {
         ...scope,
-        animationId: id,
         anchors: {
           type: "array",
           maxItems: 256,
@@ -221,7 +244,7 @@ const definitions: Array<[string, string, boolean, object]> = [
         loopPoints: { type: "array", maxItems: 4096, items: point },
         ...pagination,
       },
-      [...Object.keys(scope), "animationId"],
+      Object.keys(scope),
     ),
   ],
   [
@@ -294,32 +317,26 @@ const definitions: Array<[string, string, boolean, object]> = [
     "render_pose",
     "Render a snapshot PNG, returned as image content with source revision. Inline maximum 8 MiB.",
     true,
-    object({
-      ...scope,
-      animationId: { anyOf: [id, { type: "null" }] },
-      time: { type: "number" },
-      viewport,
-    }),
+    targeted({ ...scope, time: { type: "number" }, viewport }, undefined, true),
   ],
   [
     "render_sequence",
     "Submit snapshot PNG sequence + ZIP job. Poll status and read artifacts. Jobs lost on reload; cancel by jobId.",
     true,
-    object(sequence),
+    targeted(sequence),
   ],
   [
     "export_frames",
     "Export snapshot PNG sequence and manifest in ZIP via observation job.",
     true,
-    object(sequence),
+    targeted(sequence),
   ],
   [
     "preview_animation",
     "Submit bounded snapshot playback job (PNG frames + ZIP).",
     true,
-    object({
+    targeted({
       ...scope,
-      animationId: id,
       fps: { type: "integer", minimum: 1, maximum: 60 },
       loops: { type: "integer", minimum: 1, maximum: 3 },
       viewport,

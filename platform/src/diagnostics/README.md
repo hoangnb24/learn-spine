@@ -85,3 +85,14 @@ Records disambiguate vertices/triangles by zero-based index. Weight diagnostics
 include a JSON pointer; for sum failures observed is `abs(sum-1)` and threshold
 is 1e-5. Reports contain no input geometry; sampling.times lists measured base
 times, while evaluationCount includes setup and finite-difference helper poses.
+
+## Composition targets (#74)
+
+`measure_motion` also accepts `{target:{kind:'composition',compositionId},...}`.
+Canonical reports carry `sampling.target` and normalized `sampledTimes`; findings
+include sampledTime alongside the requested diagnostic time. Composed poses pass
+through the same final geometry/IK residual checks. The fixed grid also includes
+composition fade/transition boundaries. This remains sampled evidence, not bounds.
+Loop seam comparison inspects authored end before target wrap and is explicitly
+labeled in `sampling.boundaryPolicy`; source clocks retain their own rules. Legacy
+animation requests and their authored-end diagnostics remain supported.

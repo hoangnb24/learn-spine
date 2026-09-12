@@ -1,10 +1,13 @@
+import { jsonCopy } from "../commands/validation";
 import type {
   Artifact,
   Job,
   JobRequest,
   Observation,
   ObservationRequest,
-  Pose,
+  RenderablePose,
+  EvaluationTarget,
+  FrameProvenance,
   Problem,
   ProjectBundle,
   Renderer,
@@ -12,11 +15,11 @@ import type {
   Viewport,
 } from "../model/types";
 import { validate } from "../model";
-import { evaluate } from "../engine";
+import { evaluate, evaluateTarget } from "../engine";
 import { PixiRenderer } from "../render";
 import { fitCamera, validateViewport, type Bounds } from "../render/geometry";
 import { zip } from "../storage/zip";
-import { animationBounds } from "./bounds";
+import { targetBounds } from "./bounds";
 export const observationLimits = Object.freeze({
   activeJobs: 2,
   terminalJobs: 20,
@@ -32,12 +35,21 @@ const fail = (
   message: string,
   path = "",
 ): Result<never> => ({ ok: false, error: { code, message, path } });
-/** #73 compatibility guard; #74 replaces this only when canonical targets are supported. */
-function unsupportedTarget(input: unknown): Result<never> | undefined {
-  if (input && typeof input === "object") {
-    for (const field of ["target", "compositionId"])
-      if (field in input) return fail("UNSUPPORTED_CAPABILITY", "Observation currently accepts legacy animation requests only", `/${field}`);
+/** Reject hybrid/unknown selectors before copying/evaluating; never ignore a target. */
+function requestCopy<T>(input: T, allowed: string[]): T {
+  const copy=take(jsonCopy(input));
+  if(!copy || typeof copy !== 'object' || Array.isArray(copy) || Object.keys(copy).some(k=>!allowed.includes(k)))
+    take(fail("INVALID_INPUT", "Unknown observation request fields"));
+  const r=copy as Record<string, unknown>;
+  if ('kind' in r) {
+    const fields=r.kind==='sequence' ? ['kind','target','animationId','times','viewport'] : ['kind','target','animationId','fps','loops','viewport'];
+    if(Object.keys(r).some(k=>!fields.includes(k))) take(fail('INVALID_INPUT','Fields do not match observation kind'));
   }
+  if (('target' in r) === ('animationId' in r)) take(fail("INVALID_INPUT", "Supply exactly one target or animationId", "/target"));
+  return copy as T;
+}
+function targetOf(r: ObservationRequest | JobRequest): EvaluationTarget {
+  return "target" in r ? r.target : {kind:"animation",animationId:r.animationId};
 }
 function take<T>(r: Result<T>): T {
   if (!r.ok) throw r.error;
@@ -61,14 +73,11 @@ const hash = async (b: Uint8Array) =>
     new Uint8Array(await crypto.subtle.digest("SHA-256", new Uint8Array(b))),
     (n) => n.toString(16).padStart(2, "0"),
   ).join("");
-export interface FrameMetadata {
-  projectId: string;
-  revision: number;
-  animationId: string | null;
-  time: number;
-  sampledTime: number;
+export interface FrameMetadata extends FrameProvenance {
+  animationId?: string | null;
   viewport: Viewport;
   bounds: Bounds | null;
+  boundsKind: "sampled-frame" | "continuous-target-envelope";
   scale: number;
   pixelWidth: number;
   pixelHeight: number;
@@ -80,7 +89,8 @@ export interface Manifest {
   kind: "sequence" | "preview";
   fps: number | null;
   frames: (FrameMetadata & { file: string; artifactId: string })[];
-  fit: "continuous-animation-envelope";
+  target: EvaluationTarget;
+  fit: "continuous-animation-envelope" | "continuous-composition-envelope";
 }
 export interface PoseOutput {
   revision: number;
@@ -147,19 +157,22 @@ export class ObservationService implements Observation {
       );
   }
   private metadata(
-    p: Pose,
+    p: RenderablePose,
     time: number,
     v: Viewport,
     bounds: Bounds | null,
+    boundsKind: FrameMetadata["boundsKind"] = "sampled-frame",
   ): FrameMetadata {
     return {
       projectId: p.projectId,
       revision: p.revision,
-      animationId: p.animationId,
+      target: "target" in p ? p.target : {kind:"animation",animationId:p.animationId},
+      ...("animationId" in p ? {animationId:p.animationId} : {}),
       time,
       sampledTime: p.sampledTime,
       viewport: { ...v },
       bounds,
+      boundsKind,
       scale: v.zoom,
       pixelWidth: Math.round(v.width * v.devicePixelRatio),
       pixelHeight: Math.round(v.height * v.devicePixelRatio),
@@ -176,18 +189,17 @@ export class ObservationService implements Observation {
     signal?.addEventListener("abort", abort, { once: true });
     if (signal?.aborted) abort();
     try {
-      const unsupported = unsupportedTarget(input);
-      if (unsupported) return unsupported;
+
       if (this.disposed) return fail("CANCELLED", "Observation disposed");
       if (this.active() >= 2)
         return fail("LIMIT_EXCEEDED", "At most two active observations");
       this.poses.add(c);
       check(c.signal);
       const b = this.snapshot(bundle),
-        r = structuredClone(input);
+        r = requestCopy(input, ["target","animationId","time","viewport"]);
       this.viewport(r.viewport, 1);
-      const pose = take(
-          evaluate(b.project, { animationId: r.animationId, time: r.time }),
+      const pose = take<RenderablePose>(
+          "target" in r ? evaluateTarget(b.project,{target:r.target,time:r.time}) : evaluate(b.project, { animationId: r.animationId, time: r.time }),
         ),
         fit = take(fitCamera(b.project, [pose], r.viewport, 0));
       renderer = take(await this.factory());
@@ -210,19 +222,20 @@ export class ObservationService implements Observation {
   }
   submit(bundle: ProjectBundle, input: JobRequest): Result<Job> {
     try {
-      const unsupported = unsupportedTarget(input);
-      if (unsupported) return unsupported;
+
       if (this.disposed) return fail("CANCELLED", "Observation disposed");
       if (this.active() >= 2)
         return fail("LIMIT_EXCEEDED", "At most two active observations");
-      const r = structuredClone(input),
-        b = this.snapshot(bundle),
-        a = b.project.animations.find((a) => a.id === r.animationId);
+      const r = requestCopy(input, ["kind","target","animationId","times","fps","loops","viewport"]),
+        b = this.snapshot(bundle), target=targetOf(r);
+      take(evaluateTarget(b.project,{target,time:0}));
+      const a = target.kind === "composition" ? b.project.compositions?.find(c=>c.id===target.compositionId)
+        : b.project.animations.find(a=>a.id===target.animationId);
       if (!a)
         return fail(
           "MISSING_REFERENCE",
-          "Animation does not exist",
-          "/animationId",
+          "Sequence/preview requires an animation or composition; setup is only supported by render_pose",
+          "/target",
         );
       let times: number[];
       if (r.kind === "sequence") {
@@ -246,7 +259,7 @@ export class ObservationService implements Observation {
         )
           return fail(
             "INVALID_INPUT",
-            "fps 1–60; loops 1–3; multiple loops require looping animation",
+            "fps 1–60; loops 1–3; multiple loops require looping target",
           );
         const n = Math.ceil(r.fps * r.loops * a.duration);
         if (n > 300)
@@ -258,6 +271,7 @@ export class ObservationService implements Observation {
         id: crypto.randomUUID(),
         projectId: b.project.projectId,
         revision: b.project.revision,
+        target: structuredClone(target),
         progress: 0,
         status: "queued",
       };
@@ -286,11 +300,11 @@ export class ObservationService implements Observation {
     try {
       check(signal);
       e.job = { ...e.job, status: "running" };
-      const poses: Pose[] = [];
+      const poses: RenderablePose[] = [];
       for (const time of times) {
         check(signal);
         poses.push(
-          take(evaluate(b.project, { animationId: r.animationId, time })),
+          take<RenderablePose>("target" in r ? evaluateTarget(b.project,{target:r.target,time}) : evaluate(b.project, { animationId: r.animationId, time })),
         );
         await pause();
       }
@@ -299,7 +313,7 @@ export class ObservationService implements Observation {
           Math.min(r.viewport.width, r.viewport.height) / 4,
         ),
         fit = take(fitCamera(b.project, poses, r.viewport, padding)),
-        bounds = animationBounds(b.project, r.animationId);
+        bounds = take(targetBounds(b.project, targetOf(r)));
       let viewport = fit.viewport;
       if (bounds) {
         if (!Object.values(bounds).every(Number.isFinite))
@@ -330,10 +344,11 @@ export class ObservationService implements Observation {
         revision: e.job.revision,
         kind: r.kind,
         fps: r.kind === "preview" ? r.fps : null,
-        fit: "continuous-animation-envelope",
+        target: targetOf(r),
+        fit: targetOf(r).kind === "composition" ? "continuous-composition-envelope" : "continuous-animation-envelope",
         frames: [],
       };
-      const add = async (bytes: Uint8Array, mimeType: Artifact["mimeType"]) => {
+      const add = async (bytes: Uint8Array, mimeType: Artifact["mimeType"], frame?: FrameProvenance) => {
         size += bytes.length;
         if (size > observationLimits.retainedBytes)
           take(fail("LIMIT_EXCEEDED", "Output exceeds 256 MiB"));
@@ -342,6 +357,7 @@ export class ObservationService implements Observation {
           mimeType,
           byteLength: bytes.length,
           sha256: await hash(bytes),
+          ...(frame ? {frame:structuredClone(frame)} : {}),
         };
         check(signal);
         pending.set(a.id, new Uint8Array(bytes));
@@ -352,11 +368,12 @@ export class ObservationService implements Observation {
         check(signal);
         const png = take(await renderer.capture(poses[i], viewport, signal));
         check(signal);
-        const artifactId = await add(png, "image/png"),
+        const metadata=this.metadata(poses[i], times[i], viewport, bounds, "continuous-target-envelope");
+        const artifactId = await add(png, "image/png", {projectId:metadata.projectId,revision:metadata.revision,target:metadata.target,time:metadata.time,sampledTime:metadata.sampledTime}),
           file = `frame-${String(i).padStart(4, "0")}.png`;
         files.set(file, png);
         manifest.frames.push({
-          ...this.metadata(poses[i], times[i], viewport, bounds),
+          ...metadata,
           file,
           artifactId,
         });

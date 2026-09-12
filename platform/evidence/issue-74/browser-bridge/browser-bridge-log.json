@@ -1,0 +1,6279 @@
+{
+  "classification": "browser-bridge-not-native",
+  "log": [
+    {
+      "name": "get_capabilities",
+      "input": {},
+      "result": {
+        "ok": true,
+        "value": {
+          "formatVersions": [
+            0,
+            1
+          ],
+          "features": [
+            "region-v0",
+            "mesh-v1",
+            "ik-v1",
+            "composition-v1",
+            "explicit-migration-v1",
+            "atomic-batch",
+            "undo-redo",
+            "checkpoints",
+            "session-dedup",
+            "session-events",
+            "snapshot-observation",
+            "png-image-content",
+            "project-zip",
+            "app-owned-job-cancel",
+            "diagnostics-v1"
+          ],
+          "transport": "bridge",
+          "limits": {
+            "dedupRequests": 1000,
+            "undoBatches": 100,
+            "checkpoints": 20,
+            "jobs": 2,
+            "packageBytes": 209715200,
+            "assetBytes": 20971520,
+            "maxImageDimension": 16384,
+            "inspectPage": 50,
+            "jsonResponseBytes": 262144,
+            "inlineImageBytes": 8388608,
+            "inputJsonBytes": 1048576,
+            "downloadBytes": 268435456,
+            "downloadFiles": 20
+          },
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 0,
+          "tools": [
+            "get_capabilities",
+            "inspect_project",
+            "inspect_animation",
+            "inspect_composition",
+            "put_composition",
+            "evaluate_pose",
+            "list_assets",
+            "apply_batch",
+            "inspect_mesh",
+            "inspect_deforms",
+            "validate_project",
+            "measure_motion",
+            "create_bones",
+            "attach_images",
+            "create_animation",
+            "set_keyframes",
+            "set_curves",
+            "undo",
+            "redo",
+            "create_checkpoint",
+            "restore_checkpoint",
+            "inspect_history",
+            "render_pose",
+            "render_sequence",
+            "export_frames",
+            "preview_animation",
+            "get_job_status",
+            "cancel_job",
+            "release_job",
+            "read_artifact",
+            "save_project"
+          ],
+          "lifetime": "Session changes/reload invalidate jobs, URLs and retry identity. Sync commit retries are retained for 1000 requests by Session; observation submissions and save are not deduplicated.",
+          "cancellation": "cancel_job for observation jobs; native AbortSignal unavailable in tested host; completed synchronous edits require undo."
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "inspect_project",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "collection": "bones",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 0,
+          "collection": "bones",
+          "items": [
+            {
+              "id": "root",
+              "name": "root",
+              "parentId": null,
+              "setup": {
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "body",
+              "name": "body",
+              "parentId": "root",
+              "setup": {
+                "x": 0,
+                "y": 310,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "pelvis",
+              "name": "pelvis",
+              "parentId": "body",
+              "setup": {
+                "x": 0,
+                "y": -10,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "head",
+              "name": "head",
+              "parentId": "body",
+              "setup": {
+                "x": 0,
+                "y": 170,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "upper-arm-left",
+              "name": "upper-arm-left",
+              "parentId": "body",
+              "setup": {
+                "x": -98,
+                "y": 130,
+                "rotation": -0.17453292519943295,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "forearm-left",
+              "name": "forearm-left",
+              "parentId": "upper-arm-left",
+              "setup": {
+                "x": 0,
+                "y": -67,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "hand-left",
+              "name": "hand-left",
+              "parentId": "forearm-left",
+              "setup": {
+                "x": 0,
+                "y": -96,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "thigh-left",
+              "name": "thigh-left",
+              "parentId": "pelvis",
+              "setup": {
+                "x": -43,
+                "y": -20,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "shin-left",
+              "name": "shin-left",
+              "parentId": "thigh-left",
+              "setup": {
+                "x": 0,
+                "y": -100,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "foot-left",
+              "name": "foot-left",
+              "parentId": "shin-left",
+              "setup": {
+                "x": 0,
+                "y": -107,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "upper-arm-right",
+              "name": "upper-arm-right",
+              "parentId": "body",
+              "setup": {
+                "x": 98,
+                "y": 130,
+                "rotation": 0.17453292519943295,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "forearm-right",
+              "name": "forearm-right",
+              "parentId": "upper-arm-right",
+              "setup": {
+                "x": 0,
+                "y": -67,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "hand-right",
+              "name": "hand-right",
+              "parentId": "forearm-right",
+              "setup": {
+                "x": 0,
+                "y": -96,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "thigh-right",
+              "name": "thigh-right",
+              "parentId": "pelvis",
+              "setup": {
+                "x": 43,
+                "y": -20,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "shin-right",
+              "name": "shin-right",
+              "parentId": "thigh-right",
+              "setup": {
+                "x": 0,
+                "y": -100,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            },
+            {
+              "id": "foot-right",
+              "name": "foot-right",
+              "parentId": "shin-right",
+              "setup": {
+                "x": 0,
+                "y": -107,
+                "rotation": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              }
+            }
+          ],
+          "total": 16,
+          "nextOffset": null
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 0,
+        "requestId": "native-author",
+        "operations": [
+          {
+            "kind": "migrateProject",
+            "targetVersion": 1
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "walk",
+              "name": "Walk base",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 290,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "wave",
+              "name": "Wave layer",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "upper-arm-right",
+                  "property": "rotation",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 1.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "stop",
+              "name": "Stop source",
+              "duration": 1,
+              "loop": false,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "motion",
+              "name": "Walk + wave + additive travel",
+              "duration": 2,
+              "loop": true,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "wave",
+                  "order": 3,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "wave",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "upper-arm-right",
+                      "property": "rotation"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "base",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-a",
+                  "order": 1,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-b",
+                  "order": 2,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "stop-motion",
+              "name": "Complete coverage frozen transition",
+              "duration": 2,
+              "loop": false,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "prior",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    },
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0,
+                  "end": 1
+                },
+                {
+                  "kind": "crossfade",
+                  "id": "entry",
+                  "order": 1,
+                  "start": 1,
+                  "duration": 0.4,
+                  "outgoing": {
+                    "animationId": "walk",
+                    "entryTime": 0.5,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  },
+                  "incoming": {
+                    "animationId": "stop",
+                    "offset": 0,
+                    "speed": 1,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "changedIds": [
+            "walk",
+            "wave",
+            "stop",
+            "motion",
+            "stop-motion"
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "inspect_composition",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "compositionId": "motion",
+        "limit": 2
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "composition": {
+            "id": "motion",
+            "name": "Walk + wave + additive travel",
+            "duration": 2,
+            "loop": true
+          },
+          "items": [
+            {
+              "kind": "track",
+              "id": "base",
+              "order": 0,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "body",
+                  "property": "y"
+                }
+              ],
+              "mode": "overwrite",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            },
+            {
+              "kind": "track",
+              "id": "travel-a",
+              "order": 1,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "root",
+                  "property": "x"
+                }
+              ],
+              "mode": "additive",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            }
+          ],
+          "total": 4,
+          "nextOffset": 2
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "time": 2.5
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "sampledTime": 0.5,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              290
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              280
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              460
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              102,
+              420
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              90.36557209631567,
+              354.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              73.69534704029036,
+              259.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              260
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              160
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              53
+            ],
+            "upper-arm-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              298,
+              420
+            ],
+            "forearm-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              360.44661875980415,
+              395.72203045006285
+            ],
+            "hand-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              449.9223710126579,
+              360.93568602030217
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              260
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              160
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              53
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                53
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                53
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                280
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                102,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                90.36557209631567,
+                354.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                73.69534704029036,
+                259.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                290
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                298,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                360.44661875980415,
+                395.72203045006285
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                449.9223710126579,
+                360.93568602030217
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                460
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "render_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "time": 2.5,
+        "viewport": {
+          "width": 640,
+          "height": 640,
+          "centerX": 200,
+          "centerY": 330,
+          "zoom": 0.7,
+          "devicePixelRatio": 1,
+          "background": "#233243"
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "time": 2.5,
+          "sampledTime": 0.5,
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "centerX": 200,
+            "centerY": 330,
+            "zoom": 0.7,
+            "devicePixelRatio": 1,
+            "background": "#233243"
+          },
+          "bounds": {
+            "minX": 42.908505458100066,
+            "minY": -19,
+            "maxX": 521.8965582792779,
+            "maxY": 655.2
+          },
+          "boundsKind": "sampled-frame",
+          "scale": 0.7,
+          "pixelWidth": 640,
+          "pixelHeight": 640,
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 151885
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "render_sequence",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "times": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.5,
+          2,
+          2.5
+        ],
+        "viewport": {
+          "width": 640,
+          "height": 640,
+          "centerX": 200,
+          "centerY": 330,
+          "zoom": 0.7,
+          "devicePixelRatio": 1,
+          "background": "#233243"
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0,
+          "status": "queued"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "set_keyframes",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 1,
+        "requestId": "native-edit-source",
+        "animation": {
+          "id": "wave",
+          "name": "Wave layer",
+          "duration": 1,
+          "loop": true,
+          "channels": [
+            {
+              "boneId": "upper-arm-right",
+              "property": "rotation",
+              "keys": [
+                {
+                  "time": 0,
+                  "value": 0.2,
+                  "curve": {
+                    "type": "linear"
+                  }
+                },
+                {
+                  "time": 0.5,
+                  "value": 1.6,
+                  "curve": {
+                    "type": "linear"
+                  }
+                },
+                {
+                  "time": 1,
+                  "value": 0.2,
+                  "curve": {
+                    "type": "linear"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "projectId": "renderer-robot",
+          "revision": 2,
+          "changedIds": [
+            "wave"
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 0,
+        "requestId": "native-author",
+        "operations": [
+          {
+            "kind": "migrateProject",
+            "targetVersion": 1
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "walk",
+              "name": "Walk base",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 290,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "wave",
+              "name": "Wave layer",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "upper-arm-right",
+                  "property": "rotation",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 1.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "stop",
+              "name": "Stop source",
+              "duration": 1,
+              "loop": false,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "motion",
+              "name": "Walk + wave + additive travel",
+              "duration": 2,
+              "loop": true,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "wave",
+                  "order": 3,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "wave",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "upper-arm-right",
+                      "property": "rotation"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "base",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-a",
+                  "order": 1,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-b",
+                  "order": 2,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "stop-motion",
+              "name": "Complete coverage frozen transition",
+              "duration": 2,
+              "loop": false,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "prior",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    },
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0,
+                  "end": 1
+                },
+                {
+                  "kind": "crossfade",
+                  "id": "entry",
+                  "order": 1,
+                  "start": 1,
+                  "duration": 0.4,
+                  "outgoing": {
+                    "animationId": "walk",
+                    "entryTime": 0.5,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  },
+                  "incoming": {
+                    "animationId": "stop",
+                    "offset": 0,
+                    "speed": 1,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "changedIds": [
+            "walk",
+            "wave",
+            "stop",
+            "motion",
+            "stop-motion"
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "time": 0.5
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 2,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "sampledTime": 0.5,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              290
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              280
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              460
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              102,
+              420
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              90.36557209631567,
+              354.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              73.69534704029036,
+              259.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              260
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              160
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              53
+            ],
+            "upper-arm-right": [
+              -0.029199522301288815,
+              0.9995736030415051,
+              -0.9995736030415051,
+              -0.029199522301288815,
+              298,
+              420
+            ],
+            "forearm-right": [
+              -0.029199522301288815,
+              0.9995736030415051,
+              -0.9995736030415051,
+              -0.029199522301288815,
+              364.97143140378085,
+              421.95636799418634
+            ],
+            "hand-right": [
+              -0.029199522301288815,
+              0.9995736030415051,
+              -0.9995736030415051,
+              -0.029199522301288815,
+              460.93049729576535,
+              424.75952213511005
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              260
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              160
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              53
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                53
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                53
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                280
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                102,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                90.36557209631567,
+                354.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                73.69534704029036,
+                259.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                290
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                -0.029199522301288815,
+                0.9995736030415051,
+                -0.9995736030415051,
+                -0.029199522301288815,
+                298,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                -0.029199522301288815,
+                0.9995736030415051,
+                -0.9995736030415051,
+                -0.029199522301288815,
+                364.97143140378085,
+                421.95636799418634
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                -0.029199522301288815,
+                0.9995736030415051,
+                -0.9995736030415051,
+                -0.029199522301288815,
+                460.93049729576535,
+                424.75952213511005
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                460
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "put_composition",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 1,
+        "requestId": "native-stale",
+        "composition": {
+          "id": "motion",
+          "name": "Walk + wave + additive travel",
+          "duration": 2,
+          "loop": true,
+          "tracks": [
+            {
+              "kind": "track",
+              "id": "wave",
+              "order": 3,
+              "source": {
+                "kind": "live",
+                "animationId": "wave",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "upper-arm-right",
+                  "property": "rotation"
+                }
+              ],
+              "mode": "overwrite",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            },
+            {
+              "kind": "track",
+              "id": "base",
+              "order": 0,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "body",
+                  "property": "y"
+                }
+              ],
+              "mode": "overwrite",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            },
+            {
+              "kind": "track",
+              "id": "travel-a",
+              "order": 1,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "root",
+                  "property": "x"
+                }
+              ],
+              "mode": "additive",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            },
+            {
+              "kind": "track",
+              "id": "travel-b",
+              "order": 2,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "root",
+                  "property": "x"
+                }
+              ],
+              "mode": "additive",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0
+            }
+          ]
+        }
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "REVISION_CONFLICT",
+          "path": "/expectedRevision",
+          "message": "Read the current project before retrying this edit"
+        },
+        "revision": 2
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "animationId": "walk",
+        "time": 0
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_INPUT",
+          "path": "",
+          "message": "must NOT have additional properties"
+        }
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "missing"
+        },
+        "time": 0
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "MISSING_REFERENCE",
+          "path": "/target/compositionId",
+          "message": "Composition does not exist",
+          "ids": [
+            "missing"
+          ]
+        }
+      }
+    },
+    {
+      "name": "put_composition",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 2,
+        "requestId": "native-coverage",
+        "composition": {
+          "id": "stop-motion",
+          "name": "Complete coverage frozen transition",
+          "duration": 2,
+          "loop": false,
+          "tracks": [
+            {
+              "kind": "track",
+              "id": "prior",
+              "order": 0,
+              "source": {
+                "kind": "live",
+                "animationId": "walk",
+                "offset": 0,
+                "speed": 1
+              },
+              "mask": [
+                {
+                  "boneId": "body",
+                  "property": "y"
+                },
+                {
+                  "boneId": "root",
+                  "property": "x"
+                }
+              ],
+              "mode": "overwrite",
+              "alpha": 1,
+              "start": 0,
+              "fadeIn": 0,
+              "fadeOut": 0,
+              "end": 1
+            },
+            {
+              "kind": "crossfade",
+              "id": "entry",
+              "order": 1,
+              "start": 1,
+              "duration": 0.4,
+              "outgoing": {
+                "animationId": "walk",
+                "entryTime": 0.5,
+                "mask": [
+                  {
+                    "boneId": "body",
+                    "property": "y"
+                  },
+                  {
+                    "boneId": "root",
+                    "property": "x"
+                  }
+                ]
+              },
+              "incoming": {
+                "animationId": "stop",
+                "offset": 0,
+                "speed": 1,
+                "mask": []
+              }
+            }
+          ]
+        }
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_INPUT",
+          "path": "/compositions/1/tracks/1/incoming/mask",
+          "message": "Crossfade incoming requires keyed and masked coverage: body/y, root/x"
+        },
+        "revision": 2
+      }
+    },
+    {
+      "name": "undo",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 2,
+        "requestId": "native-undo"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "changedIds": [
+            "wave"
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "time": 0.5
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "sampledTime": 0.5,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              290
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              280
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              200,
+              460
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              102,
+              420
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              90.36557209631567,
+              354.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              73.69534704029036,
+              259.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              260
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              160
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              157,
+              53
+            ],
+            "upper-arm-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              298,
+              420
+            ],
+            "forearm-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              360.44661875980415,
+              395.72203045006285
+            ],
+            "hand-right": [
+              0.3623577544766736,
+              0.9320390859672263,
+              -0.9320390859672263,
+              0.3623577544766736,
+              449.9223710126579,
+              360.93568602030217
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              260
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              160
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              243,
+              53
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                157,
+                53
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                243,
+                53
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                280
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                102,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                90.36557209631567,
+                354.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                73.69534704029036,
+                259.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                290
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                298,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                360.44661875980415,
+                395.72203045006285
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.3623577544766736,
+                0.9320390859672263,
+                -0.9320390859672263,
+                0.3623577544766736,
+                449.9223710126579,
+                360.93568602030217
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                200,
+                460
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "measure_motion",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "loopPoints": [],
+        "limit": 20
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "valid": true,
+          "policy": {
+            "version": 1,
+            "intervals": 60,
+            "distancePx": 0.5,
+            "weightSumTolerance": 0.00001,
+            "velocityFraction": 0.05,
+            "velocityFloorPxPerSecond": 0.5,
+            "areaEpsilonPxSquared": 1e-8,
+            "maxSamples": 512,
+            "maxAnchors": 256,
+            "maxLoopPoints": 4096,
+            "maxElements": 20000,
+            "maxElementSamples": 2000000,
+            "maxPageSize": 500
+          },
+          "sampling": {
+            "target": {
+              "kind": "composition",
+              "compositionId": "motion"
+            },
+            "sampledTimes": [
+              0,
+              0.03333333333333333,
+              0.06666666666666667,
+              0.1,
+              0.13333333333333333,
+              0.16666666666666666,
+              0.2,
+              0.23333333333333334,
+              0.26666666666666666,
+              0.3,
+              0.3333333333333333,
+              0.36666666666666664,
+              0.4,
+              0.43333333333333335,
+              0.4666666666666667,
+              0.5,
+              0.5333333333333333,
+              0.5666666666666667,
+              0.6,
+              0.6333333333333333,
+              0.6666666666666666,
+              0.7,
+              0.7333333333333333,
+              0.7666666666666667,
+              0.8,
+              0.8333333333333334,
+              0.8666666666666667,
+              0.9,
+              0.9333333333333333,
+              0.9666666666666667,
+              1,
+              1.0333333333333334,
+              1.0666666666666667,
+              1.1,
+              1.1333333333333333,
+              1.1666666666666667,
+              1.2,
+              1.2333333333333334,
+              1.2666666666666666,
+              1.3,
+              1.3333333333333333,
+              1.3666666666666667,
+              1.4,
+              1.4333333333333333,
+              1.4666666666666666,
+              1.5,
+              1.5333333333333334,
+              1.5666666666666667,
+              1.6,
+              1.6333333333333333,
+              1.6666666666666667,
+              1.7,
+              1.7333333333333334,
+              1.7666666666666666,
+              1.8,
+              1.8333333333333333,
+              1.8666666666666667,
+              1.9,
+              1.9333333333333333,
+              1.9666666666666666,
+              0
+            ],
+            "boundaryPolicy": "Loop seam compares authored end before target wrap; source clocks unchanged",
+            "times": [
+              0,
+              0.03333333333333333,
+              0.06666666666666667,
+              0.1,
+              0.13333333333333333,
+              0.16666666666666666,
+              0.2,
+              0.23333333333333334,
+              0.26666666666666666,
+              0.3,
+              0.3333333333333333,
+              0.36666666666666664,
+              0.4,
+              0.43333333333333335,
+              0.4666666666666667,
+              0.5,
+              0.5333333333333333,
+              0.5666666666666667,
+              0.6,
+              0.6333333333333333,
+              0.6666666666666666,
+              0.7,
+              0.7333333333333333,
+              0.7666666666666667,
+              0.8,
+              0.8333333333333334,
+              0.8666666666666667,
+              0.9,
+              0.9333333333333333,
+              0.9666666666666667,
+              1,
+              1.0333333333333334,
+              1.0666666666666667,
+              1.1,
+              1.1333333333333333,
+              1.1666666666666667,
+              1.2,
+              1.2333333333333334,
+              1.2666666666666666,
+              1.3,
+              1.3333333333333333,
+              1.3666666666666667,
+              1.4,
+              1.4333333333333333,
+              1.4666666666666666,
+              1.5,
+              1.5333333333333334,
+              1.5666666666666667,
+              1.6,
+              1.6333333333333333,
+              1.6666666666666667,
+              1.7,
+              1.7333333333333334,
+              1.7666666666666666,
+              1.8,
+              1.8333333333333333,
+              1.8666666666666667,
+              1.9,
+              1.9333333333333333,
+              1.9666666666666666,
+              2
+            ],
+            "evaluationCount": 63,
+            "h": 0.0016666666666666668,
+            "loopChecked": false
+          },
+          "items": [],
+          "total": 0,
+          "passed": true,
+          "nextOffset": null
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "sampledTime": 1,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              100,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              100,
+              290
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              100,
+              280
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              100,
+              460
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              2,
+              420
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -9.634427903684331,
+              354.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -26.304652959709642,
+              259.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              57,
+              260
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              57,
+              160
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              57,
+              53
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              198,
+              420
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              209.63442790368433,
+              354.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              226.30465295970964,
+              259.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              143,
+              260
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              143,
+              160
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              143,
+              53
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                57,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                57,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                57,
+                53
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                143,
+                260
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                143,
+                160
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                143,
+                53
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                100,
+                280
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                2,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -9.634427903684331,
+                354.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -26.304652959709642,
+                259.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                100,
+                290
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                198,
+                420
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                209.63442790368433,
+                354.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                226.30465295970964,
+                259.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                100,
+                460
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1.2
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "sampledTime": 1.2,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              50.000000000000014,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              50.000000000000014,
+              300
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              50.000000000000014,
+              290
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              50.000000000000014,
+              470
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -47.999999999999986,
+              430
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -59.63442790368432,
+              364.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -76.30465295970963,
+              269.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              7.000000000000014,
+              270
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              7.000000000000014,
+              170
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              7.000000000000014,
+              63
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              148,
+              430
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              159.63442790368433,
+              364.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              176.30465295970964,
+              269.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              93.00000000000001,
+              270
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              93.00000000000001,
+              170
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              93.00000000000001,
+              63
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                7.000000000000014,
+                270
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                7.000000000000014,
+                170
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                7.000000000000014,
+                63
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                93.00000000000001,
+                270
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                93.00000000000001,
+                170
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                93.00000000000001,
+                63
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                50.000000000000014,
+                290
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -47.999999999999986,
+                430
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -59.63442790368432,
+                364.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -76.30465295970963,
+                269.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                50.000000000000014,
+                300
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                148,
+                430
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                159.63442790368433,
+                364.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                176.30465295970964,
+                269.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                50.000000000000014,
+                470
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1.4
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "sampledTime": 1.4,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              310
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              300
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              480
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -98,
+              440
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              280
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              180
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              73
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              98,
+              440
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              280
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              180
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              73
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                73
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                73
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                300
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                310
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                480
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 2
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "sampledTime": 2,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              310
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              300
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              480
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -98,
+              440
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              280
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              180
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              73
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              98,
+              440
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              280
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              180
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              73
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                73
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                73
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                300
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                310
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                480
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 20
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "sampledTime": 2,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              310
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              300
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              480
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -98,
+              440
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              280
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              180
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              73
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              98,
+              440
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              280
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              180
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              73
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                73
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                73
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                300
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                310
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                480
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "render_sequence",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "times": [
+          0.5,
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.7,
+          2
+        ],
+        "viewport": {
+          "width": 640,
+          "height": 640,
+          "centerX": 200,
+          "centerY": 330,
+          "zoom": 0.7,
+          "devicePixelRatio": 1,
+          "background": "#233243"
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "progress": 0,
+          "status": "queued"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0,
+          "status": "queued"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0,
+          "status": "running"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0.6666666666666666,
+          "status": "running"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 1,
+          "status": "succeeded",
+          "items": [
+            {
+              "id": "f4680383-b729-49f9-bf33-8e8e175ed387",
+              "mimeType": "image/png",
+              "byteLength": 215611,
+              "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 0,
+                "sampledTime": 0
+              }
+            },
+            {
+              "id": "a97f535d-a77d-4ebf-83d7-c0bef6b1d78a",
+              "mimeType": "image/png",
+              "byteLength": 217116,
+              "sha256": "a5de7b0c6d28a05cf8600225b04bce26cec49d2598257fcfb3ee918314b87009",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 0.25,
+                "sampledTime": 0.25
+              }
+            },
+            {
+              "id": "455ebf24-3497-4c82-8092-451499376108",
+              "mimeType": "image/png",
+              "byteLength": 217378,
+              "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 0.5,
+                "sampledTime": 0.5
+              }
+            },
+            {
+              "id": "044568b1-354e-4227-9e85-f72afb8c6504",
+              "mimeType": "image/png",
+              "byteLength": 217116,
+              "sha256": "a5de7b0c6d28a05cf8600225b04bce26cec49d2598257fcfb3ee918314b87009",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 0.75,
+                "sampledTime": 0.75
+              }
+            },
+            {
+              "id": "f8aaf335-ee20-4e9a-9b0c-69dd181ebb95",
+              "mimeType": "image/png",
+              "byteLength": 215611,
+              "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 1,
+                "sampledTime": 1
+              }
+            },
+            {
+              "id": "75e56574-0d6d-4a65-8778-1a5f1b28e430",
+              "mimeType": "image/png",
+              "byteLength": 217378,
+              "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 1.5,
+                "sampledTime": 1.5
+              }
+            },
+            {
+              "id": "8675e1f9-f086-499f-a3bd-24480f4d0f38",
+              "mimeType": "image/png",
+              "byteLength": 215611,
+              "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 2,
+                "sampledTime": 0
+              }
+            },
+            {
+              "id": "3d0906e8-4824-4177-b43d-f7347b0382be",
+              "mimeType": "image/png",
+              "byteLength": 217378,
+              "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 1,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "motion"
+                },
+                "time": 2.5,
+                "sampledTime": 0.5
+              }
+            },
+            {
+              "id": "65761868-4eed-42d1-ac2b-cab887e9d183",
+              "mimeType": "application/zip",
+              "byteLength": 1741230,
+              "sha256": "f6ea5c45d719166548c21fedd51ac60e95ba173c91f6ca45aa8485c82a03de3c"
+            }
+          ],
+          "total": 9,
+          "nextOffset": null
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "f4680383-b729-49f9-bf33-8e8e175ed387"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "f4680383-b729-49f9-bf33-8e8e175ed387",
+            "mimeType": "image/png",
+            "byteLength": 215611,
+            "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 0,
+              "sampledTime": 0
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/8f2fd1d8-a073-462f-a4a9-6f721f0664e3",
+          "filename": "f4680383-b729-49f9-bf33-8e8e175ed387.png",
+          "mimeType": "image/png",
+          "byteLength": 215611,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215611
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "a97f535d-a77d-4ebf-83d7-c0bef6b1d78a"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "a97f535d-a77d-4ebf-83d7-c0bef6b1d78a",
+            "mimeType": "image/png",
+            "byteLength": 217116,
+            "sha256": "a5de7b0c6d28a05cf8600225b04bce26cec49d2598257fcfb3ee918314b87009",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 0.25,
+              "sampledTime": 0.25
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/69420486-023c-49a9-893e-17d5088fafdd",
+          "filename": "a97f535d-a77d-4ebf-83d7-c0bef6b1d78a.png",
+          "mimeType": "image/png",
+          "byteLength": 217116,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 217116
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "455ebf24-3497-4c82-8092-451499376108"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "455ebf24-3497-4c82-8092-451499376108",
+            "mimeType": "image/png",
+            "byteLength": 217378,
+            "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 0.5,
+              "sampledTime": 0.5
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/66b65ff6-b8f4-4097-81e2-55d4b52f6a35",
+          "filename": "455ebf24-3497-4c82-8092-451499376108.png",
+          "mimeType": "image/png",
+          "byteLength": 217378,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 217378
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "044568b1-354e-4227-9e85-f72afb8c6504"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "044568b1-354e-4227-9e85-f72afb8c6504",
+            "mimeType": "image/png",
+            "byteLength": 217116,
+            "sha256": "a5de7b0c6d28a05cf8600225b04bce26cec49d2598257fcfb3ee918314b87009",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 0.75,
+              "sampledTime": 0.75
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/aab70cfd-0c05-4a4d-b00a-46d2998e0505",
+          "filename": "044568b1-354e-4227-9e85-f72afb8c6504.png",
+          "mimeType": "image/png",
+          "byteLength": 217116,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 217116
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "f8aaf335-ee20-4e9a-9b0c-69dd181ebb95"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "f8aaf335-ee20-4e9a-9b0c-69dd181ebb95",
+            "mimeType": "image/png",
+            "byteLength": 215611,
+            "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 1,
+              "sampledTime": 1
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/0a09173f-62e5-41bb-a235-228fb9fbc8ec",
+          "filename": "f8aaf335-ee20-4e9a-9b0c-69dd181ebb95.png",
+          "mimeType": "image/png",
+          "byteLength": 215611,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215611
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "75e56574-0d6d-4a65-8778-1a5f1b28e430"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "75e56574-0d6d-4a65-8778-1a5f1b28e430",
+            "mimeType": "image/png",
+            "byteLength": 217378,
+            "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 1.5,
+              "sampledTime": 1.5
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/352372de-9142-4cc6-8934-2610767f1ffc",
+          "filename": "75e56574-0d6d-4a65-8778-1a5f1b28e430.png",
+          "mimeType": "image/png",
+          "byteLength": 217378,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 217378
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "8675e1f9-f086-499f-a3bd-24480f4d0f38"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "8675e1f9-f086-499f-a3bd-24480f4d0f38",
+            "mimeType": "image/png",
+            "byteLength": 215611,
+            "sha256": "01e94096ffdac7ceb6dd4dbccbd02be8a364dd3b215d7d73222c40debe2bab35",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 2,
+              "sampledTime": 0
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/3218e877-f4c2-4e41-9df5-2c65d1f5961d",
+          "filename": "8675e1f9-f086-499f-a3bd-24480f4d0f38.png",
+          "mimeType": "image/png",
+          "byteLength": 215611,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215611
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "3d0906e8-4824-4177-b43d-f7347b0382be"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "3d0906e8-4824-4177-b43d-f7347b0382be",
+            "mimeType": "image/png",
+            "byteLength": 217378,
+            "sha256": "4e772350e0e067c3c85fa9f317065b6d99560917208438139cdb0e1757d3d2a6",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 1,
+              "target": {
+                "kind": "composition",
+                "compositionId": "motion"
+              },
+              "time": 2.5,
+              "sampledTime": 0.5
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/e441e1a2-ead3-48a6-b3ba-581bb202dde2",
+          "filename": "3d0906e8-4824-4177-b43d-f7347b0382be.png",
+          "mimeType": "image/png",
+          "byteLength": 217378,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 217378
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+        "artifactId": "65761868-4eed-42d1-ac2b-cab887e9d183"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 1,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "jobId": "a08fd66f-e5f1-49ca-84be-10207374f468",
+          "artifact": {
+            "id": "65761868-4eed-42d1-ac2b-cab887e9d183",
+            "mimeType": "application/zip",
+            "byteLength": 1741230,
+            "sha256": "f6ea5c45d719166548c21fedd51ac60e95ba173c91f6ca45aa8485c82a03de3c"
+          },
+          "url": "blob:http://127.0.0.1:4198/1f8198da-975c-4a36-8675-84373e2b01a0",
+          "filename": "65761868-4eed-42d1-ac2b-cab887e9d183.zip",
+          "mimeType": "application/zip",
+          "byteLength": 1741230,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "get_job_status",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "limit": 50
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "progress": 1,
+          "status": "succeeded",
+          "items": [
+            {
+              "id": "675f6c39-f4de-487c-b83f-2c82c262c592",
+              "mimeType": "image/png",
+              "byteLength": 215790,
+              "sha256": "934bad357b6667d0e068a17dc26f5c894fca3b3fa68ec9c2bef0b29c0d2f36f6",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 0.5,
+                "sampledTime": 0.5
+              }
+            },
+            {
+              "id": "f433b78d-ab06-4bb5-a008-ffde81dadb94",
+              "mimeType": "image/png",
+              "byteLength": 215790,
+              "sha256": "934bad357b6667d0e068a17dc26f5c894fca3b3fa68ec9c2bef0b29c0d2f36f6",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1,
+                "sampledTime": 1
+              }
+            },
+            {
+              "id": "6eddf9a3-4bb1-409a-89f3-7aae98bec4c1",
+              "mimeType": "image/png",
+              "byteLength": 207890,
+              "sha256": "93409dcf98b40242b25b60c3ecf61ffcef20c1cb2ba2515f40e2ae7f8fb6fcee",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1.1,
+                "sampledTime": 1.1
+              }
+            },
+            {
+              "id": "cc334c67-d4be-457d-9c77-cfd8e8718236",
+              "mimeType": "image/png",
+              "byteLength": 215265,
+              "sha256": "d0dabea1fb72f11fef2e3747a4ff9f41946060ad2613b1f0a3b8d84dfcca419d",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1.2,
+                "sampledTime": 1.2
+              }
+            },
+            {
+              "id": "4aae8e66-ddce-4bc7-88cf-be185bbb33cc",
+              "mimeType": "image/png",
+              "byteLength": 215270,
+              "sha256": "dc73555369f5d54f4e020bbc58c2c9fd424245803494bdaea71d835e2a8e1f2f",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1.3,
+                "sampledTime": 1.3
+              }
+            },
+            {
+              "id": "b38b3282-9da6-48f3-8765-12807ba40b39",
+              "mimeType": "image/png",
+              "byteLength": 215206,
+              "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1.4,
+                "sampledTime": 1.4
+              }
+            },
+            {
+              "id": "02508709-347c-4f92-bb5f-17b4b6dd27ad",
+              "mimeType": "image/png",
+              "byteLength": 215206,
+              "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 1.7,
+                "sampledTime": 1.7
+              }
+            },
+            {
+              "id": "fb4bf362-b748-4fde-b714-26ba80770027",
+              "mimeType": "image/png",
+              "byteLength": 215206,
+              "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+              "frame": {
+                "projectId": "renderer-robot",
+                "revision": 3,
+                "target": {
+                  "kind": "composition",
+                  "compositionId": "stop-motion"
+                },
+                "time": 2,
+                "sampledTime": 2
+              }
+            },
+            {
+              "id": "e22b70ab-6596-4841-8518-b64d43634b13",
+              "mimeType": "application/zip",
+              "byteLength": 1723691,
+              "sha256": "60a21ca70216f6d4aed4391e903a9ff9180086bc4e8e008608e1bda67c66d2be"
+            }
+          ],
+          "total": 9,
+          "nextOffset": null
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "675f6c39-f4de-487c-b83f-2c82c262c592"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "675f6c39-f4de-487c-b83f-2c82c262c592",
+            "mimeType": "image/png",
+            "byteLength": 215790,
+            "sha256": "934bad357b6667d0e068a17dc26f5c894fca3b3fa68ec9c2bef0b29c0d2f36f6",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 0.5,
+              "sampledTime": 0.5
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/ab176beb-8fd1-4246-9f0a-cac80c7df774",
+          "filename": "675f6c39-f4de-487c-b83f-2c82c262c592.png",
+          "mimeType": "image/png",
+          "byteLength": 215790,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215790
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "f433b78d-ab06-4bb5-a008-ffde81dadb94"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "f433b78d-ab06-4bb5-a008-ffde81dadb94",
+            "mimeType": "image/png",
+            "byteLength": 215790,
+            "sha256": "934bad357b6667d0e068a17dc26f5c894fca3b3fa68ec9c2bef0b29c0d2f36f6",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1,
+              "sampledTime": 1
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/b7023e96-d46c-400a-b2a4-70d0798446da",
+          "filename": "f433b78d-ab06-4bb5-a008-ffde81dadb94.png",
+          "mimeType": "image/png",
+          "byteLength": 215790,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215790
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "6eddf9a3-4bb1-409a-89f3-7aae98bec4c1"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "6eddf9a3-4bb1-409a-89f3-7aae98bec4c1",
+            "mimeType": "image/png",
+            "byteLength": 207890,
+            "sha256": "93409dcf98b40242b25b60c3ecf61ffcef20c1cb2ba2515f40e2ae7f8fb6fcee",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1.1,
+              "sampledTime": 1.1
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/0a0087b6-2048-41b2-bc30-6bc2e403245b",
+          "filename": "6eddf9a3-4bb1-409a-89f3-7aae98bec4c1.png",
+          "mimeType": "image/png",
+          "byteLength": 207890,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 207890
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "cc334c67-d4be-457d-9c77-cfd8e8718236"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "cc334c67-d4be-457d-9c77-cfd8e8718236",
+            "mimeType": "image/png",
+            "byteLength": 215265,
+            "sha256": "d0dabea1fb72f11fef2e3747a4ff9f41946060ad2613b1f0a3b8d84dfcca419d",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1.2,
+              "sampledTime": 1.2
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/085f13cd-2827-446a-b7b6-31177046bec1",
+          "filename": "cc334c67-d4be-457d-9c77-cfd8e8718236.png",
+          "mimeType": "image/png",
+          "byteLength": 215265,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215265
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "4aae8e66-ddce-4bc7-88cf-be185bbb33cc"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "4aae8e66-ddce-4bc7-88cf-be185bbb33cc",
+            "mimeType": "image/png",
+            "byteLength": 215270,
+            "sha256": "dc73555369f5d54f4e020bbc58c2c9fd424245803494bdaea71d835e2a8e1f2f",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1.3,
+              "sampledTime": 1.3
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/087381af-1c61-4361-81ab-9d384b40c090",
+          "filename": "4aae8e66-ddce-4bc7-88cf-be185bbb33cc.png",
+          "mimeType": "image/png",
+          "byteLength": 215270,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215270
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "b38b3282-9da6-48f3-8765-12807ba40b39"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "b38b3282-9da6-48f3-8765-12807ba40b39",
+            "mimeType": "image/png",
+            "byteLength": 215206,
+            "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1.4,
+              "sampledTime": 1.4
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/7ea1a796-cddb-40f1-bef3-46ce2076f292",
+          "filename": "b38b3282-9da6-48f3-8765-12807ba40b39.png",
+          "mimeType": "image/png",
+          "byteLength": 215206,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215206
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "02508709-347c-4f92-bb5f-17b4b6dd27ad"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "02508709-347c-4f92-bb5f-17b4b6dd27ad",
+            "mimeType": "image/png",
+            "byteLength": 215206,
+            "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 1.7,
+              "sampledTime": 1.7
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/1fa35455-91eb-4d54-92d3-65cf284e9343",
+          "filename": "02508709-347c-4f92-bb5f-17b4b6dd27ad.png",
+          "mimeType": "image/png",
+          "byteLength": 215206,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215206
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "fb4bf362-b748-4fde-b714-26ba80770027"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "fb4bf362-b748-4fde-b714-26ba80770027",
+            "mimeType": "image/png",
+            "byteLength": 215206,
+            "sha256": "f33c425f5dfaa99f5f01295c6a4f8f0319b046a97d15dd4d32cb6e12b85cdc72",
+            "frame": {
+              "projectId": "renderer-robot",
+              "revision": 3,
+              "target": {
+                "kind": "composition",
+                "compositionId": "stop-motion"
+              },
+              "time": 2,
+              "sampledTime": 2
+            }
+          },
+          "url": "blob:http://127.0.0.1:4198/fb3a58d3-11b1-45ee-a85c-293e9177a69a",
+          "filename": "fb4bf362-b748-4fde-b714-26ba80770027.png",
+          "mimeType": "image/png",
+          "byteLength": 215206,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB",
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 215206
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "read_artifact",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+        "artifactId": "e22b70ab-6596-4841-8518-b64d43634b13"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "stop-motion"
+          },
+          "jobId": "b22c1e28-7d9d-4b4a-b062-40200afe6e1b",
+          "artifact": {
+            "id": "e22b70ab-6596-4841-8518-b64d43634b13",
+            "mimeType": "application/zip",
+            "byteLength": 1723691,
+            "sha256": "60a21ca70216f6d4aed4391e903a9ff9180086bc4e8e008608e1bda67c66d2be"
+          },
+          "url": "blob:http://127.0.0.1:4198/f6cda1ab-dad5-458c-8fd4-a03fb229afc7",
+          "filename": "e22b70ab-6596-4841-8518-b64d43634b13.zip",
+          "mimeType": "application/zip",
+          "byteLength": 1723691,
+          "expires": "session change, dispose, reload, or when download retention exceeds 20 files / 256 MiB"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "preview_animation",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "fps": 30,
+        "loops": 2,
+        "viewport": {
+          "width": 320,
+          "height": 320,
+          "centerX": 200,
+          "centerY": 330,
+          "zoom": 0.7,
+          "devicePixelRatio": 1,
+          "background": "#233243"
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "0a0e78db-4afe-4490-a1e5-8e74e42abe78",
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0,
+          "status": "queued"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "cancel_job",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "0a0e78db-4afe-4490-a1e5-8e74e42abe78"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "id": "0a0e78db-4afe-4490-a1e5-8e74e42abe78",
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "composition",
+            "compositionId": "motion"
+          },
+          "progress": 0,
+          "status": "cancelled"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "release_job",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "jobId": "0a0e78db-4afe-4490-a1e5-8e74e42abe78"
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "released": "0a0e78db-4afe-4490-a1e5-8e74e42abe78"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "render_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "animationId": "walk",
+        "time": 0.5,
+        "viewport": {
+          "width": 640,
+          "height": 640,
+          "centerX": 200,
+          "centerY": 330,
+          "zoom": 0.7,
+          "devicePixelRatio": 1,
+          "background": "#233243"
+        }
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "target": {
+            "kind": "animation",
+            "animationId": "walk"
+          },
+          "animationId": "walk",
+          "time": 0.5,
+          "sampledTime": 0.5,
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "centerX": 200,
+            "centerY": 330,
+            "zoom": 0.7,
+            "devicePixelRatio": 1,
+            "background": "#233243"
+          },
+          "bounds": {
+            "minX": -57.091494541899934,
+            "minY": -19,
+            "maxX": 257.8399484341892,
+            "maxY": 655.2
+          },
+          "boundsKind": "sampled-frame",
+          "scale": 0.7,
+          "pixelWidth": 640,
+          "pixelHeight": 640,
+          "image": {
+            "mimeType": "image/png",
+            "byteLength": 150259
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "animation",
+          "animationId": null
+        },
+        "time": 99
+      },
+      "result": {
+        "ok": true,
+        "value": {
+          "sessionId": 1,
+          "projectId": "renderer-robot",
+          "revision": 3,
+          "poseVersion": 1,
+          "meshes": [],
+          "target": {
+            "kind": "animation",
+            "animationId": null
+          },
+          "sampledTime": 0,
+          "bones": {
+            "root": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "body": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              310
+            ],
+            "pelvis": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              300
+            ],
+            "head": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              480
+            ],
+            "upper-arm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -98,
+              440
+            ],
+            "forearm-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-left": [
+              0.984807753012208,
+              -0.17364817766693033,
+              0.17364817766693033,
+              0.984807753012208,
+              -126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              280
+            ],
+            "shin-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              180
+            ],
+            "foot-left": [
+              1,
+              0,
+              0,
+              1,
+              -43,
+              73
+            ],
+            "upper-arm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              98,
+              440
+            ],
+            "forearm-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              109.63442790368433,
+              374.01788054818206
+            ],
+            "hand-right": [
+              0.984807753012208,
+              0.17364817766693033,
+              -0.17364817766693033,
+              0.984807753012208,
+              126.30465295970964,
+              279.4763362590101
+            ],
+            "thigh-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              280
+            ],
+            "shin-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              180
+            ],
+            "foot-right": [
+              1,
+              0,
+              0,
+              1,
+              43,
+              73
+            ]
+          },
+          "regions": [
+            {
+              "slotId": "thigh-left",
+              "attachmentId": "thigh-left",
+              "assetId": "robot-thigh-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-left",
+              "attachmentId": "shin-left",
+              "assetId": "robot-shin-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-left",
+              "attachmentId": "foot-left",
+              "assetId": "robot-foot-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                -43,
+                73
+              ]
+            },
+            {
+              "slotId": "thigh-right",
+              "attachmentId": "thigh-right",
+              "assetId": "robot-thigh-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                280
+              ]
+            },
+            {
+              "slotId": "shin-right",
+              "attachmentId": "shin-right",
+              "assetId": "robot-shin-right",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                180
+              ]
+            },
+            {
+              "slotId": "foot-right",
+              "attachmentId": "foot-right",
+              "assetId": "robot-foot-left",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                43,
+                73
+              ]
+            },
+            {
+              "slotId": "pelvis",
+              "attachmentId": "pelvis",
+              "assetId": "robot-pelvis",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                300
+              ]
+            },
+            {
+              "slotId": "upper-arm-left",
+              "attachmentId": "upper-arm-left",
+              "assetId": "robot-upper-arm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-left",
+              "attachmentId": "forearm-left",
+              "assetId": "robot-forearm-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-left",
+              "attachmentId": "hand-left",
+              "assetId": "robot-hand-left",
+              "world": [
+                0.984807753012208,
+                -0.17364817766693033,
+                0.17364817766693033,
+                0.984807753012208,
+                -126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "body",
+              "attachmentId": "body",
+              "assetId": "robot-body",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                310
+              ]
+            },
+            {
+              "slotId": "upper-arm-right",
+              "attachmentId": "upper-arm-right",
+              "assetId": "robot-upper-arm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                98,
+                440
+              ]
+            },
+            {
+              "slotId": "forearm-right",
+              "attachmentId": "forearm-right",
+              "assetId": "robot-forearm-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                109.63442790368433,
+                374.01788054818206
+              ]
+            },
+            {
+              "slotId": "hand-right",
+              "attachmentId": "hand-right",
+              "assetId": "robot-hand-right",
+              "world": [
+                0.984807753012208,
+                0.17364817766693033,
+                -0.17364817766693033,
+                0.984807753012208,
+                126.30465295970964,
+                279.4763362590101
+              ]
+            },
+            {
+              "slotId": "head",
+              "attachmentId": "head",
+              "assetId": "robot-head",
+              "world": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                480
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      }
+    }
+  ]
+}

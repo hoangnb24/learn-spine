@@ -3,13 +3,11 @@
 Canonical types are exported from `platform/src/model`; strict shapes live in
 `project-v1.schema.json`. `validate` adds reference, uniqueness, timing and coverage
 checks. `composition-v1` is implemented by model, Session and evaluator together.
-This is transform evaluation and persistence support. Tools/observation (#74) and
-editor/player (#75) are separate integrations; the bridge currently filters this
-feature from its advertised capabilities and rejects composition request shapes.
-Direct Observation `renderPose`/`submit` also reject `target` or `compositionId`
-fields with `UNSUPPORTED_CAPABILITY`, including hybrid legacy+canonical requests,
-so they cannot quietly sample the legacy animation ID. #74 must replace these
-guards when the complete canonical target path is implemented.
+This is transform evaluation and persistence support. Tools/observation (#74)
+consume the canonical targets, Session and evaluator through the public adapter;
+see [tool contract](../adapters/webmcp/COMPOSITION.md). Editor composition controls
+and native→editor roundtrip remain #75. Hybrid canonical+legacy selectors are
+rejected rather than choosing a fallback animation.
 
 ## Data and timing
 
@@ -181,10 +179,10 @@ fallback animation. The canonical wrapper for legacy setup is
 `{target:{kind:'animation',animationId:null},time}`. There is no third setup kind.
 
 `RenderablePose = Pose | TargetPose` exports the shared geometry/provenance union
-for downstream consumers. Current Renderer/Observation interfaces still take
-legacy Pose/request types; #74 must wire this canonical union and targets through
-those boundaries, without adding a fake animationId. This core does not claim
-composition rendering, job bounds or native tool support.
+for downstream consumers. Renderer accepts this union; Observation accepts legacy or canonical requests,
+and PNG artifact frame provenance uses the canonical target. Composition outputs
+do not add a fake animationId. See the #74 tool contract for rendering, bounds
+and transport evidence.
 
 ## Session, persistence and evidence
 

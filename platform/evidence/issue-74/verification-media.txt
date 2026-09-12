@@ -1,0 +1,5 @@
+PASS: 49 actual native calls, 4 intended error controls, 18 PNGs match raw MCP blocks; canonical artifact provenance
+PASS: 5 independent native frozen-source probes, bodyY290→270→290 and revisions3→4→5
+PASS: bridge ZIP 0, 8 PNG byte matches, target=motion, revision=1, SHA256=f6ea5c45d719166548c21fedd51ac60e95ba173c91f6ca45aa8485c82a03de3c
+PASS: bridge ZIP 1, 8 PNG byte matches, target=stop-motion, revision=3, SHA256=60a21ca70216f6d4aed4391e903a9ff9180086bc4e8e008608e1bda67c66d2be
+Native ZIP browser download is NOT TESTED; native artifact creation/read and separate bridge ZIPs are distinct evidence.
