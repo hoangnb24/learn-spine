@@ -1,6 +1,6 @@
 # Phạm vi theo giai đoạn
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chủ dự án sau đó cho phép #24 In Progress/Ready: discovery mixing/chuyển tiếp/events metadata phục vụ tạo/xem/sửa trên trang; audio tách #70 Todo/Deferred. Sole implementer `/root/implement_issue24`, reviewer `/root/review_issue24`. Đầu vào #8/#16/#19 đã merged; bỏ dependency #22 cho riêng #24. Sau nghiệm thu discovery, Orchestrator tiếp tục các implementation tasks trong phạm vi tạo/xem/sửa đến khi gặp quyết định sản phẩm thực sự; không cần chốt đầu ra/MVP #22. Không tự mở #25/#26 hoặc toàn backlog. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
 
 ## Phạm vi hẹp được đề xuất
 
@@ -18,7 +18,7 @@ Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms s
 
 ## Phần sau quyết định
 
-Theo [quyết định #22](decisions/mvp.md), #23–#29 vẫn Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 và #52 Todo/Deferred; cả đo/profile baseline và tối ưu đều để sau, chưa chọn issue thay thế. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
+Theo [quyết định #22](decisions/mvp.md), #23 và #25–#29 vẫn Deferred; #24 In Progress/Ready trong phạm vi mixing/transitions/events metadata, audio #70 Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 và #52 Todo/Deferred; cả đo/profile baseline và tối ưu đều để sau, đã chọn #24 theo chỉ thị tiếp theo, không tự mở các nhánh khác. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Bộ mẫu làm chuẩn
 
