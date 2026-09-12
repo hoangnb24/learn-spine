@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện hành — 12/09/2026
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chủ dự án sau đó cho phép #24 In Progress/Ready: discovery mixing/chuyển tiếp/events metadata phục vụ tạo/xem/sửa trên trang; audio tách #70 Todo/Deferred. Sole implementer `/root/implement_issue24`, reviewer `/root/review_issue24`. Đầu vào #8/#16/#19 đã merged; bỏ dependency #22 cho riêng #24. Sau nghiệm thu discovery, Orchestrator tiếp tục các implementation tasks trong phạm vi tạo/xem/sửa đến khi gặp quyết định sản phẩm thực sự; không cần chốt đầu ra/MVP #22. Không tự mở #25/#26 hoặc toàn backlog. Không duyệt MVP hoặc production. [Đối chiếu](reconciliation/2026-09-12-deferred-output.md).
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. #24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Đây chỉ là spec/prototype transform và event metadata, chưa nghiệm thu composition sản phẩm/native/UI. #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred. Không duyệt MVP hoặc production. [Đối chiếu](reconciliation/2026-09-12-deferred-output.md).
 
 ## Lịch sử sau Gate 3 PR #66 — 11/09/2026
 
@@ -67,7 +67,7 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#21](https://github.com/hoangnb24/learn-spine/issues/21) Gate 3 — đo agent tạo và sửa animation qua WebMCP | Agent evaluation | 12 | [#20](https://github.com/hoangnb24/learn-spine/issues/20) | Ready |
 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) Chốt kiến trúc MVP và quyết định mở rộng từ bằng chứng | Decision | 13 | [#21](https://github.com/hoangnb24/learn-spine/issues/21) | Deferred |
 | [#23](https://github.com/hoangnb24/learn-spine/issues/23) Discovery — nhập PSD và cập nhật art giữ nguyên rig | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
-| [#24](https://github.com/hoangnb24/learn-spine/issues/24) Discovery — mixing, chuyển tiếp và events metadata | Later discovery | 14 | #8, #16, #19 (đã merged) | Ready (In Progress) |
+| [#24](https://github.com/hoangnb24/learn-spine/issues/24) Discovery — mixing, chuyển tiếp và events metadata | Later discovery | 14 | #8, #16, #19 (đã merged) | Ready (Done/completed) |
 | [#25](https://github.com/hoangnb24/learn-spine/issues/25) Discovery — skins, linked mesh, clipping và thứ tự vẽ | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#26](https://github.com/hoangnb24/learn-spine/issues/26) Discovery — path và transform constraints | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#27](https://github.com/hoangnb24/learn-spine/issues/27) Discovery — physics tái lập khi seek, reset và export | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
@@ -76,6 +76,9 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Chuẩn hóa phép đo/profile/baseline | Polish | Chưa lên lịch | #14 (đầu vào) | Deferred |
 | [#52](https://github.com/hoangnb24/learn-spine/issues/52) Tối ưu cadence/retest <=16.7ms | Polish | Chưa lên lịch | #51 | Deferred |
 | [#70](https://github.com/hoangnb24/learn-spine/issues/70) Discovery — audio clock, stop/restart và kiểm nghe | Later discovery | Chưa lên lịch | #24 | Deferred |
+| [#73](https://github.com/hoangnb24/learn-spine/issues/73) Canonical data, Session, evaluator | Composition v1 | Tuần tự | #24 | Ready (In Progress) |
+| [#74](https://github.com/hoangnb24/learn-spine/issues/74) Native tools, observation, bounds | Composition v1 | Tuần tự | #73 | Blocked (Todo) |
+| [#75](https://github.com/hoangnb24/learn-spine/issues/75) Editor và native→UI roundtrip | Composition v1 | Tuần tự | #73, #74 | Blocked (Todo) |
 
 Project Stage chưa có lựa chọn Polish; hai issue giữ Stage trống, Phase Polish ghi trong body/backlog. Snapshot 12/09: #51 và #52 Readiness Deferred. Cả hai Priority P2, Status Todo.
 
@@ -147,6 +150,10 @@ flowchart LR
     T07 --> T23
     T15 --> T23
     T18 --> T23
+    T23 --> COMP_A["#73 Canonical"]
+    COMP_A --> COMP_B["#74 Native observation"]
+    COMP_A --> COMP_C["#75 Editor roundtrip"]
+    COMP_B --> COMP_C
     T23 --> AUDIO["#70 Audio Deferred"]
     T21 --> T24
     T21 --> T25
