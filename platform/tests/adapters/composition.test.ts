@@ -29,7 +29,7 @@ describe('composition public adapter handlers (native evidence recorded separate
     expect(await bridge.dispatch('undo',{...scope,expectedRevision:2,requestId:'undo'})).toMatchObject({ok:true,value:{revision:3}});
     expect(session.inspect().compositions![0].tracks).toHaveLength(2);
   });
-  it('preserves canonical reference, coverage and deform failures without partial writes',async()=>{
+  it('preserves canonical reference and coverage failures without partial writes',async()=>{
     const {scope,put,bridge,session}=await setup();
     const bad=composition([track('missing')]);
     expect(await bridge.dispatch('put_composition',put(0,'missing',bad))).toMatchObject({ok:false,error:{code:'MISSING_REFERENCE'}});

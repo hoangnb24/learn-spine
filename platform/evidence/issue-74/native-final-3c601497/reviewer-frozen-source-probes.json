@@ -1,0 +1,161 @@
+{
+  "runtimeCommit": "3c60149781754e1e7aad5de276037b90810be237",
+  "classification": "actual-native-webmcp-document",
+  "at": "2026-09-12T10:08:35.264Z",
+  "calls": [
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"renderer-robot\",\"revision\":3,\"poseVersion\":1,\"meshes\":[],\"target\":{\"kind\":\"composition\",\"compositionId\":\"stop-motion\"},\"sampledTime\":1,\"bones\":{\"root\":[1,0,0,1,100,0],\"body\":[1,0,0,1,100,290],\"pelvis\":[1,0,0,1,100,280],\"head\":[1,0,0,1,100,460],\"upper-arm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,420],\"forearm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,354.01788054818206],\"hand-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,259.4763362590101],\"thigh-left\":[1,0,0,1,57,260],\"shin-left\":[1,0,0,1,57,160],\"foot-left\":[1,0,0,1,57,53],\"upper-arm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,420],\"forearm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,354.01788054818206],\"hand-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,259.4763362590101],\"thigh-right\":[1,0,0,1,143,260],\"shin-right\":[1,0,0,1,143,160],\"foot-right\":[1,0,0,1,143,53]},\"regions\":[{\"slotId\":\"thigh-left\",\"attachmentId\":\"thigh-left\",\"assetId\":\"robot-thigh-left\",\"world\":[1,0,0,1,57,260]},{\"slotId\":\"shin-left\",\"attachmentId\":\"shin-left\",\"assetId\":\"robot-shin-left\",\"world\":[1,0,0,1,57,160]},{\"slotId\":\"foot-left\",\"attachmentId\":\"foot-left\",\"assetId\":\"robot-foot-right\",\"world\":[1,0,0,1,57,53]},{\"slotId\":\"thigh-right\",\"attachmentId\":\"thigh-right\",\"assetId\":\"robot-thigh-right\",\"world\":[1,0,0,1,143,260]},{\"slotId\":\"shin-right\",\"attachmentId\":\"shin-right\",\"assetId\":\"robot-shin-right\",\"world\":[1,0,0,1,143,160]},{\"slotId\":\"foot-right\",\"attachmentId\":\"foot-right\",\"assetId\":\"robot-foot-left\",\"world\":[1,0,0,1,143,53]},{\"slotId\":\"pelvis\",\"attachmentId\":\"pelvis\",\"assetId\":\"robot-pelvis\",\"world\":[1,0,0,1,100,280]},{\"slotId\":\"upper-arm-left\",\"attachmentId\":\"upper-arm-left\",\"assetId\":\"robot-upper-arm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,420]},{\"slotId\":\"forearm-left\",\"attachmentId\":\"forearm-left\",\"assetId\":\"robot-forearm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,354.01788054818206]},{\"slotId\":\"hand-left\",\"attachmentId\":\"hand-left\",\"assetId\":\"robot-hand-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,259.4763362590101]},{\"slotId\":\"body\",\"attachmentId\":\"body\",\"assetId\":\"robot-body\",\"world\":[1,0,0,1,100,290]},{\"slotId\":\"upper-arm-right\",\"attachmentId\":\"upper-arm-right\",\"assetId\":\"robot-upper-arm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,420]},{\"slotId\":\"forearm-right\",\"attachmentId\":\"forearm-right\",\"assetId\":\"robot-forearm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,354.01788054818206]},{\"slotId\":\"hand-right\",\"attachmentId\":\"hand-right\",\"assetId\":\"robot-hand-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,259.4763362590101]},{\"slotId\":\"head\",\"attachmentId\":\"head\",\"assetId\":\"robot-head\",\"world\":[1,0,0,1,100,460]}]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "set_keyframes",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 3,
+        "requestId": "review74-frozen-edit",
+        "animation": {
+          "id": "walk",
+          "name": "Walk base",
+          "duration": 1,
+          "loop": true,
+          "channels": [
+            {
+              "boneId": "body",
+              "property": "y",
+              "keys": [
+                {
+                  "time": 0,
+                  "value": 310,
+                  "curve": {
+                    "type": "linear"
+                  }
+                },
+                {
+                  "time": 0.5,
+                  "value": 270,
+                  "curve": {
+                    "type": "linear"
+                  }
+                },
+                {
+                  "time": 1,
+                  "value": 310,
+                  "curve": {
+                    "type": "linear"
+                  }
+                }
+              ]
+            },
+            {
+              "boneId": "root",
+              "property": "x",
+              "keys": [
+                {
+                  "time": 0,
+                  "value": 100,
+                  "curve": {
+                    "type": "linear"
+                  }
+                },
+                {
+                  "time": 1,
+                  "value": 100,
+                  "curve": {
+                    "type": "linear"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"renderer-robot\",\"revision\":4,\"changedIds\":[\"walk\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"renderer-robot\",\"revision\":4,\"poseVersion\":1,\"meshes\":[],\"target\":{\"kind\":\"composition\",\"compositionId\":\"stop-motion\"},\"sampledTime\":1,\"bones\":{\"root\":[1,0,0,1,100,0],\"body\":[1,0,0,1,100,270],\"pelvis\":[1,0,0,1,100,260],\"head\":[1,0,0,1,100,440],\"upper-arm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,400],\"forearm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,334.01788054818206],\"hand-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,239.4763362590101],\"thigh-left\":[1,0,0,1,57,240],\"shin-left\":[1,0,0,1,57,140],\"foot-left\":[1,0,0,1,57,33],\"upper-arm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,400],\"forearm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,334.01788054818206],\"hand-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,239.4763362590101],\"thigh-right\":[1,0,0,1,143,240],\"shin-right\":[1,0,0,1,143,140],\"foot-right\":[1,0,0,1,143,33]},\"regions\":[{\"slotId\":\"thigh-left\",\"attachmentId\":\"thigh-left\",\"assetId\":\"robot-thigh-left\",\"world\":[1,0,0,1,57,240]},{\"slotId\":\"shin-left\",\"attachmentId\":\"shin-left\",\"assetId\":\"robot-shin-left\",\"world\":[1,0,0,1,57,140]},{\"slotId\":\"foot-left\",\"attachmentId\":\"foot-left\",\"assetId\":\"robot-foot-right\",\"world\":[1,0,0,1,57,33]},{\"slotId\":\"thigh-right\",\"attachmentId\":\"thigh-right\",\"assetId\":\"robot-thigh-right\",\"world\":[1,0,0,1,143,240]},{\"slotId\":\"shin-right\",\"attachmentId\":\"shin-right\",\"assetId\":\"robot-shin-right\",\"world\":[1,0,0,1,143,140]},{\"slotId\":\"foot-right\",\"attachmentId\":\"foot-right\",\"assetId\":\"robot-foot-left\",\"world\":[1,0,0,1,143,33]},{\"slotId\":\"pelvis\",\"attachmentId\":\"pelvis\",\"assetId\":\"robot-pelvis\",\"world\":[1,0,0,1,100,260]},{\"slotId\":\"upper-arm-left\",\"attachmentId\":\"upper-arm-left\",\"assetId\":\"robot-upper-arm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,400]},{\"slotId\":\"forearm-left\",\"attachmentId\":\"forearm-left\",\"assetId\":\"robot-forearm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,334.01788054818206]},{\"slotId\":\"hand-left\",\"attachmentId\":\"hand-left\",\"assetId\":\"robot-hand-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,239.4763362590101]},{\"slotId\":\"body\",\"attachmentId\":\"body\",\"assetId\":\"robot-body\",\"world\":[1,0,0,1,100,270]},{\"slotId\":\"upper-arm-right\",\"attachmentId\":\"upper-arm-right\",\"assetId\":\"robot-upper-arm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,400]},{\"slotId\":\"forearm-right\",\"attachmentId\":\"forearm-right\",\"assetId\":\"robot-forearm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,334.01788054818206]},{\"slotId\":\"hand-right\",\"attachmentId\":\"hand-right\",\"assetId\":\"robot-hand-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,239.4763362590101]},{\"slotId\":\"head\",\"attachmentId\":\"head\",\"assetId\":\"robot-head\",\"world\":[1,0,0,1,100,440]}]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "undo",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "expectedRevision": 4,
+        "requestId": "review74-frozen-undo"
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"renderer-robot\",\"revision\":5,\"changedIds\":[\"walk\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "renderer-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "stop-motion"
+        },
+        "time": 1
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"renderer-robot\",\"revision\":5,\"poseVersion\":1,\"meshes\":[],\"target\":{\"kind\":\"composition\",\"compositionId\":\"stop-motion\"},\"sampledTime\":1,\"bones\":{\"root\":[1,0,0,1,100,0],\"body\":[1,0,0,1,100,290],\"pelvis\":[1,0,0,1,100,280],\"head\":[1,0,0,1,100,460],\"upper-arm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,420],\"forearm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,354.01788054818206],\"hand-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,259.4763362590101],\"thigh-left\":[1,0,0,1,57,260],\"shin-left\":[1,0,0,1,57,160],\"foot-left\":[1,0,0,1,57,53],\"upper-arm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,420],\"forearm-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,354.01788054818206],\"hand-right\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,259.4763362590101],\"thigh-right\":[1,0,0,1,143,260],\"shin-right\":[1,0,0,1,143,160],\"foot-right\":[1,0,0,1,143,53]},\"regions\":[{\"slotId\":\"thigh-left\",\"attachmentId\":\"thigh-left\",\"assetId\":\"robot-thigh-left\",\"world\":[1,0,0,1,57,260]},{\"slotId\":\"shin-left\",\"attachmentId\":\"shin-left\",\"assetId\":\"robot-shin-left\",\"world\":[1,0,0,1,57,160]},{\"slotId\":\"foot-left\",\"attachmentId\":\"foot-left\",\"assetId\":\"robot-foot-right\",\"world\":[1,0,0,1,57,53]},{\"slotId\":\"thigh-right\",\"attachmentId\":\"thigh-right\",\"assetId\":\"robot-thigh-right\",\"world\":[1,0,0,1,143,260]},{\"slotId\":\"shin-right\",\"attachmentId\":\"shin-right\",\"assetId\":\"robot-shin-right\",\"world\":[1,0,0,1,143,160]},{\"slotId\":\"foot-right\",\"attachmentId\":\"foot-right\",\"assetId\":\"robot-foot-left\",\"world\":[1,0,0,1,143,53]},{\"slotId\":\"pelvis\",\"attachmentId\":\"pelvis\",\"assetId\":\"robot-pelvis\",\"world\":[1,0,0,1,100,280]},{\"slotId\":\"upper-arm-left\",\"attachmentId\":\"upper-arm-left\",\"assetId\":\"robot-upper-arm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,2,420]},{\"slotId\":\"forearm-left\",\"attachmentId\":\"forearm-left\",\"assetId\":\"robot-forearm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-9.634427903684331,354.01788054818206]},{\"slotId\":\"hand-left\",\"attachmentId\":\"hand-left\",\"assetId\":\"robot-hand-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,-26.304652959709642,259.4763362590101]},{\"slotId\":\"body\",\"attachmentId\":\"body\",\"assetId\":\"robot-body\",\"world\":[1,0,0,1,100,290]},{\"slotId\":\"upper-arm-right\",\"attachmentId\":\"upper-arm-right\",\"assetId\":\"robot-upper-arm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,198,420]},{\"slotId\":\"forearm-right\",\"attachmentId\":\"forearm-right\",\"assetId\":\"robot-forearm-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,209.63442790368433,354.01788054818206]},{\"slotId\":\"hand-right\",\"attachmentId\":\"hand-right\",\"assetId\":\"robot-hand-right\",\"world\":[0.984807753012208,0.17364817766693033,-0.17364817766693033,0.984807753012208,226.30465295970964,259.4763362590101]},{\"slotId\":\"head\",\"attachmentId\":\"head\",\"assetId\":\"robot-head\",\"world\":[1,0,0,1,100,460]}]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Composition — saved native frames</title>
+<style>body{font:16px system-ui;background:#15202b;color:#edf4f8;margin:24px;max-width:1200px}a{color:#86d8ff}main{display:flex;flex-wrap:wrap;gap:24px}section{flex:1;min-width:300px}img{width:100%;max-width:520px}button{font:inherit;padding:8px;margin:8px 0}#strip{display:flex;flex-wrap:wrap}#strip img{width:100px;cursor:pointer}code{overflow-wrap:anywhere}</style>
+<h1>Composition: saved native PNGs</h1><p>Actual WebMCP image blocks at runtime <code>3c60149781754e1e7aad5de276037b90810be237</code>. This viewer plays retained frames; it is not the Editor or a frame-rate test.</p>
+<p><a href="README.md">Evidence and limits</a> · <a href="native-final-3c601497/raw-calls.json">Raw native calls</a> · <a href="BOUNDS.md">Bounds proof</a></p>
+<button id="play">Play collected frames</button><main><section><h2>Walk + wave + two additive tracks</h2><p>Target motion · snapshot revision 1</p><img id="motion" alt="Composed walk and wave"><p id="motion-time"></p></section><section><h2>Complete-coverage frozen transition</h2><p>Target stop-motion · snapshot revision 3</p><img id="stop" alt="Frozen transition"><p id="stop-time"></p></section></main><h2>All native frame images</h2><div id="strip"></div>
+<script>
+const motionTimes=[0,.25,.5,.75,1,1.5,2,2.5],stopTimes=[.5,1,1.1,1.2,1.3,1.4,1.7,2];let index=0,playing=false;
+const url=i=>`native-final-3c601497/image-${i}.png`;
+function show(){document.querySelector('#motion').src=url(1+index);document.querySelector('#stop').src=url(9+index);document.querySelector('#motion-time').textContent=`requested ${motionTimes[index]}s · sampled ${motionTimes[index]%2}s`;document.querySelector('#stop-time').textContent=`requested / sampled ${stopTimes[index]}s`;}
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'Pause collected frames':'Play collected frames';};
+for(let i=0;i<18;i++){const img=document.createElement('img');img.src=url(i);img.alt=`Native image ${i}`;img.onclick=()=>window.open(url(i));document.querySelector('#strip').append(img);}
+setInterval(()=>{if(playing){index=(index+1)%8;show();}},250);show();
+</script></html>

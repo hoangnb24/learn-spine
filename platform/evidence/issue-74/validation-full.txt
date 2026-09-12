@@ -1,0 +1,80 @@
+Runtime commit: 3c60149781754e1e7aad5de276037b90810be237
+Environment: macOS, Node v22.22.3
+Command: npm run typecheck --prefix platform && npm test --prefix platform && npm run build --prefix platform && npm run test:browser --prefix platform
+The initial typecheck header and test startup were emitted before this continuation; typecheck completed with exit 0, since the command reached vitest.
+
+
+ Test Files  23 passed | 1 skipped (24)
+      Tests  198 passed | 1 skipped (199)
+   Start at  17:03:58
+   Duration  1.61s (import 48%, tests 31%, transform 21%, worker 1%)
+
+
+> learn-spine-platform@0.0.0 build
+> vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 794 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                         0.53 kB │ gzip:   0.32 kB
+dist/player.html                        0.53 kB │ gzip:   0.31 kB
+dist/assets/storage-BUjCEbAh.css        9.26 kB │ gzip:   2.76 kB
+dist/assets/webworkerAll-CLjeJBQd.js    0.05 kB │ gzip:   0.06 kB
+dist/assets/player-Cil89B3U.js          2.82 kB │ gzip:   1.34 kB
+dist/assets/browserAll-DizNLkdj.js     42.12 kB │ gzip:  10.97 kB
+dist/assets/init-sm54PKnG.js           83.46 kB │ gzip:  24.47 kB
+dist/assets/editor-BYelvNJ-.js         86.56 kB │ gzip:  28.68 kB
+dist/assets/storage-BDt3HWV0.js       741.10 kB │ gzip: 221.47 kB
+
+✓ built in 132ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+> learn-spine-platform@0.0.0 test:browser
+> playwright test
+
+[WebServer] (node:3660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 20 tests using 6 workers
+
+(node:3839) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3835) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3837) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3838) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/browser/storage.spec.ts:10:1 › actual PNG ZIP bytes and committed IndexedDB survive reload (557ms)
+  ✓   7 [chromium] › tests/browser/storage.spec.ts:21:1 › newer save wins delayed older validation; snapshot bytes isolated (323ms)
+  ✓   8 [chromium] › tests/browser/storage.spec.ts:31:1 › real transaction abort/quota/write failure preserve prior committed project (158ms)
+  ✓   1 [chromium] › tests/browser/shell.spec.ts:3:1 › built editor and player load directly and navigate without runtime errors (1.1s)
+  ✓   9 [chromium] › tests/browser/storage.spec.ts:44:1 › hash, IHDR and actual decoder validation reject corrupt images (200ms)
+  ✓  11 [chromium] › tests/browser/storage.spec.ts:53:1 › aliasing Uint8Array subclasses cannot change validated, packed or saved snapshots (148ms)
+  ✓  10 [chromium] › tests/browser/shell.spec.ts:22:1 › shell remains readable at narrow widths and exposes keyboard navigation (359ms)
+  ✓   5 [chromium] › tests/adapters/browser/adapter.spec.ts:3:1 › bridge delivers real PNG + project ZIP, snapshot jobs, cancellation and lifecycle (1.7s)
+  ✓   4 [chromium] › tests/authoring/browser/authoring.spec.ts:12:1 › actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and independent player (3.8s)
+  ✓   6 [chromium] › tests/e2e/editor/workflow.spec.ts:23:1 › load PNG, bones, keys, playback, undo, save, reload, independent exported player (3.8s)
+  ✓  12 [chromium] › tests/authoring/browser/authoring.spec.ts:276:1 › new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo restores v0 (730ms)
+  ✓  13 [chromium] › tests/e2e/editor/workflow.spec.ts:192:1 › cancel and failed save leave live data unchanged and unsaved; checkpoint restores (893ms)
+  ✓  15 [chromium] › tests/e2e/editor/workflow.spec.ts:248:1 › late save and import cannot attach to a reopened session at the same revision (580ms)
+  ✓  16 [chromium] › tests/e2e/editor/workflow.spec.ts:316:1 › invalid files preserve the project and a later valid editor package opens (773ms)
+  ✓  17 [chromium] › tests/e2e/editor/workflow.spec.ts:353:1 › opening an identical saved package recognizes the committed record, but equal-revision different content stays unsaved (642ms)
+  ✓  18 [chromium] › tests/e2e/editor/workflow.spec.ts:376:1 › selected stepped and imported Bezier keys preserve their interpolation when only the value is edited (1.1s)
+  ✓  14 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › jelly authored geometry persists in ZIP and real player draws (3.5s)
+  ✓  19 [chromium] › tests/e2e/editor/workflow.spec.ts:445:1 › reparenting presents children beneath their parent without sorting the model collection (790ms)
+  ✓   2 [chromium] › tests/composition/browser/composition.spec.ts:8:1 › composition browser bridge: actual PNGs, snapshots, frozen transition, playback, legacy and cleanup (not native) (9.7s)
+  ✓  20 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › ik authored geometry persists in ZIP and real player draws (1.9s)
+
+  20 passed (11.7s)
+
