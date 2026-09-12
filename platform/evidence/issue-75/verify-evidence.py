@@ -50,6 +50,17 @@ assert len(transition["samples"]) == 5
 for sample, expected in zip(transition["samples"], [290, 294, 306, 310, 310]):
     assert math.isclose(sample["bones"]["body"][5], expected, abs_tol=1e-9)
     assert sample["bones"]["root"][4] == 40
+probes = json.loads((HERE / "native-final-3cbd7443/reviewer-probes.json").read_text())
+assert probes["runtimeCommit"] == runtime
+assert len(probes["calls"]) == 7
+assert [result(c)["revision"] for c in probes["calls"]] == [12, 13, 13, 13, 14, 14, 15]
+assert probes["ui"][0]["stage"] == [{"revision": "12", "target": '{"kind":"animation","animationId":"idle"}', "time": "0"}]
+assert probes["ui"][1]["geometryEqualsBaseline"] is True
+assert result(probes["calls"][2])["bones"] == poses[0]["bones"]
+assert result(probes["calls"][5])["sampledTime"] == .2
+assert probes["ui"][2]["stage"] == [{"revision": "14", "target": '{"kind":"composition","compositionId":"motion"}', "time": "0.2"}]
+for jpg in HERE.rglob("*.jpg"):
+    assert jpg.read_bytes().startswith(b"\xff\xd8\xff"), jpg
 for png in HERE.rglob("*.png"):
     assert png.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"), png
 for webm in (HERE / "browser").glob("*.webm"):

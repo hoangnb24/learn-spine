@@ -9,13 +9,15 @@
   "browser/transition.webm": "64c00ad24b0bb3bd9ea607e2c3fabbee0236a1d3e4c186473457bb29c664cc7d",
   "browser/walk-wave.png": "1cfbc6566f8a0b1238c86ab90e2cd24e2bd8123f156334be7b92a9ff9c50ba91",
   "native-exploratory/raw-calls.json": "62be1275d3ea2a1875aa1ad4893449eee9d6db94f69a87970ae17a7a7ef21eda",
-  "native-exploratory/ui-after-edit.png": "d09911aa5ddecf8ecfc99db8cbc2eef5877c5a133bb8d6dcf9e0e6a70095e026",
-  "native-final-3cbd7443/01-ui-edit.png": "bd1fc58a8a9e864a501bb1ddc37b811729acda8f5c1d8f05a5bbcbd5466c29b2",
-  "native-final-3cbd7443/02-dirty-native-conflict.png": "82c7c1d6318eec312ca091dcaa6add22752debb6df1d35bba1b15e3b95fca3b0",
-  "native-final-3cbd7443/03-playback-a.png": "22cd831271e46803410f1043f1e6386bfd09291cb398fe336fe3a4b316364d06",
-  "native-final-3cbd7443/04-playback-b.png": "b1a2e626dbdef63a575db60b91980aa5d44ce596b160f260f3a7e942fb0734e9",
-  "native-final-3cbd7443/05-reopened.png": "624569edecbbfbe3b7b63c2b4f3deaabb0660088019d062466851ddd6320ced8",
+  "native-exploratory/ui-after-edit.jpg": "d09911aa5ddecf8ecfc99db8cbc2eef5877c5a133bb8d6dcf9e0e6a70095e026",
+  "native-final-3cbd7443/01-ui-edit.jpg": "bd1fc58a8a9e864a501bb1ddc37b811729acda8f5c1d8f05a5bbcbd5466c29b2",
+  "native-final-3cbd7443/02-dirty-native-conflict.jpg": "82c7c1d6318eec312ca091dcaa6add22752debb6df1d35bba1b15e3b95fca3b0",
+  "native-final-3cbd7443/03-playback-a.jpg": "22cd831271e46803410f1043f1e6386bfd09291cb398fe336fe3a4b316364d06",
+  "native-final-3cbd7443/04-playback-b.jpg": "b1a2e626dbdef63a575db60b91980aa5d44ce596b160f260f3a7e942fb0734e9",
+  "native-final-3cbd7443/05-reopened.jpg": "624569edecbbfbe3b7b63c2b4f3deaabb0660088019d062466851ddd6320ced8",
   "native-final-3cbd7443/06-native-observation.png": "650cc828a5f0929e5e02496e6f20de3cfceff88396ba79b6c13cbb71d626bef0",
-  "native-final-3cbd7443/07-review-remove-selected.png": "2423b5718a0273e143d0cfce3b64f3e02533796315c039575b87499e8bfca7c5",
-  "native-final-3cbd7443/raw-calls.json": "ef19ca0ef1c4c872f18c807c8f47832d144ca814b7590b3571bbebe8a8f18729"
+  "native-final-3cbd7443/07-review-remove-selected.jpg": "2423b5718a0273e143d0cfce3b64f3e02533796315c039575b87499e8bfca7c5",
+  "native-final-3cbd7443/08-review-short-duration.jpg": "0c675d376ff5332685688cea62527cf4678f5ad75369de12e57b7e9649678b6d",
+  "native-final-3cbd7443/raw-calls.json": "ef19ca0ef1c4c872f18c807c8f47832d144ca814b7590b3571bbebe8a8f18729",
+  "native-final-3cbd7443/reviewer-probes.json": "8d4d0b63b9206a1e67ecb528039dc25606205f79e7a27044a7761b106cc7bce2"
 }

@@ -89,11 +89,11 @@ commits 8; draft .3 and warning remain, Apply is disabled. Explicit reload loads
 .5 gives revision 11 and exact same bones/regions/meshes as revision 7, read via
 native `evaluate_pose`. Native `render_pose` also returns a revision-11 PNG.
 
-- [UI edit](native-final-3cbd7443/01-ui-edit.png),
-  [dirty/native conflict](native-final-3cbd7443/02-dirty-native-conflict.png),
-  [playback A](native-final-3cbd7443/03-playback-a.png),
-  [playback B](native-final-3cbd7443/04-playback-b.png),
-  [reopened UI](native-final-3cbd7443/05-reopened.png),
+- [UI edit](native-final-3cbd7443/01-ui-edit.jpg),
+  [dirty/native conflict](native-final-3cbd7443/02-dirty-native-conflict.jpg),
+  [playback A](native-final-3cbd7443/03-playback-a.jpg),
+  [playback B](native-final-3cbd7443/04-playback-b.jpg),
+  [reopened UI](native-final-3cbd7443/05-reopened.jpg),
   [native PNG](native-final-3cbd7443/06-native-observation.png).
 - Native final uses the four-track public fixture from #74 (root X 200 from two
   additive tracks), not the two-track browser authoring fixture above (root X 40).
@@ -118,3 +118,19 @@ Chrome's extension file chooser on the implementer's browser rejected local file
 upload because file-URL access is unavailable. The actual browser tests use their
 normal controlled upload path, and native roundtrip runs in the orchestrator's
 in-app browser. No extension permissions were changed to manufacture availability.
+
+## Additional reviewer probes and artifact audit
+
+[Reviewer-requested native probes](native-final-3cbd7443/reviewer-probes.json),
+7 further actual-native calls on the same frozen runtime: removing the selected
+composition commits revision 12 and UI falls back to Idle at 0; undo at 13 restores
+exact baseline bone geometry after reselect. A native duration edit 2→.3 while
+paused at .5 wraps the UI/Stage/native sampledTime to .2 at revision 14; undo returns
+revision 15. [Removed selection](native-final-3cbd7443/07-review-remove-selected.jpg),
+[shorter duration](native-final-3cbd7443/08-review-short-duration.jpg).
+
+The first artifact-audit attempt found that in-app browser screenshots had JPEG
+bytes under `.png` filenames. They were renamed to `.jpg` without re-encoding;
+links and hashes now match. Native observation 06 is the actual PNG image block.
+The verifier also avoids Python 3.10-only `zip(strict=...)` so it runs on the host's
+Python 3.9. These were evidence-packaging corrections, not runtime changes.
