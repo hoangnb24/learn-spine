@@ -79,6 +79,11 @@ describe('canonical composition evaluation', () => {
     expect(locals(p, 1.2).get('arm')!.rotation).toBeCloseTo(.36, 12);
     expect(locals(p, 1.4 - 1e-9).get('arm')!.rotation).toBeCloseTo(.2400000008, 12);
     expect(locals(p, 1.4).get('arm')!.rotation).toBeCloseTo(.24, 12);
+    // Incoming must be exactly full when outgoing is removed: no epsilon leak from a huge lower/setup value.
+    p.bones.find(b => b.id === 'arm')!.setup.rotation = 1e16;
+    expect(trackWeight(primitives[2], 1.4)).toBe(1);
+    expect(locals(p, 1.4).get('arm')!.rotation).toBeCloseTo(.24, 12);
+    p.bones.find(b => b.id === 'arm')!.setup.rotation = .2;
     p.animations[0].channels[1].keys[0].value = .6; p.revision++;
     expect(locals(p, 1.2).get('arm')!.rotation).toBeCloseTo(.46, 12);
     expect(pose(p, 1.2).revision).toBe(1);

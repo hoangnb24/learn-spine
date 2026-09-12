@@ -12,8 +12,10 @@ export function compositionPrimitives(composition: Composition): TransformTrack[
 }
 export function trackWeight(track: TransformTrack, time: number): number {
   if (time < track.start) return 0;
-  const incoming = track.fadeIn === 0 ? 1 : Math.min(1, (time - track.start) / track.fadeIn);
-  const outgoing = track.end === undefined || time < track.end ? 1 : track.fadeOut === 0 ? 0 : Math.max(0, 1 - (time - track.end) / track.fadeOut);
+  // Endpoint comparisons make completion exact even when subtraction/division rounds below 1.
+  const incoming = time >= track.start + track.fadeIn ? 1 : (time - track.start) / track.fadeIn;
+  const outgoing = track.end === undefined || time < track.end ? 1
+    : time >= track.end + track.fadeOut ? 0 : 1 - (time - track.end) / track.fadeOut;
   return track.alpha * incoming * outgoing;
 }
 /** Validated project and normalized composition clock in; fresh pre-IK locals out. */

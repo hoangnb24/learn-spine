@@ -60,6 +60,10 @@ Weight is zero before start. Otherwise it is `alpha * in(C) * out(C)`:
 - With no end, or before end, `out = 1`.
 - At/after end, `out = fadeOut === 0 ? 0 : max(0,1-(C-end)/fadeOut)`.
 
+At computed fade endpoints the weights are set to exactly 1 (incoming) or 0
+(outgoing), so floating-point ratio rounding cannot leak lower values when the
+frozen outgoing is removed.
+
 No end means hold for the remaining composition clock; a non-loop source holds
 its last key, a loop source wraps. Zero speed freezes source time while fades
 continue with C. Pause is the caller keeping C unchanged. Every seek recomputes

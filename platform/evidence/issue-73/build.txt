@@ -10,14 +10,14 @@ computing gzip size...
 dist/index.html                         0.53 kB │ gzip:   0.32 kB
 dist/player.html                        0.53 kB │ gzip:   0.32 kB
 dist/assets/storage-BUjCEbAh.css        9.26 kB │ gzip:   2.76 kB
-dist/assets/webworkerAll-ByhlgC58.js    0.05 kB │ gzip:   0.06 kB
-dist/assets/player-DX4xUacq.js          2.82 kB │ gzip:   1.34 kB
-dist/assets/browserAll-hXmCK7V_.js     42.12 kB │ gzip:  10.97 kB
-dist/assets/editor-DXNlbvIK.js         81.23 kB │ gzip:  26.83 kB
-dist/assets/init-CQWHQ3p1.js           83.46 kB │ gzip:  24.47 kB
-dist/assets/storage-DJBDzSJl.js       740.88 kB │ gzip: 221.42 kB
+dist/assets/webworkerAll-neAtI5s8.js    0.05 kB │ gzip:   0.06 kB
+dist/assets/player-DTXzyxXC.js          2.82 kB │ gzip:   1.34 kB
+dist/assets/browserAll-aZSUxkaQ.js     42.12 kB │ gzip:  10.97 kB
+dist/assets/editor-T6T5PMj3.js         81.23 kB │ gzip:  26.83 kB
+dist/assets/init-D1BF2dwI.js           83.46 kB │ gzip:  24.47 kB
+dist/assets/storage-CmaGSL3R.js       740.86 kB │ gzip: 221.42 kB
 
-✓ built in 105ms
+✓ built in 113ms
 [plugin builtin:vite-reporter] 
 (!) Some chunks are larger than 500 kB after minification. Consider:
 - Using dynamic import() to code-split the application

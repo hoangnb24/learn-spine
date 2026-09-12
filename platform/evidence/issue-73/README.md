@@ -68,7 +68,11 @@ a function` for the existing null-prototype JSON copies. Mask uniqueness now use
 a semantic bone/property Set after strict schema checking, preserving rejection
 without changing the parser or relaxing uniqueness. The committed roundtrip and
 Session tests cover those failure paths. One intermediate typecheck also caught
-an unused test import; it was removed. All final commands above passed.
+an unused test import; it was removed. A final endpoint review caught that
+`(1.4-1)/.4` rounds slightly below 1: removing outgoing at 1.4 could then leak a
+large lower value. Explicit endpoint weight completion fixes this; a 1e16 lower
+rotation regression now asserts the intended .24 result. All final commands above
+passed.
 
 Transform-only capability rejects nonempty source deforms even when weight is zero
 or mask empty. No nested compositions, reverse playback, event dispatch/audio,
