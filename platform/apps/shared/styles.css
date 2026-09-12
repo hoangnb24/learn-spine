@@ -26,3 +26,5 @@ button,input,select{font:inherit;min-width:0}button,.file-button{background:#283
 }
 .draft-conflict { padding: 10px; background: #58312f; color: #ffe0d4; font-size: 12px; line-height: 1.5; }
 .draft-conflict button { margin-top: 8px; }
+.composition-editor input[type=checkbox] { width: auto; flex: 0 0 auto; justify-self: start; }
+.composition-editor .fields label:has(> input[type=checkbox]) { display: flex; align-items: center; gap: 8px; }
