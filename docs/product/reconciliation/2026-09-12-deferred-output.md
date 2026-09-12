@@ -1,6 +1,6 @@
 # Đối chiếu — hoãn quyết định đầu ra
 
-Trạng thái hiện hành sau PR #78: #24/#73 Done/completed; #74 In Progress/Ready, #75 Todo/Blocked; #22 và audio/Polish/các discovery khác vẫn Deferred. Xem mốc nghiệm thu và ownership cuối tài liệu.
+Trạng thái hiện hành sau PR #80: #24/#73/#74 Done/completed; #75 In Progress/Ready; #22 và audio/Polish/các discovery khác vẫn Deferred. Xem mốc nghiệm thu và ownership cuối tài liệu.
 
 ## Lịch sử quyết định đầu ra và mở discovery
 
@@ -37,3 +37,11 @@ Trạng thái #24 In Progress ở các mốc phía trên là lịch sử, thay b
 #73 CLOSED/completed · Done/Ready. #74 In Progress/Ready: sole implementer `/root/implement_composition_tools`, reviewer `/root/review_composition_tools`; đã cho phép triển khai đầy đủ scope native tools/observation/bounds sau khi core và compatibility fix được nhận. #75 Todo/Blocked chờ #74 (#73 đã đạt), chưa giao owner. Native adapter/observation/UI composition chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred.
 
 Các snapshot trước PR #78 phía trên giữ lịch sử. Bridge capability filter và hai observation guards do #73 thêm vẫn là ranh giới tương thích: #74 chỉ thay khi có target handling và capability thực tế, không fallback bỏ qua target. Không đổi acceptance gate hoặc nhận native/UI từ kết quả core.
+
+## Nghiệm thu native/observation và mở editor — 12/09/2026
+
+#74 đã CLOSED/completed: [PR #80](https://github.com/hoangnb24/learn-spine/pull/80) được nghiệm thu Đạt tại `bbe2797e2e375b94c240c5480426ec8995732ebe`, CI 34687783505/34687785266/34687785276 SUCCESS, merge `83f4dd1bd2334075eeb515be068167984596aca0`. Bằng chứng: 49 native calls + 5 probes, 18 PNG, actual playback và 22 tests độc lập. Native tools/observation/render đã được nhận; editor UI/native→UI roundtrip còn thuộc #75. Native ZIP download chưa thử; native artifact read và kiểm ZIP qua bridge là hai bằng chứng riêng, không suy thành native ZIP download pass.
+
+#73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới.
+
+Các trạng thái trước PR #80 phía trên là lịch sử. Đợt này chỉ cập nhật planning theo nghiệm thu; không đổi code, contracts hoặc evidence.
