@@ -2,8 +2,10 @@
 
 Runtime freeze: `3cbd7443a9b0869959b35fe29eb2ca0f0c752276` on main
 `caff057a99d83e148a7860ae10996e189debdaa0`. [PR #82](https://github.com/hoangnb24/learn-spine/pull/82).
-All later evidence commits preserve these runtime bytes. Independent acceptance
-remains with the reviewer/orchestrator; exploratory calls are separated below.
+The only later application change is the two scoped checkbox CSS rules in
+`2384f53`; JavaScript/TypeScript behavior is unchanged. The ZIP test synchronization
+fix is `6149f2a`. Independent acceptance remains with the reviewer/orchestrator;
+exploratory calls are separated below.
 No new output requirement, performance/gate pass, event/audio support, generic
 stop controller or production-readiness claim.
 
@@ -134,3 +136,27 @@ bytes under `.png` filenames. They were renamed to `.jpg` without re-encoding;
 links and hashes now match. Native observation 06 is the actual PNG image block.
 The verifier also avoids Python 3.10-only `zip(strict=...)` so it runs on the host's
 Python 3.9. These were evidence-packaging corrections, not runtime changes.
+
+## Final readability and CI synchronization fix
+
+[Final expanded-mask screenshot](checkbox-final-2384f53.jpg) was captured in the
+actual in-app browser at 1280×720 on `2384f53`. All five property labels now fit on
+single lines in the 300px inspector. The only application delta from the native
+freeze is two scoped CSS rules setting checkbox intrinsic width and aligned label
+layout; `git diff 3cbd7443 HEAD -- platform/apps platform/src` shows no JS/TS change.
+
+[PR CI run 34689004298 failed](https://github.com/hoangnb24/learn-spine/actions/runs/34689004298)
+on evidence head `ed617bf`, including its retry; the successful push run does not
+erase that failure. [Saved failure log](ci-failure-34689004298.txt). The test clicked
+a same-named composition button from the old Session while ZIP decoding was still
+pending. The new Session then correctly reset the editor to Setup, leaving time 0.
+The test now waits for the Session lifetime to change and Setup to become selected
+before interacting with the reopened project. No arbitrary sleep or app behavior
+change was used. The affected workflow passed three consecutive local replays on
+`6149f2a`; typecheck passed. Final-head CI is linked from PR #82.
+
+Artifact versions: `browser/authoring.*`, `walk-wave.png` and `reopened.png` were
+refreshed during those three replays on `6149f2a`; transition/error media retain the
+original native-freeze runtime. Native final/probes are on `3cbd7443`; the checkbox
+screenshot is on `2384f53`. Their runtime behavior is identical; the final CSS-only
+readability change is explicit rather than relabeling historical captures.

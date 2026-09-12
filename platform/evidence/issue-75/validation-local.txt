@@ -81,3 +81,9 @@ Running 24 tests using 7 workers
 
   24 passed (11.3s)
 
+
+Post-review narrow validation, 6149f2a (JS/TS application unchanged; CSS-only2384f53):
+npm run typecheck: PASS.
+npx playwright test tests/browser/composition-editor.spec.ts --grep 'UI create/edit layers' --workers=1 --repeat-each=3: 3 passed, 14.2s.
+Fixed test waits for new Session lifetime and Setup reset before selecting reopened composition.
+Earlier failing PR CI34689004298 remains recorded in ci-failure-34689004298.txt.

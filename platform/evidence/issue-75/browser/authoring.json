@@ -1024,13 +1024,13 @@
     ],
     "compositions": [
       {
-        "id": "a29c26b3-2b91-4e1b-ba0d-76f9b23054dd",
+        "id": "655e455a-fd40-44b0-8439-0a7428488271",
         "name": "Đi và vẫy",
         "duration": 2,
         "loop": true,
         "tracks": [
           {
-            "id": "95663571-2366-45b4-a450-f6e791c34a33",
+            "id": "453af13c-1b31-425c-8d5f-2ee6a9f0162f",
             "order": 0,
             "start": 0,
             "kind": "track",
@@ -1056,7 +1056,7 @@
             "fadeOut": 0
           },
           {
-            "id": "47ddae2a-b88b-485b-b58e-fd5fcb55bce8",
+            "id": "fce62196-fa13-46fb-a95d-a715f4848bc4",
             "order": 3,
             "start": 0,
             "kind": "track",
@@ -1090,7 +1090,7 @@
       "revision": 12,
       "target": {
         "kind": "composition",
-        "compositionId": "a29c26b3-2b91-4e1b-ba0d-76f9b23054dd"
+        "compositionId": "655e455a-fd40-44b0-8439-0a7428488271"
       },
       "sampledTime": 0.5,
       "bones": {

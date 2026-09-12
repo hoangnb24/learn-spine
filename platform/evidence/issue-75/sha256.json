@@ -1,13 +1,15 @@
 {
-  "browser/authored.zip": "4b9a266450fc79578b7d7d4a4ffa2d8b1e31524f1e45732812b32fb48f37d849",
-  "browser/authoring.json": "51a58e0bfe56d245e2d010f6d8c49f951f7603fd806f89d27403942aa14da253",
-  "browser/authoring.webm": "324856fc6dcf8dcd58436ac9940017bcec3fd750cdf7a8ad629a8ab02cbd2989",
+  "browser/authored.zip": "0e3e728a4b0e50fecaba1db97434e9c7b35b4d78a33bd0f86c87df71648ac0d2",
+  "browser/authoring.json": "2e66f8d0902051ce9bd31efc4c41b4b58210e1bcdd032083fe8d920032dc0d84",
+  "browser/authoring.webm": "b6c59e555a55647cbbe4347f56be2dd95b0e7989f007d7d08a51a4b7eeaa19dc",
   "browser/coverage-error.png": "f42f5fedd545b80ff7c0e2fb6fd1d3bdf5b00aa336968e1fcb3d58aeb9b6892c",
   "browser/deform-error.png": "e4f61c69392ae3378852583aa7a1aecaef57d7a761d896976c32d917b16d84aa",
-  "browser/reopened.png": "a2ea9f7def934fc304ac060e46b9436177fd0351df54ce6aa1db269f6c387b32",
+  "browser/reopened.png": "ac43fcc9d5b6f0bf978fafc8cf8a72d58d30a1bb8aeaae12870343f14c96604e",
   "browser/transition.json": "69a5b2d67c7e0f671150ba5ddb687d2652a93cf0637c0c42976e8ae738fad844",
   "browser/transition.webm": "64c00ad24b0bb3bd9ea607e2c3fabbee0236a1d3e4c186473457bb29c664cc7d",
-  "browser/walk-wave.png": "1cfbc6566f8a0b1238c86ab90e2cd24e2bd8123f156334be7b92a9ff9c50ba91",
+  "browser/walk-wave.png": "7e41a1b68e016f4d696c870e047e9370a534752a3eeb53a18d33fa68d045419a",
+  "checkbox-final-2384f53.jpg": "7ab639c64a2b9ebf13c4540186b1faddbb025274b4b14a8446f6311f159773e4",
+  "ci-failure-34689004298.txt": "a210a87a5fdfdcbda17aab05ecb2e9de734aaaa4bbe1f964b7392898f4b93754",
   "native-exploratory/raw-calls.json": "62be1275d3ea2a1875aa1ad4893449eee9d6db94f69a87970ae17a7a7ef21eda",
   "native-exploratory/ui-after-edit.jpg": "d09911aa5ddecf8ecfc99db8cbc2eef5877c5a133bb8d6dcf9e0e6a70095e026",
   "native-final-3cbd7443/01-ui-edit.jpg": "bd1fc58a8a9e864a501bb1ddc37b811729acda8f5c1d8f05a5bbcbd5466c29b2",
@@ -19,5 +21,6 @@
   "native-final-3cbd7443/07-review-remove-selected.jpg": "2423b5718a0273e143d0cfce3b64f3e02533796315c039575b87499e8bfca7c5",
   "native-final-3cbd7443/08-review-short-duration.jpg": "0c675d376ff5332685688cea62527cf4678f5ad75369de12e57b7e9649678b6d",
   "native-final-3cbd7443/raw-calls.json": "ef19ca0ef1c4c872f18c807c8f47832d144ca814b7590b3571bbebe8a8f18729",
-  "native-final-3cbd7443/reviewer-probes.json": "8d4d0b63b9206a1e67ecb528039dc25606205f79e7a27044a7761b106cc7bce2"
+  "native-final-3cbd7443/reviewer-probes.json": "8d4d0b63b9206a1e67ecb528039dc25606205f79e7a27044a7761b106cc7bce2",
+  "validation-local.txt": "581d04c65f6b23f91c6b87de5c6af933e41af864fb19d5dacfc23dc41e742728"
 }
