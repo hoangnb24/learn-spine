@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
+      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chủ dự án đã mở #24 In Progress/Ready cho mixing/chuyển tiếp/events metadata, đầu vào #8/#16/#19 đã merged thay dependency #22; audio riêng #70 Todo/Deferred. Sau nghiệm thu discovery, tiếp tục implementation tạo/xem/sửa trong phạm vi được cho phép; không tự mở các nhánh Deferred khác. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
     },
     {
       "key": "T22",

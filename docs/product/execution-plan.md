@@ -75,7 +75,6 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#29](https://github.com/hoangnb24/learn-spine/issues/29) Discovery — từ ảnh phẳng đến art tách lớp và rig đề xuất | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Chuẩn hóa phép đo/profile/baseline | Polish | Chưa lên lịch | #14 (đầu vào) | Deferred |
 | [#52](https://github.com/hoangnb24/learn-spine/issues/52) Tối ưu cadence/retest <=16.7ms | Polish | Chưa lên lịch | #51 | Deferred |
-
 | [#70](https://github.com/hoangnb24/learn-spine/issues/70) Discovery — audio clock, stop/restart và kiểm nghe | Later discovery | Chưa lên lịch | #24 | Deferred |
 
 Project Stage chưa có lựa chọn Polish; hai issue giữ Stage trống, Phase Polish ghi trong body/backlog. Snapshot 12/09: #51 và #52 Readiness Deferred. Cả hai Priority P2, Status Todo.
