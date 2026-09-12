@@ -741,8 +741,9 @@
         "T20"
       ],
       "ownership": "docs/product/decisions/mvp.md; docs/product/README.md; docs/product/scope.md",
-      "outcome": "Chuẩn bị đề xuất quyết định stack/phạm vi dựa trên ba gate, cùng tradeoffs và thứ tự đầu tư; quyết định MVP cuối thuộc chủ dự án.",
+      "outcome": "Khi có nhu cầu sử dụng thực tế, xem lại phạm vi/đầu ra và quyết định sản phẩm từ bằng chứng; hiện hoãn theo chủ dự án.",
       "work": [
+        "Deferred theo quyết định 12/09: không phát triển logic đầu ra hoặc xin chốt MVP lúc này; các bước sau chỉ áp dụng khi mở lại.",
         "Tổng hợp report của T13/T19/T20; phân biệt measured, chưa biết và giả định.",
         "Chốt renderer/core/storage/agent adapter; nếu fail, lập corrective issue cụ thể và cập nhật blockers thay vì tuyên bố đạt.",
         "Đánh giá giá trị workflow, đầu ra đích và chi phí; chỉ so Spine khi có baseline tương đương."
@@ -763,13 +764,13 @@
       "exclude": "Không tự deploy production, hứa lịch full parity hoặc triển khai các tính năng tương lai trong issue quyết định.",
       "wave": 13,
       "priority": "P0",
-      "readiness": "Ready",
+      "readiness": "Deferred",
       "number": 22,
       "id": 5401668636,
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "Gate 3 #21 đã nghiệm thu Đạt/Project Done, PR #66 squash-merged main `fe112ca002513e3767715e9d32ecbfb58dde833a`, accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, CI run 34585694942 SUCCESS. #21 đã Closed (completed)/Done; trạng thái đóng được kiểm tra lại trên GitHub. #22 Todo/Ready để chuẩn bị đề xuất quyết định, chủ dự án chưa chốt MVP. #23–#29 và #51/#52 vẫn Deferred; không mở production.\n## Kết quả ba gate và giới hạn quyết định\n\n- Gate 1: chức năng đã được nhận theo quyết định 11/09/2026; performance vẫn FAIL 17.8/17.5 ms so với 16.7 ms, tách sang Polish #51 → #52 Deferred. Không đổi kết quả đo thành pass.\n- Gate 2: nghiệm thu exact fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f, merge 538f939d9c76e29a55bc7680f8e36943095e4326. Authored fixtures/seek/ZIP/playback/eyeROI/anchors đã đạt; physics NOT TESTED, browser bridge không native pass. Region-corners là phép đo supplemental public render.corners, không phải default diagnostics completeness.\n- Gate 3: robot 2/3, wave 3/3, scarf 2/3 = 7/9; đủ ngưỡng mỗi brief, không thay lượt. Robot 1 fail browser/session environment trước native invocation; scarf 1 fail missing public observation/outside-native evidence, không chứng minh project fail hoặc rescue. Scarf 1 complete budget/rescue UNKNOWN; giữ 57 native calls + 1 discovery đã quan sát và 193.3775 s, không lấp bằng self-report.\n\nSource/harness/protocol frozen tại 57eed3122782fe1c8b2d5eb536bc1e27a4ebc360 trên production 538f939; evidence/read-only QA thêm sau lock không sửa solution. Tám ZIP đã emit reopen Editor/Player, có native logs/revisions/transactions và media. Giữ wave frozen property-order false cùng structural supplement được reviewer nhận, crop viewport wave 2/scarf 2 cùng later full preview/Player và discrepancy manual 59/audited 57 scarf 3. Sampled visual/playback records không bị diễn giải thành reviewer trực tiếp xem mọi WebM. Không native cancellation, performance, statistical reliability hoặc production-readiness claim.\n\n## Đầu vào #22 và quyền quyết định\n\n#22 Ready chỉ chuẩn bị ĐỀ XUẤT stack/phạm vi/tradeoffs/thứ tự đầu tư, chưa In Progress/Done hoặc MVP approved. Tổng hợp exact reports/aggregate, chọn phương án đề xuất và điều kiện xem lại; chủ dự án quyết định sản phẩm. Cost/token totals, deeper provider version và comparable Spine baseline unavailable; không bịa giá trị hay speedup. Gate 3 feasibility threshold không tự chốt MVP feasible/production-ready, nhất là performance Deferred và coverage/physics/native-cancellation limits còn nguyên. Không tự tạo corrective implementation hoặc mở discovery/production từ kết quả này; chỉ nêu finding có bằng chứng trong đề xuất.\n"
+      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
     },
     {
       "key": "T22",
@@ -956,6 +957,7 @@
       "ownership": "docs/product/research/exports.md; prototypes/exports/",
       "outcome": "Chọn đầu ra tiếp theo theo nơi sử dụng thực tế, với kiểm tra chất lượng và chi phí.",
       "work": [
+        "Chỉ mở lại khi có nơi sử dụng và nhu cầu đầu ra thực tế; không triển khai logic đầu ra lúc này (quyết định 12/09/2026).",
         "Đánh giá spritesheet/atlas (bounds, padding, alpha), video (FPS, codec, alpha/audio) và player tích hợp engine.",
         "Tạo một export nhỏ từ native fixture; dùng frame/time từ core, không record màn hình làm chuẩn.",
         "Ghi nhu cầu đích chưa xác nhận, so tradeoffs và đề xuất ưu tiên; không mặc định mọi engine."
@@ -977,7 +979,8 @@
       "number": 28,
       "id": 5401670145,
       "node_id": "I_kwDOUTvul88AAAABQfbyAQ",
-      "html_url": "https://github.com/hoangnb24/learn-spine/issues/28"
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/28",
+      "status": "Todo"
     },
     {
       "key": "T28",
@@ -1024,7 +1027,7 @@
       "ownership": "Harness/profile/baseline riêng",
       "outcome": "Chuẩn hóa phép đo, tách instrumentation và ghi baseline",
       "work": [
-        "Không triển khai ngay; lịch Polish do Orchestrator mở."
+        "Bước độc lập tiếp theo: chuẩn hóa phép đo, profile và ghi baseline theo acceptance; chưa triển khai trong đợt cập nhật 12/09/2026."
       ],
       "acceptance": [
         "Chốt và ghi môi trường retest: máy/OS/browser/GPU, dev hay production, kích thước 1280×720, warm-up, 30 giây, fixture/revision, lệnh và định nghĩa metric; phân biệt draw-call cadence, CPU submission và presentation.",
@@ -1038,7 +1041,7 @@
       "exclude": "Không chặn mesh/IK/giai đoạn chức năng; không dependency #22; không nhận performance pass hồi tố.",
       "wave": null,
       "priority": "P2",
-      "readiness": "Deferred",
+      "readiness": "Ready",
       "status": "Todo",
       "number": 51,
       "id": 5420821518,
@@ -1056,7 +1059,7 @@
       "ownership": "Module bottleneck theo profile #51; phối hợp entry chung",
       "outcome": "Tối ưu cadence và retest p95 <=16.7ms trên môi trường #51",
       "work": [
-        "Không triển khai ngay; lịch Polish do Orchestrator mở."
+        "Giữ Deferred đến khi baseline #51 được nghiệm thu; chưa triển khai tối ưu."
       ],
       "acceptance": [
         "Nêu bottleneck dựa trên #51; thay đổi có phạm vi và so sánh before/after trên cùng fixture, cấu hình và môi trường đã chốt.",
@@ -1084,6 +1087,6 @@
     "node_id": "I_kwDOUTvul88AAAABQfbXWQ",
     "html_url": "https://github.com/hoangnb24/learn-spine/issues/1"
   },
-  "updated": "2026-09-11",
-  "reconciliation": "docs/product/reconciliation/2026-09-11-gate1.md"
+  "updated": "2026-09-12",
+  "reconciliation": "docs/product/reconciliation/2026-09-12-deferred-output.md"
 }

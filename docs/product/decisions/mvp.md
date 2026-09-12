@@ -1,14 +1,8 @@
-# ADR-MVP — đề xuất phạm vi sau ba gate
+# ADR-MVP — hoãn quyết định đầu ra
 
-Ngày 11/09/2026 · **PROPOSED / AWAITING OWNER DECISION** · [Issue #22](https://github.com/hoangnb24/learn-spine/issues/22).
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
 
-## Quyết định được đề nghị
-
-Đề nghị giữ stack hiện có và chọn MVP hẹp phục vụ **PNG đã tách bộ phận → agent dựng rig/tạo animation → quan sát/sửa cục bộ → ZIP chỉnh sửa tiếp + web Player**. Đầu tiên dùng trong workflow nội bộ có người xem và quyết định chất lượng; chưa phát hành production. Giữ performance ở Polish theo quyết định 11/09, không mở đồng loạt discovery.
-
-Đây là phương án để chủ dự án chốt, **chưa phải MVP approved hoặc tuyên bố MVP feasible**. Gate 1 được nhận chức năng theo ngoại lệ chủ dự án, còn phép đo hiệu năng FAIL; Gate 2 và Gate 3 được nhận trong phạm vi riêng. Không đủ căn cứ nói cả ba gate đạt trọn ngưỡng ban đầu. PR này chỉ chuẩn bị quyết định; #22 chưa được đóng và các việc phụ thuộc quyết định vẫn chờ.
-
-Đánh đổi chính: giữ PNG tách sẵn và web Player giúp dùng lại đường đi đã kiểm chứng nhưng người dùng vẫn phải chuẩn bị art, chưa có PSD/video/game-engine export. Tiếp tục chức năng trong khi Polish Deferred giúp kiểm tra giá trị workflow sớm, nhưng không có cam kết 60 fps hoặc trải nghiệm production. Nếu chủ dự án cần 60 fps như điều kiện trước khi tiếp tục, phương án thay thế là chỉ ưu tiên #51→#52 rồi quyết định lại phạm vi; không đổi engine chỉ từ số cadence hiện có.
+[Đối chiếu 12/09](../reconciliation/2026-09-12-deferred-output.md). Giả định PNG→ZIP/web Player trong đề xuất 11/09 đã **superseded**; các phần kỹ thuật dưới đây giữ căn cứ, không phải phê duyệt phạm vi.
 
 ## Bằng chứng làm căn cứ
 
@@ -24,7 +18,7 @@ Gate 3 accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, merge `fe112ca0
 
 **Chưa biết:** tổng tokens/chi phí, provider model version sâu hơn nhãn `gpt-6-astra`/medium, baseline Spine tương đương, tỷ lệ thành công ngoài ba brief, nhiều loại art/máy/browser, mức can thiệp ở workflow thực tế, native cancellation và độ bao phủ production. Vì vậy chưa tính ROI, speedup hoặc chi phí một animation.
 
-**Giả định để chủ dự án chốt:** người dùng đầu tiên chấp nhận tự tách PNG và dùng trên web; cần project chỉnh sửa tiếp hơn video; có thể xem và chọn kết quả trước sử dụng. Gate chứng minh thao tác có cấu trúc và sửa cục bộ, chưa chứng minh nhu cầu thị trường hoặc tiết kiệm thời gian so quy trình hiện tại. Nếu các giả định này sai, ưu tiên discovery cần đổi trước khi triển khai mở rộng.
+**Giả định lịch sử 11/09 — superseded về đầu ra:** người dùng đầu tiên chấp nhận tự tách PNG và dùng trên web; cần project chỉnh sửa tiếp hơn video; có thể xem và chọn kết quả trước sử dụng. Gate chứng minh thao tác có cấu trúc và sửa cục bộ, chưa chứng minh nhu cầu thị trường hoặc tiết kiệm thời gian so quy trình hiện tại. Nếu các giả định này sai, ưu tiên discovery cần đổi trước khi triển khai mở rộng.
 
 ## Kiến trúc khuyến nghị từ hợp đồng đang chạy
 
@@ -33,7 +27,7 @@ Gate 3 accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, merge `fe112ca0
 | Giao diện | TypeScript + React + Vite, Editor/Player entry riêng trong `platform/`; phiên bản theo lockfile | [Editor runtime](../../../platform/apps/editor/runtime.ts) dùng một Session, React giữ state giao diện; [Player](../../../platform/apps/player/) độc lập. Xem lại nếu tác vụ nền/multi-user thành yêu cầu; chưa thêm server |
 | Lõi | Model versioned + Session commands duy nhất sở hữu project/history; evaluator thuần theo thời gian | [Commands](../../../platform/src/commands/README.md), [engine](../../../platform/src/engine/README.md). Giữ revision/requestId, atomic batch, undo/checkpoint và lỗi rõ. Format 0 giữ region-only; format 1 khai báo `region-v0`, `mesh-v1`/`ik-v1` khi cần; [migration](../contracts/mesh-v1.md) 0→1 tường minh, không hạ 1→0. Xem lại khi semantics mới đòi migration |
 | Renderer | PixiJS 8, nhận Pose v1 từ evaluator; regions/meshes theo slot order | [Renderer](../../../platform/src/render/README.md) không tự giải IK. Geometry world-space dùng chung Editor/Player/observation giúp tránh hai engine khác nhau. #51 cần tách bottleneck trước khi quyết định đổi renderer; không suy CPU submission nhanh là frame pass |
-| Lưu trữ | JSON + PNG trong ZIP portable; IndexedDB autosave tại browser, ZIP là đầu ra bàn giao | [Storage](../../../platform/src/storage/README.md) validate schema/hash/PNG/limits, autosave atomic; không có cloud sync. ZIP không lưu undo history. Xem lại nếu cần cộng tác, lưu nhiều thiết bị hoặc vượt limits; không coi giới hạn dung lượng validator là hiệu năng đã đạt |
+| Lưu trữ | JSON + PNG trong ZIP portable; IndexedDB autosave tại browser, ZIP là khả năng lưu/chuyển project hiện có, chưa phải đầu ra đã chốt | [Storage](../../../platform/src/storage/README.md) validate schema/hash/PNG/limits, autosave atomic; không có cloud sync. ZIP không lưu undo history. Xem lại nếu cần cộng tác, lưu nhiều thiết bị hoặc vượt limits; không coi giới hạn dung lượng validator là hiệu năng đã đạt |
 | Agent/quan sát | WebMCP adapter mỏng dùng cùng Session/Storage/ObservationService; browser/agent đã kiểm chứng | [Adapter 28 tools](../../../platform/src/adapters/webmcp/README.md) dùng schemas, paging/revision; [observation](../../../platform/src/observation/README.md) snapshot gắn revision. Không tạo project mutable riêng hoặc automation DOM thay native acceptance. Khi native unavailable hiển thị rõ; chỉ cân nhắc adapter khác sau thử môi trường đích |
 
 Không lấy Spine runtime/dependencies ở root sang sản phẩm. Kiến trúc riêng đã đi qua các workflow trên; thay bằng Spine chưa có baseline và nghiên cứu giấy phép tương ứng để biện minh. Điều này không khẳng định engine riêng có full Spine parity.
@@ -44,17 +38,17 @@ Không lấy Spine runtime/dependencies ở root sang sản phẩm. Kiến trúc
 
 Một bàn giao nội bộ được đề nghị chỉ nhận khi: người xem đồng ý chuyển động; agent có public create→observe→edit evidence gắn revision; kiểm pose giữa key/cực trị và playback; sửa đúng vùng cho phép; lỗi batch không sửa dở và undo/checkpoint giữ phần đã đạt; ZIP chứa đủ PNG mở lại Editor và Player độc lập. Với mẫu gate, giữ nguyên ngưỡng/rubric lịch sử; với brief mới phải khóa yêu cầu trước run, không suy pass từ tool success hay diagnostics `passed` đơn lẻ. Region rotation cần public corner check bổ sung cho tới khi coverage được xử lý. Không áp số liệu mẫu làm bảo đảm cho mọi project.
 
-Đầu ra cam kết **nếu phương án được duyệt**: project ZIP chỉnh sửa tiếp và phát bằng web Player; PNG/preview/sequence phục vụ quan sát. Video đã ghi trong gate là evidence, không phải exporter video của sản phẩm. Hiệu năng vẫn Deferred #51→#52, chưa cam kết 60 fps; không nâng ngưỡng 16.7 ms, không hạ gate hồi tố. Native cancellation chưa được nhận; kiểm soát I/O/job ở module không đồng nghĩa dừng toàn bộ native agent đã được chứng minh.
+Chưa cam kết đầu ra sản phẩm: lựa chọn và logic mở rộng tương ứng đã hoãn. Video trong gate là evidence, không phải exporter video. #51 Ready chỉ đo/profile baseline; #52 Deferred chờ baseline, chưa cam kết 60 fps; giữ ngưỡng 16.7 ms và kết quả gate. Native cancellation chưa được nhận.
 
 ## Thứ tự đầu tư được đề xuất
 
-Tất cả hàng dưới **giữ Deferred hiện tại**, không đổi priority field, dependency, mở việc hoặc cấp quyền implementation trong ADR. Thứ tự là đề nghị đầu tư để chủ dự án quyết định, không phải lịch. #51→#52 vẫn nhánh Polish riêng, không thêm cạnh phụ thuộc #22.
+Snapshot 12/09: #51 Todo/Ready là bước độc lập tiếp theo, chưa triển khai. #52 và #23–#29 giữ Deferred. Các hướng discovery dưới đây chỉ có điều kiện, không phải lịch hay phê duyệt implementation; Polish không phụ thuộc #22.
 
 | Thứ tự đề nghị | Issue/trạng thái giữ nguyên | Outcome và lý do/điều kiện xem lại |
 | --- | --- | --- |
-| 1, trước mở rộng tính năng | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Deferred → [#52](https://github.com/hoangnb24/learn-spine/issues/52) Deferred | Chuẩn hóa baseline/profile rồi tối ưu/retest p95 ≤16.7 ms đúng phạm vi issue; phân tách instrumentation/scheduler/render trước đổi stack. Không chặn tiếp tục chức năng đã được chủ dự án cho phép; mức ưu tiên đầu tư cần chủ dự án chốt |
+| 1, trước mở rộng tính năng | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Todo/Ready → [#52](https://github.com/hoangnb24/learn-spine/issues/52) Deferred | Chuẩn hóa baseline/profile rồi tối ưu/retest p95 ≤16.7 ms đúng phạm vi issue; phân tách instrumentation/scheduler/render trước đổi stack. Không chặn tiếp tục chức năng đã được chủ dự án cho phép; bước tiếp theo chỉ đo/profile baseline, chưa tối ưu |
 | 2, discovery đầu tiên khi cần bớt chuẩn bị art | [#23](https://github.com/hoangnb24/learn-spine/issues/23) Deferred | PSD mapping/update giữ rig, stable IDs và policy trim/rename/delete. Giảm thao tác nhập art nhưng thêm parser/migration; chỉ mở khi người dùng xác nhận chuẩn bị art là nút thắt, chưa hứa importer production |
-| 3, chỉ khi web Player chưa đủ đầu ra | [#28](https://github.com/hoangnb24/learn-spine/issues/28) Deferred | Chọn một đầu ra đích và prototype timing/crop/toolchain. Ưu tiên sau #23 theo giả định web hiện tại; đưa lên trước #23 nếu người dùng cần video/engine ngay. Không làm tất cả exporter |
+| Khi có nhu cầu đầu ra thực tế | [#28](https://github.com/hoangnb24/learn-spine/issues/28) Deferred | Chọn một đầu ra đích và prototype timing/crop/toolchain. Chỉ mở lại khi có nơi sử dụng và nhu cầu đầu ra cụ thể; chưa giả định web là đích. Không làm tất cả exporter |
 | Sau nhu cầu motion cụ thể | [#24](https://github.com/hoangnb24/learn-spine/issues/24) Deferred | Semantics mixing/transitions/events/audio, test vectors và kiểm nghe; chỉ khi một clip hiện tại không đáp ứng. Có ảnh hưởng evaluator/time semantics nên chưa mở |
 | Sau nhu cầu biến thể art | [#25](https://github.com/hoangnb24/learn-spine/issues/25) Deferred | Skins/linked mesh/clipping và ownership deform; chờ use case dùng chung rig, tránh thêm migration chỉ để đạt parity |
 | Sau giới hạn rig cụ thể | [#26](https://github.com/hoangnb24/learn-spine/issues/26) Deferred | Path/transform constraints và thứ tự solve; chờ rig không thể đáp ứng bằng FK/IK hiện có |
@@ -65,9 +59,9 @@ Hai corrective có căn cứ được đề nghị để chủ dự án cân nh�
 
 ## Ghi nhận quyết định và bước tiếp theo
 
-**Quyết định chủ dự án: CHƯA CÓ.** Đề nghị chốt một phương án ở đầu ADR: MVP nội bộ PNG→ZIP/web Player, giữ stack, chấp nhận performance tiếp tục Deferred; ưu tiên Polish rồi discovery theo nhu cầu xác nhận. Duyệt phương án không tự duyệt deploy, chi phí/dịch vụ, full parity hay toàn bộ discovery implementation.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
 
-Sau quyết định, Orchestrator giao updater ghi nguyên quyết định/ngày/phạm vi, đồng bộ #22/README/scope và tracker; chỉ đổi trạng thái các việc được cho phép. Nếu không chấp nhận ngoại lệ hiệu năng, giữ quyết định MVP chờ #51→#52 và xem lại số đo. Review tài liệu Đạt chỉ xác nhận đề xuất đúng bằng chứng, không thay quyết định sản phẩm và không tự hoàn tất #22.
+Merge tài liệu chỉ ghi nhận quyết định hoãn, không hoàn tất #22 hoặc duyệt MVP. Orchestrator giao triển khai và nghiệm thu #51 riêng.
 
 ## Kiểm tra bản đề xuất — 11/09/2026
 

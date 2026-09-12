@@ -4,7 +4,7 @@ Ngày 11/09/2026 · Snapshot code main `564d9eaea2ad6a98fb74672ca9c18931e5b720ac
 
 Sản phẩm trong `platform/` đã có workflow PNG tách bộ phận → agent dựng/sửa animation qua WebMCP → quan sát → xuất ZIP → mở lại Editor/Player độc lập, được kiểm chứng trên bộ mẫu robot/khăn và môi trường native ghi trong reports. Lõi sản phẩm độc lập với các bài học và Spine runtime ở root.
 
-**MVP chưa được chủ dự án chốt.** [Đề xuất #22 — PROPOSED / AWAITING OWNER DECISION](decisions/mvp.md) khuyến nghị giữ stack và phạm vi nội bộ PNG→ZIP/web Player; chưa phải phê duyệt production hoặc mở discovery. #23–#29 và #51/#52 giữ Deferred. [Đối chiếu ba gate](reconciliation/2026-09-11-three-gates.md) lưu lịch sử nghiệm thu; trạng thái hiện hành theo [GitHub Project](https://github.com/users/hoangnb24/projects/3).
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. [Quyết định #22](decisions/mvp.md), [đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Khả năng đã kiểm chứng
 
@@ -32,7 +32,7 @@ npm run dev
 
 Mở [Editor](http://127.0.0.1:5173/index.html) hoặc [Player](http://127.0.0.1:5173/player.html). Repo private cần tài khoản có quyền clone. Native agent cần host có `document.modelContext` WebMCP như môi trường ghi ở Gate 3; chạy trang trong browser thông thường không tự có native agent. Trang hiển thị tình trạng kết nối; browser bridge/tests không thay native acceptance.
 
-Trong Editor, tạo project, thêm/chọn xương rồi **Nạp PNG**, bố trí Setup, tạo animation và đặt key; xem playback rồi xuất ZIP. Sau reload chọn **Khôi phục bản lưu**; Player mở ZIP qua file input riêng. Để xem mẫu đã kiểm chứng, mở [robot ZIP](../../platform/fixtures/robot/native-project.zip) hoặc [khăn ZIP](results/experiment-2/run-03/scarf.zip) bằng file input. [Hướng dẫn Editor](../../platform/apps/editor/README.md) và [panel mesh/IK](../../platform/apps/editor/mesh-controls/README.md) nêu thao tác và giới hạn UI; core/tools hỗ trợ nhiều thao tác hơn UI tối thiểu.
+Trong Editor, tạo project, thêm/chọn xương rồi **Nạp PNG**, bố trí Setup, tạo animation và đặt key; xem playback; có thể xuất ZIP để lưu/chuyển project. Sau reload chọn **Khôi phục bản lưu**; Player mở ZIP qua file input riêng. Để xem mẫu đã kiểm chứng, mở [robot ZIP](../../platform/fixtures/robot/native-project.zip) hoặc [khăn ZIP](results/experiment-2/run-03/scarf.zip) bằng file input. [Hướng dẫn Editor](../../platform/apps/editor/README.md) và [panel mesh/IK](../../platform/apps/editor/mesh-controls/README.md) nêu thao tác và giới hạn UI; core/tools hỗ trợ nhiều thao tác hơn UI tối thiểu.
 
 Browser checks sau build (cổng 4173 phải trống):
 

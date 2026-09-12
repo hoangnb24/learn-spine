@@ -1,6 +1,6 @@
 # Phạm vi theo giai đoạn
 
-Ngày 11/09/2026. **PROPOSED / AWAITING OWNER DECISION**: phạm vi MVP dưới đây thuộc [đề xuất #22](decisions/mvp.md), chưa được chủ dự án duyệt. Các giai đoạn trước là thứ tự kiểm chứng, không phải lịch phát hành; [ba gate](reconciliation/2026-09-11-three-gates.md) giữ kết quả và giới hạn gốc.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
 
 ## Phạm vi hẹp được đề xuất
 
@@ -11,14 +11,14 @@ Ngày 11/09/2026. **PROPOSED / AWAITING OWNER DECISION**: phạm vi MVP dưới 
 | Animation | Transform keys/curves, idle/wave, deform phụ kiện mềm authored | Mixing/additive/transitions/events/audio; physics chưa thử |
 | Agent/UI | Dùng chung Session, native create→observe→edit trong môi trường đã thử; UI cơ bản và undo/checkpoints | Mọi browser/agent; native cancellation đã chứng minh; editor ngang Spine |
 | Quan sát | PNG/preview/sequence, pose/diagnostics gắn revision; region corner supplement khi cần | Default diagnostics bao mọi lỗi/mọi điểm/mọi thời điểm |
-| Lưu/đầu ra | IndexedDB + ZIP chỉnh sửa tiếp và web Player độc lập | Cloud/cộng tác, spritesheet/video/game-engine exporter; history trong ZIP |
+| Lưu/đầu ra | IndexedDB + ZIP + web Player có sẵn; chưa chốt nhu cầu đầu ra | Cloud/cộng tác, spritesheet/video/game-engine exporter; history trong ZIP |
 | Chất lượng | Người xem nhận chuyển động, public evidence và ZIP reopen; giữ ngưỡng mẫu gate | Cam kết 60 fps, reliability thống kê, ROI hoặc production readiness |
 
-Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms so 16.7 ms; #51→#52 giữ Polish Deferred theo quyết định 11/09. Đề xuất tiếp tục phạm vi chức năng không đổi kết quả đo hoặc hạ ngưỡng. Gate 2 physics NOT TESTED và bridge không native pass; Gate 3 7/9 đạt ngưỡng thử nghiệm, chưa tự chốt MVP feasible.
+Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms so 16.7 ms; #51 Todo/Ready chỉ đo/profile baseline; #52 Deferred chờ baseline theo cập nhật 12/09. Đề xuất tiếp tục phạm vi chức năng không đổi kết quả đo hoặc hạ ngưỡng. Gate 2 physics NOT TESTED và bridge không native pass; Gate 3 7/9 đạt ngưỡng thử nghiệm, chưa tự chốt MVP feasible.
 
 ## Phần sau quyết định
 
-[#22 ADR](decisions/mvp.md) đề nghị ưu tiên đầu tư #51→#52, rồi discovery #23 nếu chuẩn bị art là nút thắt, #28 khi web Player không đủ; #24/#25/#26 theo nhu cầu cụ thể, #27/#29 để sau. **#23–#29 và #51/#52 đều giữ Deferred**; bảng ưu tiên không mở việc, đổi dependency hay cho phép triển khai production. Mọi mở rộng cần outcome/acceptance riêng và quyết định tương ứng của chủ dự án.
+Theo [quyết định #22](decisions/mvp.md), #23–#29 vẫn Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 Todo/Ready độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Bộ mẫu làm chuẩn
 
@@ -32,14 +32,14 @@ Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms s
 
 Đối chiếu theo mục tiêu chuyển động và lỗi đã biết. Không yêu cầu trùng từng pixel với Spine hoặc sao chép hành vi chưa có đặc tả. Với engine mới, các ngưỡng số phải được ghi trước khi chạy thử.
 
-## Điều kiện đề xuất để nhận workflow nội bộ
+## Điều kiện đề xuất 11/09 — chưa duyệt
 
 - Tạo, sửa, lưu, mở lại và phát được trên player mà không cần Spine.
 - Agent thực hiện qua bộ lệnh công khai; không dựa vào sửa file nội bộ hay chỉnh tay dữ liệu để hoàn thành bài.
-- Người dùng nhận được cả project chỉnh sửa tiếp và đầu ra sử dụng được.
+- Giả định đầu ra sử dụng được đã superseded ngày 12/09; cần xác định lại khi có nhu cầu.
 - Có bằng chứng ở pose giữa key, cực trị và playback, không chỉ ảnh đẹp tại keyframe.
 - Việc sửa được hoàn tác và không làm mất phần project đã đạt.
 
 Các tính năng chưa làm phải được báo là chưa hỗ trợ. Không âm thầm bỏ qua khi nhập project hoặc xuất kết quả.
 
-Các điều kiện này là đề xuất chờ quyết định. Bằng chứng trên bộ mẫu không chứng minh thay thế toàn bộ workflow Spine; chưa có baseline so sánh tương đương hoặc chi phí/tokens đầy đủ.
+Các điều kiện này chưa duyệt; quyết định đầu ra đã hoãn. Bằng chứng trên bộ mẫu không chứng minh thay thế toàn bộ workflow Spine; chưa có baseline so sánh tương đương hoặc chi phí/tokens đầy đủ.
