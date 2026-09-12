@@ -1,6 +1,6 @@
 # Đối chiếu — hoãn quyết định đầu ra
 
-Trạng thái hiện hành sau PR #72: #24 Done/completed; #73 In Progress/Ready, #74/#75 Todo/Blocked; #22 và audio/Polish/các discovery khác vẫn Deferred. Xem mốc nghiệm thu và ownership cuối tài liệu.
+Trạng thái hiện hành sau PR #78: #24/#73 Done/completed; #74 In Progress/Ready, #75 Todo/Blocked; #22 và audio/Polish/các discovery khác vẫn Deferred. Xem mốc nghiệm thu và ownership cuối tài liệu.
 
 ## Lịch sử quyết định đầu ra và mở discovery
 
@@ -29,3 +29,11 @@ Mốc main `5b692111cb99d0dbeb3fd70c6732500b9fbed726` sau PR #69. Chủ dự án
 #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred.
 
 Trạng thái #24 In Progress ở các mốc phía trên là lịch sử, thay bằng Done tại mốc này. User đã cho phép implementation create/view/edit sau discovery, không cần chốt đầu ra/MVP #22. A sở hữu chung schema/Session/evaluator để tránh công bố capability chưa chạy được; B/C tiêu thụ contract A. Bounds B bắt buộc hỗ trợ fixture v1 chuẩn walk+wave/complete-coverage frozen transition/stop và valid multi-track additive trong miền scale/IK; không được unsupported toàn composition. Không sửa source/prototype/contract hoặc kết quả gate trong đợt planning này.
+
+## Nghiệm thu core và mở native/observation — 12/09/2026
+
+#73 core đã nghiệm thu đầy đủ: [PR #77](https://github.com/hoangnb24/learn-spine/pull/77), exact `b05f4dbae62cf4370bfdfe1a0f61720903f4fd6a`, merge `bfff5e5fcd65371ed9baffd0c891aa54bba7e305`, CI 34686490771/34686490757/34686489418 SUCCESS. Follow-up [PR #78](https://github.com/hoangnb24/learn-spine/pull/78) được nghiệm thu Đạt tại `ec06775147f3e3fa76c1fa601b9a44de8b340158`, CI 34686680117/34686680189/34686668168 SUCCESS, merge `d2cf8ed339353d1029481c925aec7017d341bcbf`. Lỗi compile legacy `Evaluator` phát hiện sau PR #77 đã sửa bằng `TargetEvaluator extends Evaluator`; kiểm tra contract/mock-consumers được thêm vào CI. Handoff core đã được nhận, không còn chờ follow-up compatibility.
+
+#73 CLOSED/completed · Done/Ready. #74 In Progress/Ready: sole implementer `/root/implement_composition_tools`, reviewer `/root/review_composition_tools`; đã cho phép triển khai đầy đủ scope native tools/observation/bounds sau khi core và compatibility fix được nhận. #75 Todo/Blocked chờ #74 (#73 đã đạt), chưa giao owner. Native adapter/observation/UI composition chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred.
+
+Các snapshot trước PR #78 phía trên giữ lịch sử. Bridge capability filter và hai observation guards do #73 thêm vẫn là ranh giới tương thích: #74 chỉ thay khi có target handling và capability thực tế, không fallback bỏ qua target. Không đổi acceptance gate hoặc nhận native/UI từ kết quả core.
