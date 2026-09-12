@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
+      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chủ dự án đã mở #24 In Progress/Ready cho mixing/chuyển tiếp/events metadata, đầu vào #8/#16/#19 đã merged thay dependency #22; audio riêng #70 Todo/Deferred. Sau nghiệm thu discovery, tiếp tục implementation tạo/xem/sửa trong phạm vi được cho phép; không tự mở các nhánh Deferred khác. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
     },
     {
       "key": "T22",
@@ -809,38 +809,42 @@
     },
     {
       "key": "T23",
-      "title": "Discovery — mixing, chuyển tiếp, events và đồng bộ audio",
+      "title": "Discovery — mixing, chuyển tiếp và events metadata",
       "phase": "Later discovery",
       "lane": "Animation",
       "deps": [
-        "T21"
+        "T07",
+        "T15",
+        "T18"
       ],
-      "ownership": "docs/product/research/mixing-events.md; prototypes/mixing/",
+      "ownership": "docs/product/research/mixing-events.md; prototypes/mixing/; .github/workflows/mixing-prototype.yml (nếu cần)",
       "outcome": "Chốt semantics playback nhiều track trước khi mở rộng engine.",
       "work": [
         "Đặc tả overwrite/additive, masks, alpha, transition-out/hold, root motion và event policy khi seek/loop.",
         "Prototype bằng fixture số cho walk+wave và stop theo chân trụ; chỉ ra thứ tự với constraints.",
-        "Thiết kế audio clock, stop/restart và cách kiểm nghe thực tế; events metadata không thay thế xác nhận audio."
+        "Bàn giao API/acceptance và implementation tasks mixing trong tạo/xem/sửa sau nghiệm thu; không cần chốt đầu ra #22. Audio tách #70 Deferred."
       ],
       "acceptance": [
         "Có bảng truth table cho alpha/track removal/zero-speed/loop và test vectors có expected pose.",
         "Event crossing không bị nhân đôi khi seek/loop theo policy; chuyển tiếp stop có fixture giữ chân.",
-        "Bàn giao đề xuất API, acceptance và work items riêng cho mixing và audio; ghi phần chỉ mới phân tích."
+        "Bàn giao đề xuất API, acceptance và work items mixing; ghi phần chỉ mới phân tích. Phạm vi audio được giữ riêng #70 Deferred."
       ],
       "refs": [
         "lessons/057-editor-preview-transition.md",
         "lessons/059-editor-additive-offset.md",
-        "lessons/079-editor-stop-phase-entry.md",
-        "lessons/097-user-audio-check.md"
+        "lessons/079-editor-stop-phase-entry.md"
       ],
-      "exclude": "Không thay evaluator MVP trước khi chốt semantics; không kết luận nghe khớp chỉ từ waveform.",
+      "exclude": "Chưa thay production evaluator; không audio clock/playback/kiểm nghe hoặc đầu ra. Audio #70 Deferred.",
       "wave": 14,
       "priority": "P2",
-      "readiness": "Deferred",
+      "readiness": "Ready",
       "number": 24,
       "id": 5401669245,
       "node_id": "I_kwDOUTvul88AAAABQfbufQ",
-      "html_url": "https://github.com/hoangnb24/learn-spine/issues/24"
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/24",
+      "status": "In Progress",
+      "implementer": "/root/implement_issue24",
+      "reviewer": "/root/review_issue24"
     },
     {
       "key": "T24",
@@ -1079,6 +1083,36 @@
       "id": 5420823791,
       "node_id": "I_kwDOUTvul88AAAABQxs07w",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/52"
+    },
+    {
+      "key": "AUDIO",
+      "title": "Discovery — đồng bộ audio clock, stop/restart và kiểm nghe (Deferred)",
+      "phase": "Later discovery",
+      "lane": "Animation",
+      "deps": [
+        "T23"
+      ],
+      "ownership": "docs/product/research/audio-sync.md; prototypes/audio/",
+      "outcome": "Đề xuất audio clock/stop/restart và kiểm nghe khi có nhu cầu; hiện Deferred.",
+      "work": [
+        "Thiết kế audio clock, stop/restart và cách kiểm nghe thực tế; events metadata không thay thế xác nhận audio."
+      ],
+      "acceptance": [
+        "Bàn giao đề xuất API, acceptance và work items riêng cho audio; ghi phần chỉ mới phân tích.",
+        "Kiểm nghe thực tế, không kết luận nghe khớp chỉ từ waveform."
+      ],
+      "refs": [
+        "lessons/097-user-audio-check.md"
+      ],
+      "exclude": "Không audio production hoặc đầu ra trong discovery.",
+      "wave": null,
+      "priority": "P2",
+      "readiness": "Deferred",
+      "status": "Todo",
+      "number": 70,
+      "id": 5432389124,
+      "node_id": "I_kwDOUTvul88AAAABQ8uuBA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/70"
     }
   ],
   "tracking_issue": {
