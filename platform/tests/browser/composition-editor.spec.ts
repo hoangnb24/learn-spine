@@ -196,9 +196,28 @@ test("UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen", 
     .click();
   await seek(page, 0.5);
   expect((await pose(page, 0.5)).value).toEqual(savedPose.value);
+  const priorSessionId = await page.evaluate(async () => {
+    const path = "/apps/editor/runtime.ts";
+    return (await import(/* @vite-ignore */ path)).editorRuntime.session
+      .sessionId;
+  });
   await page
     .getByLabel("Mở gói project", { exact: true })
     .setInputFiles("evidence/issue-75/browser/authored.zip");
+  // The old project's same-named button remains visible while ZIP decoding is
+  // pending. Wait for the authoritative Session replacement and its UI reset.
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        const path = "/apps/editor/runtime.ts";
+        return (await import(/* @vite-ignore */ path)).editorRuntime.session
+          .sessionId;
+      }),
+    )
+    .not.toBe(priorSessionId);
+  await expect(
+    page.getByRole("button", { name: "Setup", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
   await page
     .getByRole("button", { name: "Phối · Đi và vẫy", exact: true })
     .click();
