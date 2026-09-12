@@ -5,11 +5,19 @@ import {
   useSyncExternalStore,
   type FormEvent,
 } from "react";
-import type { Bone, Curve, Operation, Transform } from "../../src/model/types";
+import type {
+  Bone,
+  Curve,
+  Operation,
+  Transform,
+  EvaluationTarget,
+} from "../../src/model/types";
+import { sampledTime } from "../../src/engine/timeline";
 import { EmptyState, Header, Panel } from "../shared/Shell";
 import { Stage, usePlayback } from "../shared/Stage";
 import { editorRuntime, identity, id, type EditorRuntime } from "./runtime";
 
+import { CompositionControls } from "./CompositionControls";
 import { MeshControls } from "./mesh-controls";
 
 const labels: Record<keyof Transform, string> = {
@@ -142,16 +150,42 @@ export function Editor({
     runtime.apply(operations, p?.revision, sessionId);
   const [selected, select] = useState("root"),
     [mode, setMode] = useState<"setup" | "animate">("setup"),
-    [animationId, chooseAnimation] = useState("");
+    [animationId, chooseAnimation] = useState(""),
+    [compositionId, chooseComposition] = useState("");
   const animation =
     p?.animations.find((a) => a.id === animationId) ?? p?.animations[0];
-  const playback = usePlayback(
-    animation?.duration ?? 0,
-    animation?.loop ?? true,
+  const composition = p?.compositions?.find((c) => c.id === compositionId);
+  const motion = composition ?? animation;
+  const target = useMemo<EvaluationTarget>(
+    () =>
+      mode === "setup"
+        ? { kind: "animation", animationId: null }
+        : composition
+          ? { kind: "composition", compositionId: composition.id }
+          : { kind: "animation", animationId: animation?.id ?? null },
+    [mode, composition?.id, animation?.id],
   );
+  const playback = usePlayback(motion?.duration ?? 0, motion?.loop ?? true);
+  useEffect(() => {
+    if (composition)
+      playback.setTime((t) =>
+        sampledTime(t, composition.duration, composition.loop),
+      );
+  }, [composition?.duration, composition?.loop]);
+  useEffect(() => {
+    playback.setTime(0);
+    playback.setPlaying(false);
+  }, [
+    target.kind,
+    target.kind === "composition" ? target.compositionId : target.animationId,
+  ]);
+  useEffect(() => {
+    if (compositionId && !composition) chooseComposition("");
+  }, [compositionId, composition]);
   useEffect(() => {
     select("root");
     chooseAnimation("");
+    chooseComposition("");
     playback.setTime(0);
     playback.setPlaying(false);
     setMode("setup");
@@ -306,7 +340,9 @@ export function Editor({
         <p>
           {mode === "setup"
             ? "Bố trí xương và gắn ảnh"
-            : "Chỉnh key theo thời gian · Giá trị tuyệt đối, góc radian"}
+            : composition
+              ? "Phối nhiều nguồn · Sửa lớp, mức trộn và chuyển tiếp"
+              : "Chỉnh key theo thời gian · Giá trị tuyệt đối, góc radian"}
         </p>
       </div>
       {(runtime.error || runtime.busy || runtime.notice) && (
@@ -321,7 +357,10 @@ export function Editor({
           )}
         </div>
       )}
-      <main className="editor-workspace" aria-label="Editor">
+      <main
+        className={`editor-workspace${composition ? " composing" : ""}`}
+        aria-label="Editor"
+      >
         <Panel title="Cấu trúc / Ảnh" className="structure-panel">
           {p ? (
             <div className="panel-content">
@@ -422,7 +461,7 @@ export function Editor({
           {bundle ? (
             <Stage
               bundle={bundle}
-              animationId={mode === "animate" ? (animation?.id ?? null) : null}
+              target={target}
               time={playback.time}
               selected={selected}
               onSelect={select}
@@ -459,6 +498,12 @@ export function Editor({
               Thuộc tính
             </button>
             <button
+              aria-pressed={panel === "composition"}
+              onClick={() => setPanel("composition")}
+            >
+              Phối chuyển động
+            </button>
+            <button
               aria-pressed={panel === "mesh"}
               onClick={() => setPanel("mesh")}
             >
@@ -472,7 +517,20 @@ export function Editor({
             </button>
           </div>
           <div className="panel-content">
-            {panel === "mesh" && p ? (
+            {panel === "composition" && p ? (
+              composition ? (
+                <CompositionControls
+                  key={`${sessionId}:${composition.id}`}
+                  composition={composition}
+                  project={p}
+                  runtime={runtime}
+                />
+              ) : (
+                <p className="hint">
+                  Chọn hoặc tạo phối chuyển động ở thanh Chuyển động.
+                </p>
+              )
+            ) : panel === "mesh" && p ? (
               <MeshControls
                 key={`${sessionId}:${revision}:${meshId}:${vertices.join(",")}`}
                 project={p}
@@ -483,7 +541,7 @@ export function Editor({
                 selectVertices={selectVertices}
                 weightBoneId={weightBoneId}
                 selectWeightBone={selectWeightBone}
-                animationId={animation?.id ?? null}
+                animationId={composition ? null : (animation?.id ?? null)}
                 time={playback.time}
               />
             ) : panel === "history" ? (
@@ -555,9 +613,10 @@ export function Editor({
               <div className="animation-list">
                 {p.animations.map((a) => (
                   <button
-                    aria-pressed={animation?.id === a.id}
+                    aria-pressed={!composition && animation?.id === a.id}
                     key={a.id}
                     onClick={() => {
+                      chooseComposition("");
                       chooseAnimation(a.id);
                       setMode("animate");
                       playback.setTime(0);
@@ -567,6 +626,54 @@ export function Editor({
                     {a.name}
                   </button>
                 ))}
+                {p.compositions?.map((c) => (
+                  <button
+                    key={`composition:${c.id}`}
+                    aria-pressed={composition?.id === c.id}
+                    onClick={() => {
+                      chooseComposition(c.id);
+                      setMode("animate");
+                      setPanel("composition");
+                      playback.setTime(0);
+                      playback.setPlaying(false);
+                    }}
+                  >
+                    Phối · {c.name}
+                  </button>
+                ))}
+                <button
+                  onClick={() => {
+                    const compositionId = id();
+                    if (
+                      apply([
+                        ...(p.formatVersion === 0
+                          ? [
+                              {
+                                kind: "migrateProject" as const,
+                                targetVersion: 1 as const,
+                              },
+                            ]
+                          : []),
+                        {
+                          kind: "putComposition",
+                          value: {
+                            id: compositionId,
+                            name: "Phối mới",
+                            duration: 2,
+                            loop: true,
+                            tracks: [],
+                          },
+                        },
+                      ])
+                    ) {
+                      chooseComposition(compositionId);
+                      setMode("animate");
+                      setPanel("composition");
+                    }
+                  }}
+                >
+                  Tạo phối chuyển động
+                </button>
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -585,6 +692,7 @@ export function Editor({
                         },
                       ])
                     ) {
+                      chooseComposition("");
                       chooseAnimation(animationId);
                       setMode("animate");
                       playback.setTime(0);
@@ -600,7 +708,7 @@ export function Editor({
                 </form>
               </div>
               <div className="timeline-main">
-                {animation ? (
+                {motion ? (
                   <>
                     <div className="transport">
                       <button
@@ -617,7 +725,7 @@ export function Editor({
                           aria-label="Thời gian (giây)"
                           type="number"
                           min="0"
-                          max={animation.duration}
+                          max={motion.duration}
                           step="0.01"
                           value={playback.time.toFixed(2)}
                           onChange={(e) => {
@@ -625,9 +733,17 @@ export function Editor({
                             if (
                               Number.isFinite(n) &&
                               n >= 0 &&
-                              n <= animation.duration
+                              n <= motion.duration
                             ) {
-                              playback.setTime(n);
+                              playback.setTime(
+                                composition
+                                  ? sampledTime(
+                                      n,
+                                      composition.duration,
+                                      composition.loop,
+                                    )
+                                  : n,
+                              );
                               playback.setPlaying(false);
                               setMode("animate");
                             }
@@ -635,8 +751,8 @@ export function Editor({
                         />
                       </label>
                       <span>
-                        {animation.duration.toFixed(2)} s ·{" "}
-                        {animation.loop ? "Lặp" : "Một lần"}
+                        {motion.duration.toFixed(2)} s ·{" "}
+                        {motion.loop ? "Lặp" : "Một lần"}
                       </span>
                     </div>
                     <input
@@ -644,90 +760,108 @@ export function Editor({
                       aria-label="Thanh thời gian"
                       type="range"
                       min="0"
-                      max={animation.duration}
+                      max={motion.duration}
                       step="0.01"
                       value={playback.time}
                       onChange={(e) => {
-                        playback.setTime(Number(e.target.value));
+                        playback.setTime(
+                          composition
+                            ? sampledTime(
+                                Number(e.target.value),
+                                composition.duration,
+                                composition.loop,
+                              )
+                            : Number(e.target.value),
+                        );
                         playback.setPlaying(false);
                         setMode("animate");
                       }}
                     />
-                    <div className="key-tracks">
-                      {animation.channels.map((c) => (
-                        <div
-                          className="key-track"
-                          key={`${c.boneId}:${c.property}`}
-                        >
-                          <span>
-                            {p.bones.find((b) => b.id === c.boneId)?.name} /{" "}
-                            {labels[c.property]}
-                          </span>
-                          <div>
-                            {c.keys.map((k) => (
-                              <button
-                                key={k.time}
-                                style={{
-                                  left: `${(k.time / animation.duration) * 100}%`,
-                                }}
-                                aria-label={`Key ${k.time} ${labels[c.property]}`}
-                                onClick={() => {
-                                  select(c.boneId);
-                                  playback.setTime(k.time);
-                                  playback.setPlaying(false);
-                                  setMode("animate");
-                                  setProperty(c.property);
-                                  setKeyValue(String(k.value));
-                                  setCurve(structuredClone(k.curve));
-                                }}
-                              >
-                                ◆
-                              </button>
-                            ))}
-                          </div>
+                    {!composition && animation && (
+                      <>
+                        <div className="key-tracks">
+                          {animation.channels.map((c) => (
+                            <div
+                              className="key-track"
+                              key={`${c.boneId}:${c.property}`}
+                            >
+                              <span>
+                                {p.bones.find((b) => b.id === c.boneId)?.name} /{" "}
+                                {labels[c.property]}
+                              </span>
+                              <div>
+                                {c.keys.map((k) => (
+                                  <button
+                                    key={k.time}
+                                    style={{
+                                      left: `${(k.time / animation.duration) * 100}%`,
+                                    }}
+                                    aria-label={`Key ${k.time} ${labels[c.property]}`}
+                                    onClick={() => {
+                                      select(c.boneId);
+                                      playback.setTime(k.time);
+                                      playback.setPlaying(false);
+                                      setMode("animate");
+                                      setProperty(c.property);
+                                      setKeyValue(String(k.value));
+                                      setCurve(structuredClone(k.curve));
+                                    }}
+                                  >
+                                    ◆
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                    <form className="key-form" noValidate onSubmit={addKey}>
-                      <select
-                        aria-label="Thuộc tính key"
-                        value={property}
-                        onChange={(e) =>
-                          setProperty(e.target.value as keyof Transform)
-                        }
-                      >
-                        {Object.entries(labels).map(([key, label]) => (
-                          <option key={key} value={key}>
-                            {label}
-                          </option>
-                        ))}
-                      </select>
-                      <input
-                        aria-label="Giá trị key"
-                        type="number"
-                        step="any"
-                        value={keyValue}
-                        onChange={(e) => setKeyValue(e.target.value)}
-                      />
-                      <select
-                        aria-label="Nội suy key"
-                        value={curve.type}
-                        onChange={(e) => {
-                          const type = e.target.value;
-                          if (type === "linear" || type === "stepped")
-                            setCurve({ type });
-                        }}
-                      >
-                        <option value="linear">Thẳng</option>
-                        <option value="stepped">Giữ bước</option>
-                        {curve.type === "bezier" && (
-                          <option value="bezier">
-                            Bezier (giữ đường cong)
-                          </option>
-                        )}
-                      </select>
-                      <button disabled={!bone}>Đặt key</button>
-                    </form>
+                        <form className="key-form" noValidate onSubmit={addKey}>
+                          <select
+                            aria-label="Thuộc tính key"
+                            value={property}
+                            onChange={(e) =>
+                              setProperty(e.target.value as keyof Transform)
+                            }
+                          >
+                            {Object.entries(labels).map(([key, label]) => (
+                              <option key={key} value={key}>
+                                {label}
+                              </option>
+                            ))}
+                          </select>
+                          <input
+                            aria-label="Giá trị key"
+                            type="number"
+                            step="any"
+                            value={keyValue}
+                            onChange={(e) => setKeyValue(e.target.value)}
+                          />
+                          <select
+                            aria-label="Nội suy key"
+                            value={curve.type}
+                            onChange={(e) => {
+                              const type = e.target.value;
+                              if (type === "linear" || type === "stepped")
+                                setCurve({ type });
+                            }}
+                          >
+                            <option value="linear">Thẳng</option>
+                            <option value="stepped">Giữ bước</option>
+                            {curve.type === "bezier" && (
+                              <option value="bezier">
+                                Bezier (giữ đường cong)
+                              </option>
+                            )}
+                          </select>
+                          <button disabled={!bone}>Đặt key</button>
+                        </form>
+                      </>
+                    )}
+                    {composition && (
+                      <p className="hint">
+                        {composition.tracks.length} lớp · Sửa lớp và chuyển tiếp
+                        trong bảng Phối chuyển động.
+                      </p>
+                    )}
                   </>
                 ) : (
                   <EmptyState title="Chưa có chuyển động" kind="motion" />

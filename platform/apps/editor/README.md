@@ -95,3 +95,43 @@ an agent is currently connected. Native absence is displayed explicitly.
 
 Gate scripts and evidence live in `tests/e2e/robot` and
 `docs/product/results/experiment-1`. Gate1 is not passed merely by this integration.
+
+## Phối chuyển động (Composition v1)
+
+Trong **Chuyển động**, chọn animation có sẵn hoặc **Tạo phối chuyển động**.
+Nút **Phối · tên** chọn composition; Stage, thời gian, Phát/Tạm dừng và thanh kéo
+đều dùng target đó. Chuyển target hoặc mở project đặt lại thời gian về 0 và dừng
+phát. Setup vẫn xem tư thế Setup. Player riêng giữ hành vi animation hiện có.
+
+Bảng **Phối chuyển động** có tên, độ dài và lặp. **Thêm lớp** cho chọn nguồn,
+cách chạy (theo thời gian hoặc giữ một thời điểm), thời điểm nguồn bắt đầu/tốc độ,
+thứ tự, cách trộn, mức trộn 0–1, bắt đầu/tăng dần/kết thúc/giảm dần. Chọn rõ từng
+xương và thuộc tính trong **Thuộc tính của lớp**; xương con không tự được chọn.
+Thứ tự số tăng dần quyết định lớp dưới → trên; thứ tự phải khác nhau. Tốc độ 0
+giữ thời điểm nguồn nhưng mức tăng/giảm vẫn chạy theo thời gian composition.
+
+**Thêm chuyển tiếp** giữ nguồn đi ra ở thời điểm đã chọn và tăng dần nguồn đi vào.
+Chọn mask ở cả hai phía: mọi thuộc tính có key đi ra phải có key và được chọn ở
+phía đi vào. Nếu muốn dừng một chuyển động đang chạy, đặt kết thúc lớp cũ đúng
+lúc chuyển tiếp bắt đầu và dùng nguồn dừng đã dựng sẵn. Đây không phải nút tự
+động dừng mọi rig. Nguồn giữ thời điểm dùng dữ liệu mới nhất của nguồn, không
+phải bản chụp lịch sử. Biến dạng lưới trong nguồn chưa phối được.
+
+**Áp dụng phối chuyển động** gửi cả bản nháp qua public Session, là một bước
+Hoàn tác/Làm lại. Thiếu coverage, nguồn biến dạng, thứ tự trùng hoặc dữ liệu sai
+hiện lỗi và giữ project/revision/lịch sử nguyên vẹn; không tự thêm key. Nếu agent
+sửa project khi có bản nháp, giao diện giữ nháp, báo thay đổi và khóa Áp dụng.
+**Bỏ nháp và tải bản mới** nhận bản hiện tại một cách tường minh. Khi chưa sửa
+nháp, native edits và undo/redo tự cập nhật form và Stage theo revision.
+Chuyển sang composition khác hoặc đóng panel bỏ bản nháp chưa áp dụng.
+
+Editor dùng canonical `evaluateTarget`; camera dùng `targetBounds` cho toàn target.
+Bounds là bao bảo thủ nên có thể dư khoảng trống, nhất là IK. Nếu không tính được
+bounds/geometry, Stage báo lỗi và ẩn hình/provenance cũ; không âm thầm dùng camera
+của nguồn. Thu phóng >100% là lựa chọn người dùng có thể cắt hình; **Vừa khung**
+khôi phục envelope. Lưu trình duyệt và Tải/Mở gói giữ cùng dữ liệu composition,
+không thêm exporter. Session history không được lưu trong gói.
+
+[Hợp đồng canonical](../../src/model/COMPOSITION.md) ·
+[Tools/observation](../../src/adapters/webmcp/COMPOSITION.md) ·
+[Bằng chứng và cách tái lập #75](../../evidence/issue-75/README.md).

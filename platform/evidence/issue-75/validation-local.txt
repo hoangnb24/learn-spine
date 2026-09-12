@@ -1,0 +1,89 @@
+2026-09-12, macOS, Node v22.22.3. Commands from platform: npm run typecheck && npm test && npm run build && npm run test:browser. Exit 0.
+Contracts: npm ci --ignore-scripts && npm run typecheck && npm test. Exit 0, 5/5 tests passed.
+
+ Test Files  23 passed | 1 skipped (24)
+      Tests  198 passed | 1 skipped (199)
+   Start at  17:30:15
+   Duration  1.30s (import 51%, tests 30%, transform 19%, worker 1%)
+
+
+> learn-spine-platform@0.0.0 build
+> vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 795 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                         0.53 kB │ gzip:   0.31 kB
+dist/player.html                        0.53 kB │ gzip:   0.32 kB
+dist/assets/storage-D6XmUFtE.css       10.32 kB │ gzip:   3.01 kB
+dist/assets/webworkerAll-CNn4Y4ZS.js    0.05 kB │ gzip:   0.06 kB
+dist/assets/player-Cnxdxc3y.js          2.82 kB │ gzip:   1.34 kB
+dist/assets/browserAll-ruCF8Wwm.js     42.12 kB │ gzip:  11.00 kB
+dist/assets/init-D5WT9lB8.js           83.46 kB │ gzip:  24.49 kB
+dist/assets/editor-BtUIHlZo.js         92.24 kB │ gzip:  29.30 kB
+dist/assets/storage-BmACwq9k.js       747.24 kB │ gzip: 223.78 kB
+
+✓ built in 128ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+> learn-spine-platform@0.0.0 test:browser
+> playwright test
+
+[WebServer] (node:64817) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 7 workers
+
+(node:64822) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64823) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64819) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64818) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [chromium] › tests/browser/storage.spec.ts:10:1 › actual PNG ZIP bytes and committed IndexedDB survive reload (474ms)
+  ✓   8 [chromium] › tests/browser/storage.spec.ts:21:1 › newer save wins delayed older validation; snapshot bytes isolated (351ms)
+  ✓   9 [chromium] › tests/browser/storage.spec.ts:31:1 › real transaction abort/quota/write failure preserve prior committed project (170ms)
+  ✓   1 [chromium] › tests/browser/shell.spec.ts:3:1 › built editor and player load directly and navigate without runtime errors (1.0s)
+  ✓  10 [chromium] › tests/browser/storage.spec.ts:44:1 › hash, IHDR and actual decoder validation reject corrupt images (158ms)
+  ✓  12 [chromium] › tests/browser/storage.spec.ts:53:1 › aliasing Uint8Array subclasses cannot change validated, packed or saved snapshots (143ms)
+  ✓  11 [chromium] › tests/browser/shell.spec.ts:22:1 › shell remains readable at narrow widths and exposes keyboard navigation (330ms)
+  ✓   5 [chromium] › tests/adapters/browser/adapter.spec.ts:3:1 › bridge delivers real PNG + project ZIP, snapshot jobs, cancellation and lifecycle (1.7s)
+  ✓   6 [chromium] › tests/authoring/browser/authoring.spec.ts:12:1 › actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and independent player (3.8s)
+  ✓   7 [chromium] › tests/e2e/editor/workflow.spec.ts:23:1 › load PNG, bones, keys, playback, undo, save, reload, independent exported player (3.8s)
+  ✓  13 [chromium] › tests/authoring/browser/authoring.spec.ts:276:1 › new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo restores v0 (692ms)
+  ✓   3 [chromium] › tests/browser/composition-editor.spec.ts:77:1 › UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen (4.6s)
+  ✓  14 [chromium] › tests/e2e/editor/workflow.spec.ts:192:1 › cancel and failed save leave live data unchanged and unsaved; checkpoint restores (888ms)
+  ✓  17 [chromium] › tests/e2e/editor/workflow.spec.ts:248:1 › late save and import cannot attach to a reopened session at the same revision (597ms)
+  ✓  18 [chromium] › tests/e2e/editor/workflow.spec.ts:316:1 › invalid files preserve the project and a later valid editor package opens (704ms)
+  ✓  19 [chromium] › tests/e2e/editor/workflow.spec.ts:353:1 › opening an identical saved package recognizes the committed record, but equal-revision different content stays unsaved (628ms)
+  ✓  16 [chromium] › tests/browser/composition-editor.spec.ts:246:1 › UI authors and edits complete frozen transition; coverage/deform failures are atomic (2.5s)
+  ✓  20 [chromium] › tests/e2e/editor/workflow.spec.ts:376:1 › selected stepped and imported Bezier keys preserve their interpolation when only the value is edited (1.1s)
+  ✓  15 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › jelly authored geometry persists in ZIP and real player draws (3.6s)
+  ✓  22 [chromium] › tests/e2e/editor/workflow.spec.ts:445:1 › reparenting presents children beneath their parent without sorting the model collection (824ms)
+  ✓  21 [chromium] › tests/browser/composition-editor.spec.ts:402:1 › outside revision preserves dirty draft; duration and loop changes normalize paused clock (1.6s)
+  ✓  24 [chromium] › tests/browser/composition-editor.spec.ts:474:1 › bounds failure hides stale geometry and provenance, then undo restores the target (1.1s)
+  ✓   2 [chromium] › tests/composition/browser/composition.spec.ts:8:1 › composition browser bridge: actual PNGs, snapshots, frozen transition, playback, legacy and cleanup (not native) (10.1s)
+  ✓  23 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › ik authored geometry persists in ZIP and real player draws (2.0s)
+
+  24 passed (11.3s)
+
+
+Post-review narrow validation, 6149f2a (JS/TS application unchanged; CSS-only2384f53):
+npm run typecheck: PASS.
+npx playwright test tests/browser/composition-editor.spec.ts --grep 'UI create/edit layers' --workers=1 --repeat-each=3: 3 passed, 14.2s.
+Fixed test waits for new Session lifetime and Setup reset before selecting reopened composition.
+Earlier failing PR CI34689004298 remains recorded in ci-failure-34689004298.txt.

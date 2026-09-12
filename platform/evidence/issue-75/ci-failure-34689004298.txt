@@ -1,0 +1,130 @@
+check	Run npm run test:browser	﻿2026-09-12T10:40:15.9693115Z ##[group]Run npm run test:browser
+check	Run npm run test:browser	2026-09-12T10:40:15.9693453Z ^[[36;1mnpm run test:browser^[[0m
+check	Run npm run test:browser	2026-09-12T10:40:15.9718847Z shell: /usr/bin/bash -e {0}
+check	Run npm run test:browser	2026-09-12T10:40:15.9719173Z ##[endgroup]
+check	Run npm run test:browser	2026-09-12T10:40:16.0646660Z 
+check	Run npm run test:browser	2026-09-12T10:40:16.0647196Z > learn-spine-platform@0.0.0 test:browser
+check	Run npm run test:browser	2026-09-12T10:40:16.0647569Z > playwright test
+check	Run npm run test:browser	2026-09-12T10:40:16.0647714Z 
+check	Run npm run test:browser	2026-09-12T10:40:17.8404035Z 
+check	Run npm run test:browser	2026-09-12T10:40:17.8404660Z Running 24 tests using 2 workers
+check	Run npm run test:browser	2026-09-12T10:40:17.8404997Z 
+check	Run npm run test:browser	2026-09-12T10:40:28.5551752Z   ✓   2 [chromium] › tests/authoring/browser/authoring.spec.ts:12:1 › actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and independent player (8.1s)
+check	Run npm run test:browser	2026-09-12T10:40:30.6896571Z   ✓   3 [chromium] › tests/authoring/browser/authoring.spec.ts:276:1 › new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo restores v0 (2.1s)
+check	Run npm run test:browser	2026-09-12T10:40:40.0514959Z   ✓   4 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › jelly authored geometry persists in ZIP and real player draws (9.3s)
+check	Run npm run test:browser	2026-09-12T10:40:44.2922233Z   ✓   5 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › ik authored geometry persists in ZIP and real player draws (4.2s)
+check	Run npm run test:browser	2026-09-12T10:40:50.9540796Z   ✓   6 [chromium] › tests/e2e/editor/workflow.spec.ts:23:1 › load PNG, bones, keys, playback, undo, save, reload, independent exported player (6.6s)
+check	Run npm run test:browser	2026-09-12T10:40:51.3427954Z   ✓   1 [chromium] › tests/composition/browser/composition.spec.ts:8:1 › composition browser bridge: actual PNGs, snapshots, frozen transition, playback, legacy and cleanup (not native) (30.8s)
+check	Run npm run test:browser	2026-09-12T10:40:52.9874017Z   ✓   7 [chromium] › tests/e2e/editor/workflow.spec.ts:192:1 › cancel and failed save leave live data unchanged and unsaved; checkpoint restores (2.0s)
+check	Run npm run test:browser	2026-09-12T10:40:53.5837534Z   ✓   8 [chromium] › tests/browser/shell.spec.ts:3:1 › built editor and player load directly and navigate without runtime errors (2.2s)
+check	Run npm run test:browser	2026-09-12T10:40:54.4825057Z   ✓  10 [chromium] › tests/browser/shell.spec.ts:22:1 › shell remains readable at narrow widths and exposes keyboard navigation (883ms)
+check	Run npm run test:browser	2026-09-12T10:40:54.5796042Z   ✓   9 [chromium] › tests/e2e/editor/workflow.spec.ts:248:1 › late save and import cannot attach to a reopened session at the same revision (1.6s)
+check	Run npm run test:browser	2026-09-12T10:40:55.3832305Z   ✓  11 [chromium] › tests/browser/storage.spec.ts:10:1 › actual PNG ZIP bytes and committed IndexedDB survive reload (809ms)
+check	Run npm run test:browser	2026-09-12T10:40:55.7578123Z   ✓  13 [chromium] › tests/browser/storage.spec.ts:21:1 › newer save wins delayed older validation; snapshot bytes isolated (363ms)
+check	Run npm run test:browser	2026-09-12T10:40:56.1539579Z   ✓  14 [chromium] › tests/browser/storage.spec.ts:31:1 › real transaction abort/quota/write failure preserve prior committed project (384ms)
+check	Run npm run test:browser	2026-09-12T10:40:56.5659150Z   ✓  15 [chromium] › tests/browser/storage.spec.ts:44:1 › hash, IHDR and actual decoder validation reject corrupt images (396ms)
+check	Run npm run test:browser	2026-09-12T10:40:56.6721087Z   ✓  12 [chromium] › tests/e2e/editor/workflow.spec.ts:316:1 › invalid files preserve the project and a later valid editor package opens (2.1s)
+check	Run npm run test:browser	2026-09-12T10:40:57.0615547Z   ✓  16 [chromium] › tests/browser/storage.spec.ts:53:1 › aliasing Uint8Array subclasses cannot change validated, packed or saved snapshots (471ms)
+check	Run npm run test:browser	2026-09-12T10:40:58.4437297Z   ✓  17 [chromium] › tests/e2e/editor/workflow.spec.ts:353:1 › opening an identical saved package recognizes the committed record, but equal-revision different content stays unsaved (1.8s)
+check	Run npm run test:browser	2026-09-12T10:40:59.2967262Z   ✓  18 [chromium] › tests/adapters/browser/adapter.spec.ts:3:1 › bridge delivers real PNG + project ZIP, snapshot jobs, cancellation and lifecycle (2.2s)
+check	Run npm run test:browser	2026-09-12T10:41:01.1562543Z   ✓  19 [chromium] › tests/e2e/editor/workflow.spec.ts:376:1 › selected stepped and imported Bezier keys preserve their interpolation when only the value is edited (2.7s)
+check	Run npm run test:browser	2026-09-12T10:41:03.2504200Z   ✓  21 [chromium] › tests/e2e/editor/workflow.spec.ts:445:1 › reparenting presents children beneath their parent without sorting the model collection (2.1s)
+check	Run npm run test:browser	2026-09-12T10:41:14.9839356Z   ✘  20 [chromium] › tests/browser/composition-editor.spec.ts:77:1 › UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen (14.3s)
+check	Run npm run test:browser	2026-09-12T10:41:29.5823784Z   ✘  22 [chromium] › tests/browser/composition-editor.spec.ts:77:1 › UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen (retry #1) (13.4s)
+check	Run npm run test:browser	2026-09-12T10:41:35.7660631Z   ✓  23 [chromium] › tests/browser/composition-editor.spec.ts:246:1 › UI authors and edits complete frozen transition; coverage/deform failures are atomic (5.4s)
+check	Run npm run test:browser	2026-09-12T10:41:38.8367555Z   ✓  24 [chromium] › tests/browser/composition-editor.spec.ts:402:1 › outside revision preserves dirty draft; duration and loop changes normalize paused clock (3.1s)
+check	Run npm run test:browser	2026-09-12T10:41:40.9907382Z   ✓  25 [chromium] › tests/browser/composition-editor.spec.ts:474:1 › bounds failure hides stale geometry and provenance, then undo restores the target (2.1s)
+check	Run npm run test:browser	2026-09-12T10:41:41.0385223Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0390086Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0402389Z   1) [chromium] › tests/browser/composition-editor.spec.ts:77:1 › UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen 
+check	Run npm run test:browser	2026-09-12T10:41:41.0403359Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0403692Z     Error: expect(locator).toHaveAttribute(expected) failed
+check	Run npm run test:browser	2026-09-12T10:41:41.0404104Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0404309Z     Locator:  locator('.stage')
+check	Run npm run test:browser	2026-09-12T10:41:41.0404738Z     Expected: "0.5"
+check	Run npm run test:browser	2026-09-12T10:41:41.0405110Z     Received: "0"
+check	Run npm run test:browser	2026-09-12T10:41:41.0405547Z     Timeout:  5000ms
+check	Run npm run test:browser	2026-09-12T10:41:41.0405784Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0405927Z     Call log:
+check	Run npm run test:browser	2026-09-12T10:41:41.0406517Z       - Expect "toHaveAttribute" locator('.stage') with timeout 5000ms
+check	Run npm run test:browser	2026-09-12T10:41:41.0407203Z       - waiting for locator('.stage')
+check	Run npm run test:browser	2026-09-12T10:41:41.0407823Z         2 × locator resolved to <div class="stage" data-frame-ready="false">…</div>
+check	Run npm run test:browser	2026-09-12T10:41:41.0408498Z           - unexpected value "null"
+check	Run npm run test:browser	2026-09-12T10:41:41.0409841Z         12 × locator resolved to <div class="stage" data-rendered-time="0" data-frame-ready="true" data-rendered-revision="12" data-rendered-target="{"kind":"animation","animationId":null}">…</div>
+check	Run npm run test:browser	2026-09-12T10:41:41.0410647Z            - unexpected value "0"
+check	Run npm run test:browser	2026-09-12T10:41:41.0410825Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0410833Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0411006Z       38 | async function seek(page: Page, t: number) {
+check	Run npm run test:browser	2026-09-12T10:41:41.0411766Z       39 |   await page.getByLabel("Thời gian (giây)", { exact: true }).fill(String(t));
+check	Run npm run test:browser	2026-09-12T10:41:41.0412460Z     > 40 |   await expect(page.locator(".stage")).toHaveAttribute(
+check	Run npm run test:browser	2026-09-12T10:41:41.0413018Z          |                                        ^
+check	Run npm run test:browser	2026-09-12T10:41:41.0413478Z       41 |     "data-rendered-time",
+check	Run npm run test:browser	2026-09-12T10:41:41.0413884Z       42 |     String(t),
+check	Run npm run test:browser	2026-09-12T10:41:41.0414218Z       43 |   );
+check	Run npm run test:browser	2026-09-12T10:41:41.0415238Z         at seek (/home/runner/work/learn-spine/learn-spine/platform/tests/browser/composition-editor.spec.ts:40:40)
+check	Run npm run test:browser	2026-09-12T10:41:41.0416365Z         at /home/runner/work/learn-spine/learn-spine/platform/tests/browser/composition-editor.spec.ts:205:3
+check	Run npm run test:browser	2026-09-12T10:41:41.0417056Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0417870Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0419379Z     test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium/video.webm
+check	Run npm run test:browser	2026-09-12T10:41:41.0420222Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0420488Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0420939Z     Error Context: test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium/error-context.md
+check	Run npm run test:browser	2026-09-12T10:41:41.0421453Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0421899Z     Error Context: test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium/error-context.md
+check	Run npm run test:browser	2026-09-12T10:41:41.0422384Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0422777Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0423462Z     test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium/trace.zip
+check	Run npm run test:browser	2026-09-12T10:41:41.0424158Z     Usage:
+check	Run npm run test:browser	2026-09-12T10:41:41.0424276Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0424737Z         npx playwright show-trace test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium/trace.zip
+check	Run npm run test:browser	2026-09-12T10:41:41.0425237Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0425573Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0425839Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0426182Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0426462Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0426698Z     Error: expect(locator).toHaveAttribute(expected) failed
+check	Run npm run test:browser	2026-09-12T10:41:41.0426943Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0427066Z     Locator:  locator('.stage')
+check	Run npm run test:browser	2026-09-12T10:41:41.0427332Z     Expected: "0.5"
+check	Run npm run test:browser	2026-09-12T10:41:41.0427546Z     Received: "0"
+check	Run npm run test:browser	2026-09-12T10:41:41.0427772Z     Timeout:  5000ms
+check	Run npm run test:browser	2026-09-12T10:41:41.0427904Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0428010Z     Call log:
+check	Run npm run test:browser	2026-09-12T10:41:41.0428565Z       - Expect "toHaveAttribute" locator('.stage') with timeout 5000ms
+check	Run npm run test:browser	2026-09-12T10:41:41.0428967Z       - waiting for locator('.stage')
+check	Run npm run test:browser	2026-09-12T10:41:41.0429459Z         2 × locator resolved to <div class="stage" data-frame-ready="false">…</div>
+check	Run npm run test:browser	2026-09-12T10:41:41.0429873Z           - unexpected value "null"
+check	Run npm run test:browser	2026-09-12T10:41:41.0430822Z         12 × locator resolved to <div class="stage" data-rendered-time="0" data-frame-ready="true" data-rendered-revision="12" data-rendered-target="{"kind":"animation","animationId":null}">…</div>
+check	Run npm run test:browser	2026-09-12T10:41:41.0431577Z            - unexpected value "0"
+check	Run npm run test:browser	2026-09-12T10:41:41.0431750Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0431756Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0431926Z       38 | async function seek(page: Page, t: number) {
+check	Run npm run test:browser	2026-09-12T10:41:41.0432589Z       39 |   await page.getByLabel("Thời gian (giây)", { exact: true }).fill(String(t));
+check	Run npm run test:browser	2026-09-12T10:41:41.0433082Z     > 40 |   await expect(page.locator(".stage")).toHaveAttribute(
+check	Run npm run test:browser	2026-09-12T10:41:41.0433467Z          |                                        ^
+check	Run npm run test:browser	2026-09-12T10:41:41.0433768Z       41 |     "data-rendered-time",
+check	Run npm run test:browser	2026-09-12T10:41:41.0434034Z       42 |     String(t),
+check	Run npm run test:browser	2026-09-12T10:41:41.0434273Z       43 |   );
+check	Run npm run test:browser	2026-09-12T10:41:41.0434771Z         at seek (/home/runner/work/learn-spine/learn-spine/platform/tests/browser/composition-editor.spec.ts:40:40)
+check	Run npm run test:browser	2026-09-12T10:41:41.0435533Z         at /home/runner/work/learn-spine/learn-spine/platform/tests/browser/composition-editor.spec.ts:205:3
+check	Run npm run test:browser	2026-09-12T10:41:41.0435916Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0436286Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0436986Z     test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium-retry1/video.webm
+check	Run npm run test:browser	2026-09-12T10:41:41.0437856Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0438117Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0438903Z     Error Context: test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium-retry1/error-context.md
+check	Run npm run test:browser	2026-09-12T10:41:41.0439520Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0439984Z     Error Context: test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium-retry1/error-context.md
+check	Run npm run test:browser	2026-09-12T10:41:41.0440480Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0440862Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0441594Z     test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium-retry1/trace.zip
+check	Run npm run test:browser	2026-09-12T10:41:41.0442121Z     Usage:
+check	Run npm run test:browser	2026-09-12T10:41:41.0442233Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0442740Z         npx playwright show-trace test-results/composition-editor-UI-crea-18b53-redo-and-browser-ZIP-reopen-chromium-retry1/trace.zip
+check	Run npm run test:browser	2026-09-12T10:41:41.0443268Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0443583Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+check	Run npm run test:browser	2026-09-12T10:41:41.0443962Z 
+check	Run npm run test:browser	2026-09-12T10:41:41.0444070Z   1 failed
+check	Run npm run test:browser	2026-09-12T10:41:41.0444732Z     [chromium] › tests/browser/composition-editor.spec.ts:77:1 › UI create/edit layers, motion, clocks, undo/redo and browser/ZIP reopen 
+check	Run npm run test:browser	2026-09-12T10:41:41.0445294Z   23 passed (1.4m)
+check	Run npm run test:browser	2026-09-12T10:41:41.1600012Z ##[error]Process completed with exit code 1.

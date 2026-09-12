@@ -27,6 +27,10 @@ const cancelled = (): Result<never> => ({
 });
 export function explain(result: Result<unknown>): string {
   if (result.ok) return "";
+  if (result.error.message.startsWith("Crossfade incoming requires keyed and masked coverage:"))
+    return `Chuyển tiếp còn thiếu key hoặc thuộc tính được chọn ở nguồn đi vào: ${result.error.message.split(":").slice(1).join(":").trim()}. Chưa áp dụng thay đổi.`;
+  if (result.error.message === "Composition v1 does not support source deforms")
+    return "Nguồn này có biến dạng lưới nên chưa phối được. Hãy chọn nguồn chỉ chuyển động xương. Chưa áp dụng thay đổi.";
   const messages: Partial<Record<typeof result.error.code, string>> = {
     INVALID_INPUT:
       `Dữ liệu chưa hợp lệ: ${result.error.message} (${result.error.path})`,
