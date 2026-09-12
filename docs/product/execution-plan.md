@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện hành — 12/09/2026
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. [Đối chiếu](reconciliation/2026-09-12-deferred-output.md).
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. [Đối chiếu](reconciliation/2026-09-12-deferred-output.md).
 
 ## Lịch sử sau Gate 3 PR #66 — 11/09/2026
 
@@ -73,10 +73,10 @@ Readiness hiện là snapshot, không có automation tự cập nhật. Agent ho
 | [#27](https://github.com/hoangnb24/learn-spine/issues/27) Discovery — physics tái lập khi seek, reset và export | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#28](https://github.com/hoangnb24/learn-spine/issues/28) Discovery — spritesheet, video và đầu ra game engine | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
 | [#29](https://github.com/hoangnb24/learn-spine/issues/29) Discovery — từ ảnh phẳng đến art tách lớp và rig đề xuất | Later discovery | 14 | [#22](https://github.com/hoangnb24/learn-spine/issues/22) | Deferred |
-| [#51](https://github.com/hoangnb24/learn-spine/issues/51) Chuẩn hóa phép đo/profile/baseline | Polish | Tiếp theo, chưa triển khai | #14 (đầu vào) | Ready |
+| [#51](https://github.com/hoangnb24/learn-spine/issues/51) Chuẩn hóa phép đo/profile/baseline | Polish | Chưa lên lịch | #14 (đầu vào) | Deferred |
 | [#52](https://github.com/hoangnb24/learn-spine/issues/52) Tối ưu cadence/retest <=16.7ms | Polish | Chưa lên lịch | #51 | Deferred |
 
-Project Stage chưa có lựa chọn Polish; hai issue giữ Stage trống, Phase Polish ghi trong body/backlog. Snapshot 12/09: #51 Readiness Ready; #52 Deferred. Cả hai Priority P2, Status Todo.
+Project Stage chưa có lựa chọn Polish; hai issue giữ Stage trống, Phase Polish ghi trong body/backlog. Snapshot 12/09: #51 và #52 Readiness Deferred. Cả hai Priority P2, Status Todo.
 
 ## Đồ thị dependency
 
