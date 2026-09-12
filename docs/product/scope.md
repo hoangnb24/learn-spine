@@ -1,19 +1,24 @@
 # Phạm vi theo giai đoạn
 
-Ngày: 09/09/2026. Các giai đoạn dưới đây là thứ tự kiểm chứng, không phải lịch phát hành. Chỉ mở rộng sau khi mốc trước có bằng chứng.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
 
-| Nhóm khả năng | Giai đoạn 1: quy trình robot | Giai đoạn 2: biến dạng | Giai đoạn sau |
-| --- | --- | --- | --- |
-| Art | PNG tách sẵn, bố trí và điểm xoay rõ ràng | Thay độ phân giải/ảnh và giữ rig | PSD, đồng bộ layer; nghiên cứu tách ảnh phẳng riêng |
-| Rig | Xương cha/con, transform, ảnh gắn xương, thứ tự vẽ | Mesh, bind pose, weights; IK hai xương | Transform/path constraints, các chế độ kế thừa nâng cao |
-| Animation | Translate/rotate/scale, keyframe, linear/stepped/Bezier, idle/wave | Deform, nhịp khăn/thạch; walk và kiểm tra chân trụ | Mixing nhiều track, additive, chuyển tiếp, events/audio |
-| Biến thể | Một bộ ảnh và rig | Giữ cấu trúc để mở rộng skins | Skins, linked mesh và constraint theo skin |
-| Physics | Chưa cần | Kiểm tra mô phỏng nhỏ nếu đủ năng lực nền | Physics phụ kiện, reset, seek, bake và vòng lặp |
-| Giao diện | Canvas, cây đối tượng, thuộc tính, timeline cơ bản, undo | Hiển thị mesh/weights, so pose, đường cong | Công cụ chỉnh sửa chuyên sâu theo nhu cầu thực tế |
-| Tools | Đọc project, tạo rig, batch keys, render, checkpoint | Weights/deform, IK, chẩn đoán | Recipes tái sử dụng và tác vụ dài |
-| Đầu ra | Project đóng gói, mở lại, player độc lập, chuỗi PNG | Spritesheet và kiểm tra crop/padding | Video, atlas, tích hợp engine theo ưu tiên |
+## Phạm vi hẹp được đề xuất
 
-WebMCP được thử ngay từ đầu trên một tool nhỏ, rồi kiểm chứng toàn workflow ở thử nghiệm 3. Không đợi xây xong editor mới thử agent.
+| Nhóm | Trong phương án đề nghị | Ngoài phương án / chưa được nhận |
+| --- | --- | --- |
+| Art | PNG tách sẵn với bố trí/pivot, trong giới hạn storage; full/half texture có mẫu giữ geometry | PSD/sync layer, tự tách ảnh phẳng/sinh art bị che |
+| Rig | Region, xương cha/con; mesh/bind/weights; IK hai xương theo miền hợp đồng | Skins/linked mesh/clipping, path/transform constraints, mọi miền scale |
+| Animation | Transform keys/curves, idle/wave, deform phụ kiện mềm authored | Mixing/additive/transitions/events/audio; physics chưa thử |
+| Agent/UI | Dùng chung Session, native create→observe→edit trong môi trường đã thử; UI cơ bản và undo/checkpoints | Mọi browser/agent; native cancellation đã chứng minh; editor ngang Spine |
+| Quan sát | PNG/preview/sequence, pose/diagnostics gắn revision; region corner supplement khi cần | Default diagnostics bao mọi lỗi/mọi điểm/mọi thời điểm |
+| Lưu/đầu ra | IndexedDB + ZIP + web Player có sẵn; chưa chốt nhu cầu đầu ra | Cloud/cộng tác, spritesheet/video/game-engine exporter; history trong ZIP |
+| Chất lượng | Người xem nhận chuyển động, public evidence và ZIP reopen; giữ ngưỡng mẫu gate | Cam kết 60 fps, reliability thống kê, ROI hoặc production readiness |
+
+Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms so 16.7 ms; #51 Todo/Ready chỉ đo/profile baseline; #52 Deferred chờ baseline theo cập nhật 12/09. Đề xuất tiếp tục phạm vi chức năng không đổi kết quả đo hoặc hạ ngưỡng. Gate 2 physics NOT TESTED và bridge không native pass; Gate 3 7/9 đạt ngưỡng thử nghiệm, chưa tự chốt MVP feasible.
+
+## Phần sau quyết định
+
+Theo [quyết định #22](decisions/mvp.md), #23–#29 vẫn Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 Todo/Ready độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Bộ mẫu làm chuẩn
 
@@ -27,12 +32,14 @@ WebMCP được thử ngay từ đầu trên một tool nhỏ, rồi kiểm ch�
 
 Đối chiếu theo mục tiêu chuyển động và lỗi đã biết. Không yêu cầu trùng từng pixel với Spine hoặc sao chép hành vi chưa có đặc tả. Với engine mới, các ngưỡng số phải được ghi trước khi chạy thử.
 
-## Điều kiện để gọi là thay thế được workflow
+## Điều kiện đề xuất 11/09 — chưa duyệt
 
 - Tạo, sửa, lưu, mở lại và phát được trên player mà không cần Spine.
 - Agent thực hiện qua bộ lệnh công khai; không dựa vào sửa file nội bộ hay chỉnh tay dữ liệu để hoàn thành bài.
-- Người dùng nhận được cả project chỉnh sửa tiếp và đầu ra sử dụng được.
+- Giả định đầu ra sử dụng được đã superseded ngày 12/09; cần xác định lại khi có nhu cầu.
 - Có bằng chứng ở pose giữa key, cực trị và playback, không chỉ ảnh đẹp tại keyframe.
 - Việc sửa được hoàn tác và không làm mất phần project đã đạt.
 
 Các tính năng chưa làm phải được báo là chưa hỗ trợ. Không âm thầm bỏ qua khi nhập project hoặc xuất kết quả.
+
+Các điều kiện này chưa duyệt; quyết định đầu ra đã hoãn. Bằng chứng trên bộ mẫu không chứng minh thay thế toàn bộ workflow Spine; chưa có baseline so sánh tương đương hoặc chi phí/tokens đầy đủ.

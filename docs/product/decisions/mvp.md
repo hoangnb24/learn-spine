@@ -1,0 +1,81 @@
+# ADR-MVP — hoãn quyết định đầu ra
+
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
+
+[Đối chiếu 12/09](../reconciliation/2026-09-12-deferred-output.md). Giả định PNG→ZIP/web Player trong đề xuất 11/09 đã **superseded**; các phần kỹ thuật dưới đây giữ căn cứ, không phải phê duyệt phạm vi.
+
+## Bằng chứng làm căn cứ
+
+Mốc đọc code: main `564d9eaea2ad6a98fb74672ca9c18931e5b720ac` ([PR #67](https://github.com/hoangnb24/learn-spine/pull/67)). [Đối chiếu ba gate](../reconciliation/2026-09-11-three-gates.md) giữ đầy đủ provenance và các ngoại lệ; bản đề xuất không sửa report/rubric lịch sử.
+
+| Đã đo/được nhận | Ý nghĩa cho phương án | Giới hạn phải giữ |
+| --- | --- | --- |
+| [Gate 1](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-1/README.md): native robot, sửa wave, undo/atomic failure, ZIP reopen và Player độc lập; 24 pose Editor/Player ≤1e-5, PNG cùng máy trùng bytes | Đường đi region rig → animation → xuất có bằng chứng | p95 draw interval 17.8/17.5 ms **FAIL** so 16.7 ms; dev/StrictMode, Chromium SwiftShader, instrumentation clone chưa cô lập; không đo physical presentation. Accepted head `13bba23ceeda484aaf6e8b262b7bbceb2fc3c386`, merge `b6577a3b44b8016a9c7ba3ec9f60fbb869419538` |
+| [Gate 2](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-2/README.md): authored khăn/thạch/chân trụ, anchors/eye ROI/loop, seek, full/half texture, ZIP/playback | Có thể đưa mesh/deform và IK hai xương trong miền hợp đồng vào workflow hẹp | Physics **NOT TESTED**; browser bridge không native pass. Region corners chỉ là supplement dùng public `render.corners`, default diagnostics chưa bao đủ. Sampled checks không chứng minh mọi thời điểm. Accepted `fb143ae0afe50b0e2af6c4952f96c2f1f81fd42f`, merge `538f939d9c76e29a55bc7680f8e36943095e4326` |
+| [Gate 3 report](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-3/README.md), [aggregate](https://github.com/hoangnb24/learn-spine/blob/fe112ca002513e3767715e9d32ecbfb58dde833a/docs/product/results/experiment-3/aggregate.json): robot 2/3, wave 3/3, scarf 2/3 = 7/9; đủ ≥2/3 từng brief với ≤900 s, ≤100 calls theo protocol; tám ZIP emit mở lại Editor/Player | Native agent tạo và sửa được qua tools; đủ cơ sở đề nghị tiếp tục có giới hạn | Robot 1 fail môi trường trước native call; scarf 1 fail thiếu public observation/outside-native evidence, không chứng minh project fail/rescue. Scarf 1 tổng budget/rescue UNKNOWN: chỉ biết 57 native + 1 discovery, 193.3775 s. Chín lượt là feasibility experiment, không phải thống kê reliability |
+
+Gate 3 accepted head `d6f18420a0651845b95933da36b79b523cfc6bf9`, merge `fe112ca002513e3767715e9d32ecbfb58dde833a`, [CI 34585694942 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34585694942). Source/harness/protocol frozen `57eed3122782fe1c8b2d5eb536bc1e27a4ebc360` trên production `538f939`. Giữ wave property-order false trong scorer gốc cùng structural supplement đã được reviewer nhận; wave 2/scarf 2 có crop viewport trung gian và later full preview/Player; scarf 3 manual 59 khác audited 57. Review sampled images/playback records không có nghĩa reviewer trực tiếp xem mọi WebM. Không suy native cancellation hay performance từ Gate 3.
+
+**Chưa biết:** tổng tokens/chi phí, provider model version sâu hơn nhãn `gpt-6-astra`/medium, baseline Spine tương đương, tỷ lệ thành công ngoài ba brief, nhiều loại art/máy/browser, mức can thiệp ở workflow thực tế, native cancellation và độ bao phủ production. Vì vậy chưa tính ROI, speedup hoặc chi phí một animation.
+
+**Giả định lịch sử 11/09 — superseded về đầu ra:** người dùng đầu tiên chấp nhận tự tách PNG và dùng trên web; cần project chỉnh sửa tiếp hơn video; có thể xem và chọn kết quả trước sử dụng. Gate chứng minh thao tác có cấu trúc và sửa cục bộ, chưa chứng minh nhu cầu thị trường hoặc tiết kiệm thời gian so quy trình hiện tại. Nếu các giả định này sai, ưu tiên discovery cần đổi trước khi triển khai mở rộng.
+
+## Kiến trúc khuyến nghị từ hợp đồng đang chạy
+
+| Thành phần | Đề nghị giữ | Căn cứ và điều kiện xem lại |
+| --- | --- | --- |
+| Giao diện | TypeScript + React + Vite, Editor/Player entry riêng trong `platform/`; phiên bản theo lockfile | [Editor runtime](../../../platform/apps/editor/runtime.ts) dùng một Session, React giữ state giao diện; [Player](../../../platform/apps/player/) độc lập. Xem lại nếu tác vụ nền/multi-user thành yêu cầu; chưa thêm server |
+| Lõi | Model versioned + Session commands duy nhất sở hữu project/history; evaluator thuần theo thời gian | [Commands](../../../platform/src/commands/README.md), [engine](../../../platform/src/engine/README.md). Giữ revision/requestId, atomic batch, undo/checkpoint và lỗi rõ. Format 0 giữ region-only; format 1 khai báo `region-v0`, `mesh-v1`/`ik-v1` khi cần; [migration](../contracts/mesh-v1.md) 0→1 tường minh, không hạ 1→0. Xem lại khi semantics mới đòi migration |
+| Renderer | PixiJS 8, nhận Pose v1 từ evaluator; regions/meshes theo slot order | [Renderer](../../../platform/src/render/README.md) không tự giải IK. Geometry world-space dùng chung Editor/Player/observation giúp tránh hai engine khác nhau. #51 cần tách bottleneck trước khi quyết định đổi renderer; không suy CPU submission nhanh là frame pass |
+| Lưu trữ | JSON + PNG trong ZIP portable; IndexedDB autosave tại browser, ZIP là khả năng lưu/chuyển project hiện có, chưa phải đầu ra đã chốt | [Storage](../../../platform/src/storage/README.md) validate schema/hash/PNG/limits, autosave atomic; không có cloud sync. ZIP không lưu undo history. Xem lại nếu cần cộng tác, lưu nhiều thiết bị hoặc vượt limits; không coi giới hạn dung lượng validator là hiệu năng đã đạt |
+| Agent/quan sát | WebMCP adapter mỏng dùng cùng Session/Storage/ObservationService; browser/agent đã kiểm chứng | [Adapter 28 tools](../../../platform/src/adapters/webmcp/README.md) dùng schemas, paging/revision; [observation](../../../platform/src/observation/README.md) snapshot gắn revision. Không tạo project mutable riêng hoặc automation DOM thay native acceptance. Khi native unavailable hiển thị rõ; chỉ cân nhắc adapter khác sau thử môi trường đích |
+
+Không lấy Spine runtime/dependencies ở root sang sản phẩm. Kiến trúc riêng đã đi qua các workflow trên; thay bằng Spine chưa có baseline và nghiên cứu giấy phép tương ứng để biện minh. Điều này không khẳng định engine riêng có full Spine parity.
+
+## Phạm vi và điều kiện nhận được đề xuất
+
+Đầu vào là bộ PNG đã tách với bố trí/pivot và brief rõ, trong giới hạn [storage](../../../platform/src/storage/README.md). Phạm vi có region rig cha/con, transform keys và curves hiện có, idle/wave; mesh/weights/deform cho phụ kiện mềm và IK hai xương **trong miền scale/target của [hợp đồng IK](../../../platform/src/engine/IK.md)**. Không bao physics, animation mixing, auto-segmentation hoặc mọi constraint của Spine.
+
+Một bàn giao nội bộ được đề nghị chỉ nhận khi: người xem đồng ý chuyển động; agent có public create→observe→edit evidence gắn revision; kiểm pose giữa key/cực trị và playback; sửa đúng vùng cho phép; lỗi batch không sửa dở và undo/checkpoint giữ phần đã đạt; ZIP chứa đủ PNG mở lại Editor và Player độc lập. Với mẫu gate, giữ nguyên ngưỡng/rubric lịch sử; với brief mới phải khóa yêu cầu trước run, không suy pass từ tool success hay diagnostics `passed` đơn lẻ. Region rotation cần public corner check bổ sung cho tới khi coverage được xử lý. Không áp số liệu mẫu làm bảo đảm cho mọi project.
+
+Chưa cam kết đầu ra sản phẩm: lựa chọn và logic mở rộng tương ứng đã hoãn. Video trong gate là evidence, không phải exporter video. #51 Ready chỉ đo/profile baseline; #52 Deferred chờ baseline, chưa cam kết 60 fps; giữ ngưỡng 16.7 ms và kết quả gate. Native cancellation chưa được nhận.
+
+## Thứ tự đầu tư được đề xuất
+
+Snapshot 12/09: #51 Todo/Ready là bước độc lập tiếp theo, chưa triển khai. #52 và #23–#29 giữ Deferred. Các hướng discovery dưới đây chỉ có điều kiện, không phải lịch hay phê duyệt implementation; Polish không phụ thuộc #22.
+
+| Thứ tự đề nghị | Issue/trạng thái giữ nguyên | Outcome và lý do/điều kiện xem lại |
+| --- | --- | --- |
+| 1, trước mở rộng tính năng | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Todo/Ready → [#52](https://github.com/hoangnb24/learn-spine/issues/52) Deferred | Chuẩn hóa baseline/profile rồi tối ưu/retest p95 ≤16.7 ms đúng phạm vi issue; phân tách instrumentation/scheduler/render trước đổi stack. Không chặn tiếp tục chức năng đã được chủ dự án cho phép; bước tiếp theo chỉ đo/profile baseline, chưa tối ưu |
+| 2, discovery đầu tiên khi cần bớt chuẩn bị art | [#23](https://github.com/hoangnb24/learn-spine/issues/23) Deferred | PSD mapping/update giữ rig, stable IDs và policy trim/rename/delete. Giảm thao tác nhập art nhưng thêm parser/migration; chỉ mở khi người dùng xác nhận chuẩn bị art là nút thắt, chưa hứa importer production |
+| Khi có nhu cầu đầu ra thực tế | [#28](https://github.com/hoangnb24/learn-spine/issues/28) Deferred | Chọn một đầu ra đích và prototype timing/crop/toolchain. Chỉ mở lại khi có nơi sử dụng và nhu cầu đầu ra cụ thể; chưa giả định web là đích. Không làm tất cả exporter |
+| Sau nhu cầu motion cụ thể | [#24](https://github.com/hoangnb24/learn-spine/issues/24) Deferred | Semantics mixing/transitions/events/audio, test vectors và kiểm nghe; chỉ khi một clip hiện tại không đáp ứng. Có ảnh hưởng evaluator/time semantics nên chưa mở |
+| Sau nhu cầu biến thể art | [#25](https://github.com/hoangnb24/learn-spine/issues/25) Deferred | Skins/linked mesh/clipping và ownership deform; chờ use case dùng chung rig, tránh thêm migration chỉ để đạt parity |
+| Sau giới hạn rig cụ thể | [#26](https://github.com/hoangnb24/learn-spine/issues/26) Deferred | Path/transform constraints và thứ tự solve; chờ rig không thể đáp ứng bằng FK/IK hiện có |
+| Sau các nhánh trên, nếu thật sự cần mô phỏng | [#27](https://github.com/hoangnb24/learn-spine/issues/27) Deferred | Physics seek/reset/export tái lập; Gate 2 không kiểm physics. Cần thiết kế determinism trước tích hợp, không gọi deform authored là physics |
+| Cuối, tách khỏi MVP PNG | [#29](https://github.com/hoangnb24/learn-spine/issues/29) Deferred | Ảnh phẳng→tách lớp/rig đề xuất; chất lượng phần bị che, dịch vụ/chi phí/quyền art chưa biết. Chỉ nghiên cứu khi người dùng không thể cung cấp art tách sẵn; chưa gửi art ra dịch vụ |
+
+Hai corrective có căn cứ được đề nghị để chủ dự án cân nhắc, **chưa tạo issue hay code**: (1) đưa region-corner loop coverage vào diagnostics công khai, outcome có rotation-only negative control đã fail đúng và hồi quy mẫu gate, không đổi policy âm thầm; (2) làm vòng native observation/audit đầy đủ và kiểm lifecycle/cancellation trên môi trường đích, outcome có public transcript, budget/rescue provenance và dừng rõ ràng. Hai failure Gate 3 không chứng minh lỗi engine; cần phân biệt môi trường với thiếu evidence trước khi sửa. Nếu chủ dự án muốn claim reliability/cost, khóa protocol mới có số mẫu và ngân sách phù hợp, ghi đủ tokens/cost/intervention; không diễn giải lại chín lượt cũ.
+
+## Ghi nhận quyết định và bước tiếp theo
+
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
+
+Merge tài liệu chỉ ghi nhận quyết định hoãn, không hoàn tất #22 hoặc duyệt MVP. Orchestrator giao triển khai và nghiệm thu #51 riêng.
+
+## Kiểm tra bản đề xuất — 11/09/2026
+
+Nội dung đề xuất được kiểm tra tại commit `0ae337ddb05772cc00a2458aaa07571e7583ef06` (chỉ ba file docs trên base `564d9ea`); phần ghi kết quả này được bổ sung sau kiểm tra, không đổi production. Môi trường macOS 26.4 arm64, Node 22.22.3, npm 10.9.8, Playwright Chromium hiện có trên máy.
+
+| Lệnh từ root worktree | Actual result |
+| --- | --- |
+| `npm ci --prefix platform` | 70 packages cài từ lockfile; audit 0 vulnerabilities tại lần chạy này |
+| `npm run typecheck --prefix platform` | Exit 0 |
+| `npm test --prefix platform` | 163 passed, 1 skipped (scorer Gate 3 cần GATE3_RUN); không gọi lượt skipped là pass |
+| `npm run build --prefix platform` | Exit 0, còn warning chunk >500 kB như trước |
+| `npm run test:browser --prefix platform` | 19/19 passed, 9.9 s; real browser Editor/Player/storage/authoring/bridge. Không phải native gate hoặc benchmark mới |
+| `npm run dev --prefix platform` | Vite ready tại 127.0.0.1:5173; HTTP GET `/index.html` và `/player.html` đều 200; server đã dừng sau kiểm tra |
+| Kiểm tra Markdown relative targets của ba file bằng Python pathlib + regex | 45/45 đường dẫn tồn tại trước bổ sung mục này |
+| `git diff --check` | Exit 0 |
+
+Đã cài dependencies sạch trong worktree riêng; không chạy lại thao tác clone/auth vì repo đã checkout. Chromium đã có sẵn nên không chạy lại bước tải browser/OS dependencies. Browser suite sinh lại ảnh/ZIP evidence cũ trong worktree; đã loại đúng các output do lần kiểm tra này tạo khỏi diff để giữ nguyên historical evidence. Không sửa source/schema/API, không chạy lại native Gate 1–3, không claim kiểm visual mới từ HTTP 200. Fixtures/scripts/contracts tái lập đều đã link đến file trong repo; report lịch sử là bằng chứng gate, các kết quả trên chỉ xác minh tài liệu và cách chạy.
