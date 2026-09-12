@@ -2,9 +2,9 @@ name: Platform
 on:
   push:
     branches: [main, 'codex/**']
-    paths: ['platform/**', '.github/workflows/platform.yml']
+    paths: ['platform/**', 'docs/product/contracts/**', '.github/workflows/platform.yml']
   pull_request:
-    paths: ['platform/**', '.github/workflows/platform.yml']
+    paths: ['platform/**', 'docs/product/contracts/**', '.github/workflows/platform.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,8 +24,16 @@ jobs:
         with:
           node-version-file: platform/.nvmrc
           cache: npm
-          cache-dependency-path: platform/package-lock.json
+          cache-dependency-path: |
+            platform/package-lock.json
+            docs/product/contracts/package-lock.json
       - run: npm ci
+      - run: npm ci --ignore-scripts
+        working-directory: docs/product/contracts
+      - run: npm run typecheck
+        working-directory: docs/product/contracts
+      - run: npm test
+        working-directory: docs/product/contracts
       - run: npm run typecheck
       - run: npm test
       - run: npm run build

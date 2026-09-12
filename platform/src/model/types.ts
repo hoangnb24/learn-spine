@@ -126,7 +126,9 @@ export interface Pose {
   bones: Record<Id, Matrix>; regions: DrawRegion[];
 }
 /** #8: pure, deterministic; no frame delta, DOM or renderer dependency. */
-export interface Evaluator { evaluate(project: Project, request: PoseRequest): Result<Pose>; evaluateTarget(project: Project, request: TargetPoseRequest): Result<TargetPose> }
+export interface Evaluator { evaluate(project: Project, request: PoseRequest): Result<Pose> }
+/** Composition-aware engine extends the legacy interface without breaking existing implementers. */
+export interface TargetEvaluator extends Evaluator { evaluateTarget(project: Project, request: TargetPoseRequest): Result<TargetPose> }
 /** Bytes remain outside JSON; keys are asset IDs. Treat byte buffers as immutable. */
 export type AssetBytes = ReadonlyMap<Id, Uint8Array>;
 export interface ProjectBundle { project: Project; assets: AssetBytes }

@@ -1,0 +1,44 @@
+
+> test
+> node --test contract.test.mjs
+
+TAP version 13
+# Subtest: region example is valid and packaged asset resolves to exact clone bytes
+ok 1 - region example is valid and packaged asset resolves to exact clone bytes
+  ---
+  duration_ms: 2.225167
+  type: 'test'
+  ...
+# Subtest: examples reject cycles, missing assets and non-JSON NaN before serialization
+ok 2 - examples reject cycles, missing assets and non-JSON NaN before serialization
+  ---
+  duration_ms: 1.198083
+  type: 'test'
+  ...
+# Subtest: reject invalid trim, duplicate channels/times, backward bezier and unsupported features
+ok 3 - reject invalid trim, duplicate channels/times, backward bezier and unsupported features
+  ---
+  duration_ms: 0.721958
+  type: 'test'
+  ...
+# Subtest: stale request example specifies a real conflict (command implementation remains \#7)
+ok 4 - stale request example specifies a real conflict (command implementation remains \#7)
+  ---
+  duration_ms: 0.1205
+  type: 'test'
+  ...
+# Subtest: hand-calculated transform, trim and loop vectors
+ok 5 - hand-calculated transform, trim and loop vectors
+  ---
+  duration_ms: 0.13325
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 83.12125

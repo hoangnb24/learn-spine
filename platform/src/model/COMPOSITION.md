@@ -169,6 +169,10 @@ the selected target. `animationId:null` explicitly selects setup with sampledTim
 Revision identifies the complete source/composition data used for the result.
 The target and returned geometry are detached from request/project memory.
 
+The legacy `Evaluator` interface remains unchanged; `TargetEvaluator extends
+Evaluator` adds `evaluateTarget`, and the one exported concrete `evaluator`
+implements both. Existing mock/custom Evaluator implementers remain type-compatible.
+
 Existing `evaluate(project,{animationId,time}): Result<Pose>` remains strict and
 keeps its legacy result fields, including animationId and existing error paths.
 It calls the same checked evaluation/finalization pipeline once. Supplying a
