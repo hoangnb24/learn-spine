@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Đây chỉ là spec/prototype transform và event metadata, chưa nghiệm thu composition sản phẩm/native/UI. #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred. Không hoàn tất #22 hoặc duyệt MVP."
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #73 CLOSED/completed · Done/Ready. #74 In Progress/Ready: sole implementer `/root/implement_composition_tools`, reviewer `/root/review_composition_tools`; đã cho phép triển khai đầy đủ scope native tools/observation/bounds sau khi core và compatibility fix được nhận. #75 Todo/Blocked chờ #74 (#73 đã đạt), chưa giao owner. Native adapter/observation/UI composition chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred. Không hoàn tất #22 hoặc duyệt MVP."
     },
     {
       "key": "T22",
@@ -845,7 +845,7 @@
       "status": "Done",
       "implementer": "/root/implement_issue24",
       "reviewer": "/root/review_issue24",
-      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Đây chỉ là spec/prototype transform và event metadata, chưa nghiệm thu composition sản phẩm/native/UI. #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred."
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #73 CLOSED/completed · Done/Ready. #74 In Progress/Ready: sole implementer `/root/implement_composition_tools`, reviewer `/root/review_composition_tools`; đã cho phép triển khai đầy đủ scope native tools/observation/bounds sau khi core và compatibility fix được nhận. #75 Todo/Blocked chờ #74 (#73 đã đạt), chưa giao owner. Native adapter/observation/UI composition chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred."
     },
     {
       "key": "T24",
@@ -1144,13 +1144,14 @@
       "wave": null,
       "priority": "P1",
       "readiness": "Ready",
-      "status": "In Progress",
+      "status": "Done",
       "number": 73,
       "id": 5432437728,
       "node_id": "I_kwDOUTvul88AAAABQ8xr4A",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/73",
       "implementer": "/root/implement_composition_core",
-      "reviewer": "/root/review_composition_core"
+      "reviewer": "/root/review_composition_core",
+      "handoff": "#73 core đã nghiệm thu đầy đủ: [PR #77](https://github.com/hoangnb24/learn-spine/pull/77), exact `b05f4dbae62cf4370bfdfe1a0f61720903f4fd6a`, merge `bfff5e5fcd65371ed9baffd0c891aa54bba7e305`, CI 34686490771/34686490757/34686489418 SUCCESS. Follow-up [PR #78](https://github.com/hoangnb24/learn-spine/pull/78) được nghiệm thu Đạt tại `ec06775147f3e3fa76c1fa601b9a44de8b340158`, CI 34686680117/34686680189/34686668168 SUCCESS, merge `d2cf8ed339353d1029481c925aec7017d341bcbf`. Lỗi compile legacy `Evaluator` phát hiện sau PR #77 đã sửa bằng `TargetEvaluator extends Evaluator`; kiểm tra contract/mock-consumers được thêm vào CI. Handoff core đã được nhận, không còn chờ follow-up compatibility. #73 CLOSED/completed · Done/Ready. #74 In Progress/Ready: sole implementer `/root/implement_composition_tools`, reviewer `/root/review_composition_tools`; đã cho phép triển khai đầy đủ scope native tools/observation/bounds sau khi core và compatibility fix được nhận. #75 Todo/Blocked chờ #74 (#73 đã đạt), chưa giao owner. Native adapter/observation/UI composition chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred."
     },
     {
       "key": "COMP_B",
@@ -1180,14 +1181,15 @@
       "exclude": "Transform-only v1; không audio/event dispatch/deform mixing/reverse/nested refs/auto-stop/performance/đầu ra mới.",
       "wave": null,
       "priority": "P1",
-      "readiness": "Blocked",
-      "status": "Todo",
+      "readiness": "Ready",
+      "status": "In Progress",
       "number": 74,
       "id": 5432437840,
       "node_id": "I_kwDOUTvul88AAAABQ8xsUA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/74",
-      "implementer": null,
-      "reviewer": null
+      "implementer": "/root/implement_composition_tools",
+      "reviewer": "/root/review_composition_tools",
+      "handoff": "Input #73 core + compatibility fix accepted tại main d2cf8ed339353d1029481c925aec7017d341bcbf. Triển khai đầy đủ scope; native/UI chưa nghiệm thu."
     },
     {
       "key": "COMP_C",
