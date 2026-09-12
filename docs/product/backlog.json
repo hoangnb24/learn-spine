@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
+      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
     },
     {
       "key": "T22",
@@ -1027,7 +1027,7 @@
       "ownership": "Harness/profile/baseline riêng",
       "outcome": "Chuẩn hóa phép đo, tách instrumentation và ghi baseline",
       "work": [
-        "Bước độc lập tiếp theo: chuẩn hóa phép đo, profile và ghi baseline theo acceptance; chưa triển khai trong đợt cập nhật 12/09/2026."
+        "Chủ dự án xác nhận ngày 12/09/2026: Polish để sau, gồm cả đo/profile baseline; chưa triển khai hoặc lên lịch."
       ],
       "acceptance": [
         "Chốt và ghi môi trường retest: máy/OS/browser/GPU, dev hay production, kích thước 1280×720, warm-up, 30 giây, fixture/revision, lệnh và định nghĩa metric; phân biệt draw-call cadence, CPU submission và presentation.",
@@ -1041,7 +1041,7 @@
       "exclude": "Không chặn mesh/IK/giai đoạn chức năng; không dependency #22; không nhận performance pass hồi tố.",
       "wave": null,
       "priority": "P2",
-      "readiness": "Ready",
+      "readiness": "Deferred",
       "status": "Todo",
       "number": 51,
       "id": 5420821518,
@@ -1059,7 +1059,7 @@
       "ownership": "Module bottleneck theo profile #51; phối hợp entry chung",
       "outcome": "Tối ưu cadence và retest p95 <=16.7ms trên môi trường #51",
       "work": [
-        "Giữ Deferred đến khi baseline #51 được nghiệm thu; chưa triển khai tối ưu."
+        "Polish để sau theo chủ dự án ngày 12/09/2026; giữ Deferred. Khi được mở lại, cần baseline #51 đã nghiệm thu trước tối ưu."
       ],
       "acceptance": [
         "Nêu bottleneck dựa trên #51; thay đổi có phạm vi và so sánh before/after trên cùng fixture, cấu hình và môi trường đã chốt.",

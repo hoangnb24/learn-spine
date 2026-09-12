@@ -1,6 +1,6 @@
 # Phạm vi theo giai đoạn
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. Bảng dưới là phạm vi kỹ thuật từng đề xuất, chưa phải sản phẩm được duyệt.
 
 ## Phạm vi hẹp được đề xuất
 
@@ -14,11 +14,11 @@ Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi s�
 | Lưu/đầu ra | IndexedDB + ZIP + web Player có sẵn; chưa chốt nhu cầu đầu ra | Cloud/cộng tác, spritesheet/video/game-engine exporter; history trong ZIP |
 | Chất lượng | Người xem nhận chuyển động, public evidence và ZIP reopen; giữ ngưỡng mẫu gate | Cam kết 60 fps, reliability thống kê, ROI hoặc production readiness |
 
-Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms so 16.7 ms; #51 Todo/Ready chỉ đo/profile baseline; #52 Deferred chờ baseline theo cập nhật 12/09. Đề xuất tiếp tục phạm vi chức năng không đổi kết quả đo hoặc hạ ngưỡng. Gate 2 physics NOT TESTED và bridge không native pass; Gate 3 7/9 đạt ngưỡng thử nghiệm, chưa tự chốt MVP feasible.
+Gate 1 chức năng được nhận nhưng performance vẫn FAIL 17.8/17.5 ms so 16.7 ms; #51 và #52 Deferred theo xác nhận để Polish về sau ngày 12/09. Đề xuất tiếp tục phạm vi chức năng không đổi kết quả đo hoặc hạ ngưỡng. Gate 2 physics NOT TESTED và bridge không native pass; Gate 3 7/9 đạt ngưỡng thử nghiệm, chưa tự chốt MVP feasible.
 
 ## Phần sau quyết định
 
-Theo [quyết định #22](decisions/mvp.md), #23–#29 vẫn Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 Todo/Ready độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
+Theo [quyết định #22](decisions/mvp.md), #23–#29 vẫn Deferred; #28 chỉ xem lại khi có nơi sử dụng và nhu cầu đầu ra thực tế. #51 và #52 Todo/Deferred; cả đo/profile baseline và tối ưu đều để sau, chưa chọn issue thay thế. [Đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Bộ mẫu làm chuẩn
 

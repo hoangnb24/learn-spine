@@ -1,6 +1,6 @@
 # ADR-MVP — hoãn quyết định đầu ra
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production.
 
 [Đối chiếu 12/09](../reconciliation/2026-09-12-deferred-output.md). Giả định PNG→ZIP/web Player trong đề xuất 11/09 đã **superseded**; các phần kỹ thuật dưới đây giữ căn cứ, không phải phê duyệt phạm vi.
 
@@ -38,15 +38,15 @@ Không lấy Spine runtime/dependencies ở root sang sản phẩm. Kiến trúc
 
 Một bàn giao nội bộ được đề nghị chỉ nhận khi: người xem đồng ý chuyển động; agent có public create→observe→edit evidence gắn revision; kiểm pose giữa key/cực trị và playback; sửa đúng vùng cho phép; lỗi batch không sửa dở và undo/checkpoint giữ phần đã đạt; ZIP chứa đủ PNG mở lại Editor và Player độc lập. Với mẫu gate, giữ nguyên ngưỡng/rubric lịch sử; với brief mới phải khóa yêu cầu trước run, không suy pass từ tool success hay diagnostics `passed` đơn lẻ. Region rotation cần public corner check bổ sung cho tới khi coverage được xử lý. Không áp số liệu mẫu làm bảo đảm cho mọi project.
 
-Chưa cam kết đầu ra sản phẩm: lựa chọn và logic mở rộng tương ứng đã hoãn. Video trong gate là evidence, không phải exporter video. #51 Ready chỉ đo/profile baseline; #52 Deferred chờ baseline, chưa cam kết 60 fps; giữ ngưỡng 16.7 ms và kết quả gate. Native cancellation chưa được nhận.
+Chưa cam kết đầu ra sản phẩm: lựa chọn và logic mở rộng tương ứng đã hoãn. Video trong gate là evidence, không phải exporter video. #51 và #52 Deferred, gồm cả đo/profile baseline và tối ưu; chưa cam kết 60 fps; giữ ngưỡng 16.7 ms và kết quả gate. Native cancellation chưa được nhận.
 
 ## Thứ tự đầu tư được đề xuất
 
-Snapshot 12/09: #51 Todo/Ready là bước độc lập tiếp theo, chưa triển khai. #52 và #23–#29 giữ Deferred. Các hướng discovery dưới đây chỉ có điều kiện, không phải lịch hay phê duyệt implementation; Polish không phụ thuộc #22.
+Snapshot 12/09: #51 và #52 Todo/Deferred theo quyết định để Polish về sau; #23–#29 giữ Deferred. Chưa chọn issue tiếp theo. Các hướng discovery dưới đây chỉ có điều kiện, không phải lịch hay phê duyệt implementation; Polish không phụ thuộc #22.
 
 | Thứ tự đề nghị | Issue/trạng thái giữ nguyên | Outcome và lý do/điều kiện xem lại |
 | --- | --- | --- |
-| 1, trước mở rộng tính năng | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Todo/Ready → [#52](https://github.com/hoangnb24/learn-spine/issues/52) Deferred | Chuẩn hóa baseline/profile rồi tối ưu/retest p95 ≤16.7 ms đúng phạm vi issue; phân tách instrumentation/scheduler/render trước đổi stack. Không chặn tiếp tục chức năng đã được chủ dự án cho phép; bước tiếp theo chỉ đo/profile baseline, chưa tối ưu |
+| Polish để sau | [#51](https://github.com/hoangnb24/learn-spine/issues/51) Todo/Deferred → [#52](https://github.com/hoangnb24/learn-spine/issues/52) Deferred | Chuẩn hóa baseline/profile rồi tối ưu/retest p95 ≤16.7 ms đúng phạm vi issue; phân tách instrumentation/scheduler/render trước đổi stack. Không chặn tiếp tục chức năng đã được chủ dự án cho phép; cả đo/profile baseline và tối ưu để sau theo chủ dự án, chưa lên lịch |
 | 2, discovery đầu tiên khi cần bớt chuẩn bị art | [#23](https://github.com/hoangnb24/learn-spine/issues/23) Deferred | PSD mapping/update giữ rig, stable IDs và policy trim/rename/delete. Giảm thao tác nhập art nhưng thêm parser/migration; chỉ mở khi người dùng xác nhận chuẩn bị art là nút thắt, chưa hứa importer production |
 | Khi có nhu cầu đầu ra thực tế | [#28](https://github.com/hoangnb24/learn-spine/issues/28) Deferred | Chọn một đầu ra đích và prototype timing/crop/toolchain. Chỉ mở lại khi có nơi sử dụng và nhu cầu đầu ra cụ thể; chưa giả định web là đích. Không làm tất cả exporter |
 | Sau nhu cầu motion cụ thể | [#24](https://github.com/hoangnb24/learn-spine/issues/24) Deferred | Semantics mixing/transitions/events/audio, test vectors và kiểm nghe; chỉ khi một clip hiện tại không đáp ứng. Có ảnh hưởng evaluator/time semantics nên chưa mở |
@@ -59,9 +59,9 @@ Hai corrective có căn cứ được đề nghị để chủ dự án cân nh�
 
 ## Ghi nhận quyết định và bước tiếp theo
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production.
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production.
 
-Merge tài liệu chỉ ghi nhận quyết định hoãn, không hoàn tất #22 hoặc duyệt MVP. Orchestrator giao triển khai và nghiệm thu #51 riêng.
+Merge tài liệu chỉ ghi nhận quyết định hoãn, không hoàn tất #22 hoặc duyệt MVP. Chưa giao triển khai #51 hoặc chọn issue thay thế.
 
 ## Kiểm tra bản đề xuất — 11/09/2026
 

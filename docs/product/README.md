@@ -4,7 +4,7 @@ Ngày 11/09/2026 · Snapshot code main `564d9eaea2ad6a98fb74672ca9c18931e5b720ac
 
 Sản phẩm trong `platform/` đã có workflow PNG tách bộ phận → agent dựng/sửa animation qua WebMCP → quan sát → xuất ZIP → mở lại Editor/Player độc lập, được kiểm chứng trên bộ mẫu robot/khăn và môi trường native ghi trong reports. Lõi sản phẩm độc lập với các bài học và Spine runtime ở root.
 
-Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 Todo/Ready là bước độc lập đo/profile baseline, chưa triển khai; #52 Deferred chờ baseline được nghiệm thu. Không duyệt MVP hoặc production. [Quyết định #22](decisions/mvp.md), [đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
+Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chưa chọn issue thay thế. Không duyệt MVP hoặc production. [Quyết định #22](decisions/mvp.md), [đối chiếu 12/09](reconciliation/2026-09-12-deferred-output.md).
 
 ## Khả năng đã kiểm chứng
 
