@@ -105,3 +105,18 @@ Mesh/deform/IK writes reject format 0 with `UNSUPPORTED_VERSION`. They never upg
 implicitly. Successful v1 writes add their required `mesh-v1`/`ik-v1` declaration to
 the candidate, which is rolled back on failure and retained after entity removal.
 No operation bypasses the unchanged strict v0/v1 model validation or asset checks.
+
+## Composition authoring (#73)
+
+`putComposition {value}` and `remove {collection:'compositions',id}` join the same
+atomic Session/history path. Explicit format-1 migration is required; successful
+puts add `composition-v1`. Final-project validation rejects dangling references,
+source deforms and incomplete keyed/masked frozen transitions, including changes
+made indirectly by editing/removing source animations. A valid final batch may
+remove or retarget dependents together. Retry, revision, events, undo/redo and
+checkpoints follow the rules above. Source edits invalidate composed poses at the
+new project revision, including frozen sources (fixed time, current source data).
+
+[Canonical composition and target contract](../model/COMPOSITION.md) is the
+handoff for transport and UI; core Session capability does not imply adapter
+support. The bridge keeps this feature unadvertised until #74 is integrated.

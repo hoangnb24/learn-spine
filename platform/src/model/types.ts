@@ -32,9 +32,28 @@ export type Curve = { type: 'linear' } | { type: 'stepped' } |
 export interface Keyframe { time: number; value: number; curve: Curve }
 export interface Channel { boneId: Id; property: keyof Transform; keys: Keyframe[] }
 export interface Animation { id: Id; name: string; duration: number; loop: boolean; channels: Channel[]; deforms?: DeformChannel[] }
+/** Transform-only composition; masks never expand to descendants or absent channels. */
+export type CompositionMask = { boneId: Id; property: keyof Transform }[];
+export type CompositionSource =
+  | { kind: 'live'; animationId: Id; offset: number; speed: number }
+  | { kind: 'frozen'; animationId: Id; entryTime: number };
+export interface TransformTrack {
+  kind: 'track'; id: Id; order: number; source: CompositionSource;
+  mask: CompositionMask; mode: 'overwrite' | 'additive'; alpha: number;
+  start: number; fadeIn: number; end?: number; fadeOut: number;
+}
+/** Expands into adjacent frozen-outgoing / live-incoming overwrite primitives. */
+export interface FrozenCrossfade {
+  kind: 'crossfade'; id: Id; order: number; start: number; duration: number;
+  outgoing: { animationId: Id; entryTime: number; mask: CompositionMask };
+  incoming: { animationId: Id; offset: number; speed: number; mask: CompositionMask };
+}
+export type CompositionTrack = TransformTrack | FrozenCrossfade;
+export interface Composition { id: Id; name: string; duration: number; loop: boolean; tracks: CompositionTrack[] }
 export interface Project {
-  formatVersion: 0 | 1; projectId: Id; revision: number; requiredCapabilities: ('region-v0' | 'mesh-v1' | 'ik-v1')[];
+  formatVersion: 0 | 1; projectId: Id; revision: number; requiredCapabilities: ('region-v0' | 'mesh-v1' | 'ik-v1' | 'composition-v1')[];
   ikConstraints?: TwoBoneIK[];
+  compositions?: Composition[];
   metadata: { name: string; notes?: string };
   assets: Asset[]; bones: Bone[]; slots: Slot[]; attachments: Attachment[]; animations: Animation[];
 }
@@ -52,12 +71,13 @@ export type Operation =
   | { kind: 'putSlot'; value: Slot }
   | { kind: 'putRegion'; value: Region }
   | { kind: 'putAnimation'; value: Animation }
+  | { kind: 'putComposition'; value: Composition }
   | { kind: 'migrateProject'; targetVersion: 1 }
   | { kind: 'putMesh'; value: Mesh }
   | { kind: 'setVertexWeights'; attachmentId: Id; vertices: { vertex: number; weights: Mesh['weights'][number] }[] }
   | { kind: 'putIKConstraint'; value: TwoBoneIK }
   | { kind: 'setVertexDeforms'; animationId: Id; attachmentId: Id; time: number; curve: Curve; vertices: { vertex: number; offset: [number, number] }[] }
-  | { kind: 'remove'; collection: 'assets' | 'bones' | 'slots' | 'attachments' | 'animations' | 'ikConstraints'; id: Id }
+  | { kind: 'remove'; collection: 'assets' | 'bones' | 'slots' | 'attachments' | 'animations' | 'ikConstraints' | 'compositions'; id: Id }
   | { kind: 'setSlotOrder'; ids: Id[] };
 export interface RevisionRequest { projectId: Id; expectedRevision: number; requestId: Id }
 export interface Batch extends RevisionRequest { operations: Operation[] }
@@ -86,6 +106,13 @@ export interface Commands {
 /** Column vector affine matrix: x'=a*x+c*y+tx, y'=b*x+d*y+ty. */
 export type Matrix = readonly [a: number, b: number, c: number, d: number, tx: number, ty: number];
 export interface PoseRequest { animationId: Id | null; time: number }
+/** One canonical target contract. null animationId is setup, normalized time 0. */
+export type EvaluationTarget = { kind: 'animation'; animationId: Id | null } |
+  { kind: 'composition'; compositionId: Id };
+export interface TargetPoseRequest { target: EvaluationTarget; time: number }
+export type TargetPose = Omit<Pose, 'animationId'> & { target: EvaluationTarget };
+/** Shared geometry/provenance union for downstream renderer integration; no fake animation ID. */
+export type RenderablePose = Pose | TargetPose;
 export interface DrawRegion { slotId: Id; attachmentId: Id; assetId: Id; world: Matrix }
 export interface DrawMesh {
   slotId: Id; attachmentId: Id; assetId: Id;
@@ -99,7 +126,7 @@ export interface Pose {
   bones: Record<Id, Matrix>; regions: DrawRegion[];
 }
 /** #8: pure, deterministic; no frame delta, DOM or renderer dependency. */
-export interface Evaluator { evaluate(project: Project, request: PoseRequest): Result<Pose> }
+export interface Evaluator { evaluate(project: Project, request: PoseRequest): Result<Pose>; evaluateTarget(project: Project, request: TargetPoseRequest): Result<TargetPose> }
 /** Bytes remain outside JSON; keys are asset IDs. Treat byte buffers as immutable. */
 export type AssetBytes = ReadonlyMap<Id, Uint8Array>;
 export interface ProjectBundle { project: Project; assets: AssetBytes }

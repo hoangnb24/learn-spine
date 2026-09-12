@@ -57,3 +57,9 @@ v0 schema and semantics remain unchanged; the region oracle above stays v0-only.
 [Motion diagnostics #18](../../../platform/src/diagnostics/README.md) is an accepted consumer API with fixed policy, final-pose measurements and bounded reports. #19 has integrated the diagnostic tools and canonical v1 authoring operations; Gate 2/3 still require their own evidence.
 
 Gate 2 (#20) is accepted at PR #64. Default motion diagnostics still omit region corners; [Gate 2 supplemental coverage](../reconciliation/2026-09-11-gate2.md) uses public render.corners and a rotation-only negative control. This did not add a new diagnostic/tool capability. Gate 3 now has 7/9 independently accepted native runs (PR #66); this does not turn module contracts into production/MVP approval. See [three-gate decision handoff](../reconciliation/2026-09-11-three-gates.md).
+
+[Composition v1 core (#73)](../../../platform/src/model/COMPOSITION.md) defines
+optional persisted transform stacks, public Session edits, the shared evaluator's
+canonical target/provenance, and frozen descriptor expansion. Existing animation
+requests retain their contract. Tools/observation and UI support remain separate
+#74/#75 integrations; core support alone does not advertise transport support.

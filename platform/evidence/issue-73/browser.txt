@@ -1,0 +1,40 @@
+
+> learn-spine-platform@0.0.0 test:browser
+> playwright test
+
+[WebServer] (node:81984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 19 tests using 5 workers
+
+(node:81989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:81987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:81986) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:81985) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:81988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/browser/storage.spec.ts:10:1 › actual PNG ZIP bytes and committed IndexedDB survive reload (462ms)
+  ✓   6 [chromium] › tests/browser/storage.spec.ts:21:1 › newer save wins delayed older validation; snapshot bytes isolated (147ms)
+  ✓   7 [chromium] › tests/browser/storage.spec.ts:31:1 › real transaction abort/quota/write failure preserve prior committed project (130ms)
+  ✓   8 [chromium] › tests/browser/storage.spec.ts:44:1 › hash, IHDR and actual decoder validation reject corrupt images (131ms)
+  ✓   1 [chromium] › tests/browser/shell.spec.ts:3:1 › built editor and player load directly and navigate without runtime errors (864ms)
+  ✓   9 [chromium] › tests/browser/storage.spec.ts:53:1 › aliasing Uint8Array subclasses cannot change validated, packed or saved snapshots (124ms)
+  ✓  10 [chromium] › tests/browser/shell.spec.ts:22:1 › shell remains readable at narrow widths and exposes keyboard navigation (267ms)
+  ✓   2 [chromium] › tests/adapters/browser/adapter.spec.ts:3:1 › bridge delivers real PNG + project ZIP, snapshot jobs, cancellation and lifecycle (1.4s)
+  ✓   4 [chromium] › tests/authoring/browser/authoring.spec.ts:12:1 › actual editor weights, deform, IK; bridge retry/rollback; ZIP recovery and independent player (3.2s)
+  ✓   5 [chromium] › tests/e2e/editor/workflow.spec.ts:23:1 › load PNG, bones, keys, playback, undo, save, reload, independent exported player (3.4s)
+  ✓  11 [chromium] › tests/authoring/browser/authoring.spec.ts:276:1 › new projects use v1; opening v0 stays v0 until explicit UI upgrade, undo restores v0 (629ms)
+  ✓  12 [chromium] › tests/e2e/editor/workflow.spec.ts:192:1 › cancel and failed save leave live data unchanged and unsaved; checkpoint restores (801ms)
+  ✓  14 [chromium] › tests/e2e/editor/workflow.spec.ts:248:1 › late save and import cannot attach to a reopened session at the same revision (517ms)
+  ✓  15 [chromium] › tests/e2e/editor/workflow.spec.ts:316:1 › invalid files preserve the project and a later valid editor package opens (643ms)
+  ✓  16 [chromium] › tests/e2e/editor/workflow.spec.ts:353:1 › opening an identical saved package recognizes the committed record, but equal-revision different content stays unsaved (533ms)
+  ✓  17 [chromium] › tests/e2e/editor/workflow.spec.ts:376:1 › selected stepped and imported Bezier keys preserve their interpolation when only the value is edited (973ms)
+  ✓  13 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › jelly authored geometry persists in ZIP and real player draws (3.2s)
+  ✓  18 [chromium] › tests/e2e/editor/workflow.spec.ts:445:1 › reparenting presents children beneath their parent without sorting the model collection (794ms)
+  ✓  19 [chromium] › tests/authoring/browser/authoring.spec.ts:325:3 › ik authored geometry persists in ZIP and real player draws (2.0s)
+
+  19 passed (10.2s)

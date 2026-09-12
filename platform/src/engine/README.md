@@ -64,3 +64,15 @@ The evaluator solves optional v1 `ikConstraints` after FK and before region/mesh
 output. [IK contract](IK.md) defines bend/mix/order, supported scale domain, finite
 fallbacks and final-pose target/endpoint diagnostics in optional `Pose.ik`.
 [Evidence](../../evidence/issue-16/README.md) includes public seek/roundtrip tests.
+
+## Composition targets (#73)
+
+`evaluateTarget(project,{target,time})` evaluates the canonical animation/composition
+union and returns explicit target identity, normalized sampledTime and revision.
+Legacy `evaluate` retains its request/result shape and error paths. Both use one
+FK/IK/skinning/region implementation; composition mixes fresh transform locals
+before that shared path. `compositionPrimitives` and `trackWeight` expose the same
+validated descriptor expansion/weight seam for downstream consumers.
+
+See [Composition v1 contract](../model/COMPOSITION.md) for types, formulas, frozen
+crossfade coverage, timing, supported limits and #74/#75 integration boundaries.

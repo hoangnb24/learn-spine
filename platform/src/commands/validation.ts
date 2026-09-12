@@ -22,6 +22,7 @@ const operation = {
       putSlot: "slot",
       putRegion: "region",
       putAnimation: "animation",
+      putComposition: "composition",
       putMesh: "mesh",
       putIKConstraint: "twoBoneIK",
     }).map(([kind, name]) =>
@@ -37,6 +38,7 @@ const operation = {
           "attachments",
           "animations",
           "ikConstraints",
+          "compositions",
         ],
       },
       id,
