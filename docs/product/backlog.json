@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "Ngày 12/09/2026 — **DEFERRED BY OWNER**. Chủ dự án hoãn chọn nơi sử dụng, đầu ra animation và logic tương ứng đến khi có nhu cầu thực tế. Trọng tâm là tạo, xem và sửa ngay trên trang. Lưu/mở lại, ZIP và Player là khả năng hiện có, không phải nhu cầu đầu ra đã chốt. #22 OPEN/Todo/Deferred; #23 và #25–#29 Deferred, #28 chỉ xem lại khi có nhu cầu đầu ra thực. #51 và #52 Todo/Deferred: chủ dự án xác nhận Polish để sau, gồm cả đo/profile baseline và tối ưu. Chủ dự án đã mở #24 In Progress/Ready cho mixing/chuyển tiếp/events metadata, đầu vào #8/#16/#19 đã merged thay dependency #22; audio riêng #70 Todo/Deferred. Sau nghiệm thu discovery, tiếp tục implementation tạo/xem/sửa trong phạm vi được cho phép; không tự mở các nhánh Deferred khác. Không duyệt MVP hoặc production. Bằng chứng gate giữ trong reconciliation/2026-09-11-three-gates.md và decisions/mvp.md."
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Đây chỉ là spec/prototype transform và event metadata, chưa nghiệm thu composition sản phẩm/native/UI. #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred. Không hoàn tất #22 hoặc duyệt MVP."
     },
     {
       "key": "T22",
@@ -842,9 +842,10 @@
       "id": 5401669245,
       "node_id": "I_kwDOUTvul88AAAABQfbufQ",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/24",
-      "status": "In Progress",
+      "status": "Done",
       "implementer": "/root/implement_issue24",
-      "reviewer": "/root/review_issue24"
+      "reviewer": "/root/review_issue24",
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Đây chỉ là spec/prototype transform và event metadata, chưa nghiệm thu composition sản phẩm/native/UI. #73 In Progress/Ready triển khai canonical data + Session + evaluator; sole implementer `/root/implement_composition_core`, reviewer `/root/review_composition_core`. #74 Todo/Blocked chờ #73: native tools/observation/conservative bounds; #75 Todo/Blocked chờ #73 và #74: editor/create/view/edit và native→UI roundtrip. #74/#75 chưa giao owner. Audio #70 vẫn Todo/Deferred dù #24 đã xong; #22/#23/#25–#29/#51/#52 tiếp tục Deferred."
     },
     {
       "key": "T24",
@@ -1113,6 +1114,117 @@
       "id": 5432389124,
       "node_id": "I_kwDOUTvul88AAAABQ8uuBA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/70"
+    },
+    {
+      "key": "COMP_A",
+      "title": "Composition v1 — canonical data, Session và evaluator",
+      "phase": "Composition v1",
+      "lane": "Animation",
+      "deps": [
+        "T23"
+      ],
+      "ownership": "Canonical model/schema/capability + Session/commands + evaluator + storage regressions",
+      "outcome": "Composition v1 — canonical data, Session và evaluator",
+      "work": [
+        "Composition v1 — canonical data, Session và evaluator"
+      ],
+      "acceptance": [
+        "Canonical strict schema/version/capability và refs: reject unknown fields, duplicate/invalid masks/order, nonfinite/out-of-range timing/alpha, nested refs và source deform. Legacy documents giữ semantics và mở lại.",
+        "Commands qua public Session atomic revision/undo/redo; invalid batch/reference/removal không partial mutation; composition refs không bị bỏ dangling khi source thay/xóa. Quy tắc mutation này document và kiểm chứng.",
+        "Target/provenance chính xác, tương thích animation request cũ; setup/source/project không bị mutate khi evaluate.",
+        "Expected numeric vectors #24: overwrite/additive walk+wave, direct angles/multi-turn/scale, shuffled absolute seeks, loop, pause, source zero-speed và removal/hold.",
+        "Frozen transition và complete coverage accepted; incomplete coverage rejected. Stop fixture authored giữ final foot residual theo oracle #24, có negative controls; không hứa auto-stop cho mọi rig.",
+        "Region/mesh/deform animation đơn regression; schema load/save và ZIP roundtrip với composition giữ dữ liệu/pose. Dùng storage hiện có, không thêm exporter.",
+        "Kiểm code paths và suites phù hợp; lưu lệnh, môi trường, exact head, logs/fixtures bền vững. Không nâng kết quả gate/native/performance."
+      ],
+      "refs": [
+        "docs/product/research/mixing-events.md"
+      ],
+      "exclude": "Transform-only v1; không audio/event dispatch/deform mixing/reverse/nested refs/auto-stop/performance/đầu ra mới.",
+      "wave": null,
+      "priority": "P1",
+      "readiness": "Ready",
+      "status": "In Progress",
+      "number": 73,
+      "id": 5432437728,
+      "node_id": "I_kwDOUTvul88AAAABQ8xr4A",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/73",
+      "implementer": "/root/implement_composition_core",
+      "reviewer": "/root/review_composition_core"
+    },
+    {
+      "key": "COMP_B",
+      "title": "Composition v1 — native tools, observation và conservative bounds",
+      "phase": "Composition v1",
+      "lane": "Animation",
+      "deps": [
+        "COMP_A"
+      ],
+      "ownership": "Native adapter/tools + observation/diagnostics/render metadata + conservative bounds",
+      "outcome": "Composition v1 — native tools, observation và conservative bounds",
+      "work": [
+        "Composition v1 — native tools, observation và conservative bounds"
+      ],
+      "acceptance": [
+        "Public tool schemas/capabilities phản ánh đúng composition v1; errors/ref/deform/coverage giữ canonical; mutations chạy public Session, revision/retry/undo đúng như A.",
+        "Observation/render/diagnostics trả đúng target identity, normalized time và revision theo contract A; stale/revision behavior và job cancellation/error paths hiện có không bị phá.",
+        "Conservative bounds bắt buộc đạt cho fixtures chuẩn walk+wave, complete-coverage frozen transition/stop và valid multi-track additive trong miền scale/IK được hỗ trợ; explicit unsupported chỉ ngoài miền/giới hạn đã document. Có test cho additive/masks, multi-track timing, zero-speed/hold/loop và transition extrema. Đối chiếu actual final geometry và negative control crop; samples đơn lẻ không chứng minh continuous enclosure.",
+        "Numeric/diagnostic output theo accepted #24 và A; final IK residual có nghĩa với composed pose, không dùng status solved thay geometry residual.",
+        "Chạy native tool path bằng actual public tool calls, không DOM substitute; chạy path thực trên browser hỗ trợ, ghi invocation/provenance/revisions và observation artifacts; mock/handler/browser bridge phân loại riêng, không gọi native pass. Native→UI roundtrip đầy đủ nằm ở C.",
+        "Legacy animation tools/observation/render/diagnostics regressions; source deform animation đơn giữ nguyên. Không quảng bá event dispatch/audio.",
+        "Exact commit, môi trường, commands, raw logs/media/fixtures bền vững, giới hạn unsupported bàn giao rõ."
+      ],
+      "refs": [
+        "docs/product/research/mixing-events.md"
+      ],
+      "exclude": "Transform-only v1; không audio/event dispatch/deform mixing/reverse/nested refs/auto-stop/performance/đầu ra mới.",
+      "wave": null,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "status": "Todo",
+      "number": 74,
+      "id": 5432437840,
+      "node_id": "I_kwDOUTvul88AAAABQ8xsUA",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/74",
+      "implementer": null,
+      "reviewer": null
+    },
+    {
+      "key": "COMP_C",
+      "title": "Composition v1 — editor tạo/xem/sửa và native→UI roundtrip",
+      "phase": "Composition v1",
+      "lane": "Animation",
+      "deps": [
+        "COMP_A",
+        "COMP_B"
+      ],
+      "ownership": "Editor/shared Stage + browser/native→UI roundtrip",
+      "outcome": "Composition v1 — editor tạo/xem/sửa và native→UI roundtrip",
+      "work": [
+        "Composition v1 — editor tạo/xem/sửa và native→UI roundtrip"
+      ],
+      "acceptance": [
+        "Thực hiện workflow thật trong browser: create → play → edit → observe → undo/redo → save/reopen composition. Xem chuyển động và actual final geometry tại các mốc có expected từ #24; không chỉ JSON hoặc ảnh pose đơn.",
+        "Native tool mutation thật xuất hiện trên UI/shared Stage cùng revision/target/time; UI edit được native observation đọc lại; undo và reopen giữ pose/dữ liệu. Lưu logs/media/steps chứng minh hai chiều, không handler-only hoặc browser bridge tự nhận native.",
+        "Walk+wave mask/alpha/order và frozen transition complete coverage có thể author/edit; error thiếu coverage/deform từ A hiện rõ, không partial mutation. Stop là authored fixture, không control auto-stop cho mọi rig.",
+        "Playback/seek/loop/pause/zero-speed source nhất quán engine A; framing dùng B. Chuyển selection giữa legacy animation và composition không giữ nhầm clock/provenance.",
+        "Legacy editor/player và region/mesh/deform animation đơn regressions. Không đổi workflow lưu/mở hiện có thành yêu cầu xuất mới.",
+        "Test interaction phù hợp và review visual trực tiếp trên exact head; ghi browser/native availability trung thực. Bằng chứng code/browser/native/media bền vững và limitations rõ, không nâng kết quả gate/performance/production."
+      ],
+      "refs": [
+        "docs/product/research/mixing-events.md"
+      ],
+      "exclude": "Transform-only v1; không audio/event dispatch/deform mixing/reverse/nested refs/auto-stop/performance/đầu ra mới.",
+      "wave": null,
+      "priority": "P1",
+      "readiness": "Blocked",
+      "status": "Todo",
+      "number": 75,
+      "id": 5432437925,
+      "node_id": "I_kwDOUTvul88AAAABQ8xspQ",
+      "html_url": "https://github.com/hoangnb24/learn-spine/issues/75",
+      "implementer": null,
+      "reviewer": null
     }
   ],
   "tracking_issue": {
