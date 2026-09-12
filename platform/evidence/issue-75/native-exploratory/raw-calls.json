@@ -1,0 +1,443 @@
+{
+  "classification": "actual-native-webmcp-document-exploratory-unfrozen",
+  "at": "2026-09-12T10:22:18.638Z",
+  "uiSteps": [
+    "Import platform/fixtures/robot/native-project.zip via file chooser",
+    "Native atomic create at revision5→6",
+    "Select Phối · Walk + wave + additive travel",
+    "UI Mức trộn (0–1) =0.5 then Áp dụng phối chuyển động→revision7",
+    "UI Thời gian (giây)=0.5 thenTab"
+  ],
+  "calls": [
+    {
+      "name": "get_capabilities",
+      "input": {},
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"formatVersions\":[0,1],\"features\":[\"region-v0\",\"mesh-v1\",\"ik-v1\",\"composition-v1\",\"explicit-migration-v1\",\"atomic-batch\",\"undo-redo\",\"checkpoints\",\"session-dedup\",\"session-events\",\"snapshot-observation\",\"png-image-content\",\"project-zip\",\"app-owned-job-cancel\",\"diagnostics-v1\"],\"transport\":\"webmcp-document\",\"limits\":{\"dedupRequests\":1000,\"undoBatches\":100,\"checkpoints\":20,\"jobs\":2,\"packageBytes\":209715200,\"assetBytes\":20971520,\"maxImageDimension\":16384,\"inspectPage\":50,\"jsonResponseBytes\":262144,\"inlineImageBytes\":8388608,\"inputJsonBytes\":1048576,\"downloadBytes\":268435456,\"downloadFiles\":20},\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":5,\"tools\":[\"get_capabilities\",\"inspect_project\",\"inspect_animation\",\"inspect_composition\",\"put_composition\",\"evaluate_pose\",\"list_assets\",\"apply_batch\",\"inspect_mesh\",\"inspect_deforms\",\"validate_project\",\"measure_motion\",\"create_bones\",\"attach_images\",\"create_animation\",\"set_keyframes\",\"set_curves\",\"undo\",\"redo\",\"create_checkpoint\",\"restore_checkpoint\",\"inspect_history\",\"render_pose\",\"render_sequence\",\"export_frames\",\"preview_animation\",\"get_job_status\",\"cancel_job\",\"release_job\",\"read_artifact\",\"save_project\"],\"lifetime\":\"Session changes/reload invalidate jobs, URLs and retry identity. Sync commit retries are retained for 1000 requests by Session; observation submissions and save are not deduplicated.\",\"cancellation\":\"cancel_job for observation jobs; native AbortSignal unavailable in tested host; completed synchronous edits require undo.\"},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_project",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "collection": "bones",
+        "limit": 50
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":5,\"collection\":\"bones\",\"items\":[{\"id\":\"root\",\"name\":\"root\",\"parentId\":null,\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":0}},{\"id\":\"body\",\"name\":\"body\",\"parentId\":\"root\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":310}},{\"id\":\"pelvis\",\"name\":\"pelvis\",\"parentId\":\"body\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-10}},{\"id\":\"head\",\"name\":\"head\",\"parentId\":\"body\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":170}},{\"id\":\"upper-arm-left\",\"name\":\"upper-arm-left\",\"parentId\":\"body\",\"setup\":{\"rotation\":-0.17453292519943295,\"scaleX\":1,\"scaleY\":1,\"x\":-98,\"y\":130}},{\"id\":\"forearm-left\",\"name\":\"forearm-left\",\"parentId\":\"upper-arm-left\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-67}},{\"id\":\"hand-left\",\"name\":\"hand-left\",\"parentId\":\"forearm-left\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-96}},{\"id\":\"thigh-left\",\"name\":\"thigh-left\",\"parentId\":\"pelvis\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":-43,\"y\":-20}},{\"id\":\"shin-left\",\"name\":\"shin-left\",\"parentId\":\"thigh-left\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-100}},{\"id\":\"foot-left\",\"name\":\"foot-left\",\"parentId\":\"shin-left\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-107}},{\"id\":\"upper-arm-right\",\"name\":\"upper-arm-right\",\"parentId\":\"body\",\"setup\":{\"rotation\":0.17453292519943295,\"scaleX\":1,\"scaleY\":1,\"x\":98,\"y\":130}},{\"id\":\"forearm-right\",\"name\":\"forearm-right\",\"parentId\":\"upper-arm-right\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-67}},{\"id\":\"hand-right\",\"name\":\"hand-right\",\"parentId\":\"forearm-right\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-96}},{\"id\":\"thigh-right\",\"name\":\"thigh-right\",\"parentId\":\"pelvis\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":43,\"y\":-20}},{\"id\":\"shin-right\",\"name\":\"shin-right\",\"parentId\":\"thigh-right\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-100}},{\"id\":\"foot-right\",\"name\":\"foot-right\",\"parentId\":\"shin-right\",\"setup\":{\"rotation\":0,\"scaleX\":1,\"scaleY\":1,\"x\":0,\"y\":-107}}],\"total\":16,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_project",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot"
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":5,\"formatVersion\":0,\"requiredCapabilities\":[\"region-v0\"],\"metadata\":{\"name\":\"Gate 1 T01 Robot\"},\"counts\":{\"bones\":16,\"slots\":15,\"attachments\":15,\"animations\":2,\"assets\":15,\"ikConstraints\":0,\"compositions\":0}},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "apply_batch",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "expectedRevision": 5,
+        "requestId": "editor75-native-exploratory-author",
+        "operations": [
+          {
+            "kind": "migrateProject",
+            "targetVersion": 1
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "walk",
+              "name": "Walk base",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 290,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 100,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "wave",
+              "name": "Wave layer",
+              "duration": 1,
+              "loop": true,
+              "channels": [
+                {
+                  "boneId": "upper-arm-right",
+                  "property": "rotation",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 0.5,
+                      "value": 1.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0.2,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putAnimation",
+            "value": {
+              "id": "stop",
+              "name": "Stop source",
+              "duration": 1,
+              "loop": false,
+              "channels": [
+                {
+                  "boneId": "body",
+                  "property": "y",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 310,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "boneId": "root",
+                  "property": "x",
+                  "keys": [
+                    {
+                      "time": 0,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    },
+                    {
+                      "time": 1,
+                      "value": 0,
+                      "curve": {
+                        "type": "linear"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "motion",
+              "name": "Walk + wave + additive travel",
+              "duration": 2,
+              "loop": true,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "wave",
+                  "order": 3,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "wave",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "upper-arm-right",
+                      "property": "rotation"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "base",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-a",
+                  "order": 1,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                },
+                {
+                  "kind": "track",
+                  "id": "travel-b",
+                  "order": 2,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "additive",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0
+                }
+              ]
+            }
+          },
+          {
+            "kind": "putComposition",
+            "value": {
+              "id": "stop-motion",
+              "name": "Complete coverage frozen transition",
+              "duration": 2,
+              "loop": false,
+              "tracks": [
+                {
+                  "kind": "track",
+                  "id": "prior",
+                  "order": 0,
+                  "source": {
+                    "kind": "live",
+                    "animationId": "walk",
+                    "offset": 0,
+                    "speed": 1
+                  },
+                  "mask": [
+                    {
+                      "boneId": "body",
+                      "property": "y"
+                    },
+                    {
+                      "boneId": "root",
+                      "property": "x"
+                    }
+                  ],
+                  "mode": "overwrite",
+                  "alpha": 1,
+                  "start": 0,
+                  "fadeIn": 0,
+                  "fadeOut": 0,
+                  "end": 1
+                },
+                {
+                  "kind": "crossfade",
+                  "id": "entry",
+                  "order": 1,
+                  "start": 1,
+                  "duration": 0.4,
+                  "outgoing": {
+                    "animationId": "walk",
+                    "entryTime": 0.5,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  },
+                  "incoming": {
+                    "animationId": "stop",
+                    "offset": 0,
+                    "speed": 1,
+                    "mask": [
+                      {
+                        "boneId": "body",
+                        "property": "y"
+                      },
+                      {
+                        "boneId": "root",
+                        "property": "x"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"projectId\":\"gate1-robot\",\"revision\":6,\"changedIds\":[\"walk\",\"wave\",\"stop\",\"motion\",\"stop-motion\"]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "inspect_composition",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "compositionId": "motion",
+        "limit": 50
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":7,\"composition\":{\"duration\":2,\"id\":\"motion\",\"loop\":true,\"name\":\"Walk + wave + additive travel\"},\"items\":[{\"alpha\":1,\"fadeIn\":0,\"fadeOut\":0,\"id\":\"base\",\"kind\":\"track\",\"mask\":[{\"boneId\":\"body\",\"property\":\"y\"}],\"mode\":\"overwrite\",\"order\":0,\"source\":{\"animationId\":\"walk\",\"kind\":\"live\",\"offset\":0,\"speed\":1},\"start\":0},{\"alpha\":1,\"fadeIn\":0,\"fadeOut\":0,\"id\":\"travel-a\",\"kind\":\"track\",\"mask\":[{\"boneId\":\"root\",\"property\":\"x\"}],\"mode\":\"additive\",\"order\":1,\"source\":{\"animationId\":\"walk\",\"kind\":\"live\",\"offset\":0,\"speed\":1},\"start\":0},{\"alpha\":1,\"fadeIn\":0,\"fadeOut\":0,\"id\":\"travel-b\",\"kind\":\"track\",\"mask\":[{\"boneId\":\"root\",\"property\":\"x\"}],\"mode\":\"additive\",\"order\":2,\"source\":{\"animationId\":\"walk\",\"kind\":\"live\",\"offset\":0,\"speed\":1},\"start\":0},{\"alpha\":0.5,\"fadeIn\":0,\"fadeOut\":0,\"id\":\"wave\",\"kind\":\"track\",\"mask\":[{\"boneId\":\"upper-arm-right\",\"property\":\"rotation\"}],\"mode\":\"overwrite\",\"order\":3,\"source\":{\"animationId\":\"wave\",\"kind\":\"live\",\"offset\":0,\"speed\":1},\"start\":0}],\"total\":4,\"nextOffset\":null},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "name": "evaluate_pose",
+      "input": {
+        "sessionId": 1,
+        "projectId": "gate1-robot",
+        "target": {
+          "kind": "composition",
+          "compositionId": "motion"
+        },
+        "time": 0.5
+      },
+      "raw": {
+        "content": [
+          {
+            "text": "{\"ok\":true,\"value\":{\"sessionId\":1,\"projectId\":\"gate1-robot\",\"revision\":7,\"poseVersion\":1,\"meshes\":[],\"target\":{\"kind\":\"composition\",\"compositionId\":\"motion\"},\"sampledTime\":0.5,\"bones\":{\"root\":[1,0,0,1,200,0],\"body\":[1,0,0,1,200,290],\"pelvis\":[1,0,0,1,200,280],\"head\":[1,0,0,1,200,460],\"upper-arm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,102,420],\"forearm-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,90.36557209631567,354.01788054818206],\"hand-left\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,73.69534704029036,259.4763362590101],\"thigh-left\":[1,0,0,1,157,260],\"shin-left\":[1,0,0,1,157,160],\"foot-left\":[1,0,0,1,157,53],\"upper-arm-right\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,298,420],\"forearm-right\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,340.5065806487552,368.2101303192326],\"hand-right\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,401.411532026076,294.00374988111804],\"thigh-right\":[1,0,0,1,243,260],\"shin-right\":[1,0,0,1,243,160],\"foot-right\":[1,0,0,1,243,53]},\"regions\":[{\"slotId\":\"thigh-left\",\"attachmentId\":\"thigh-left\",\"assetId\":\"robot-thigh-left\",\"world\":[1,0,0,1,157,260]},{\"slotId\":\"shin-left\",\"attachmentId\":\"shin-left\",\"assetId\":\"robot-shin-left\",\"world\":[1,0,0,1,157,160]},{\"slotId\":\"foot-left\",\"attachmentId\":\"foot-left\",\"assetId\":\"robot-foot-right\",\"world\":[1,0,0,1,157,53]},{\"slotId\":\"thigh-right\",\"attachmentId\":\"thigh-right\",\"assetId\":\"robot-thigh-right\",\"world\":[1,0,0,1,243,260]},{\"slotId\":\"shin-right\",\"attachmentId\":\"shin-right\",\"assetId\":\"robot-shin-right\",\"world\":[1,0,0,1,243,160]},{\"slotId\":\"foot-right\",\"attachmentId\":\"foot-right\",\"assetId\":\"robot-foot-left\",\"world\":[1,0,0,1,243,53]},{\"slotId\":\"pelvis\",\"attachmentId\":\"pelvis\",\"assetId\":\"robot-pelvis\",\"world\":[1,0,0,1,200,280]},{\"slotId\":\"upper-arm-left\",\"attachmentId\":\"upper-arm-left\",\"assetId\":\"robot-upper-arm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,102,420]},{\"slotId\":\"forearm-left\",\"attachmentId\":\"forearm-left\",\"assetId\":\"robot-forearm-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,90.36557209631567,354.01788054818206]},{\"slotId\":\"hand-left\",\"attachmentId\":\"hand-left\",\"assetId\":\"robot-hand-left\",\"world\":[0.984807753012208,-0.17364817766693033,0.17364817766693033,0.984807753012208,73.69534704029036,259.4763362590101]},{\"slotId\":\"body\",\"attachmentId\":\"body\",\"assetId\":\"robot-body\",\"world\":[1,0,0,1,200,290]},{\"slotId\":\"upper-arm-right\",\"attachmentId\":\"upper-arm-right\",\"assetId\":\"robot-upper-arm-right\",\"world\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,298,420]},{\"slotId\":\"forearm-right\",\"attachmentId\":\"forearm-right\",\"assetId\":\"robot-forearm-right\",\"world\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,340.5065806487552,368.2101303192326]},{\"slotId\":\"hand-right\",\"attachmentId\":\"hand-right\",\"assetId\":\"robot-hand-right\",\"world\":[0.772983129563693,0.6344265768470919,-0.6344265768470919,0.772983129563693,401.411532026076,294.00374988111804]},{\"slotId\":\"head\",\"attachmentId\":\"head\",\"assetId\":\"robot-head\",\"world\":[1,0,0,1,200,460]}]},\"warnings\":[]}",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ]
+}

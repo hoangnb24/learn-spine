@@ -1,7 +1,9 @@
 # Composition editor #75
 
-Implementation and browser evidence; independent acceptance remains with the
-reviewer/orchestrator. Native exploratory calls are explicitly separated below.
+Runtime freeze: `3cbd7443a9b0869959b35fe29eb2ca0f0c752276` on main
+`caff057a99d83e148a7860ae10996e189debdaa0`. [PR #82](https://github.com/hoangnb24/learn-spine/pull/82).
+All later evidence commits preserve these runtime bytes. Independent acceptance
+remains with the reviewer/orchestrator; exploratory calls are separated below.
 No new output requirement, performance/gate pass, event/audio support, generic
 stop controller or production-readiness claim.
 
@@ -54,7 +56,8 @@ mutation and no hidden key/offset rewriting.
 ## Actual checks
 
 - [Local validation log](validation-local.txt): platform typecheck/build pass;
-  198 unit tests pass, one pre-existing skipped test; all 24 browser tests pass.
+  198 unit tests pass, one pre-existing skipped test (`agent-evals/score.test.ts`,
+  requires a supplied scoring ZIP); all 24 browser tests pass.
   Contracts typecheck and 5 tests pass. Build's existing >500 KiB chunk warning
   remains; no performance claim.
 - [Browser spec](../../tests/browser/composition-editor.spec.ts): real Editor,
@@ -75,9 +78,34 @@ mutation and no hidden key/offset rewriting.
 `webmcp-document` transport while source was still changing. It demonstrates early
 integration, not final-head acceptance. Imported robot revision 5 → native source/
 composition batch 6 → UI alpha .5 at 7; native inspection and pose agree with Stage
-revision/target/.5 and visible robot geometry. Native final frozen-head evidence
-will be linked after the runtime freeze. Browser bridge calls are never relabeled
-native, and an unavailable native host would remain unverified.
+revision/target/.5 and visible robot geometry. Final proof on the frozen runtime is in
+[native-final-3cbd7443/raw-calls.json](native-final-3cbd7443/raw-calls.json): 11 raw
+native MCP envelopes plus actual UI steps/DOM snapshots, 2026-09-12 10:32–10:36 UTC,
+in-app browser `webmcp-document`. Source/composition batch 5→6; UI alpha .5→7,
+read back natively. While UI draft alpha .3 is dirty, native alpha .8/name change
+commits 8; draft .3 and warning remain, Apply is disabled. Explicit reload loads
+.8; UI .5→9, undo→10 restores .8, redo→11 restores .5. Stage playback times change
+.7168→.2334 across the target loop. Browser save/reload/recover then same target at
+.5 gives revision 11 and exact same bones/regions/meshes as revision 7, read via
+native `evaluate_pose`. Native `render_pose` also returns a revision-11 PNG.
+
+- [UI edit](native-final-3cbd7443/01-ui-edit.png),
+  [dirty/native conflict](native-final-3cbd7443/02-dirty-native-conflict.png),
+  [playback A](native-final-3cbd7443/03-playback-a.png),
+  [playback B](native-final-3cbd7443/04-playback-b.png),
+  [reopened UI](native-final-3cbd7443/05-reopened.png),
+  [native PNG](native-final-3cbd7443/06-native-observation.png).
+- Native final uses the four-track public fixture from #74 (root X 200 from two
+  additive tracks), not the two-track browser authoring fixture above (root X 40).
+  Their expected geometry is kept distinct in logs and the verifier.
+- Source-freeze CI: [push SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34688722321),
+  [PR SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34688725228).
+- `python3 evidence/issue-75/verify-evidence.py` verifies captured native scope,
+  target/time/revision, alpha history, reopen geometry, ZIP data and artifact hashes.
+  It audits these records; it does not replay browser/native interactions.
+
+Browser bridge calls are never relabeled native. Native availability was verified
+only in this actual host; no cross-host reliability claim follows.
 
 During development, the first concurrency test exposed transient evaluation of a
 new composition against the previous prepared bundle. Stage now guards prepared

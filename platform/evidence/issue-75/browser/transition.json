@@ -1,0 +1,1768 @@
+{
+  "classification": "browser-ui-not-native",
+  "accepted": {
+    "id": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0",
+    "name": "Dừng mềm",
+    "duration": 2,
+    "loop": false,
+    "tracks": [
+      {
+        "id": "6c50efb4-0dee-451e-99b7-af7ff1443828",
+        "order": 0,
+        "start": 0,
+        "kind": "track",
+        "source": {
+          "kind": "live",
+          "animationId": "walk",
+          "offset": 0,
+          "speed": 1
+        },
+        "mask": [
+          {
+            "boneId": "body",
+            "property": "y"
+          },
+          {
+            "boneId": "root",
+            "property": "x"
+          }
+        ],
+        "mode": "overwrite",
+        "alpha": 1,
+        "fadeIn": 0,
+        "fadeOut": 0,
+        "end": 1
+      },
+      {
+        "id": "24683c40-c8b9-4a9f-81e1-0563c4080676",
+        "order": 1,
+        "start": 1,
+        "kind": "crossfade",
+        "duration": 0.4,
+        "outgoing": {
+          "animationId": "walk",
+          "entryTime": 0.5,
+          "mask": [
+            {
+              "boneId": "body",
+              "property": "y"
+            },
+            {
+              "boneId": "root",
+              "property": "x"
+            }
+          ]
+        },
+        "incoming": {
+          "animationId": "stop",
+          "offset": 0,
+          "speed": 1,
+          "mask": [
+            {
+              "boneId": "body",
+              "property": "y"
+            },
+            {
+              "boneId": "root",
+              "property": "x"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "samples": [
+    {
+      "poseVersion": 1,
+      "meshes": [],
+      "projectId": "gate1-robot",
+      "revision": 8,
+      "target": {
+        "kind": "composition",
+        "compositionId": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0"
+      },
+      "sampledTime": 1,
+      "bones": {
+        "root": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          0
+        ],
+        "body": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          290
+        ],
+        "pelvis": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          280
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          460
+        ],
+        "upper-arm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -58,
+          420
+        ],
+        "forearm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -69.63442790368433,
+          354.01788054818206
+        ],
+        "hand-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -86.30465295970964,
+          259.4763362590101
+        ],
+        "thigh-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          260
+        ],
+        "shin-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          160
+        ],
+        "foot-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          53
+        ],
+        "upper-arm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          138,
+          420
+        ],
+        "forearm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          149.63442790368433,
+          354.01788054818206
+        ],
+        "hand-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          166.30465295970964,
+          259.4763362590101
+        ],
+        "thigh-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          260
+        ],
+        "shin-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          160
+        ],
+        "foot-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          53
+        ]
+      },
+      "regions": [
+        {
+          "slotId": "thigh-left",
+          "attachmentId": "thigh-left",
+          "assetId": "robot-thigh-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            260
+          ]
+        },
+        {
+          "slotId": "shin-left",
+          "attachmentId": "shin-left",
+          "assetId": "robot-shin-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            160
+          ]
+        },
+        {
+          "slotId": "foot-left",
+          "attachmentId": "foot-left",
+          "assetId": "robot-foot-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            53
+          ]
+        },
+        {
+          "slotId": "thigh-right",
+          "attachmentId": "thigh-right",
+          "assetId": "robot-thigh-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            260
+          ]
+        },
+        {
+          "slotId": "shin-right",
+          "attachmentId": "shin-right",
+          "assetId": "robot-shin-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            160
+          ]
+        },
+        {
+          "slotId": "foot-right",
+          "attachmentId": "foot-right",
+          "assetId": "robot-foot-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            53
+          ]
+        },
+        {
+          "slotId": "pelvis",
+          "attachmentId": "pelvis",
+          "assetId": "robot-pelvis",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            280
+          ]
+        },
+        {
+          "slotId": "upper-arm-left",
+          "attachmentId": "upper-arm-left",
+          "assetId": "robot-upper-arm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -58,
+            420
+          ]
+        },
+        {
+          "slotId": "forearm-left",
+          "attachmentId": "forearm-left",
+          "assetId": "robot-forearm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -69.63442790368433,
+            354.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-left",
+          "attachmentId": "hand-left",
+          "assetId": "robot-hand-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -86.30465295970964,
+            259.4763362590101
+          ]
+        },
+        {
+          "slotId": "body",
+          "attachmentId": "body",
+          "assetId": "robot-body",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            290
+          ]
+        },
+        {
+          "slotId": "upper-arm-right",
+          "attachmentId": "upper-arm-right",
+          "assetId": "robot-upper-arm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            138,
+            420
+          ]
+        },
+        {
+          "slotId": "forearm-right",
+          "attachmentId": "forearm-right",
+          "assetId": "robot-forearm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            149.63442790368433,
+            354.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-right",
+          "attachmentId": "hand-right",
+          "assetId": "robot-hand-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            166.30465295970964,
+            259.4763362590101
+          ]
+        },
+        {
+          "slotId": "head",
+          "attachmentId": "head",
+          "assetId": "robot-head",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            460
+          ]
+        }
+      ]
+    },
+    {
+      "poseVersion": 1,
+      "meshes": [],
+      "projectId": "gate1-robot",
+      "revision": 8,
+      "target": {
+        "kind": "composition",
+        "compositionId": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0"
+      },
+      "sampledTime": 1.2,
+      "bones": {
+        "root": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          0
+        ],
+        "body": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          294
+        ],
+        "pelvis": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          284
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          464
+        ],
+        "upper-arm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -58,
+          424
+        ],
+        "forearm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -69.63442790368433,
+          358.01788054818206
+        ],
+        "hand-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -86.30465295970964,
+          263.4763362590101
+        ],
+        "thigh-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          264
+        ],
+        "shin-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          164
+        ],
+        "foot-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          57
+        ],
+        "upper-arm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          138,
+          424
+        ],
+        "forearm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          149.63442790368433,
+          358.01788054818206
+        ],
+        "hand-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          166.30465295970964,
+          263.4763362590101
+        ],
+        "thigh-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          264
+        ],
+        "shin-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          164
+        ],
+        "foot-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          57
+        ]
+      },
+      "regions": [
+        {
+          "slotId": "thigh-left",
+          "attachmentId": "thigh-left",
+          "assetId": "robot-thigh-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            264
+          ]
+        },
+        {
+          "slotId": "shin-left",
+          "attachmentId": "shin-left",
+          "assetId": "robot-shin-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            164
+          ]
+        },
+        {
+          "slotId": "foot-left",
+          "attachmentId": "foot-left",
+          "assetId": "robot-foot-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            57
+          ]
+        },
+        {
+          "slotId": "thigh-right",
+          "attachmentId": "thigh-right",
+          "assetId": "robot-thigh-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            264
+          ]
+        },
+        {
+          "slotId": "shin-right",
+          "attachmentId": "shin-right",
+          "assetId": "robot-shin-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            164
+          ]
+        },
+        {
+          "slotId": "foot-right",
+          "attachmentId": "foot-right",
+          "assetId": "robot-foot-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            57
+          ]
+        },
+        {
+          "slotId": "pelvis",
+          "attachmentId": "pelvis",
+          "assetId": "robot-pelvis",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            284
+          ]
+        },
+        {
+          "slotId": "upper-arm-left",
+          "attachmentId": "upper-arm-left",
+          "assetId": "robot-upper-arm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -58,
+            424
+          ]
+        },
+        {
+          "slotId": "forearm-left",
+          "attachmentId": "forearm-left",
+          "assetId": "robot-forearm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -69.63442790368433,
+            358.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-left",
+          "attachmentId": "hand-left",
+          "assetId": "robot-hand-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -86.30465295970964,
+            263.4763362590101
+          ]
+        },
+        {
+          "slotId": "body",
+          "attachmentId": "body",
+          "assetId": "robot-body",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            294
+          ]
+        },
+        {
+          "slotId": "upper-arm-right",
+          "attachmentId": "upper-arm-right",
+          "assetId": "robot-upper-arm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            138,
+            424
+          ]
+        },
+        {
+          "slotId": "forearm-right",
+          "attachmentId": "forearm-right",
+          "assetId": "robot-forearm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            149.63442790368433,
+            358.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-right",
+          "attachmentId": "hand-right",
+          "assetId": "robot-hand-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            166.30465295970964,
+            263.4763362590101
+          ]
+        },
+        {
+          "slotId": "head",
+          "attachmentId": "head",
+          "assetId": "robot-head",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            464
+          ]
+        }
+      ]
+    },
+    {
+      "poseVersion": 1,
+      "meshes": [],
+      "projectId": "gate1-robot",
+      "revision": 8,
+      "target": {
+        "kind": "composition",
+        "compositionId": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0"
+      },
+      "sampledTime": 1.4,
+      "bones": {
+        "root": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          0
+        ],
+        "body": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          306
+        ],
+        "pelvis": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          296
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          476
+        ],
+        "upper-arm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -58,
+          436
+        ],
+        "forearm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -69.63442790368433,
+          370.01788054818206
+        ],
+        "hand-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -86.30465295970964,
+          275.4763362590101
+        ],
+        "thigh-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          276
+        ],
+        "shin-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          176
+        ],
+        "foot-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          69
+        ],
+        "upper-arm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          138,
+          436
+        ],
+        "forearm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          149.63442790368433,
+          370.01788054818206
+        ],
+        "hand-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          166.30465295970964,
+          275.4763362590101
+        ],
+        "thigh-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          276
+        ],
+        "shin-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          176
+        ],
+        "foot-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          69
+        ]
+      },
+      "regions": [
+        {
+          "slotId": "thigh-left",
+          "attachmentId": "thigh-left",
+          "assetId": "robot-thigh-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            276
+          ]
+        },
+        {
+          "slotId": "shin-left",
+          "attachmentId": "shin-left",
+          "assetId": "robot-shin-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            176
+          ]
+        },
+        {
+          "slotId": "foot-left",
+          "attachmentId": "foot-left",
+          "assetId": "robot-foot-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            69
+          ]
+        },
+        {
+          "slotId": "thigh-right",
+          "attachmentId": "thigh-right",
+          "assetId": "robot-thigh-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            276
+          ]
+        },
+        {
+          "slotId": "shin-right",
+          "attachmentId": "shin-right",
+          "assetId": "robot-shin-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            176
+          ]
+        },
+        {
+          "slotId": "foot-right",
+          "attachmentId": "foot-right",
+          "assetId": "robot-foot-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            69
+          ]
+        },
+        {
+          "slotId": "pelvis",
+          "attachmentId": "pelvis",
+          "assetId": "robot-pelvis",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            296
+          ]
+        },
+        {
+          "slotId": "upper-arm-left",
+          "attachmentId": "upper-arm-left",
+          "assetId": "robot-upper-arm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -58,
+            436
+          ]
+        },
+        {
+          "slotId": "forearm-left",
+          "attachmentId": "forearm-left",
+          "assetId": "robot-forearm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -69.63442790368433,
+            370.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-left",
+          "attachmentId": "hand-left",
+          "assetId": "robot-hand-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -86.30465295970964,
+            275.4763362590101
+          ]
+        },
+        {
+          "slotId": "body",
+          "attachmentId": "body",
+          "assetId": "robot-body",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            306
+          ]
+        },
+        {
+          "slotId": "upper-arm-right",
+          "attachmentId": "upper-arm-right",
+          "assetId": "robot-upper-arm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            138,
+            436
+          ]
+        },
+        {
+          "slotId": "forearm-right",
+          "attachmentId": "forearm-right",
+          "assetId": "robot-forearm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            149.63442790368433,
+            370.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-right",
+          "attachmentId": "hand-right",
+          "assetId": "robot-hand-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            166.30465295970964,
+            275.4763362590101
+          ]
+        },
+        {
+          "slotId": "head",
+          "attachmentId": "head",
+          "assetId": "robot-head",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            476
+          ]
+        }
+      ]
+    },
+    {
+      "poseVersion": 1,
+      "meshes": [],
+      "projectId": "gate1-robot",
+      "revision": 8,
+      "target": {
+        "kind": "composition",
+        "compositionId": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0"
+      },
+      "sampledTime": 1.7,
+      "bones": {
+        "root": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          0
+        ],
+        "body": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          310
+        ],
+        "pelvis": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          300
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          480
+        ],
+        "upper-arm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -58,
+          440
+        ],
+        "forearm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -69.63442790368433,
+          374.01788054818206
+        ],
+        "hand-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -86.30465295970964,
+          279.4763362590101
+        ],
+        "thigh-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          280
+        ],
+        "shin-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          180
+        ],
+        "foot-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          73
+        ],
+        "upper-arm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          138,
+          440
+        ],
+        "forearm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          149.63442790368433,
+          374.01788054818206
+        ],
+        "hand-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          166.30465295970964,
+          279.4763362590101
+        ],
+        "thigh-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          280
+        ],
+        "shin-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          180
+        ],
+        "foot-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          73
+        ]
+      },
+      "regions": [
+        {
+          "slotId": "thigh-left",
+          "attachmentId": "thigh-left",
+          "assetId": "robot-thigh-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            280
+          ]
+        },
+        {
+          "slotId": "shin-left",
+          "attachmentId": "shin-left",
+          "assetId": "robot-shin-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            180
+          ]
+        },
+        {
+          "slotId": "foot-left",
+          "attachmentId": "foot-left",
+          "assetId": "robot-foot-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            73
+          ]
+        },
+        {
+          "slotId": "thigh-right",
+          "attachmentId": "thigh-right",
+          "assetId": "robot-thigh-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            280
+          ]
+        },
+        {
+          "slotId": "shin-right",
+          "attachmentId": "shin-right",
+          "assetId": "robot-shin-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            180
+          ]
+        },
+        {
+          "slotId": "foot-right",
+          "attachmentId": "foot-right",
+          "assetId": "robot-foot-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            73
+          ]
+        },
+        {
+          "slotId": "pelvis",
+          "attachmentId": "pelvis",
+          "assetId": "robot-pelvis",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            300
+          ]
+        },
+        {
+          "slotId": "upper-arm-left",
+          "attachmentId": "upper-arm-left",
+          "assetId": "robot-upper-arm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -58,
+            440
+          ]
+        },
+        {
+          "slotId": "forearm-left",
+          "attachmentId": "forearm-left",
+          "assetId": "robot-forearm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -69.63442790368433,
+            374.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-left",
+          "attachmentId": "hand-left",
+          "assetId": "robot-hand-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -86.30465295970964,
+            279.4763362590101
+          ]
+        },
+        {
+          "slotId": "body",
+          "attachmentId": "body",
+          "assetId": "robot-body",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            310
+          ]
+        },
+        {
+          "slotId": "upper-arm-right",
+          "attachmentId": "upper-arm-right",
+          "assetId": "robot-upper-arm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            138,
+            440
+          ]
+        },
+        {
+          "slotId": "forearm-right",
+          "attachmentId": "forearm-right",
+          "assetId": "robot-forearm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            149.63442790368433,
+            374.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-right",
+          "attachmentId": "hand-right",
+          "assetId": "robot-hand-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            166.30465295970964,
+            279.4763362590101
+          ]
+        },
+        {
+          "slotId": "head",
+          "attachmentId": "head",
+          "assetId": "robot-head",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "poseVersion": 1,
+      "meshes": [],
+      "projectId": "gate1-robot",
+      "revision": 8,
+      "target": {
+        "kind": "composition",
+        "compositionId": "9a10d875-9b33-4df3-abb8-d9d2eb803ec0"
+      },
+      "sampledTime": 2,
+      "bones": {
+        "root": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          0
+        ],
+        "body": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          310
+        ],
+        "pelvis": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          300
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          1,
+          40,
+          480
+        ],
+        "upper-arm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -58,
+          440
+        ],
+        "forearm-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -69.63442790368433,
+          374.01788054818206
+        ],
+        "hand-left": [
+          0.984807753012208,
+          -0.17364817766693033,
+          0.17364817766693033,
+          0.984807753012208,
+          -86.30465295970964,
+          279.4763362590101
+        ],
+        "thigh-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          280
+        ],
+        "shin-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          180
+        ],
+        "foot-left": [
+          1,
+          0,
+          0,
+          1,
+          -3,
+          73
+        ],
+        "upper-arm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          138,
+          440
+        ],
+        "forearm-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          149.63442790368433,
+          374.01788054818206
+        ],
+        "hand-right": [
+          0.984807753012208,
+          0.17364817766693033,
+          -0.17364817766693033,
+          0.984807753012208,
+          166.30465295970964,
+          279.4763362590101
+        ],
+        "thigh-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          280
+        ],
+        "shin-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          180
+        ],
+        "foot-right": [
+          1,
+          0,
+          0,
+          1,
+          83,
+          73
+        ]
+      },
+      "regions": [
+        {
+          "slotId": "thigh-left",
+          "attachmentId": "thigh-left",
+          "assetId": "robot-thigh-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            280
+          ]
+        },
+        {
+          "slotId": "shin-left",
+          "attachmentId": "shin-left",
+          "assetId": "robot-shin-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            180
+          ]
+        },
+        {
+          "slotId": "foot-left",
+          "attachmentId": "foot-left",
+          "assetId": "robot-foot-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            -3,
+            73
+          ]
+        },
+        {
+          "slotId": "thigh-right",
+          "attachmentId": "thigh-right",
+          "assetId": "robot-thigh-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            280
+          ]
+        },
+        {
+          "slotId": "shin-right",
+          "attachmentId": "shin-right",
+          "assetId": "robot-shin-right",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            180
+          ]
+        },
+        {
+          "slotId": "foot-right",
+          "attachmentId": "foot-right",
+          "assetId": "robot-foot-left",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            83,
+            73
+          ]
+        },
+        {
+          "slotId": "pelvis",
+          "attachmentId": "pelvis",
+          "assetId": "robot-pelvis",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            300
+          ]
+        },
+        {
+          "slotId": "upper-arm-left",
+          "attachmentId": "upper-arm-left",
+          "assetId": "robot-upper-arm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -58,
+            440
+          ]
+        },
+        {
+          "slotId": "forearm-left",
+          "attachmentId": "forearm-left",
+          "assetId": "robot-forearm-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -69.63442790368433,
+            374.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-left",
+          "attachmentId": "hand-left",
+          "assetId": "robot-hand-left",
+          "world": [
+            0.984807753012208,
+            -0.17364817766693033,
+            0.17364817766693033,
+            0.984807753012208,
+            -86.30465295970964,
+            279.4763362590101
+          ]
+        },
+        {
+          "slotId": "body",
+          "attachmentId": "body",
+          "assetId": "robot-body",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            310
+          ]
+        },
+        {
+          "slotId": "upper-arm-right",
+          "attachmentId": "upper-arm-right",
+          "assetId": "robot-upper-arm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            138,
+            440
+          ]
+        },
+        {
+          "slotId": "forearm-right",
+          "attachmentId": "forearm-right",
+          "assetId": "robot-forearm-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            149.63442790368433,
+            374.01788054818206
+          ]
+        },
+        {
+          "slotId": "hand-right",
+          "attachmentId": "hand-right",
+          "assetId": "robot-hand-right",
+          "world": [
+            0.984807753012208,
+            0.17364817766693033,
+            -0.17364817766693033,
+            0.984807753012208,
+            166.30465295970964,
+            279.4763362590101
+          ]
+        },
+        {
+          "slotId": "head",
+          "attachmentId": "head",
+          "assetId": "robot-head",
+          "world": [
+            1,
+            0,
+            0,
+            1,
+            40,
+            480
+          ]
+        }
+      ]
+    }
+  ],
+  "coverageAtomic": true,
+  "deformAtomic": true
+}
