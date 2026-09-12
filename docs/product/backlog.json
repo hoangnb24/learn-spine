@@ -770,7 +770,7 @@
       "node_id": "I_kwDOUTvul88AAAABQfbsHA",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/22",
       "status": "Todo",
-      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới. Không hoàn tất #22 hoặc duyệt MVP."
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật. Không hoàn tất #22 hoặc duyệt MVP."
     },
     {
       "key": "T22",
@@ -845,7 +845,7 @@
       "status": "Done",
       "implementer": "/root/implement_issue24",
       "reviewer": "/root/review_issue24",
-      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới."
+      "handoff": "#24 đã CLOSED/completed sau nghiệm thu discovery Đạt tại `d539f8d85dd5f66dfd78d50a8f01d4e1c1cee2b3`; [CI Mixing numeric 34685586726 SUCCESS](https://github.com/hoangnb24/learn-spine/actions/runs/34685586726), [PR #72](https://github.com/hoangnb24/learn-spine/pull/72) merge main `a25dc95cc6588de5c5a3389fff207a6d9131e0a1`. Riêng #24 chỉ nghiệm thu spec/prototype transform và event metadata; kết quả core được ghi riêng bên dưới. #24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật."
     },
     {
       "key": "T24",
@@ -1151,7 +1151,7 @@
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/73",
       "implementer": "/root/implement_composition_core",
       "reviewer": "/root/review_composition_core",
-      "handoff": "#73 core đã nghiệm thu đầy đủ: [PR #77](https://github.com/hoangnb24/learn-spine/pull/77), exact `b05f4dbae62cf4370bfdfe1a0f61720903f4fd6a`, merge `bfff5e5fcd65371ed9baffd0c891aa54bba7e305`, CI 34686490771/34686490757/34686489418 SUCCESS. Follow-up [PR #78](https://github.com/hoangnb24/learn-spine/pull/78) được nghiệm thu Đạt tại `ec06775147f3e3fa76c1fa601b9a44de8b340158`, CI 34686680117/34686680189/34686668168 SUCCESS, merge `d2cf8ed339353d1029481c925aec7017d341bcbf`. Lỗi compile legacy `Evaluator` phát hiện sau PR #77 đã sửa bằng `TargetEvaluator extends Evaluator`; kiểm tra contract/mock-consumers được thêm vào CI. Handoff core đã được nhận, không còn chờ follow-up compatibility. #73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới."
+      "handoff": "#73 core đã nghiệm thu đầy đủ: [PR #77](https://github.com/hoangnb24/learn-spine/pull/77), exact `b05f4dbae62cf4370bfdfe1a0f61720903f4fd6a`, merge `bfff5e5fcd65371ed9baffd0c891aa54bba7e305`, CI 34686490771/34686490757/34686489418 SUCCESS. Follow-up [PR #78](https://github.com/hoangnb24/learn-spine/pull/78) được nghiệm thu Đạt tại `ec06775147f3e3fa76c1fa601b9a44de8b340158`, CI 34686680117/34686680189/34686668168 SUCCESS, merge `d2cf8ed339353d1029481c925aec7017d341bcbf`. Lỗi compile legacy `Evaluator` phát hiện sau PR #77 đã sửa bằng `TargetEvaluator extends Evaluator`; kiểm tra contract/mock-consumers được thêm vào CI. Handoff core đã được nhận, không còn chờ follow-up compatibility. #24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật."
     },
     {
       "key": "COMP_B",
@@ -1189,7 +1189,7 @@
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/74",
       "implementer": "/root/implement_composition_tools",
       "reviewer": "/root/review_composition_tools",
-      "handoff": "#74 đã CLOSED/completed: [PR #80](https://github.com/hoangnb24/learn-spine/pull/80) được nghiệm thu Đạt tại `bbe2797e2e375b94c240c5480426ec8995732ebe`, CI 34687783505/34687785266/34687785276 SUCCESS, merge `83f4dd1bd2334075eeb515be068167984596aca0`. Bằng chứng: 49 native calls + 5 probes, 18 PNG, actual playback và 22 tests độc lập. Native tools/observation/render đã được nhận; editor UI/native→UI roundtrip còn thuộc #75. Native ZIP download chưa thử; native artifact read và kiểm ZIP qua bridge là hai bằng chứng riêng, không suy thành native ZIP download pass. #73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới."
+      "handoff": "#74 đã CLOSED/completed: [PR #80](https://github.com/hoangnb24/learn-spine/pull/80) được nghiệm thu Đạt tại `bbe2797e2e375b94c240c5480426ec8995732ebe`, CI 34687783505/34687785266/34687785276 SUCCESS, merge `83f4dd1bd2334075eeb515be068167984596aca0`. Bằng chứng: 49 native calls + 5 probes, 18 PNG, actual playback và 22 tests độc lập. Native tools/observation/render đã được nhận; editor UI/native→UI roundtrip còn thuộc #75. Native ZIP download chưa thử; native artifact read và kiểm ZIP qua bridge là hai bằng chứng riêng, không suy thành native ZIP download pass. #24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật."
     },
     {
       "key": "COMP_C",
@@ -1220,14 +1220,14 @@
       "wave": null,
       "priority": "P1",
       "readiness": "Ready",
-      "status": "In Progress",
+      "status": "Done",
       "number": 75,
       "id": 5432437925,
       "node_id": "I_kwDOUTvul88AAAABQ8xspQ",
       "html_url": "https://github.com/hoangnb24/learn-spine/issues/75",
       "implementer": "/root/implement_composition_editor",
       "reviewer": "/root/review_issue24",
-      "handoff": "Input #73/#74 accepted main83f4dd1bd2334075eeb515be068167984596aca0. Editor/native→UI roundtrip pending; native ZIP download chưa thử."
+      "handoff": "#75 CLOSED/completed: [PR #82](https://github.com/hoangnb24/learn-spine/pull/82) được reviewer `/root/review_issue24` nghiệm thu Đạt tại `756a409ab1ba01ac1040fb7739a1265c71f8827f`, CI 34689269905/34689267278 SUCCESS, merge `fe947b11432c892b6601bedd78d20e0fca6e4dc7`. [Evidence](https://github.com/hoangnb24/learn-spine/blob/fe947b11432c892b6601bedd78d20e0fca6e4dc7/platform/evidence/issue-75/README.md): 198 unit tests (+1 pre-existing skipped), 24 browser tests, 5 contracts tests; 18 actual native/UI calls (11 final + 7 probes), browser persistence/reopen geometry và bridge ZIP verification. Native ZIP download chưa thử. Native runtime frozen `3cbd7443a9b0869959b35fe29eb2ca0f0c752276`; final head có CSS readability và test/evidence corrections đã được review. #24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật."
     }
   ],
   "tracking_issue": {
@@ -1237,5 +1237,5 @@
     "html_url": "https://github.com/hoangnb24/learn-spine/issues/1"
   },
   "updated": "2026-09-12",
-  "reconciliation": "docs/product/reconciliation/2026-09-12-deferred-output.md"
+  "reconciliation": "docs/product/reconciliation/2026-09-12-composition-v1.md"
 }
