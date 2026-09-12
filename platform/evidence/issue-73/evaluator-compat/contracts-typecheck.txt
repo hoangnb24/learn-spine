@@ -1,0 +1,4 @@
+
+> typecheck
+> tsc --noEmit --strict --target ES2022 --module NodeNext ../../../platform/src/model/types.ts mock-consumers.ts
+

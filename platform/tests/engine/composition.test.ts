@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { evaluate, evaluateTarget, compositionPrimitives, trackWeight } from '../../src/engine';
 import { composeLocals } from '../../src/engine/composition';
-import { validate, type Project, type TargetPoseRequest, type PoseRequest } from '../../src/model';
+import { validate, type Project, type Evaluator, type TargetPoseRequest, type PoseRequest } from '../../src/model';
 import { createSyntheticProject } from '../../fixtures/model/synthetic';
 import { createMeshProject } from '../../fixtures/mesh/synthetic';
 import { fixture, track, crossfade, composition, channel, value } from './composition-fixture';
@@ -118,8 +118,9 @@ describe('canonical composition evaluation', () => {
   });
   it('uses the legacy mesh/deform geometry path for animation targets without changing old result fields', () => {
     const p = createMeshProject();
+    const legacy: Evaluator = { evaluate }; // Existing implementations need no new required method.
     for (const time of [0, .3, 1, 5]) {
-      const old = value(evaluate(p, { animationId: p.animations[0].id, time }));
+      const old = value(legacy.evaluate(p, { animationId: p.animations[0].id, time }));
       const canonical = value(evaluateTarget(p, { target: { kind: 'animation', animationId: p.animations[0].id }, time }));
       const { target, ...geometry } = canonical;
       expect({ ...geometry, animationId: target.kind === 'animation' ? target.animationId : undefined }).toEqual(old);

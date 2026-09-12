@@ -1,5 +1,5 @@
 import { validate } from '../model';
-import type { Animation, Bone, Evaluator, EvaluationTarget, Matrix, Pose, PoseRequest, Project, Result, TargetPose, TargetPoseRequest, Transform } from '../model/types';
+import type { Animation, Bone, TargetEvaluator, EvaluationTarget, Matrix, Pose, PoseRequest, Project, Result, TargetPose, TargetPoseRequest, Transform } from '../model/types';
 import { localMatrix, multiply } from './transforms';
 import { sample, sampledTime } from './timeline';
 import { skinMesh } from './mesh';
@@ -112,4 +112,4 @@ function finalizePose(p: Project, target: EvaluationTarget, at: number, locals: 
   return { ok: true, value: { poseVersion: 1, meshes, ...(p.ikConstraints === undefined ? {} : { ik: ik.value }), projectId: p.projectId, revision: p.revision, target,
     sampledTime: at, bones: Object.fromEntries(p.bones.map(b => [b.id, worlds.get(b.id)!])), regions }, warnings: [] };
 }
-export const evaluator: Evaluator = { evaluate, evaluateTarget };
+export const evaluator: TargetEvaluator = { evaluate, evaluateTarget };
