@@ -1,18 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-import { evaluate } from "../../src/engine";
+import { evaluate, evaluateTarget } from "../../src/engine";
 import { PixiRenderer, fitCamera, screenPoint } from "../../src/render";
-import type { Pose, ProjectBundle, Viewport } from "../../src/model/types";
+import { targetBounds } from "../../src/observation/bounds";
+import { validateViewport } from "../../src/render/geometry";
+import type {
+  Pose,
+  RenderablePose,
+  EvaluationTarget,
+  ProjectBundle,
+  Viewport,
+} from "../../src/model/types";
 
 export function Stage({
   bundle,
-  animationId,
+  animationId = null,
+  target,
   time,
   selected,
   onSelect,
   meshSelection,
 }: {
   bundle: ProjectBundle;
-  animationId: string | null;
+  animationId?: string | null;
+  target?: EvaluationTarget;
   time: number;
   selected?: string;
   onSelect?: (id: string) => void;
@@ -29,8 +39,12 @@ export function Stage({
     [error, setError] = useState("");
   const [size, setSize] = useState({ width: 640, height: 420 }),
     [zoom, setZoom] = useState(1);
-  const [view, setView] = useState<Viewport | null>(null),
-    [pose, setPose] = useState<Pose | null>(null);
+  const [camera, setCamera] = useState<{
+      viewport: Viewport;
+      bundle: ProjectBundle;
+      targetKey: string;
+    } | null>(null),
+    [pose, setPose] = useState<RenderablePose | null>(null);
   useEffect(() => {
     let stopped = false;
     void PixiRenderer.create().then((result) => {
@@ -60,10 +74,23 @@ export function Stage({
     };
   }, []);
   const [prepared, setPrepared] = useState<ProjectBundle | null>(null);
+  const targetKey = JSON.stringify(
+    target ?? { kind: "animation", animationId },
+  );
+  const view =
+    camera?.bundle === prepared && camera?.targetKey === targetKey
+      ? camera.viewport
+      : null;
+  const setView = (viewport: Viewport | null) =>
+    setCamera(
+      viewport && prepared ? { viewport, bundle: prepared, targetKey } : null,
+    );
   useEffect(() => {
     if (!renderer.current) return;
     const controller = new AbortController();
     setPrepared(null);
+    setPose(null);
+    setView(null);
     void renderer.current.prepare(bundle, controller.signal).then((result) => {
       if (controller.signal.aborted) return;
       if (result.ok) {
@@ -74,9 +101,42 @@ export function Stage({
     return () => controller.abort();
   }, [bundle, ready]);
   useEffect(() => {
-    if (!prepared || !renderer.current) return;
-    const p = prepared.project,
-      animation = p.animations.find((a) => a.id === animationId);
+    if (!prepared || prepared !== bundle || !renderer.current) return;
+    const p = prepared.project;
+    if (target) {
+      setView(null);
+      setPose(null);
+      const bounds = targetBounds(p, target);
+      if (!bounds.ok) {
+        setError(bounds.error.message);
+        return;
+      }
+      const box = bounds.value,
+        padding = Math.min(32, Math.min(size.width, size.height) / 4);
+      const viewport: Viewport = {
+        ...size,
+        centerX: box ? box.minX / 2 + box.maxX / 2 : 0,
+        centerY: box ? box.minY / 2 + box.maxY / 2 : 0,
+        zoom:
+          (box
+            ? Math.min(
+                (size.width - padding * 2) / Math.max(1, box.maxX - box.minX),
+                (size.height - padding * 2) / Math.max(1, box.maxY - box.minY),
+              )
+            : 1) * zoom,
+        devicePixelRatio: devicePixelRatio || 1,
+        background: "#253542",
+      };
+      const valid = validateViewport(viewport);
+      if (!valid.ok) {
+        setError(valid.error.message);
+        return;
+      }
+      setError("");
+      setView(viewport);
+      return;
+    }
+    const animation = p.animations.find((a) => a.id === animationId);
     const poses: Pose[] = [];
     // A stable sampled union avoids camera pumping during playback.
     for (let i = 0; i <= (animation ? 60 : 0); i++) {
@@ -104,11 +164,14 @@ export function Stage({
         ...fitted.value.viewport,
         zoom: fitted.value.viewport.zoom * zoom,
       });
-  }, [prepared, animationId, size, zoom]);
+  }, [prepared, bundle, animationId, target, size, zoom]);
   useEffect(() => {
-    if (!prepared || !view || !renderer.current) return;
-    const result = evaluate(prepared.project, { animationId, time });
+    if (!prepared || prepared !== bundle || !view || !renderer.current) return;
+    const result = target
+      ? evaluateTarget(prepared.project, { target, time })
+      : evaluate(prepared.project, { animationId, time });
     if (!result.ok) {
+      setPose(null);
       setError(result.error.message);
       return;
     }
@@ -121,20 +184,41 @@ export function Stage({
         : {},
     );
     const drawn = renderer.current.draw(result.value, view);
-    if (!drawn.ok) setError(drawn.error.message);
-    else {
+    if (!drawn.ok) {
+      setPose(null);
+      setError(drawn.error.message);
+    } else {
       setPose(result.value);
       setError("");
     }
-  }, [prepared, view, animationId, time, meshSelection]);
+  }, [prepared, bundle, view, animationId, target, time, meshSelection]);
+  const rendered =
+    prepared === bundle &&
+    pose &&
+    (target
+      ? "target" in pose &&
+        JSON.stringify(pose.target) === JSON.stringify(target)
+      : "animationId" in pose && pose.animationId === animationId)
+      ? pose
+      : null;
   return (
     <div
       className="stage"
       ref={host}
-      data-rendered-revision={pose?.revision}
-      data-rendered-time={pose?.sampledTime}
+      data-frame-ready={!!rendered && !error}
+      data-rendered-revision={rendered?.revision}
+      data-rendered-time={rendered?.sampledTime}
+      data-rendered-target={
+        rendered &&
+        ("target" in rendered
+          ? JSON.stringify(rendered.target)
+          : JSON.stringify({
+              kind: "animation",
+              animationId: rendered.animationId,
+            }))
+      }
     >
-      {onSelect && pose && view && (
+      {onSelect && rendered && pose && view && (
         <svg
           className="bone-overlay"
           width={size.width}
