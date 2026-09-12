@@ -1,0 +1,9 @@
+
+ RUN  v5.0.0 /Users/tubakhuym/projects/learn-spine-issue-24
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  16:19:50
+   Duration  307ms (import 48%, transform 35%, tests 16%, worker 1%)
+

@@ -1,0 +1,20 @@
+name: Mixing prototype
+on:
+  pull_request:
+    paths: ['prototypes/mixing/**', 'docs/product/research/mixing-events.md', 'platform/src/engine/**', 'platform/src/model/**', '.github/workflows/mixing-prototype.yml']
+  push:
+    branches: [main]
+    paths: ['prototypes/mixing/**', 'platform/src/engine/**', 'platform/src/model/**', '.github/workflows/mixing-prototype.yml']
+jobs:
+  numeric:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: platform/.nvmrc
+          cache: npm
+          cache-dependency-path: platform/package-lock.json
+      - run: npm ci --prefix platform
+      - run: platform/node_modules/.bin/vitest run --config prototypes/mixing/vitest.config.ts
+      - run: platform/node_modules/.bin/tsc --noEmit --ignoreConfig --module esnext --moduleResolution bundler --target es2022 --skipLibCheck prototypes/mixing/mixer.ts prototypes/mixing/fixtures.ts prototypes/mixing/demo.ts
