@@ -1,6 +1,6 @@
 # Đối chiếu — hoãn quyết định đầu ra
 
-Trạng thái hiện hành sau PR #80: #24/#73/#74 Done/completed; #75 In Progress/Ready; #22 và audio/Polish/các discovery khác vẫn Deferred. Xem mốc nghiệm thu và ownership cuối tài liệu.
+Snapshot hiện hành chuyển sang [Composition v1 đã nghiệm thu](2026-09-12-composition-v1.md) sau PR #82. Các mốc phía dưới giữ lịch sử.
 
 ## Lịch sử quyết định đầu ra và mở discovery
 
@@ -45,3 +45,9 @@ Các snapshot trước PR #78 phía trên giữ lịch sử. Bridge capability f
 #73/#74 CLOSED/completed · Done/Ready. #75 In Progress/Ready: sole implementer `/root/implement_composition_editor`, reviewer `/root/review_issue24`, worktree `learn-spine-75`; đầu vào #73/#74 đã đạt. Editor UI và native→UI roundtrip chưa nghiệm thu. #22/#23/#25–#29/#51/#52/#70 giữ Deferred; không mở event/audio/performance hoặc đầu ra mới.
 
 Các trạng thái trước PR #80 phía trên là lịch sử. Đợt này chỉ cập nhật planning theo nghiệm thu; không đổi code, contracts hoặc evidence.
+
+## Hoàn tất editor — 12/09/2026
+
+#75 CLOSED/completed: [PR #82](https://github.com/hoangnb24/learn-spine/pull/82) được reviewer `/root/review_issue24` nghiệm thu Đạt tại `756a409ab1ba01ac1040fb7739a1265c71f8827f`, CI 34689269905/34689267278 SUCCESS, merge `fe947b11432c892b6601bedd78d20e0fca6e4dc7`. [Evidence](https://github.com/hoangnb24/learn-spine/blob/fe947b11432c892b6601bedd78d20e0fca6e4dc7/platform/evidence/issue-75/README.md): 198 unit tests (+1 pre-existing skipped), 24 browser tests, 5 contracts tests; 18 actual native/UI calls (11 final + 7 probes), browser persistence/reopen geometry và bridge ZIP verification. Native ZIP download chưa thử. Native runtime frozen `3cbd7443a9b0869959b35fe29eb2ca0f0c752276`; final head có CSS readability và test/evidence corrections đã được review.
+
+#24/#73/#74/#75 CLOSED/completed · Done/Ready. Chuỗi Composition v1 tạo/xem/sửa đã nghiệm thu theo scope từng issue, gồm editor và native→UI roundtrip. Roadmap #1 giữ OPEN; #22/#23/#25–#29/#51/#52/#70 vẫn Todo/Deferred. Không mở event/audio/deform mixing/generic auto-stop/performance hoặc đầu ra mới. Phần được chọn đã hoàn tất; việc tiếp theo cần ưu tiên sản phẩm mới hoặc quyết định mở lại mục đang hoãn, không tự chọn/mở issue và không suy thành blocker kỹ thuật. Xem [đối chiếu hiện hành](2026-09-12-composition-v1.md).
